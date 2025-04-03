@@ -97,6 +97,7 @@
 }
 body {
   background: var(--primary-color);
+  font-family: "playfair-display", sans-serif;
 }
 :root {
   --primary-color: #e0e9ff;
@@ -105,4 +106,29 @@ body {
   margin-bottom: 50px;
   padding-bottom: 50px;
   border-bottom: 1px solid #dadada;
+}
+.header {
+  background-color: #d98324;
+  color: #fff;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+.logo-title {
+  display: flex;
+justify-content: top;
+
+}
+.nav li {
+  display: inline-block;
+  margin: 0 10px;
+}
+li a {
+  list-style: none;
+  text-decoration: none;
+  color: #fff;
+  font-family: "playfair-display", sans-serif;
+  font-size: 18px;
+  padding-bottom: 10rem;
 }
