@@ -1,14 +1,14 @@
 @import url(reset.css);
 @import url(var-home.css);
+@import url(header.css);
 
-
-body {
+/* body {
   background: var(--secondary-color);
   font-family: "var(--font-body)";
 }
 header{
   height: 100%;
-  width: ;
+
 }
 
 .c-section {
@@ -31,12 +31,6 @@ header{
   justify-content: center;
   align-items: center;
 }
-.logo{
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  padding: 2rem 2rem 0 2rem;
-}
 
 form.input{
   height: 80px;
@@ -45,10 +39,7 @@ form.input{
 }
 
 
-.nav li {
-  display: inline-block;
-  margin: 0 10px;
-}
+
 li a {
   list-style: none;
   text-decoration: none;
@@ -56,4 +47,4 @@ li a {
   font-family: "playfair-display", sans-serif;
   font-size: 18px;
   padding-bottom: 10rem;
-}
+} */

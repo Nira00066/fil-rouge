@@ -1,0 +1,33 @@
+@import url(theme.css);
+
+
+.header_container{
+width: 100%;
+height: var(--height-nav);
+padding: 0 1rem 0 1rem 0;
+background-color: var(--primary-color);
+color: var(--secondary-color);
+text-align: center;
+font-size: 2rem;
+font-weight: bold;
+box-shadow: var(--box-shadow);
+
+}
+.nav li {
+    display: inline-block;
+    margin: 0 10px;
+  
+  }
+
+.form > input {
+    border-radius: 5rem;
+    width:16rem ;
+    border
+}
+
+  /* .logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem 2rem 0 2rem;
+} */
