@@ -9,33 +9,38 @@
   </head>
   <body>
     <header class="header">
-      <img
-        src="assets/logo-title.png"
-        alt="logo Les pépites du coins"
-        class="logo-title"
-      />
-      <div claa="schear-bar">
-        <form action="GET">
-          <input
-            type="text"
-            placeholder="Rechercher un produit"
-            class="search"
+      <div class="header-container">
+        <div class="logo">
+          <img
+          src="assets/logo-title.png"
+          alt="logo Les pépites du coins"
+          class="logo-title"
           />
-          <button type="submit" class="btn-search">Rechercher</button>
-        </form>
-        <button>Crée un évenement</button>
-      </div>
-      <nav class="nav">
-        <ul>
-          <li><a href="">Acceuil</a></li>
-          <li><a href="">Moto/auto</a></li>
-          <li><a href="">Vêtement</a></li>
-          <li><a href="">Marché</a></li>
-        </ul>
-      </nav>
-      <div class="profil">
-        <img src="" alt="logo personnage" />
-        <a href="Profil.html">Profil</a>
+          <div class="profil">
+            <a href="Profil.html" class="p-lien">Profil</a>
+            <a href="Profil.html" class="p-logo"> &#128105;&#127996;</a>
+          </div>
+        </div>
+          
+        <div class="schear-bar">
+          <button class="btn">Crée un évenement</button>
+          <form action="GET" class="form">
+            <input
+              type="text"
+              placeholder="Rechercher un produit"
+              class="search"
+            />
+            <button type="submit" class="btn-search">Rechercher</button>
+          </form>
+        </div>
+        <nav class="nav">
+          <ul class="nav-list">
+            <li><a href="#Acceuil">Acceuil</a></li>
+            <li><a href="#Moto/auto">Moto/auto</a></li>
+            <li><a href="#Vêtement">Vêtement</a></li>
+            <li><a href="#Marché">Marché</a></li>
+          </ul>
+        </nav>
       </div>
     </header>
   </body>

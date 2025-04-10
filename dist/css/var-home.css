@@ -9,5 +9,26 @@
     --color-r: #D81616;
     --color-g: #3DD816;
 
+/* text */
+
+    --font-title:"playfair-display", sans-serif;
+    --font-body:"roboto", sans-serif;
+
+    --font-size-g: 1rem;    /* 16px */
+    --font-size-md: 1.125rem;   /* 18px */
+    --font-size-lg: 1.25rem;  /* 20px */
     
+}
+ 
+/* Code html porfil - &#128105;&#127996;  */
+/* Code html flêch- 	11166;  */
+/* coeur fa fa-heart c'est la class  */
+ 
+/* card */
+ 
+:root{
+
+--raduis-general:8rem;
+
+
 }

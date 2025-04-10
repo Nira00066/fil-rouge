@@ -1,28 +1,50 @@
+@import url(reset.css);
+@import url(var-home.css);
 
 
 body {
-  background: var(--primary-color);
-  font-family: "playfair-display", sans-serif;
+  background: var(--secondary-color);
+  font-family: "var(--font-body)";
+}
+header{
+  height: 100%;
+  width: ;
 }
 
 .c-section {
   margin-bottom: 50px;
   padding-bottom: 50px;
-  border-bottom: 1px solid #dadada;
+  border-bottom: 1px  var(--secondary-color);
 }
-.header {
-  background-color: #d98324;
-  color: #fff;
+.header-container {
+  padding: 0 1rem 0 1rem 0;
+  background-color: var(--primary-color);
+  color: var(--secondary-color);
   text-align: center;
-  font-size: 24px;
+  font-size: 2rem;
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-.logo-title {
+
+} 
+.schear-bar {
   display: flex;
-justify-content: top;
+  justify-content: center;
+  align-items: center;
+}
+.logo{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 2rem 2rem 0 2rem;
+}
+
+form.input{
+  height: 80px;
+  width: 700px;
 
 }
+
+
 .nav li {
   display: inline-block;
   margin: 0 10px;
