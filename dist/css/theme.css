@@ -2,14 +2,11 @@
 @import url(var-home.css);
 @import url(header.css);
 
-/* body {
+body {
   background: var(--secondary-color);
   font-family: "var(--font-body)";
 }
-header{
-  height: 100%;
-
-}
+/*
 
 .c-section {
   margin-bottom: 50px;

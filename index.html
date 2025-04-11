@@ -9,38 +9,35 @@
   </head>
   <body>
     <header class="header_container">
+      <div id="Profil" class="Profil_login">
+        <a href="#Profil" class="logo_profil">&#128105;&#127996;</a>
+        <a href="profil" class="title_logo-profil"> Connection</a></div>
       <div class="header-container">
-        <!-- <div class="logo">
-          <img
-          src="assets/logo-title.png"
-          alt="logo Les pépites du coins"
-          class="logo-title"
-          />
-          <div class="profil">
-            <a href="Profil.html" class="p-lien">Profil</a>
-            <a href="Profil.html" class="p-logo"> &#128105;&#127996;</a>
-          </div>
-        </div> -->
-          
-        <div class="schear-bar">
-          <button class="btn">Crée un évenement</button>
-          <form action="GET" class="form">
+        <div id="input_search-form" class="search-inner-wrap js-search-input">
+          <form
+            id="search-form_input"
+            class="search--home jssearch--newtab"
+            action="GET"
+            tabindex="1"
+          >
             <input
+              id="search_form-input"
+              class="search--input"
               type="text"
-              placeholder="Rechercher un produit"
-              class="search"
+              tabindex="1"
+              value
+              placeholder="Recherche de votre evenement"
             />
-            <button type="submit" class="btn-search">Rechercher</button>
           </form>
         </div>
-        <!-- <nav class="nav">
-          <ul class="nav-list">
-            <li><a href="#Acceuil">Acceuil</a></li>
-            <li><a href="#Moto/auto">Moto/auto</a></li>
-            <li><a href="#Vêtement">Vêtement</a></li>
-            <li><a href="#Marché">Marché</a></li>
-          </ul>
-        </nav> -->
+        <input
+          id="search_button"
+          class="search_button"
+          type="submit"
+          tabindex="2"
+          
+        />
+        <!-- Je veux pas envoyer mais le logo recherche -->
       </div>
     </header>
   </body>
