@@ -8,22 +8,20 @@ body {
   font-family: "var(--font-body)";
 }
 
-
-.article-recent{
+.article-recent {
   display: flex;
   gap: 1rem;
-
-
+  overflow-x: auto;
+  min-width: calc(100% - (var(--items)-1) + var(--gap-1));
+  scroll-snap-type: x proximity;
 
 }
-@media (max-width:1000px) {
-  .article-recent{
-    display: flex;
-    overflow-x: auto;
-    scroll-snap-type: x proximity;
-  }
-  .card-container{
+
+@media (max-width: 1000px) {
+ 
+  .card-container {
     min-width: 285px;
-scroll-snap-align: center;
+    scroll-snap-align: center;
   }
 }
+/* https://grafikart.fr/tutoriels/scroll-snap-carrousel-2260 */
