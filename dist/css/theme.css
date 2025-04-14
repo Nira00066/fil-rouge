@@ -1,47 +1,29 @@
 @import url(reset.css);
 @import url(var-home.css);
 @import url(header.css);
+@import url(card.css);
 
 body {
   background: var(--secondary-color);
   font-family: "var(--font-body)";
 }
-/*
 
-.c-section {
-  margin-bottom: 50px;
-  padding-bottom: 50px;
-  border-bottom: 1px  var(--secondary-color);
-}
-.header-container {
-  padding: 0 1rem 0 1rem 0;
-  background-color: var(--primary-color);
-  color: var(--secondary-color);
-  text-align: center;
-  font-size: 2rem;
-  font-weight: bold;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 
-} 
-.schear-bar {
+.article-recent{
   display: flex;
-  justify-content: center;
-  align-items: center;
-}
+  gap: 1rem;
 
-form.input{
-  height: 80px;
-  width: 700px;
+
 
 }
-
-
-
-li a {
-  list-style: none;
-  text-decoration: none;
-  color: #fff;
-  font-family: "playfair-display", sans-serif;
-  font-size: 18px;
-  padding-bottom: 10rem;
-} */
+@media (max-width:1000px) {
+  .article-recent{
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x proximity;
+  }
+  .card-container{
+    min-width: 285px;
+scroll-snap-align: center;
+  }
+}

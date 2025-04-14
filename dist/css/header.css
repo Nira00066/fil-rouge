@@ -12,55 +12,60 @@
   box-shadow: var(--box-shadow);
   justify-content: center;
   display: flex;
-  flex-direction: column;
-}
-
-.search-inner-wrap {
-  font-size: 1rem;
-  line-height: 1;
-  height: 2.5rem;
-  border: none;
-  justify-self: center;
-}
-.header-container {
-  display: flex;
   flex-direction: row;
-  justify-content: center;
-  gap: 0;
-}
-.search--input {
-  height: 2.50rem;
-  width: 25rem;
-  text-align: start;
-  padding-left: 0.7rem;
-  border-radius: 2rem;
-  border: none;box-shadow: var(--box-shadow);
-margin: 0.25rem 0 0.25rem 0;
-}
   
-.search_button {
+}
+
+.container {
+  margin: 1rem;
+  position: relative;
+}
+
+h2 {
+  margin: 2rem;
+  font-size: 20px;
+}
+.searchbar {
+  justify-content: center;
+  font-size: 2.4rem;
+  width: 25rem;
+  height: 1rem;
   border: none;
-  border-radius: 50%;
-  height: 3rem;
-  width: 3rem;
-  /* cache misere car il y a la texte et que je veux mettre le logo loupe */
- color: white;
- background-color: white;
- box-shadow: var(--box-shadow);
- justify-content: center;
+  outline: none;
+  border-radius: 10rem;
+  padding: 1.5rem;
+  transition: all 0.1s;
+  transition-delay: 0.1s;
+}
+.searchbar:hover {
+  width: 26rem;
+  height: 1.5rem;
+}
+.button {
+  height: 2rem;
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+  transition: all 0.1s;
+  transition-delay: 0.1s;
+}
+.button:hover {
+  cursor: pointer;
+}
+.searchbar:hover + .button {
+  height: 2.5rem;
+  top: 0.5rem;
+  right: 0;
+}
+.searchbar::placeholder {
+  opacity: 0.3;
 }
 
-.Profil_login {
-  display: flex;
-  flex-direction: row;
-  justify-self: flex-start;
-  width: 2.75rem;
-  text-decoration: none;
-  font-size: 1rem;
-}
-
-.title_logo-profil{
-  text-decoration: none;
-  color: black;
-
+.btn-connexion {
+  height: 50%;
+  border-radius: 1.875rem;
+  justify-self: center;
+  margin-top: 1rem;
+  border: none;
+  padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 }

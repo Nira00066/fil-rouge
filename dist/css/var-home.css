@@ -31,18 +31,18 @@
 --raduis-general:8rem;
 
 
+--items: 6;
 }
 
 
 /* Modile */
-
 
 /* header */
 
 :root{
 
 --height-nav:6.1rem; 
-padding: ;
+
 --box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 
 }
