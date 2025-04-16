@@ -1,6 +1,6 @@
 .header {
   background: var(--primary-color);
-  color:black;
+  color: black;
   list-style: none;
   padding: var(--padding-md) 0 var(--padding-xs) 0;
 
@@ -9,8 +9,8 @@
     justify-content: space-between;
   }
 
-  // &_logo {
-
+  // &_logo > img {
+  //   width: 20%;
   // }
 
   &_searchbar {
@@ -32,12 +32,19 @@
       white-space: nowrap;
       transform: scale(1.2);
       margin-left: -10px;
+      border-radius: 50%;
+      box-shadow: var(--box-shadow);
     }
   }
 
-  // &_profile {
+     &_profile > img {
+      width: 100px;
+      background-color:  rgb(237, 230, 230);
+      border: 1px solid  rgb(237, 230, 230);
+      border-radius: 50%;
+      box-shadow: var(--box-shadow);
 
-  // }
+     }
 
   &_bottom {
     margin-top: var(--padding-sm);
@@ -48,10 +55,9 @@
       gap: var(--padding-md);
       list-style: none;
     }
-    ul>li>a {
-      color:black;
+    ul > li > a {
+      color: black;
     }
-
   }
 }
 
