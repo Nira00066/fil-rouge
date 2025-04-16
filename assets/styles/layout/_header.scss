@@ -1,55 +1,59 @@
 .header {
-    background: var(--primary-color);
-    color: #fff;
-    padding: var(--padding-md) 0 var(--padding-xs) 0;
+  background: var(--primary-color);
+  color:black;
+  list-style: none;
+  padding: var(--padding-md) 0 var(--padding-xs) 0;
 
-    &_top {
-        display: flex;
-        justify-content: space-between;
-    }
+  &_top {
+    display: flex;
+    justify-content: space-between;
+  }
 
-    &_logo {
+  // &_logo {
 
-    }
+  // }
 
-    &_searchbar {
-        margin-top: var(--padding-md);
-        display: flex;
-        align-items: center;
+  &_searchbar {
+    margin-top: var(--padding-md);
+    display: flex;
+    align-items: center;
+    width: 100%;
+    max-width: 600px;
+
+    &_input {
+      width: 100%;
+
+      .form-control {
         width: 100%;
-        max-width: 600px;
-        
-        &_input {
-            width: 100%;
-
-            .form-control {
-                width: 100%;
-            }
-        }
-
-        &_btn {
-            white-space: nowrap;
-            transform: scale(1.2);
-            margin-left: -10px;
-        }
-
+      }
     }
 
-    &_profile {
+    &_btn {
+      white-space: nowrap;
+      transform: scale(1.2);
+      margin-left: -10px;
+    }
+  }
 
+  // &_profile {
+
+  // }
+
+  &_bottom {
+    margin-top: var(--padding-sm);
+
+    ul {
+      display: flex;
+      place-content: center;
+      gap: var(--padding-md);
+      list-style: none;
+    }
+    ul>li>a {
+      color:black;
     }
 
-    &_bottom {
-        margin-top: var(--padding-sm);
-
-        ul {
-            display: flex;
-            place-content: center;
-            gap: var(--padding-md);
-        }
-    }
+  }
 }
-
 
 // .header_container {
 //     width: 100%;
@@ -64,14 +68,14 @@
 //     justify-content: center;
 //     display: flex;
 //     flex-direction: row;
-    
+
 //   }
-  
+
 //   .container {
 //     margin: 1rem;
 //     position: relative;
 //   }
-  
+
 //   h2 {
 //     margin: 2rem;
 //     font-size: 20px;
@@ -111,7 +115,7 @@
 //   .searchbar::placeholder {
 //     opacity: 0.3;
 //   }
-  
+
 //   .btn-connexion {
 //     height: 50%;
 //     border-radius: 1.875rem;
@@ -120,4 +124,3 @@
 //     border: none;
 //     padding: 0.5rem 0.5rem 0.5rem 0.5rem;
 //   }
-  
