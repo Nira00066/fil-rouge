@@ -1,23 +1,22 @@
-@import 'elements/reset';
-@import 'elements/document';
-@import 'elements/container';
+@import "elements/reset";
+@import "elements/document";
+@import "elements/container";
 
 /* Settings */
-@import 'settings/config.colors';
-@import 'settings/config.variables';
-@import 'settings/config.spacings';
+@import "settings/config.colors";
+@import "settings/config.variables";
+@import "settings/config.spacings";
 
 /* Forms */
-@import 'forms/buttons';
-@import 'forms/controls';
-
+@import "forms/buttons";
+@import "forms/controls";
 
 /* Layout */
-@import 'layout/header';
-
-
+@import "layout/header";
+@import "layout/filtre";
 
 /* Components */
-@import 'components/card';
+@import "components/card";
+
 
 

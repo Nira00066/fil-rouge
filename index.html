@@ -52,19 +52,32 @@
     </header>
 
     <main>
-      <section class="filtre jsfiltre">
-        <div class="filtre-inputs">
-          <div>
+      <section class="filtre">
+        <form action="GET" class="filtre_inputs">
+          <div class="filtre_date">
             <input
-            type="date"
-            id="start"
-            name="trip-start"
-            value="16-04-2025"
-            min="01-01-2025"
-            max="30-12-2030" /> 
+              type="date"
+              id="start"
+              name="trip-start"
+              value="16-04-2025"
+              min="01-01-2025"
+              max="30-12-2030"
+            />
           </div>
-        
-        </div>
+          <div class="filtre_ville">
+            <input type="text" id="ville-input" placeholder="Tape une ville" />
+            <button id="btn-recherche">Trouve les infos</button>
+            <ul id="resultats"></ul>
+          </div>
+          <div class="filtre_tags">
+            <input
+              type="text"
+              id="recherche"
+              name="recherche"
+              placeholder="Ajouter un tags"
+            />
+          </div>
+        </form>
       </section>
 
       <section class="carosel">
