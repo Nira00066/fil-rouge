@@ -1,7 +1,22 @@
-@use 'elements/reset';
-@use 'elements/document';
+@import 'elements/reset';
+@import 'elements/document';
+@import 'elements/container';
 
-@use 'settings/config.colors';
+/* Settings */
+@import 'settings/config.colors';
+@import 'settings/config.variables';
+@import 'settings/config.spacings';
 
-@use 'components/sections';
+/* Forms */
+@import 'forms/buttons';
+@import 'forms/controls';
+
+
+/* Layout */
+@import 'layout/header';
+
+
+/* Components */
+@import 'components/card';
+
 
