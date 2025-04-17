@@ -1,6 +1,71 @@
 .headerProfil {
+  background-color: var(--primary-color);
+  height: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+
   &_logo > a > img {
-    height: 300px;
-    width: 400px;
+    // height: 115px;
+    // width: 400px;
+    height: 58px;
+    width: 228px;
+    top: 40px;
+    left: 20%;
+    position: absolute;
+  }
+
+  &_img {
+    position: absolute;
+    top: 210px; //Je dois modifer pour le placer corretements
+    left: 50%;
+    transform: translateX(-50%);
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 5px solid #efdcab;
+    background-color: #efdcab;
+    z-index: 10;
+  }
+  &_img > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+
+// A partir de la tu as les liens et les btn de la page profils non connecter ?
+
+  &_contenair {
+    display: flex;
+    flex-direction: column;
+    padding-top: 4rem;
+    justify-items: center;
+    gap: 3rem;
+  }
+
+  &_liens > div > a {
+    color: var(--primary-color);
+    text-align: center;
+  }
+  &_liens {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 1rem;
+    margin: auto;
+    padding-top: var(--padding-lg);
+    font-size: 16px;
+  }
+  &_btns{
+    display: flex;
+
+    justify-content: center;
+    gap: 1rem;
+    margin: auto;
+    padding-top: var(--padding-lg);
+    font-size: 16px;
   }
 }

@@ -5,4 +5,16 @@
     padding: 10px 15px;
     font-size: 16px;
     border-radius: 999px;
+
+
+&_connexion{
+
+    border-radius: 999px;
+    border: var(--border-orange);
+    background-color: var(--primary-color);
+    font-size: 16px;
+    padding: 10px 15px;
+    font-family: var(--font-body);
 }
+}
+
