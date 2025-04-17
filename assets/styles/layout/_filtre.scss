@@ -1,6 +1,19 @@
 .filtre {
-  display: flex;
-  flex-direction: row;
-  gap: 1rem;
-  justify-content: center;
+  &_inputs {
+    display: flex;
+    flex-direction: row;
+    gap: var(--gap-md);
+    justify-content: center;
+    padding-top: var(--padding-md);
+  }
+
+  &_date > input {
+    border-radius: 30px;
+    border:1px var(--primary-color) solid;
+
+  }
+  &_ville > input {
+  }
+  &_tags > input {
+  }
 }

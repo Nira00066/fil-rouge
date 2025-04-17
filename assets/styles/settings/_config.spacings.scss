@@ -1,12 +1,21 @@
 /* Espacements */
 
 :root {
+  --padding-xs: 10px;
+  --padding-sm: 20px;
+  --padding-md: 30px;
+  --padding-lg: 40px;
+  --padding-xl: 50px;
+  --padding-xxl: 60px;
+  --padding-wide: 100px;
+}
 
-    --padding-xs: 10px;
-    --padding-sm: 20px;
-    --padding-md: 30px;
-    --padding-lg: 40px;
-    --padding-xl: 50px;
-    --padding-xxl: 60px;
-    --padding-wide: 100px;
+:root {
+  --gap-xs: 10px;
+  --gap-sm: 20px;
+  --gap-md: 30px;
+  --gap-lg: 40px;
+  --gap-xl: 50px;
+  --gap-xxl: 60px;
+  --gap-wide: 100px;
 }

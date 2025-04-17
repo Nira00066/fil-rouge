@@ -31,7 +31,9 @@
             </div>
           </div>
           <div class="header_profile">
-            <img src="images/profil.png" alt="" />
+            <a href="profil.html">
+              <img src="images/profil.png" alt="" />
+            </a>
           </div>
         </div>
         <div class="header_bottom">
@@ -56,6 +58,7 @@
         <form action="GET" class="filtre_inputs">
           <div class="filtre_date">
             <input
+              class="btn"
               type="date"
               id="start"
               name="trip-start"
@@ -65,12 +68,18 @@
             />
           </div>
           <div class="filtre_ville">
-            <input type="text" id="ville-input" placeholder="Tape une ville" />
-            <button id="btn-recherche">Trouve les infos</button>
+            <input
+              class="btn jsbtn_ville"
+              type="text"
+              id="ville-input"
+              placeholder="Tape une ville"
+            />
+            <button id="btn-recherche" class="btn">Trouve les infos</button>
             <ul id="resultats"></ul>
           </div>
           <div class="filtre_tags">
             <input
+              class="btn jsbtn_tags"
               type="text"
               id="recherche"
               name="recherche"

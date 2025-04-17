@@ -1,51 +1,24 @@
 :root {
-    
-    --primary-color:#d98324;
-    --secondary-color: #fff;
-    --third-color: #000;
+  /* text */
 
-    /* catégory */
-    --color-b: rgb(50, 173, 230);
-    --color-r: #D81616;
-    --color-g: #3DD816;
+  --font-title: "playfair-display", sans-serif;
+  --font-body: "roboto", sans-serif;
 
-/* text */
-
-    --font-title:"playfair-display", sans-serif;
-    --font-body:"roboto", sans-serif;
-
-    --font-size-g: 1rem;    /* 16px */
-    --font-size-md: 1.125rem;   /* 18px */
-    --font-size-lg: 1.25rem;  /* 20px */
-    
-
---gap-1:1rem
-
+  --font-size-g: 1rem; /* 16px */
+  --font-size-md: 1.125rem; /* 18px */
+  --font-size-lg: 1.25rem; /* 20px */
 }
- 
-/* Code html porfil - &#128105;&#127996;  */
-/* Code html flêch- 	11166;  */
-/* coeur fa fa-heart c'est la class  */
- 
+
+
+
 /* card */
- 
-:root{
 
---raduis-general:8rem;
-
-
---items: 5;
+:root {
+  --raduis-general: 8rem;
 }
-
-
-/* Modile */
 
 /* header */
 
-:root{
-
---height-nav:6.1rem; 
-
---box-shadow:0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
-
+:root {
+  --box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }

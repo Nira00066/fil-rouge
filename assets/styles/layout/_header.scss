@@ -37,15 +37,13 @@
     }
   }
 
-     &_profile > img {
-      width: 100px;
-      background-color:  rgb(237, 230, 230);
-      border: 1px solid  rgb(237, 230, 230);
-      border-radius: 50%;
-      box-shadow: var(--box-shadow);
+  &_profile > img > a {
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: var(--box-shadow);
+  }
 
-     }
-
+  
   &_bottom {
     margin-top: var(--padding-sm);
 
