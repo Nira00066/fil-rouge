@@ -1,11 +1,25 @@
 .Form {
- 
-    &_contactsMe {
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-gap: 30px;
-}
-
+  align-items: center;
+  margin: auto;
+  height: 400px;
+  max-width: 400px;
+  border: 1px solid rgba(187, 186, 186, 0.699);
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: var(--box-shadow);
+  &_contactsMe {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+  }
+  &_contactsMe > div {
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+  }
+  input {
+    border-bottom: 1px solid black;
+  }
 }

@@ -1,20 +1,21 @@
 .btn {
-    background: #fff;
-    border: 1px solid var(--primary-color);
-    box-shadow: 0 0 10px rgba(0,0,0,0.15);
-    padding: 10px 15px;
-    font-size: 16px;
-    border-radius: 999px;
+  background: #fff;
+  border: 1px solid var(--primary-color);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+  padding: 10px 15px;
+  font-size: 16px;
+  border-radius: 999px;
 
-
-&_connexion{
-
+  &_connexion {
     border-radius: 999px;
     border: var(--border-orange);
     background-color: var(--primary-color);
     font-size: 16px;
     padding: 10px 15px;
     font-family: var(--font-body);
-}
+  }
 }
 
+.formSubmit {
+  border-color: var(--third-color);
+}
