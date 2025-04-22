@@ -1,0 +1,23 @@
+.Contact {
+  &_nameUser > h1 {
+    color: var(--primary-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-color);
+  }
+
+  &_icon > svg {
+    height: 70px;
+    width: 50px;
+    align-items: center;
+  }
+  &_icon {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  &_icon > a {
+    color: var(--third-color);
+    text-decoration: none;
+    border-bottom: 1px solid var(--primary-color);
+  }
+}

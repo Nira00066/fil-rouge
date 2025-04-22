@@ -2,4 +2,16 @@
     padding-left: 30px;
     padding-right: 30px;
     margin: 0 auto;
+
+
+    &_Logos{
+        margin: 15px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-around;
+        height: 80px;
+        align-items: flex-end;
+
+    }
+
 }

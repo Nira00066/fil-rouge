@@ -7,12 +7,12 @@
   text-align: center;
 
   &_logo > a > img {
-    // height: 115px;
-    // width: 400px;
+
     height: 58px;
     width: 228px;
     top: 40px;
-    left: 20%;
+
+    align-items: center;
     position: absolute;
   }
 
@@ -35,33 +35,38 @@
     object-fit: cover;
   }
 
-
-// A partir de la tu as les liens et les btn de la page profils non connecter ?
+  // A partir de la tu as les liens et les btn de la page profils non connecter ?
+  &_nameUser {
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 24px;
+    padding-bottom: 15px;
+  }
 
   &_contenair {
     display: flex;
     flex-direction: column;
     padding-top: 4rem;
     justify-items: center;
-    gap: 3rem;
   }
 
   &_liens > div > a {
-    color: var(--primary-color);
+    color: var(--third-color);
+    border-bottom: 3px solid var(--primary-color);
     text-align: center;
+    text-decoration: none;
+  }
+  &_liens > div {
+    padding: 15px;
   }
   &_liens {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    gap: 1rem;
+    text-align: center;
     margin: auto;
     padding-top: var(--padding-lg);
     font-size: 16px;
   }
-  &_btns{
+  &_btns {
     display: flex;
-
     justify-content: center;
     gap: 1rem;
     margin: auto;
