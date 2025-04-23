@@ -1,17 +1,17 @@
 .container {
-    padding-left: 30px;
-    padding-right: 30px;
-    margin: 0 auto;
+  padding-left: 30px;
+  padding-right: 30px;
+  margin: 0 auto;
 
-
-    &_Logos{
-        margin: 15px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-around;
-        height: 80px;
-        align-items: flex-end;
-
-    }
-
+  &_Logos {
+    margin: 15px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    height: 80px;
+    align-items: flex-end;
+  }
+  &_titre {
+    margin: 20px 10px;
+  }
 }
