@@ -39,7 +39,7 @@
     <div class="overlay"></div>
     <main class="Popup">
       <section class="Popup_connection">
-        <div class="Popup_close">
+        <div class="Popup_close" id="closePopup">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             x="0px"
@@ -53,17 +53,19 @@
             ></path>
           </svg>
         </div>
-        <h2>Se Connecter</h2>
+        <div class="Popup_title">
+          <h2>Se Connecter</h2>
+        </div>
         <form action="POST" class="form">
-          <div class="input_email">
+          <div class="input_email input">
             <label for="email">e-mail</label>
             <input type="email" />
           </div>
-          <div class="input_mdp">
+          <div class="input_mdp input">
             <label for="password">Mot de passe</label>
             <input type="password" />
           </div>
-          <div class="input_mdp">
+          <div class="input_mdp input">
             <label for="password">Confirmation de Mot de passe</label>
             <input type="password" />
           </div>
