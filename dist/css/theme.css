@@ -63,6 +63,12 @@ body {
 .container_titre {
   margin: 20px 10px;
 }
+.container_eventAdd {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
 
 /* Settings */
 :root {
@@ -145,6 +151,17 @@ body {
   margin: 10px 0;
   border-radius: 10px;
 }
+.input_photoPrincipal {
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 300px;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+}
 
 .form-control {
   background: #fff;
@@ -168,10 +185,11 @@ body {
 }
 .header_logo > a {
   text-decoration: none;
+  text-align: center;
   font-family: var(--font-title);
   font-size: var(--font-size-lg);
   text-shadow: 1px 1px 2px orange, 0 0 1em white, 0 0 0.2em orange;
-  color: #EFDCAB;
+  color: #efdcab;
 }
 .header_searchbar {
   margin-top: var(--padding-md);
@@ -193,14 +211,21 @@ body {
   border-radius: 50%;
   box-shadow: var(--box-shadow);
 }
+.header_profile > a {
+  color: var(--third-color);
+  font-family: var(--font-title);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
 .header_profile > a > img {
   width: 50px;
   border-radius: 50%;
+  text-align: center;
+  margin: auto;
   box-shadow: var(--box-shadow);
-}
-.header_profile > a {
-  color: var(--third-color);
-  padding-bottom: 10px;
 }
 .header_bottom {
   margin-top: var(--padding-sm);
@@ -213,6 +238,15 @@ body {
 }
 .header_bottom ul > li > a {
   color: black;
+}
+.header_eventAdd {
+  display: flex;
+  flex-direction: row;
+  margin: auto;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
 }
 
 .filtre_inputs {
@@ -439,6 +473,23 @@ body {
 }
 
 /* Pages*/
+.btn_back {
+  width: 50px;
+  height: 50px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  text-decoration: none;
+  color: black;
+  font-style: none;
+}
+
+.eventAdd_title {
+  font-size: 2rem;
+  margin: 20px 0;
+  text-align: center;
+}
+
 .Contact_nameUser > h1 {
   color: var(--primary-color);
   text-decoration: none;

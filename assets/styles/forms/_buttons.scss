@@ -26,5 +26,16 @@
   gap: 10px;
   margin: 10px 0;
   border-radius: 10px;
-}
 
+ &_photoPrincipal{
+  background-color: #f0f0f0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+  height: 300px;
+  border-radius: 15px;
+  padding: 10px;
+  box-shadow: var(--box-shadow);
+ } 
+}

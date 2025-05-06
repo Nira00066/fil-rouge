@@ -14,6 +14,10 @@
   &_titre {
     margin: 20px 10px;
   }
-
-
+  &_eventAdd {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+  }
 }

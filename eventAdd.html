@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crée un événement</title>
+    <meta name="description" content="Les pépites du coins" />
+    <link rel="stylesheet" href="dist/css/theme.css" />
+    <link rel="icon" type="image/x-icon" href="assets/pepite-1.png" />
+  </head>
+  <body>
+    <header class="header header_eventAdd">
+      <div>
+        <button class="btn_back">
+          <a href="index.html"
+            >
+
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15.75 19.5 8.25 12l7.5-7.5"
+              />
+            </svg>
+          </a>
+        </button>
+      </div>
+      <div class="header_logo">
+        <a href="index.html">Les Pétpites Du Coins</a>
+      </div>
+      <div class="header_profile">
+        <a href="profil.html"
+          >Connexion
+          <img src="images/profil.png" alt="" />
+        </a>
+      </div>
+    </header>
+<main class="container_eventAdd">
+
+    <div class="eventAdd_title">
+        <h1><strong>Créer un événement </strong></h1>
+    </div>
+    <form action="eventAdd.js" method="POST">
+        <div class="eventAdd_photoPrincipal">
+            <div class="input_photoPrincipal">
+                <label for="photo">Photo Principal</label>
+                <input type="file" id="photo" name="photo" />
+            </div>
+            <hr />
+            <button class="btn_formEvent">Enregistrer depuis l'URL</button>
+        </div>
+        <div>
+            <div>
+                <label for="title">Titre de l'événement:</label>
+                <input type="text" id="title" name="title" />
+            </div>
+            <div>
+                <label for="location">Lieu:</label>
+                <input type="text" id="location" name="location" />
+            </div>
+            <div>
+                <label for="description">Description:</label>
+                <textarea id="description" name="description"></textarea>
+            </div>
+            <label for="date">Date:</label><br />
+            <input type="date" id="date" name="date" />
+            
+            <label for="time">Heure:</label><br />
+            <input type="time" id="time" name="time" />
+            
+            <input type="submit" value="Créer l'événement" id="event" />
+        </div>
+    </form>
+</main>
+</body>
+</html>

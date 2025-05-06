@@ -11,13 +11,12 @@
 
   &_logo > a {
     text-decoration: none;
+
+    text-align: center;
     font-family: var(--font-title);
     font-size: var(--font-size-lg);
-    text-shadow:
-    1px 1px 2px orange,
-    0 0 1em white,
-    0 0 0.2em orange; ;
-    color: #EFDCAB;
+    text-shadow: 1px 1px 2px orange, 0 0 1em white, 0 0 0.2em orange;
+    color: #efdcab;
   }
 
   &_searchbar {
@@ -44,14 +43,22 @@
     }
   }
 
+  &_profile > a {
+    color: var(--third-color);
+    font-family: var(--font-title);
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+  }
+
   &_profile > a > img {
     width: 50px;
     border-radius: 50%;
+    text-align: center;
+    margin: auto;
     box-shadow: var(--box-shadow);
-  }
-  &_profile > a {
-    color: var(--third-color);
-    padding-bottom: 10px;
   }
 
   &_bottom {
@@ -66,5 +73,14 @@
     ul > li > a {
       color: black;
     }
+  }
+  &_eventAdd {
+    display: flex;
+    flex-direction: row;
+    margin: auto;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
   }
 }
