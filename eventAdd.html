@@ -12,9 +12,7 @@
     <header class="header header_eventAdd">
       <div>
         <button class="btn_back">
-          <a href="index.html"
-            >
-
+          <a href="index.html">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               fill="none"
@@ -42,42 +40,46 @@
         </a>
       </div>
     </header>
-<main class="container_eventAdd">
-
-    <div class="eventAdd_title">
+    <main class="container_eventAdd">
+      <div class="eventAdd_title">
         <h1><strong>Créer un événement </strong></h1>
-    </div>
-    <form action="eventAdd.js" method="POST">
+      </div>
+      <form
+        action="eventAdd.js"
+        method="POST"
+        enctype="multipart/form-data"
+        class="eventAdd_form"
+      >
         <div class="eventAdd_photoPrincipal">
-            <div class="input_photoPrincipal">
-                <label for="photo">Photo Principal</label>
-                <input type="file" id="photo" name="photo" />
-            </div>
-            <hr />
-            <button class="btn_formEvent">Enregistrer depuis l'URL</button>
+          <div class="input_photoPrincipal">
+            <label for="photo">Photo Principal</label>
+            <input type="file" id="photo" name="photo" />
+          </div>
+          <hr />
+          <button class="btn_formEvent">Enregistrer depuis l'URL</button>
         </div>
-        <div>
-            <div>
-                <label for="title">Titre de l'événement:</label>
-                <input type="text" id="title" name="title" />
-            </div>
-            <div>
-                <label for="location">Lieu:</label>
-                <input type="text" id="location" name="location" />
-            </div>
-            <div>
-                <label for="description">Description:</label>
-                <textarea id="description" name="description"></textarea>
-            </div>
-            <label for="date">Date:</label><br />
-            <input type="date" id="date" name="date" />
-            
-            <label for="time">Heure:</label><br />
-            <input type="time" id="time" name="time" />
-            
-            <input type="submit" value="Créer l'événement" id="event" />
+        <div class="eventAdd_input2">
+          <label for="title">Titre de l'événement:</label>
+          <input type="text" id="title" name="title" />
+
+          <label for="location">Lieu:</label>
+          <input type="text" id="location" name="location" />
+
+          <label for="description">Description:</label>
+          <textarea id="description" name="description"></textarea>
+
+          <label for="date">Date:</label>
+          <input type="date" id="date" name="date" />
+
+          <label for="time">Heure:</label>
+          <input type="time" id="time" name="time" />
+
+          <label for="photo">Photo second</label>
+          <input type="file" id="photo" name="photo" />
+
+          <input type="submit" value="Créer l'événement" id="event" />
         </div>
-    </form>
-</main>
-</body>
+      </form>
+    </main>
+  </body>
 </html>
