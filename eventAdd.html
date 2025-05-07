@@ -7,7 +7,6 @@
     <meta name="description" content="Les pépites du coins" />
     <link rel="stylesheet" href="dist/css/theme.css" />
     <link rel="icon" type="image/x-icon" href="assets/pepite-1.png" />
-
   </head>
   <body>
     <header class="header header_eventAdd">
@@ -42,15 +41,16 @@
       </div>
     </header>
     <main class="container_eventAdd">
-      <div class="eventAdd_title">
+      <div class="eventAdd_titre">
         <h1><strong>Créer un événement </strong></h1>
       </div>
       <form
-        action="eventAdd.js"
-        method="POST"
-        enctype="multipart/form-data"
-        class="eventAdd_form"
+      action="eventAdd.js"
+      method="POST"
+      enctype="multipart/form-data"
+      class="eventAdd_form"
       >
+      <div>
         <!-- Partie 1 visible  -->
         <div class="eventAdd_photoPrincipal">
           <div class="input_photoPrincipal">
@@ -66,17 +66,17 @@
         <div class="eventAdd_input2">
           <div class="eventAdd_title">
             <label for="title">Titre de l'événement:</label>
-            <input type="text" id="title" name="title" />
+            <input class="btn" type="text" id="title" name="title" />
           </div>
 
           <div class="eventAdd_dates container_inputForm">
             <div class="eventAdd_date">
               <label for="date">Date:</label>
-              <input class="date" type="date" id="date" name="date" />
+              <input class="btn" type="date" id="date" name="date" />
             </div>
             <div class="eventAdd_date">
               <label for="date">Date de fin </label>
-              <input class="date" type="date" id="date" name="date" />
+              <input class="btn" type="date" id="date" name="date" />
             </div>
             <button class="btn_inputDate">+</button>
           </div>
@@ -84,24 +84,23 @@
           <div class="eventAdd_time container_inputForm">
             <div class="input_time input">
               <label for="time">Heure:</label>
-              <input type="time" id="time" name="time" />
+              <input class="btn" type="time" id="time" name="time" />
             </div>
             <div class="input_time input">
               <label for="time">Heure de fin</label>
-              <input type="time" id="time" name="time" />
+              <input class="btn" type="time" id="time" name="time" />
             </div>
           </div>
           <div class="eventAdd_title input">
             <label for="location">Lieu:</label>
-            <input type="text" id="location" name="location" />
+            <input class="btn" type="text" id="location" name="location" />
           </div>
-
           <!-- Category , tag ,program , lien du poste sur les autre platformes  -->
           <!-- 
-
+            
           <label for="description">Description:</label>
           <textarea id="description" name="description"></textarea>
-
+          
           <label for="description">programme</label>
           <textarea id="description" name="description"></textarea>
           <label for="description">Tag</label>
@@ -109,17 +108,22 @@
           <label for="description">Catégorie</label>
           <input type="text" id="category" name="category" />
           <label for="description"
-            >Lien du poste sur les autres plateformes</label
+          >Lien du poste sur les autres plateformes</label
           >
           <input type="text" id="link" name="link" />
-
+          
           <label for="photo">Photo second</label>
           <input type="file" id="photo" name="photo" />
-
+          
           <input type="submit" value="Créer l'événement" id="event" />
         </div> -->
-        </div>
-      </form>
+      </div>
+
+      </div>
+      <div>
+        <button class="btn">Suivant</button>
+      </div>
+    </form>
     </main>
   </body>
 </html>

@@ -17,13 +17,12 @@
   &_eventAdd {
     display: flex;
     max-width: 900px;
-    margin: 0 auto;
+    margin: 20px auto;
+    justify-items: center;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 20px;
   }
-  &_inputForm{
+  &_inputForm {
     display: flex;
     flex-direction: row;
     gap: 5px;

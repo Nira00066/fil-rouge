@@ -66,10 +66,9 @@ body {
 .container_eventAdd {
   display: flex;
   max-width: 900px;
-  margin: 0 auto;
+  margin: 20px auto;
+  justify-items: center;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
   gap: 20px;
 }
 .container_inputForm {
@@ -135,7 +134,7 @@ body {
   background: #fff;
   border: 1px solid var(--primary-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  padding: 10px 15px;
+  padding: 10px;
   font-size: 16px;
   border-radius: 999px;
 }
@@ -176,6 +175,10 @@ body {
   margin: 10px 0;
   border-radius: 10px;
 }
+.input_photoPrincipal {
+  width: 300px;
+  height: 100%;
+}
 .input_photoPrincipal > label {
   border-bottom: 1px solid var(--third-color);
   font-family: 600;
@@ -188,11 +191,11 @@ body {
   justify-content: center;
   gap: 10px;
   margin: 10px 0;
-  height: 200px;
+  height: 400px;
   width: 100%;
   border-radius: 10px;
   background-color: #f0f0f0;
-  border: 2px dashed #333;
+  border: 1px dashed var(--primary-color);
 }
 .input_photoPrincipal .filewrapper input[type=file] {
   opacity: 0;
@@ -200,8 +203,10 @@ body {
   width: 50%;
 }
 .input_time {
-  width: 80%;
+  width: 50%;
+  padding-left: 10px;
 }
+
 .form-control {
   background: #fff;
   border: 1px solid var(--primary-color);
@@ -232,9 +237,7 @@ input[type=date] {
   color: #95a5a6;
   font-family: "Helvetica", arial, sans-serif;
   font-size: 16px;
-  border: 1px solid #ecf0f1;
-  background: #ecf0f1;
-  padding: 2px;
+  padding: 10px;
   display: inline-block !important;
   visibility: visible !important;
 }
@@ -266,9 +269,7 @@ input[type=time] {
   color: #95a5a6;
   font-family: "Helvetica", arial, sans-serif;
   font-size: 16px;
-  border: 1px solid #ecf0f1;
-  background: #ecf0f1;
-  padding: 2px;
+  padding: 10px;
   display: inline-block !important;
   visibility: visible !important;
 }
@@ -609,10 +610,6 @@ input[type=time]:focus {
   gap: 10px;
   border-radius: 10px;
 }
-.eventAdd_input2 > input {
-  border: 1px solid var(--third-color);
-  border-radius: 15px;
-}
 .eventAdd_title {
   font-size: 1rem;
   margin: 5px 0;
@@ -622,7 +619,6 @@ input[type=time]:focus {
   gap: 10px;
 }
 .eventAdd_title > input {
-  border: 1px solid var(--third-color);
   border-radius: 15px;
   font-size: 1rem;
 }
@@ -637,6 +633,10 @@ input[type=time]:focus {
   display: flex;
   flex-direction: column;
   gap: 10px;
+}
+.eventAdd_titre {
+  font-size: 2rem;
+  text-align: center;
 }
 
 .Contact_nameUser > h1 {

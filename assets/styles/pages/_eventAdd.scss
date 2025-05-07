@@ -30,11 +30,6 @@
     border-radius: 10px;
   }
 
-  &_input2 > input {
-    border: 1px solid var(--third-color);
-    border-radius: 15px;
-  }
-
   &_title {
     font-size: 1rem;
     margin: 5px 0;
@@ -44,11 +39,10 @@
     gap: 10px;
   }
   &_title > input {
-    border: 1px solid var(--third-color);
     border-radius: 15px;
     font-size: 1rem;
   }
-  &_dates{
+  &_dates {
     display: flex;
     flex-direction: row;
     gap: 20px;
@@ -56,12 +50,13 @@
     align-items: center;
   }
 
-  &_date{
+  &_date {
     display: flex;
     flex-direction: column;
     gap: 10px;
   }
-
- 
- 
+  &_titre {
+    font-size: 2rem;
+    text-align: center;
+  }
 }
