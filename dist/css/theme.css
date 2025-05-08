@@ -76,6 +76,20 @@ body {
   flex-direction: row;
   gap: 5px;
 }
+.container_Form {
+  display: flex;
+  flex-direction: row;
+  gap: 20px;
+}
+.container_box1 {
+  width: 400px;
+  align-items: center;
+  margin: 0;
+}
+.container_box2 {
+  align-items: center;
+  margin: 0;
+}
 
 /* Settings */
 :root {
@@ -175,17 +189,13 @@ body {
   margin: 10px 0;
   border-radius: 10px;
 }
-.input_photoPrincipal {
-  width: 300px;
-  height: 100%;
-}
-.input_photoPrincipal > label {
+.input_photo > label {
   border-bottom: 1px solid var(--third-color);
   font-family: 600;
   font-size: 1.5rem;
   margin: 10px;
 }
-.input_photoPrincipal .filewrapper {
+.input_photo .filewrapper {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -197,7 +207,7 @@ body {
   background-color: #f0f0f0;
   border: 1px dashed var(--primary-color);
 }
-.input_photoPrincipal .filewrapper input[type=file] {
+.input_photo .filewrapper input[type=file] {
   opacity: 0;
   position: absolute;
   width: 50%;
@@ -599,7 +609,7 @@ input[type=time]:focus {
 }
 .eventAdd_form {
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   gap: 40px;
   justify-content: space-around;
   align-items: center;
@@ -637,6 +647,13 @@ input[type=time]:focus {
 .eventAdd_titre {
   font-size: 2rem;
   text-align: center;
+}
+.eventAdd_formContainer {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
 }
 
 .Contact_nameUser > h1 {

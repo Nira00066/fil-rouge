@@ -45,18 +45,14 @@
   margin: 10px 0;
   border-radius: 10px;
 
-  &_photoPrincipal {
-    width: 300px;
-    height: 100%;
-  }
 
-  &_photoPrincipal > label {
+  &_photo > label {
     border-bottom: 1px solid var(--third-color);
     font-family: 600;
     font-size: 1.5rem;
     margin: 10px;
   }
-  &_photoPrincipal .filewrapper {
+  &_photo .filewrapper {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -68,7 +64,7 @@
     background-color: #f0f0f0;
     border: 1px dashed var(--primary-color);
   }
-  &_photoPrincipal .filewrapper input[type="file"] {
+  &_photo .filewrapper input[type="file"] {
     opacity: 0;
     position: absolute;
     width: 50%;

@@ -27,4 +27,21 @@
     flex-direction: row;
     gap: 5px;
   }
+ &_Form{
+  display:flex;
+  flex-direction: row;
+  gap: 20px;
+
+ }
+ &_box1{
+  width: 400px;
+  align-items: center;
+  margin: 0;
+ }
+ &_box2{
+ 
+  align-items: center;
+  margin: 0;
+ }
+ 
 }
