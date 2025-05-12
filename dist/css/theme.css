@@ -81,6 +81,13 @@ body {
   flex-direction: row;
   gap: 20px;
 }
+.container_form {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
 .container_box1 {
   width: 400px;
   align-items: center;
@@ -151,6 +158,10 @@ body {
   padding: 10px;
   font-size: 16px;
   border-radius: 999px;
+}
+.btn_hidden {
+  display: none;
+  border: none;
 }
 .btn_connexion {
   border-radius: 999px;
@@ -288,6 +299,11 @@ input[type=time]:focus {
   outline: none;
   border: 1px solid #3498db;
   background: #ecf0f1;
+}
+
+.seize_lg {
+  height: 300px;
+  width: 400px;
 }
 
 /* Layout */
@@ -647,13 +663,6 @@ input[type=time]:focus {
 .eventAdd_titre {
   font-size: 2rem;
   text-align: center;
-}
-.eventAdd_formContainer {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 20px;
 }
 
 .Contact_nameUser > h1 {

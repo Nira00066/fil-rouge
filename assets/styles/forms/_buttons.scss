@@ -6,6 +6,13 @@
   font-size: 16px;
   border-radius: 999px;
 
+
+&_hidden{
+    display: none;
+    border: none;
+    
+  }
+  
   &_connexion {
     border-radius: 999px;
     border: var(--border-orange);
@@ -73,4 +80,5 @@
     width: 50%;
     padding-left: 10px;
   }
+
 }

@@ -50,9 +50,11 @@
         enctype="multipart/form-data"
         class="eventAdd_form"
       >
-        <div class="eventAdd_formContainer" id="form1">
+        <div class="container_form" id="form1">
           <!-- Partie 1 visible  -->
-          <div class="eventAdd_photo">
+       
+          <div class="eventAdd_input2">
+               <div class="eventAdd_photo seize_lg">
             <div class="input_photo">
               <label for="photo">Photo Principal</label>
               <div class="filewrapper">
@@ -63,7 +65,6 @@
             <hr />
             <button class="btn_formEvent">Enregistrer depuis l'URL</button>
           </div>
-          <div class="eventAdd_input2">
             <div class="eventAdd_title">
               <label for="title">Titre de l'événement:</label>
               <input class="btn" type="text" id="title" name="title" />
@@ -98,7 +99,7 @@
             <!-- Category , tag ,program , lien du poste sur les autre platformes  -->
 
             <!-- Partie 2  -->
-            <div class="container_inputForm" id="form2">
+            <div class="container_inputForm" id="form2_hidden">
               <div class="container_Form">
                 <div class="container_box1">
                   <div class="input_photo container_box2">
@@ -152,7 +153,7 @@
         </div>
         <div>
           <input
-            class="btn"
+            class="btn_hidden"
             type="submit"
             value="Créer l'événement"
             id="event"
