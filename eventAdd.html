@@ -40,35 +40,43 @@
         </a>
       </div>
     </header>
+    <!-- Header -->
+
     <main class="container_eventAdd">
       <div class="eventAdd_titre">
         <h1><strong>Créer un événement </strong></h1>
       </div>
+
+      <!-- Titre Formulaire  -->
+
       <form
         action="eventAdd.js"
         method="POST"
         enctype="multipart/form-data"
-        class="eventAdd_form"
+        class="container_form"
       >
-        <div class="container_form" id="form1">
-          <!-- Partie 1 visible  -->
-       
-          <div class="eventAdd_input2">
-               <div class="eventAdd_photo seize_lg">
-            <div class="input_photo">
-              <label for="photo">Photo Principal</label>
-              <div class="filewrapper">
-                <div class="btn_photo">Importer vos photos</div>
-                <input type="file" id="photo" name="photo" />
-              </div>
+        <!-- Partie 1 visible  -->
+        <div class="page1 container_page" id="page1">
+          <div class="box container_box">
+            <label for="photo">Photo Principal</label>
+            <div class="filewrapper">
+              <div class="btn_photo">Importer vos photos</div>
+              <input type="file" id="photo" name="photo" />
             </div>
-            <hr />
-            <button class="btn_formEvent">Enregistrer depuis l'URL</button>
+            <div class="container_box2">
+        <!-- Il y aura le trais avac le sccs que j'ai deja fait dans le duo -->
+              <button class="btn_formEvent">Enregistrer depuis l'URL</button>
+            </div>
           </div>
-            <div class="eventAdd_title">
-              <label for="title">Titre de l'événement:</label>
-              <input class="btn" type="text" id="title" name="title" />
-            </div>
+          <div class="box container_box">
+            <label for="titre">Titre de l'événement:</label>
+            <input class="btn" type="text" id="titre" name="titre" />
+          </div>
+        </div>
+
+        <!--
+          
+          
 
             <div class="eventAdd_dates container_inputForm">
               <div class="eventAdd_date">
@@ -96,10 +104,10 @@
               <label for="location">Lieu:</label>
               <input class="btn" type="text" id="location" name="location" />
             </div>
-            <!-- Category , tag ,program , lien du poste sur les autre platformes  -->
+             Category , tag ,program , lien du poste sur les autre platformes  -->
 
-            <!-- Partie 2  -->
-            <div class="container_inputForm" id="form2_hidden">
+        <!-- Partie 2  -->
+        <!-- <div class="container_inputForm" id="form2_hidden">
               <div class="container_Form">
                 <div class="container_box1">
                   <div class="input_photo container_box2">
@@ -143,14 +151,14 @@
                   <div class="input">
                     <label for="description"
                       >Lien du poste sur les autres plateformes</label
-                    >
-                    <input class="btn" type="text" id="link" name="link" />
+                    > -->
+        <!-- <input class="btn" type="text" id="link" name="link" />
                   </div>
                 </div>
               </div>
             </div>
           </div>
-        </div>
+        
         <div>
           <input
             class="btn_hidden"
@@ -159,7 +167,7 @@
             id="event"
           />
           <button id="form1" class="btn">Suivant</button>
-        </div>
+        </div> -->
       </form>
     </main>
   </body>
