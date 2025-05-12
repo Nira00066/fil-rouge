@@ -9,48 +9,22 @@
   font-style: none;
 }
 
-
-
-
-
-
 .eventAdd {
-
-
-  &_title {
-    font-size: 2rem;
-    margin: 20px 0;
+  &_titrePrincipal {
+    font-size: 1.8rem;
     text-align: center;
+    padding: 5rem;
   }
+  &_titre {
+    font-size: 1.3rem;
+    text-align: start;
+  }
+
   &_form {
     display: flex;
     flex-direction: column;
-    gap: 40px;
-    justify-content: space-around;
     align-items: center;
-  }
-
-
-  &_title {
-    font-size: 1rem;
-    margin: 5px 0;
-    text-align: start;
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-
-  
-  &_title > input {
-    border-radius: 15px;
-    font-size: 1rem;
-  }
-  &_dates {
-    display: flex;
-    flex-direction: row;
     gap: 20px;
-    justify-content: space-between;
-    align-items: center;
   }
 
   &_date {
@@ -58,12 +32,6 @@
     flex-direction: column;
     gap: 10px;
   }
-  &_titre {
-    font-size: 2rem;
-    text-align: center;
-  }
-
-
 }
 // #form2_hidden{
 

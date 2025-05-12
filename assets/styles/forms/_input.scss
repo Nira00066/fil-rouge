@@ -19,7 +19,7 @@ input[type="date"] {
   color: #95a5a6;
   font-family: "Helvetica", arial, sans-serif;
   font-size: 16px;
-  padding: 10px;
+  padding: 5px;
   display: inline-block !important;
   visibility: visible !important;
 }
@@ -52,10 +52,10 @@ input[type="time"] {
   color: #95a5a6;
   font-family: "Helvetica", arial, sans-serif;
   font-size: 16px;
-
-  padding: 10px;
+  padding: 5px;
   display: inline-block !important;
   visibility: visible !important;
+  
 }
 input[type="time"]:focus {
   outline: none;

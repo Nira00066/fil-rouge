@@ -50,7 +50,7 @@ body {
 .container {
   padding-left: 30px;
   padding-right: 30px;
-  margin: 0 auto;
+  margin: auto;
 }
 .container_Logos {
   margin: 15px;
@@ -66,7 +66,7 @@ body {
 .container_eventAdd {
   display: flex;
   max-width: 900px;
-  margin: 20px auto;
+  margin: auto;
   justify-items: center;
   flex-direction: column;
   gap: 20px;
@@ -76,12 +76,17 @@ body {
   flex-direction: row;
   justify-content: center;
   align-items: center;
+  gap: 40px;
+  width: 100%;
+  margin: auto;
 }
 .container_box {
   display: flex;
   flex-direction: column;
   align-items: self-start;
-  width: 28rem;
+  width: 100%;
+  height: 100%;
+  gap: 10px;
 }
 .container_box1 {
   width: 400px;
@@ -89,14 +94,24 @@ body {
   margin: 0;
 }
 .container_box2 {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  gap: 40px;
+}
+.container_btn {
   align-items: center;
-  margin: 0;
+  margin: auto;
 }
 .container_page {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
+  align-items: center;
+}
+.container_page_hidden {
+  display: none;
 }
 
 /* Settings */
@@ -173,19 +188,21 @@ body {
   padding: 10px 15px;
   font-family: var(--font-body);
 }
-.btn_formEvent {
-  align-items: end;
-  margin: auto;
-  border-radius: 10px;
+.btn_form {
+  align-items: center;
   border: none;
+  border-radius: 10px;
   padding: 5px;
   box-shadow: var(--box-shadow);
   background-color: var(--primary-color);
   color: var(--third-color);
-  width: 100%;
+  width: 70%;
+  margin: auto;
 }
-.btn_inputDate {
-  border: 1px solid var(--third-color);
+.btn_addDate {
+  border: 1px solid var(--primary-color);
+  background-color: var(--secondary-color);
+  box-shadow: var(--box-shadow);
   border-radius: 15px;
   font-size: 1rem;
 }
@@ -198,8 +215,8 @@ body {
 .box label {
   border-bottom: 1px solid var(--third-color);
   font-family: 600;
-  font-size: 1.5rem;
-  margin: 10px;
+  font-size: 1.1rem;
+  margin: 5px;
 }
 .box .filewrapper {
   display: flex;
@@ -208,7 +225,7 @@ body {
   height: 300px;
   width: 300px;
   gap: 10px;
-  margin: 10px;
+  margin: auto;
   border-radius: 10px;
   background-color: #f0f0f0;
   border: 1px dashed var(--primary-color);
@@ -260,7 +277,7 @@ input[type=date] {
   color: #95a5a6;
   font-family: "Helvetica", arial, sans-serif;
   font-size: 16px;
-  padding: 10px;
+  padding: 5px;
   display: inline-block !important;
   visibility: visible !important;
 }
@@ -292,7 +309,7 @@ input[type=time] {
   color: #95a5a6;
   font-family: "Helvetica", arial, sans-serif;
   font-size: 16px;
-  padding: 10px;
+  padding: 5px;
   display: inline-block !important;
   visibility: visible !important;
 }
@@ -620,45 +637,25 @@ input[type=time]:focus {
   font-style: none;
 }
 
-.eventAdd_title {
-  font-size: 2rem;
-  margin: 20px 0;
+.eventAdd_titrePrincipal {
+  font-size: 1.8rem;
   text-align: center;
+  padding: 5rem;
+}
+.eventAdd_titre {
+  font-size: 1.3rem;
+  text-align: start;
 }
 .eventAdd_form {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-  justify-content: space-around;
   align-items: center;
-}
-.eventAdd_title {
-  font-size: 1rem;
-  margin: 5px 0;
-  text-align: start;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-.eventAdd_title > input {
-  border-radius: 15px;
-  font-size: 1rem;
-}
-.eventAdd_dates {
-  display: flex;
-  flex-direction: row;
   gap: 20px;
-  justify-content: space-between;
-  align-items: center;
 }
 .eventAdd_date {
   display: flex;
   flex-direction: column;
   gap: 10px;
-}
-.eventAdd_titre {
-  font-size: 2rem;
-  text-align: center;
 }
 
 .Contact_nameUser > h1 {
