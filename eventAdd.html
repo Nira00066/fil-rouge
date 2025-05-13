@@ -6,7 +6,7 @@
     <title>Crée un événement</title>
     <meta name="description" content="Les pépites du coins" />
     <link rel="stylesheet" href="dist/css/theme.css" />
-    <script async src="./assets/scripts/base.js"></script>
+    <script defer src="dist/js/theme.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/pepite-1.png" />
   </head>
   <body>
@@ -57,7 +57,7 @@
         class="eventAdd_form"
       >
         <!-- Partie 1 visible  -->
-        <div class="container_page" id="page">
+        <div class="container_page active" data-id-form="3" id="page">
           <div class="box container_box">
             <label for="photo">Photo Principal</label>
             <div class="filewrapper">
@@ -106,7 +106,7 @@
         </div>
 
         <!-- Partie 2  -->
-        <div class="container_page" id="page1">
+        <div class="container_page" data-id-form="2" id="page1">
           <div class="box container_box">
             <label for="photo">Photos</label>
             <div class="filewrapper">
@@ -141,24 +141,24 @@
           </div>
         </div>
         <!-- Partie 3and last -->
-        <div class="container_page" id="page2">
+        <div class="container_page" data-id-form="3" id="page2">
           <div class="container_box">
-
             <div class="box container_box">
               <label for="description">Catégorie</label>
               <input class="btn" type="text" id="category" name="category" />
             </div>
-            
+
             <div class="box container_box">
               <label for="description"
-              >Lien du poste sur les autres plateformes:</label >
+                >Lien du poste sur les autres plateformes:</label
+              >
               <input class="btn" type="text" id="link" name="link" />
             </div>
           </div>
         </div>
-<!-- ! A voir si je mets les immages charger  -->
- <!-- ? est-ce que on fait un prewiews?  -->
-      <!-- Fin  -->
+        <!-- ! A voir si je mets les immages charger  -->
+        <!-- ? est-ce que on fait un prewiews?  -->
+        <!-- Fin  -->
         <div>
           <input
             class="btn_hidden"

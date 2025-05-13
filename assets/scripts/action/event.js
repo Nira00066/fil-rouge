@@ -1,12 +1,9 @@
 function pageSuivante (){
-    
-const page = document.getElementById("page");
-const page1 = document.getElementById("page1");
-const page2 = document.getElementById("page2");
 
-const eventAdd = document.getElementById("eventAdd").addEventListener;
-const eventSuivant = document.getElementById("eventSuivant").addEventListener;
-
-
+const etapes = document.querySelectorAll('[data-id-form]');
+const btnSuivant = document.getElementById('eventSuivant');
+const btnValider = document.getElementById('eventAdd');
+let current = 0;
 
 }
+alert("coucou");

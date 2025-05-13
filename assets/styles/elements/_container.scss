@@ -58,13 +58,15 @@
     margin: auto;
   }
   &_page {
+&:not(.active){
+  display: none;
+}
+
     width: 100%;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
   }
-    &_page_hidden {
-  display: none;
-  }
+  
 }
