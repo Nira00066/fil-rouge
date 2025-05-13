@@ -6,7 +6,9 @@ mainMenu.forEach(function (item) {
 });
 
 menu += `</ul>`;
-document.querySelector("#mainMenu").innerHTML = menu;
+let mainMenuContainer = document.querySelector("#mainMenu");
+if (mainMenuContainer)
+  mainMenuContainer.innerHTML = menu;
 
 // Voila mon élement menu linké à mon fichier mainMenu.jsmlkjn  
 // <ul>
