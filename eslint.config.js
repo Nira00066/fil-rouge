@@ -1,4 +1,5 @@
 import js from "@eslint/js";
+import globals from "globals";
 
 /** @type {import("eslint").Linter.FlatConfig} */
 export default [
@@ -11,6 +12,9 @@ export default [
     languageOptions: {
       ecmaVersion: "latest",
       sourceType: "module",
+      globals: {
+        ...globals.browser, // ✅ Ajout ici
+      },
     },
     rules: {
       // Règles personnalisées ici

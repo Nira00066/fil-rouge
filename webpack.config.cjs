@@ -28,7 +28,17 @@ module.exports = {
     preferRelative: true,
   },
 
-  stats: 'errors-warnings',
+  stats: {
+    all: false,
+    errors: true,
+    builtAt: true,
+    assets: true,
+    timings: true,
+    colors: true,
+    version: false,
+    warnings: false, // on cache juste les warnings
+    modules: false,
+  },
 
   module: {
     rules: [
@@ -65,6 +75,12 @@ module.exports = {
             loader: 'sass-loader',
             options: {
               sourceMap: !isProduction,
+              // Cache les warnings Sass dans le terminal
+              sassOptions: {
+                quietDeps: true,
+              },
+              // supprimer aussi les messages de dépréciation
+              additionalData: `$suppressDeprecationWarnings: true;`,
             },
           },
         ],
