@@ -1,7 +1,8 @@
 {
-  "name": "Afec starter kit",
+  "name": "fil",
   "version": "1.0.0",
-  "description": "Afec starter kit for students",
+  "type": "module",
+  "description": "Afec starter kit",
   "main": "js/theme.js",
   "scripts": {
     "build": "cross-env NODE_ENV=production webpack --progress",
@@ -9,7 +10,7 @@
     "scss-lint": "stylelint \"**/*.scss\" --formatter verbose",
     "scss-fix": "stylelint \"**/*.scss\" --fix"
   },
-  "author": "Nina Lopez",
+  "author": "Afec",
   "license": "",
   "devDependencies": {
     "@babel/core": "^7.27.1",
@@ -35,7 +36,6 @@
     "webpack-license-plugin": "^4.5.1"
   },
   "dependencies": {
-    "cross-env": "^7.0.3",
-    "tailwindcss": "^4.1.3"
+    "cross-env": "^7.0.3"
   }
 }

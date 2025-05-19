@@ -104,11 +104,13 @@ module.exports = {
       filename: path.join('..', 'css', '[name].css'),
     }),
 
-    // ✅ Ajout d’ESLintPlugin pour analyse JS
+    // ESLintPlugin pour analyse JS
     new ESLintPlugin({
       extensions: ['js'],
       emitWarning: true,
       failOnError: false,
+      eslintPath: require.resolve('eslint'),
+      context: path.resolve(__dirname, 'assets/scripts'), // si tu veux cibler un dossier spécifique
     }),
 
     ...(isProduction ? [new CssoWebpackPlugin({ forceMediaMerge: true })] : []),

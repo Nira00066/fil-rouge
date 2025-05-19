@@ -1,5 +1,5 @@
-import './components/Mainmenu';
+import './components/Mainmenu.js';
 
 
 
-import './action/event'
+import './action/event.js'
