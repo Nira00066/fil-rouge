@@ -1,15 +1,16 @@
 import { mainMenu } from "../data/mainMenu.js";
+let mainMenuContainer = document.querySelector("#mainMenu");
 
+if (mainMenuContainer) {
 let menu = `<ul>`;
 mainMenu.forEach(function (item) {
   menu += `<li><a href="${item.link}">${item.name}</a></li>`;
 });
 
 menu += `</ul>`;
-let mainMenuContainer = document.querySelector("#mainMenu");
 if (mainMenuContainer)
   mainMenuContainer.innerHTML = menu;
-
+} 
 // Voila mon élement menu linké à mon fichier mainMenu.jsmlkjn  
 // <ul>
 // <li>
