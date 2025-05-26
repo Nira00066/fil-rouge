@@ -1,8 +1,9 @@
 .header {
   background: var(--primary-color);
-  color: black;
+  color: var(--third-color);
   list-style: none;
   padding: var(--padding-md) 0 var(--padding-xs) 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 
   &_top {
     display: flex;
@@ -11,7 +12,6 @@
 
   &_logo > a {
     text-decoration: none;
-
     text-align: center;
     font-family: var(--font-title);
     font-size: var(--font-size-lg);

@@ -332,9 +332,10 @@ input[type=time]:focus {
 /* Layout */
 .header {
   background: var(--primary-color);
-  color: black;
+  color: var(--third-color);
   list-style: none;
   padding: var(--padding-md) 0 var(--padding-xs) 0;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 .header_top {
   display: flex;

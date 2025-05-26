@@ -28,8 +28,8 @@
         <div class="headerProfil_nameUser jsnameUser">
           <h1><strong>Utilisateur 9999 </strong></h1>
         </div>
-        <div><a href="contact.html">Contact</a></div>
-        <div><a href="apropos.html">A propos</a></div>
+        <div><a href="contact.php">Contact</a></div>
+        <div><a href="apropos.php">A propos</a></div>
       </div>
       <div class="headerProfil_btns">
         <button class="btn_connexion" id='popupCojs' >Connexion</button>
