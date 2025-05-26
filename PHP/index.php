@@ -78,7 +78,7 @@
       <div class="container">
         <div class="footer_top">
           <div class="footer_logo">
-            <a href="index.html">Les Pétpites Du Coins</a>
+            <a href="index.php">Les Pétpites Du Coins</a>
           </div>
           <div class="footer_links">
             <ul>

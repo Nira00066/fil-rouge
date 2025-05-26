@@ -62,3 +62,18 @@ input[type="time"]:focus {
   border: 1px solid #3498db;
   background: #ecf0f1;
 }
+
+
+.input {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border-radius: 10px;
+  padding: 5px;
+
+  &_time {
+    width: 50%;
+    padding-left: 10px;
+  }
+
+}
