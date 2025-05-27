@@ -1,0 +1,42 @@
+/* Tout les class que j'aurais besoin pour le responsives
+header
+
+container
+
+header_top
+
+header_logo
+
+header_searchbar
+
+header_searchbar_input
+
+form-control
+
+header_searchbar_btn
+
+btn
+
+header_profile
+
+header_bottom
+*/
+@media (max-width: 480px) {
+  .header_searchbar_btn {
+    display: none;
+  }
+
+  .header_top {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .header_profile {
+    position: relative;
+    left: 250px;
+    top: -106px;
+    justify-content: flex-end;
+    width: fit-content;
+    height: fit-content;
+  }
+}

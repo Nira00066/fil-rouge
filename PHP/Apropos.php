@@ -1,9 +1,11 @@
+<?php require_once('config/settings.php'); ?> 
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dist/css/theme.css" />
+    <link rel="stylesheet" href="<?php echo css_dir; ?>theme.css?<?=time();?>" />
+    <script defer src="<?php echo js_dir ?>theme.js?<?=time();?>"></script>
     <title>Page Profile</title>
   </head>
   <body>
@@ -11,12 +13,12 @@
       <div class="headerProfil_logo">
         <a href="index.php"
           ><img
-            src="images/logo-title.png"
+            src="<?=img_dir;?>logo-title.png"
             alt="text qui est Les pépites du coins"
         /></a>
       </div>
       <div class="headerProfil_img">
-        <img src="images/profil.png" alt="logo-profil" class="" />
+        <img src="<?=img_dir;?>profil.png" alt="logo-profil" class="" />
       </div>
     </header>
 

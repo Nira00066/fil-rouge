@@ -20,12 +20,22 @@
 @import "layout/headerProfil";
 @import "layout/formContact";
 @import "layout/popup";
+@import "layout/footer";
+
 /* Components */
 @import "components/card";
 @import "components/carosel";
- 
 
 /* Pages*/
 @import "pages/eventAdd";
-@import "pages/contact";  
-@import "pages/_aPropos";                            
+@import "pages/contact";
+@import "pages/_aPropos";
+
+// Vendors
+@import "../../node_modules/swiper/swiper-bundle.min.css";
+
+// Media Query
+
+@import "mediaQuery/headerMedia";
+@import "mediaQuery/indexQuery.scss";
+@import "mediaQuery/aproposMedia";

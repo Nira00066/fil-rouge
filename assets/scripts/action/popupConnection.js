@@ -1,5 +1,7 @@
 let btnco = document.getElementById('btn_connexion');
 
-btnco.addEventListener('click',function(){
+if (btnco) {
+    btnco.addEventListener('click',function(){
 
-})
+    });
+}

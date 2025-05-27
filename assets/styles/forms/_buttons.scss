@@ -2,16 +2,28 @@
   background: #fff;
   border: 1px solid var(--primary-color);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  padding: 10px;
+  padding: 5px;
   font-size: 16px;
   border-radius: 999px;
   width: 100%;
-
+  &_filter {
+    border-radius: 15px;
+    background: #fff;
+    border: 1px solid var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
+    font-size: 16px;
+    padding: 5px;
+    width: 100%;
+  }
   &_hidden {
     display: none;
     border: none;
   }
-
+  &_valide {
+    width: fit-content;
+    height: fit-content;
+    border-radius: 20px;
+  }
   &_connexion {
     border-radius: 999px;
     border: var(--border-orange);
@@ -30,7 +42,7 @@
     background-color: var(--primary-color);
     color: var(--third-color);
     width: 70%;
-   margin: auto;
+    margin: auto;
   }
   &_addDate {
     border: 1px solid var(--primary-color);
@@ -48,9 +60,9 @@
 
 .box {
   // Taille du container photo
-// ! Je ne sais pas comment faire pour que mon border fit le contenu et no le conenant
+  // ! Je ne sais pas comment faire pour que mon border fit le contenu et no le conenant
   label {
-    border-bottom: 1px solid var(--third-color); 
+    border-bottom: 1px solid var(--third-color);
     font-family: 600;
     font-size: 1.1rem;
     margin: 5px;
@@ -73,5 +85,3 @@
     width: 50%;
   }
 }
-
-

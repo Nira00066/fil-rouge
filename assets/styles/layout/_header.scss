@@ -33,6 +33,10 @@
         width: 100%;
       }
     }
+    .btn > a {
+      color: var(--third-color);
+      text-decoration: none;
+    }
 
     &_btn {
       white-space: nowrap;
@@ -83,4 +87,81 @@
     align-items: center;
     padding: 10px;
   }
+}
+
+@media screen and (max-width: 600px) {
+  .header__burger {
+    display: block;
+    cursor: pointer;
+    width: 22px;
+    height: 22px;
+  }
+  .header_nav_menu {
+    flex-direction: column;
+    align-items: flex-start;
+    top: 0;
+  }
+  .header_nav {
+    top: 0;
+    right: 0;
+    /* A voir avec laurent pour savoir si le z-index est une bonne idée */
+    position: fixed;
+    width: 300px;
+    height: 100vh;
+    z-index: 2;
+    background-color: var(--color-main);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    display: none;
+    transition: 0.3s transform ease-in-out;
+  }
+  @keyframes transformeMenu {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: initial;
+    }
+  }
+
+  .header_nav.open {
+    display: flex;
+  }
+
+  .header_nav_menu {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .header_nav_menu_link {
+    margin-bottom: 20px;
+    margin-right: 0;
+  }
+  .header_nav_menu_link a {
+    font-size: 25px;
+  }
+  .header_nav_close {
+    display: block;
+    cursor: pointer;
+  }
+  .header_nav_close svg {
+    stroke: var(--color-white);
+    width: 22px;
+    height: 22px;
+    position: absolute;
+    top: 16px;
+    right: 16px;
+  }
+  /* .overlay-menu-mobile {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vh;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.315);
+    z-index: 2;
+
+    /* Mon overlay va dans sur tout la nav 
+  } */
 }

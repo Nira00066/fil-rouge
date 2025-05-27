@@ -1,9 +1,11 @@
+<?php require_once('config/settings.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dist/css/theme.css" />
+    <link rel="stylesheet" href="<?php echo css_dir; ?>theme.css?<?=time();?>" />
+    <script defer src="<?php echo js_dir ?>theme.js?<?=time();?>"></script>
     <title>Page Profile</title>
   </head>
   <body>

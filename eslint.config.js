@@ -17,7 +17,7 @@ export default [
       },
     },
     rules: {
-      // Règles personnalisées ici
+          "no-unused-vars": "off",
     },
   },
 ];
