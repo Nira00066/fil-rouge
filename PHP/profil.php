@@ -28,6 +28,7 @@
   </section>
 
   <!-- <?php include('layout/pop_co.php') ?> -->
+  <!-- <?php include('layout/footer.php') ?> -->
 </body>
 
 </html>
