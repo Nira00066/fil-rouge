@@ -569,6 +569,7 @@ input[type=time]:focus {
   flex-direction: column;
   padding-top: 4rem;
   justify-items: center;
+  height: 100vh;
 }
 .headerProfil_liens > div > a {
   color: var(--third-color);
@@ -581,7 +582,6 @@ input[type=time]:focus {
 }
 .headerProfil_liens {
   text-align: center;
-  margin: auto;
   padding-top: var(--padding-lg);
   font-size: 16px;
 }
@@ -589,7 +589,6 @@ input[type=time]:focus {
   display: flex;
   justify-content: center;
   gap: 1rem;
-  margin: auto;
   padding-top: var(--padding-lg);
   font-size: 16px;
 }
