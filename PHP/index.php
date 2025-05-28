@@ -18,7 +18,7 @@ $eventscat1 = $stmt1->fetchAll(PDO::FETCH_ASSOC);
 $sql = "SELECT events.*, events_categories.name AS category
         FROM events
         JOIN events_categories ON events.id_category = events_categories.id
-        WHERE id_category= 4
+        WHERE id_category= 3
         ORDER BY date_start ASC";
 
 $stmt = $pdo->query($sql);
