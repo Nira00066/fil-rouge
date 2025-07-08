@@ -2,7 +2,7 @@
   <div class="container">
     <div class="header_top">
       <div class="header_logo">
-        <a href="index.php">Les Pétpites Du Coins</a>
+        <a href="index.php">NovaMett</a>
       </div>
       <div class="header_searchbar">
         <div class="header_searchbar_input">
@@ -21,14 +21,7 @@
       </div>
     </div>
     <div class="header_bottom">
-      <nav>
-        <ul>
-          <li><a href="index.php">Accueil</a></li>
-          <li><a href="Auto/Moto.php">Auto/Moto</a></li>
-          <li><a href="Vêtements.php">Vêtements</a></li>
-          <li><a href="Marché.php">Marché</a></li>
-        </ul>
-      </nav>
+
     </div>
     <div class="header__burger" onclick="openMenuMobile()">
       <!-- <svg
@@ -45,5 +38,7 @@
       </svg> -->
     </div>
   </div>
+  <div class="header_glitch">
 
+  </div>
 </header>

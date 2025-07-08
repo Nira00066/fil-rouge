@@ -1,10 +1,22 @@
 :root {
   /* text */
 
-  --font-title: "playfair-display", sans-serif;
+  --font-title: "Corben", serif;
   --font-body: "roboto", sans-serif;
 
   --font-size-g: 1rem; /* 16px */
   --font-size-md: 1.125rem; /* 18px */
   --font-size-lg: 1.25rem; /* 20px */
+}
+
+.corben-regular {
+  font-family: "Corben", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.corben-bold {
+  font-family: "Corben", serif;
+  font-weight: 700;
+  font-style: normal;
 }

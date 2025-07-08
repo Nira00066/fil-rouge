@@ -1,4 +1,7 @@
 <?php require_once('config/settings.php'); ?>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Corben:wght@400;700&display=swap');
+</style>
 <?php
 // Requête pour récupérer les events avec leur nom de catégorie
 $sql1 = "SELECT events.*, events_categories.name AS category
