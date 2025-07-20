@@ -1,5 +1,5 @@
 .header {
-  background: var(--primary-color);
+  background: var(--color-white);
   color: var(--third-color);
   list-style: none;
   height: 60px;
@@ -7,20 +7,10 @@
   margin-bottom: 0;
 
 
-  &_glitch {
-    background-color: white;
-    height: 60px;
-    box-shadow: inset 0px 15px 30px -10px rgba(50, 50, 93, 0.15);
-    border-top-left-radius: 50px;
-    border-top-right-radius: 50px;
-    padding: 0;
-    margin: 0;
-  }
-
   &_top {
     display: flex;
     justify-content: space-between;
-    padding-top: 10px
+    padding-top: 10px;
   }
 
   &_logo > a {
@@ -30,9 +20,32 @@
     font-weight: 700;
     font-style: normal;
     font-size: var(--font-size-lg);
-    color: #efdcab;
+    color: black;
+  }
+  &_logo >p {
+    color: #3d3d3d;
+  }
+  &_nav {
+    padding: 10px;
   }
 
+  &_liens {
+    display: flex;
+    flex-direction: row;
+    gap: 20px;
+    text-decoration: none;
+  }
+  &_liens a {
+  text-decoration: none;
+  color: black; 
+// Se rappeler que il y auras le monde sombre ici
+  font-family: "Corben", serif;
+  font-weight: 700;
+  font-size: var(--font-size-lg);
+}
+  &_liens a:hover {
+  color:#dc2626; 
+}
   // &_searchbar {
   //   margin-top: var(--padding-md);
   //   display: flex;
@@ -79,6 +92,12 @@
     // backgroud blanc faire attention pour le logo
   }
 
+.btn_co {
+  display: flex;
+  justify-content: center;
+}
+
+
   .connexion_btn {
     margin: auto;
     display: flex;
@@ -95,8 +114,6 @@
     -webkit-user-select: none;
     touch-action: manipulation;
   }
-
-
 
   &_bottom {
     margin-top: var(--padding-sm);
