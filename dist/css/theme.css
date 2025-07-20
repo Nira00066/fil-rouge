@@ -376,7 +376,7 @@ input[type=time]:focus {
   background: var(--primary-color);
   color: var(--third-color);
   list-style: none;
-  padding: var(--padding-md) 0 var(--padding-xs) 0;
+  height: 60px;
   padding-bottom: 0;
   margin-bottom: 0;
 }
@@ -392,6 +392,7 @@ input[type=time]:focus {
 .header_top {
   display: flex;
   justify-content: space-between;
+  padding-top: 10px;
 }
 .header_logo > a {
   text-decoration: none;
@@ -402,45 +403,28 @@ input[type=time]:focus {
   font-size: var(--font-size-lg);
   color: #efdcab;
 }
-.header_searchbar {
-  margin-top: var(--padding-md);
-  display: flex;
-  align-items: center;
-  width: 100%;
-  max-width: 600px;
-}
-.header_searchbar_input {
-  width: 100%;
-}
-.header_searchbar_input .form-control {
-  width: 100%;
-}
-.header_searchbar .btn > a {
-  color: var(--third-color);
-  text-decoration: none;
-}
-.header_searchbar_btn {
-  white-space: nowrap;
-  transform: scale(1.2);
-  margin-left: -10px;
-  border-radius: 50%;
-  box-shadow: var(--box-shadow);
-}
-.header_profile > a {
-  color: var(--third-color);
-  font-family: var(--font-title);
+.header_img {
   display: flex;
   flex-direction: row;
-  justify-content: center;
-  align-items: center;
-  gap: 10px;
+  border: 1px black solid;
+  padding-right: 5px;
+  border-radius: 10px;
 }
-.header_profile > a > img {
-  width: 50px;
-  border-radius: 50%;
-  text-align: center;
+.header .connexion_btn {
   margin: auto;
-  box-shadow: var(--box-shadow);
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 6px 14px;
+  font-family: -apple-system, BlinkMacSystemFont, "Roboto", sans-serif;
+  border-radius: 6px;
+  color: #3d3d3d;
+  background: #fff;
+  border: none;
+  box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 .header_bottom {
   margin-top: var(--padding-sm);
