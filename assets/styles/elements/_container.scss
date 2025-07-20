@@ -71,4 +71,30 @@
   &_textCenter {
     text-align: center;
   }
+  &_text {
+    flex: 1;
+    text-align: center;
+  }
+  &_titre > h2 {
+    font-size: 2rem; /* Plus gros */
+    font-weight: 700; /* Bold */
+    color: #ffffff; /* Texte foncé du thème */
+    margin-bottom: 1rem;
+  }
+
+  &_description p {
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #ffffff; /* Gris secondaire */
+  }
+}
+.dark > h2 {
+  color: #000000;
+}
+.containerCard {
+  max-width: 1114px;
+  margin: 0 auto;
+  padding: 0 1rem; // un petit padding sur mobile
+  box-sizing: border-box;
+  place-items: center;
 }

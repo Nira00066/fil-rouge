@@ -36,6 +36,8 @@
               </ul>
             </nav>
           </div>
+          <!-- Le rendre invisible plus le titre et le p  -->
+
           <div class="btn_co">
             <button class="connexion_btn" role="button">
               <img
@@ -51,11 +53,11 @@
     <!-- Header  -->
     <main>
       <section class="location">
-        <div class="location_text">
-          <div class="location_titre">
+        <div class="container_text">
+          <div class="container_titre">
             <h2>Trouve les meilleurs events auto près de chez toi</h2>
           </div>
-          <div class="location_description">
+          <div class="container_description">
             <p>
               Découver des rassemblements,salon,courses et événements tuning
               dans ta region. Connecte-toi d'autres passionnés d'automobile.
@@ -66,32 +68,96 @@
           <form action="POST">
             <button class="btn">Activer ma location</button>
             <div class="input">
-              <input type="text" />
+              <input type="text" placeholder="Ta ville ou code postal" />
             </div>
           </form>
         </div>
       </section>
 
-<!-- Category -->
+      <!-- Category -->
 
       <section class="category">
-        <div class="category_text">
-          <div class="category_titre">
+        <div class="container_text">
+          <div class="container_titre dark">
             <h2>Découvre par catégorie</h2>
           </div>
-          <div class="category_context">
+          <div class="container_context">
             <p>
               Trouver exactement le type d'évenement automobile qui te passionne
             </p>
           </div>
-          <div class="category_cart">
-            <!-- grid pour le respo  -->
-            <button class="cart">Tunning</button>
-            <button class="cart">Vintage</button>
-            <button class="cart">Drift</button>
-            <button class="cart">Exposition</button>
-            <button class="cart">Circuit</button>
-            <button class="cart">Rassemblement</button>
+          <div class="category-grid">
+            <!-- Tuning -->
+            <div class="category-card">
+              <div class="icon-circle clee">
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADZ0lEQVR4nO2ZW4hNURjH1yC33D2IciuhKOVFcilFIZHLeJhxzrf2TOZBPJDLcL7vLOUys7/vHJd48ODVMJ4U3gxqktxCIsUDKYkk98tgtIzDmduZfU6z2vtk/rUfTnuvtX//3be+9a3vKNWj/1TGmD4xk5qsyZ/nJXhhnPwFlSY9yRjTS0VVYGomAPF2IG4ElI+apLntBcTVKmqKY+00TVwPKD86gtZ/4WW3ipJKjemrSfYC8bdc4DqK8GAODtPEl7oC1/ZCNipKqtjmDwaUW0HgIWpf3gpIThQtvJdIzS1aeCtAritaeCsgfpETHnmfKlAbzNFBmpiVK1UZM1AT/8xlII6p5QUnBuJGjfy2+8kzL0nI+ADxfzTfecvN4SFAfCUzx6ZNh/s5MVBp0iO6jH/k9/a5oHNW7agdqomvZs9hDTkxYAsxIP4SwMSR4JuhXGs9VppKS0/3dmLg90sDbWD800Nel2uesuqa4UByo715eaZcSiMfD7QPoDRBUio7msOGWKcfAvmcWwMkGwPVP//Cqc6eAzLjY9X7R2qU252P8Xe5NYD+0nwM6JaQ+g4k5zXKDiC+k9OwSU11asBLipe/AQl6XXMKH0/IfJsmXRmIE690Bq8ptUgTf3L39fmqUs0lTuDjJEs0ymdX8ED8xR5L3S1ah/DaGkjyekfwskqjfHUGjrYJwFudwNudNMhhvXUoyEtAfh0wbJ5Aghc7gQeUbV2VzR3An7VdCju+wvhjgHg1oKSBuEGTPNAoT22aBJRTkEyVZ57tZjWX2ANFAYuwAYzpr8Lv8fDJQtKfPUmFCl9la3KUiwXA37RjQ4Vfl5CJgHw//7CRh5U7D40KFR6I59jMkX/640fluw6MDhU+jrK2kNIAkF/ZtnmI6M0ltqzNN03+iflPMeLZYTem9hS4azZ56C8LFd7D9IzsHj4g3/NIZtmejCZekWs9AKWqVNgCkmPZUBVGpre6n5RYJwb2qigIso5zQPKu7f0K9Kd0EPf1zur0fKVJHmfDxUztuOz7tkZpk3Gul25OD1BRkUa+0KaGacyYaGmb8/OsRfvMFmUqStIkGzpJjx/a/Tb+TBU1gTH9NcrdLtLlD3uQUVGVTqTG5uiKvfFQ1qhi+BddI5fZrhmgXAaUM5p4Sz5d5R71SBWHfgFcpBGxqAzLjgAAAABJRU5ErkJggg=="
+                  alt="support"
+                />
+              </div>
+              <p>Tuning</p>
+            </div>
+
+            <!-- Vintage -->
+            <div class="category-card">
+              <div class="icon-circle" style="background-color: #f59e0b">
+                <img
+                  src="data:image/png;base64,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"
+                  alt="old-car"
+                />
+              </div>
+              <p>Vintage</p>
+            </div>
+
+            <!-- Drift -->
+            <div class="category-card containerCard">
+              <div class="icon-circle" style="background-color: #3b82f6">
+                <img
+                  width="48"
+                  height="48"
+                  src="https://img.icons8.com/emoji/48/dashing-away.png"
+                  alt="dashing-away"
+                />
+              </div>
+              <p>Drift</p>
+            </div>
+
+            <!-- Exposition -->
+            <div class="category-card">
+              <div class="icon-circle" style="background-color: #10b981">
+                <img
+                  width="40"
+                  height="40"
+                  src="https://img.icons8.com/office/40/trophy--v1.png"
+                  alt="trophy--v1"
+                />
+              </div>
+              <p>Exposition</p>
+            </div>
+
+            <!-- Circuit -->
+            <div class="category-card">
+              <div class="icon-circle" style="background-color: #a855f7">
+                <img
+                  width="48"
+                  height="48"
+                  src="https://img.icons8.com/emoji/48/racing-car.png"
+                  alt="racing-car"
+                />
+              </div>
+              <p>Circuit</p>
+            </div>
+
+            <!-- Rassemblement -->
+            <div class="category-card">
+              <div class="icon-circle" style="background-color: #f97316">
+                <img
+                  src="data:image/png;base64,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"
+                  alt="automobile"
+                />
+              </div>
+              <p>Rassemblement</p>
+            </div>
           </div>
         </div>
       </section>
