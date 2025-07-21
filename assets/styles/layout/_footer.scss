@@ -1,33 +1,73 @@
-.footer {
-  background-color: gainsboro;
-  padding: 10px;
-  display: block;
-  &_top {
-    display: flex;
-    flex-direction: column;
-    gap: 5px;
+.footer_cta {
+  background-color: #dc2626; // 🔴 ton nouveau rouge
+  color: #ffffff;
+  text-align: center;
+  padding: 4rem 1rem;
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
   }
-  &_bottom {
-    text-align: center;
+
+  p {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto 2rem;
+    line-height: 1.6;
   }
-  &_socials {
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-  }
-  &_logo > a {
-    right: 5px;
-  }
-  &_links {
-    padding: 10px 0;
-    align-items: flex-start;
-  }
-  &_links > ul > li {
-    padding-top: 5px;
-  }
-  &_body {
+
+  .footer_cta_buttons {
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: center;
+    gap: 1rem;
+    margin: auto;
+
+    // Bouton "Créer un compte"
+    button:first-child {
+      background-color: #4c5563;
+      color: #ffffff;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      border: none;
+      cursor: pointer;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #2e3339;
+      }
+    }
+
+    // Bouton "Organiser un événement" désactivé
+    button:last-child {
+      background-color: #ffffff;
+      color: #aaa;
+      border: 1px solid #ddd;
+      padding: 0.75rem 1.5rem;
+      border-radius: 8px;
+      font-weight: 600;
+      font-size: 1rem;
+      opacity: 0.7;
+      cursor: not-allowed;
+      transition: all 0.3s ease;
+
+      &:hover {
+        background-color: #ffffff;
+      }
+
+      // Quand activé
+      &.active {
+        cursor: pointer;
+        opacity: 1;
+        color: #4c5563;
+
+        &:hover {
+          background-color: #f2f2f2;
+        }
+      }
+    }
   }
 }

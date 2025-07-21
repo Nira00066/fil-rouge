@@ -170,41 +170,109 @@
           </div>
         </div>
       </section>
+
       <!-- Section events -->
-      <section class="eventNear">
-        <div class="container_top">
-          <div>
-            <h2 class="container_titre">évenement près de toi </h2>
-            <p>Les prochains rendez-vous auto dans ta region </p>
+
+      <section class="eventNear container_category">
+        <div class="eventNear_top">
+          <div class="eventNear_top-left">
+            <h2>Événements près de toi</h2>
+            <p>Les prochains rendez-vous auto dans ta région</p>
           </div>
-          <button class="btn_next">voir tout</button>
+          <div class="eventNear_top-right">
+            <button class="btn_next">Voir tout</button>
+          </div>
         </div>
 
-      </section>
-
-      <footer class="footer" id="footer">
-        <div class="container">
-          <div class="footer_top">
-            <div class="footer_logo">
-              <a href="index.html">Les Pétpites Du Coins</a>
+        <div class="cardMett_wrapper">
+          <!-- Carte 1 -->
+          <div class="cardMett">
+            <div class="cardMett_img">
+              <span class="cardMett_tag">Vintage</span>
+              <button class="cardMett_heart" aria-label="Ajouter aux favoris">
+                ❤
+              </button>
+              <img
+                src="./images/events/large/pexels-mayday-1545743.jpg"
+                alt="BMW Classic"
+              />
             </div>
-            <div class="footer_links">
-              <ul>
-                <li><a href="#">Mentions légales</a></li>
-                <li><a href="#">Politique de confidentialité</a></li>
-                <li><a href="#">Conditions d'utilisation</a></li>
-              </ul>
+            <div class="cardMett_description">
+              <h3>Rassemblement BMW Classic</h3>
+              <p class="date">📅 25 Jan 2025</p>
+              <p class="lieu">📍 Paris, France</p>
+              <p class="participants">👥 45 participants</p>
             </div>
-            <div class="footer_socials">
-              <a href="#"><img alt="" /></a>
-              <a href="#"><img alt="" /></a>
-              <a href="#"><img alt="" /></a>
-              <a href="#"><img alt="" /></a>
+            <div class="cardMett_btn">
+              <button>Voir l'événement</button>
             </div>
           </div>
-          <div class="footer_bottom">
-            <p>&copy; 2023 Les Pétpites Du Coins. Tous droits réservés.</p>
-            <p>Développé par Nina Lopez</p>
+
+          <!-- Carte 2 -->
+          <div class="cardMett">
+            <div class="cardMett_img">
+              <span class="cardMett_tag">Drift</span>
+              <button class="cardMett_heart" aria-label="Ajouter aux favoris">
+                ❤
+              </button>
+
+              <img
+                src="./images/events/small/salontunning2025.webp"
+                alt="Drift Championship"
+              />
+            </div>
+            <div class="cardMett_description">
+              <h3>Drift Championship</h3>
+              <p class="date">📅 28 Jan 2025</p>
+              <p class="lieu">📍 Lyon, France</p>
+              <p class="participants">👥 120 participants</p>
+            </div>
+            <div class="cardMett_btn">
+              <button>Voir l'événement</button>
+            </div>
+          </div>
+
+          <!-- Carte 3 -->
+          <div class="cardMett">
+            <div class="cardMett_img">
+              <span class="cardMett_tag">Tuning</span>
+              <button class="cardMett_heart" aria-label="Ajouter aux favoris">
+                ❤
+              </button>
+
+              <img
+                src="./images/events/large/affiche-tourauto-2025.webp"
+                alt="Tuning Show 2025"
+              />
+            </div>
+            <div class="cardMett_description">
+              <h3>Tuning Show 2025</h3>
+              <p class="date">📅 02 Fév 2025</p>
+              <p class="lieu">📍 Marseille, France</p>
+              <p class="participants">👥 89 participants</p>
+            </div>
+            <div class="cardMett_btn">
+              <button>Voir l'événement</button>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Footer -->
+
+      <footer class="footer" id="footer">
+        <div class="footer_cta">
+          <h2>Prêt à rejoindre la communauté ?</h2>
+          <p>
+            Crée ton compte pour participer aux événements, organiser tes
+            propres rassemblements et connecter avec des milliers de passionnés
+            d'automobile.
+          </p>
+          <div class="footer_cta_buttons location_form">
+            <button class="btn primary">Créer un compte</button>
+            <button class="btn secondary" disabled>
+              Organiser un Événement
+            </button>
           </div>
         </div>
       </footer>

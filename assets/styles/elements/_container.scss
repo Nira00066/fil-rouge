@@ -61,7 +61,6 @@
     &:not(.active) {
       display: none;
     }
-
     width: 100%;
     display: flex;
     flex-direction: row;
@@ -71,6 +70,12 @@
   &_textCenter {
     text-align: center;
   }
+  &_top {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+  }
+
   &_text {
     flex: 1;
     text-align: center;

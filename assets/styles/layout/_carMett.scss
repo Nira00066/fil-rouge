@@ -1,0 +1,128 @@
+.cardMett {
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  width: 100%;
+  max-width: 350px;
+  display: flex;
+  flex-direction: column;
+  
+  &_wrapper {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 0;
+  }
+  &_img {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &_tag {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #111;
+    color: #fff;
+    padding: 5px 10px;
+    font-size: 0.75rem;
+    border-radius: 4px;
+  }
+
+  &_heart {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: #111;
+    color: #fff;
+    border: none;
+    font-size: 1.2rem;
+    padding: 5px 8px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 2;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+  &_heart:hover {
+    background-color: #ffe6e6;
+    transform: scale(1.1);
+  }
+
+  &_description {
+    padding: 1rem;
+    flex-grow: 1;
+    h3 {
+      margin-bottom: 0.5rem;
+    }
+    p {
+      margin: 0.25rem 0;
+      font-size: 0.9rem;
+      color: #555;
+    }
+  }
+
+  &_btn {
+    padding: 1rem;
+    text-align: center;
+
+    button {
+      background: red;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      font-weight: bold;
+      cursor: pointer;
+      border-radius: 8px;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background: darkred;
+    }
+  }
+}
+
+.eventNear_top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  
+}
+.eventNear_top-left h2 {
+  font-size: 1.8rem;
+  margin: 0;
+  color: #111;
+}
+
+.eventNear_top-left p {
+  margin: 0.3rem 0 0;
+  color: #666;
+  font-size: 1rem;
+}
+
+.btn_next {
+  background-color: #eee;
+  color: #111;
+  border: none;
+  padding: 10px 16px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.3s ease;
+  
+  .btn_next:hover {
+      background-color: #ccc;
+    }
+}
