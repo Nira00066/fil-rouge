@@ -135,6 +135,7 @@ body {
 .container_text {
   flex: 1;
   text-align: center;
+  margin: 1rem;
 }
 .container_titre > h2 {
   font-size: 2rem; /* Plus gros */
@@ -147,6 +148,15 @@ body {
   line-height: 1.6;
   color: #ffffff; /* Gris secondaire */
 }
+.container_category {
+  margin: auto;
+  padding: 0 10rem;
+}
+@media (max-width: 768px) {
+  .container_category {
+    padding: 0 2rem;
+  }
+}
 
 .dark > h2 {
   color: #000000;
@@ -154,8 +164,8 @@ body {
 
 .containerCard {
   max-width: 1114px;
-  margin: 0 auto;
-  padding: 0 1rem;
+  margin: 0.5rem auto;
+  padding: 1rem 2rem;
   box-sizing: border-box;
   place-items: center;
 }
@@ -765,6 +775,11 @@ input[type=time]:focus {
   padding: 20px;
   box-sizing: border-box;
 }
+@media (max-width: 768px) {
+  .location {
+    height: fit-content;
+  }
+}
 .location_form {
   flex: 1;
   display: flex;
@@ -818,20 +833,23 @@ input[type=time]:focus {
   }
 }
 .category-grid {
+  justify-items: center;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
   gap: 1.5rem;
-  padding: 1rem;
+  max-width: 1117px; /* limite max si tu veux */
+  margin: 0 auto; /* ça centre horizontalement */
+  place-items: center;
 }
 
 .categoryCard {
   background-color: #ffffff;
   border-radius: 1rem;
-  padding: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   text-align: center;
   transition: background-color 0.3s ease, transform 0.2s ease;
   cursor: pointer;
+  border: 1px #bfbfbf solid;
 }
 .categoryCard:hover {
   background-color: #f3f4f6;
@@ -853,13 +871,15 @@ input[type=time]:focus {
   align-items: center;
   justify-content: center;
 }
-.icon-circle svg {
+.icon-circle img {
   width: 30px;
   height: 30px;
+  margin: 2px;
 }
 
 .clee {
   background-color: #ef4444;
+  padding: 10px;
 }
 
 /* Components */

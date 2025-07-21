@@ -74,6 +74,7 @@
   &_text {
     flex: 1;
     text-align: center;
+    margin: 1rem;
   }
   &_titre > h2 {
     font-size: 2rem; /* Plus gros */
@@ -87,14 +88,22 @@
     line-height: 1.6;
     color: #ffffff; /* Gris secondaire */
   }
+  &_category {
+    margin: auto;
+    padding: 0 10rem;
+    @media (max-width: 768px) {
+      padding: 0 2rem; // ou 1rem si t’es plus tight
+    }
+  }
 }
+
 .dark > h2 {
   color: #000000;
 }
 .containerCard {
   max-width: 1114px;
-  margin: 0 auto;
-  padding: 0 1rem; // un petit padding sur mobile
+  margin: 0.5rem auto;
+  padding: 1rem 2rem; // un petit padding sur mobile
   box-sizing: border-box;
   place-items: center;
 }
