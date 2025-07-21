@@ -24,6 +24,10 @@
     gap: 1rem;
     margin: auto;
 
+    @media screen and (max-width: 600px) {
+      flex-direction: column;
+    }
+
     // Bouton "Créer un compte"
     button:first-child {
       background-color: #4c5563;

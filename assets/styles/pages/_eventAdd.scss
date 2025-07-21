@@ -1,38 +1,127 @@
-.btn_back {
-  width: 50px;
-  height: 50px;
-  border: none;
-  background: none;
-  cursor: pointer;
-  text-decoration: none;
-  color: black;
-  font-style: none;
-}
-
-.eventAdd {
-  &_titrePrincipal {
-    font-size: 1.8rem;
-    text-align: center;
-    padding: 5rem;
-  }
-  &_titre {
-    font-size: 1.3rem;
-    text-align: start;
-  }
-
-  &_form {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 20px;
-  }
-
-  &_date {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-  }
-}
-// #form2_hidden{
-
+// .btn_back {
+//   width: 50px;
+//   height: 50px;
+//   border: none;
+//   background: none;
+//   cursor: pointer;
+//   text-decoration: none;
+//   color: black;
+//   font-style: none;
 // }
+
+// .eventAdd {
+//   &_titrePrincipal {
+//     font-size: 1.8rem;
+//     text-align: center;
+//     padding: 5rem;
+//   }
+//   &_titre {
+//     font-size: 1.3rem;
+//     text-align: start;
+//   }
+
+//   &_form {
+//     display: flex;
+//     flex-direction: column;
+//     align-items: center;
+//     gap: 20px;
+//   }
+
+//   &_date {
+//     display: flex;
+//     flex-direction: column;
+//     gap: 10px;
+//   }
+// }
+// // #form2_hidden{
+
+// // }
+.create-event {
+  padding: 2rem;
+  font-family: 'Inter', sans-serif;
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 0.2rem;
+  }
+
+  p {
+    color: #777;
+    margin-bottom: 1.5rem;
+  }
+
+  .tabs {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+
+    button {
+      padding: 0.5rem 1.2rem;
+      background: #f5f5f5;
+      border: none;
+      border-radius: 999px;
+      cursor: pointer;
+      font-weight: 500;
+      transition: all 0.2s ease;
+
+      &.active {
+        background: #111;
+        color: white;
+      }
+
+      &:hover:not(.active) {
+        background: #e0e0e0;
+      }
+    }
+  }
+
+  .form-card {
+    background: #fff;
+    border-radius: 1rem;
+    padding: 2rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+
+    h2 {
+      font-size: 1.2rem;
+      margin-bottom: 1.5rem;
+
+      i {
+        margin-right: 0.5rem;
+      }
+    }
+  }
+
+  .form-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+
+    .form-group {
+      display: flex;
+      flex-direction: column;
+
+      label {
+        font-weight: 500;
+        margin-bottom: 0.5rem;
+      }
+
+      input,
+      select {
+        padding: 0.6rem 0.8rem;
+        border: 1px solid #ccc;
+        border-radius: 0.5rem;
+        font-size: 0.95rem;
+        transition: 0.2s;
+
+        &:focus {
+          border-color: #333;
+          outline: none;
+        }
+      }
+
+      &.full {
+        grid-column: span 2;
+      }
+    }
+  }
+}
