@@ -162,6 +162,9 @@ body {
     padding: 0 2rem;
   }
 }
+.container_filter {
+  margin: 5rem 10rem;
+}
 
 .dark > h2 {
   color: #000000;
