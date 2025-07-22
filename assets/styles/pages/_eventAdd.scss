@@ -1,3 +1,7 @@
+// =========================
+// Base styles
+// =========================
+
 .create-event {
   padding: 2rem;
   font-family: "Inter", sans-serif;
@@ -11,12 +15,11 @@
     color: #777;
     margin-bottom: 1.5rem;
   }
-
 }
 
-
-
-
+// =========================
+// Tabs
+// =========================
 
 .tabs {
   display: flex;
@@ -29,7 +32,6 @@
   padding: 0.5rem;
   width: fit-content;
 
-
   button {
     padding: 0.5rem 1.2rem;
     background: #f5f5f5;
@@ -41,7 +43,7 @@
 
     &.active {
       background: #111;
-      color: white;
+      color: #fff;
     }
 
     &:hover:not(.active) {
@@ -49,11 +51,17 @@
     }
   }
 }
+
+// =========================
+// Form Card
+// =========================
+
 .form-card {
   background: #fff;
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  margin-bottom: 2rem;
 
   h2 {
     font-size: 1.2rem;
@@ -62,7 +70,7 @@
 
   .form-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: 1.5rem;
 
     .form-group {
@@ -92,21 +100,216 @@
         grid-column: span 2;
       }
     }
- 
-}}
+  }
+}
+
+// =========================
+// Checkbox Group
+// =========================
+
+.form-group.checkbox {
+  align-self: end;
+  display: flex;
+  align-items: center;
+  padding-top: 1.5rem;
+
+  label {
+    font-weight: normal;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    font-size: 0.9rem;
+    gap: 0.5rem;
+  }
+
+  input[type="checkbox"] {
+    width: 1rem;
+    height: 1rem;
+    accent-color: #333;
+  }
+}
+
+// =========================
+// Tab Sections
+// =========================
 
 .tab-section {
   display: none;
+
+  &.active {
+    display: block;
+  }
 }
 
-.tab-section .active {
-  display: block;
-}
+// =========================
+// Centered Checkbox Wrapper
+// =========================
 
-.checkbox{
+.checkbox {
   width: fit-content;
   display: flex;
   flex-direction: row;
   margin: auto;
- 
+}
+
+// =========================
+// Tags Input
+// =========================
+
+.input-with-button {
+  display: flex;
+  align-items: center;
+
+  input {
+    flex: 1;
+    padding: 0.6rem 0.8rem;
+    border: 1px solid #ccc;
+    border-radius: 0.5rem 0 0 0.5rem;
+    font-size: 0.95rem;
+    transition: 0.2s;
+
+    &:focus {
+      border-color: #333;
+      outline: none;
+    }
+  }
+
+  button {
+    padding: 0.6rem 1rem;
+    border: 1px solid #ccc;
+    border-left: none;
+    background-color: #333;
+    color: #fff;
+    font-size: 0.9rem;
+    border-radius: 0 0.5rem 0.5rem 0;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #555;
+    }
+  }
+}
+
+.suggested-tags {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+
+  .tag {
+    background-color: #eee;
+    padding: 0.3rem 0.7rem;
+    border-radius: 20px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+
+    &:hover {
+      background-color: #ccc;
+    }
+  }
+}
+
+// =========================
+// Image Upload
+// =========================
+
+.image-upload {
+  position: relative;
+  border: 2px dashed #ccc;
+  padding: 2rem;
+  text-align: center;
+  border-radius: 1rem;
+  cursor: pointer;
+  transition: border-color 0.3s ease;
+  background-color: #f9f9f9;
+
+  span {
+    color: #666;
+    font-size: 0.95rem;
+  }
+
+  input[type="file"] {
+    display: none;
+  }
+
+  img {
+    margin-top: 1rem;
+    max-width: 100%;
+    max-height: 200px;
+    border-radius: 0.5rem;
+    object-fit: cover;
+    display: none;
+  }
+
+  &:hover {
+    border-color: #999;
+  }
+
+  .remove-image {
+    position: absolute;
+    top: 0.5rem;
+    right: 0.5rem;
+    background: #333;
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 24px;
+    height: 24px;
+    font-size: 0.9rem;
+    cursor: pointer;
+    transition: background 0.2s ease;
+
+    &:hover {
+      background: #555;
+    }
+  }
+}
+
+// =========================
+// Responsive
+// =========================
+
+@media (max-width: 768px) {
+  .tabs {
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+    border-radius: 10px;
+  }
+
+  .form-card {
+    padding: 1.5rem;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .form-group.full {
+    grid-column: 1 !important;
+  }
+
+  .input-with-button {
+    flex-direction: column;
+
+    input {
+      border-radius: 0.5rem;
+      border-right: 1px solid #ccc;
+    }
+
+    button {
+      border-radius: 0.5rem;
+      width: 100%;
+      margin-top: 0.5rem;
+    }
+  }
+
+  .suggested-tags {
+    justify-content: center;
+  }
+  .container_filter {
+    margin: 0;
+  }
 }
