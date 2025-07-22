@@ -361,26 +361,6 @@ input[type=date] {
   visibility: visible !important;
 }
 
-input[type=date]:focus {
-  outline: none;
-  border: 1px solid #3498db;
-  background: #ecf0f1;
-}
-
-input[type=time]::-webkit-clear-button {
-  display: none;
-}
-
-/* Removes the spin button */
-input[type=time]::-webkit-inner-spin-button {
-  display: none;
-}
-
-/* Always display the drop down caret */
-input[type=time]::-webkit-calendar-picker-indicator {
-  color: #2c3e50;
-}
-
 /* A few custom styles for date inputs */
 input[type=time] {
   appearance: none;
@@ -392,11 +372,17 @@ input[type=time] {
   display: inline-block !important;
   visibility: visible !important;
 }
-
-input[type=time]:focus {
+input[type=time] input[type=time]:focus {
   outline: none;
   border: 1px solid #3498db;
   background: #ecf0f1;
+}
+
+input[type=checkbox] {
+  accent-color: #111;
+  cursor: pointer;
+  border-radius: 5px;
+  color: #000000;
 }
 
 .input {
@@ -405,10 +391,6 @@ input[type=time]:focus {
   gap: 10px;
   border-radius: 10px;
   padding: 5px;
-}
-.input_time {
-  width: 50%;
-  padding-left: 10px;
 }
 
 .seize_lg {
@@ -935,10 +917,8 @@ body {
   }
 }
 .category-grid {
-  justify-items: center;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1.5rem;
   max-width: 1117px; /* limite max si tu veux */
   margin: 0 auto; /* ça centre horizontalement */
   place-items: center;
@@ -997,7 +977,6 @@ body {
 .cardMett_wrapper {
   display: flex;
   gap: 15px;
-  flex-wrap: wrap;
   justify-content: space-between;
   margin: 2rem 0;
 }
@@ -1367,12 +1346,19 @@ body {
   color: #777;
   margin-bottom: 1.5rem;
 }
-.create-event .tabs {
+
+.tabs {
   display: flex;
   gap: 1rem;
-  margin-bottom: 2rem;
+  margin: 2rem auto;
+  background-color: #fff;
+  border: none;
+  border-radius: 999px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.09);
+  padding: 0.5rem;
+  width: fit-content;
 }
-.create-event .tabs button {
+.tabs button {
   padding: 0.5rem 1.2rem;
   background: #f5f5f5;
   border: none;
@@ -1381,54 +1367,67 @@ body {
   font-weight: 500;
   transition: all 0.2s ease;
 }
-.create-event .tabs button.active {
+.tabs button.active {
   background: #111;
   color: white;
 }
-.create-event .tabs button:hover:not(.active) {
+.tabs button:hover:not(.active) {
   background: #e0e0e0;
 }
-.create-event .form-card {
+
+.form-card {
   background: #fff;
   border-radius: 1rem;
   padding: 2rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
-.create-event .form-card h2 {
+.form-card h2 {
   font-size: 1.2rem;
   margin-bottom: 1.5rem;
 }
-.create-event .form-card h2 i {
-  margin-right: 0.5rem;
-}
-.create-event .form-grid {
+.form-card .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 1.5rem;
 }
-.create-event .form-grid .form-group {
+.form-card .form-grid .form-group {
   display: flex;
   flex-direction: column;
 }
-.create-event .form-grid .form-group label {
+.form-card .form-grid .form-group label {
   font-weight: 500;
   margin-bottom: 0.5rem;
 }
-.create-event .form-grid .form-group input,
-.create-event .form-grid .form-group select {
+.form-card .form-grid .form-group input,
+.form-card .form-grid .form-group select {
   padding: 0.6rem 0.8rem;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   font-size: 0.95rem;
   transition: 0.2s;
 }
-.create-event .form-grid .form-group input:focus,
-.create-event .form-grid .form-group select:focus {
+.form-card .form-grid .form-group input:focus,
+.form-card .form-grid .form-group select:focus {
   border-color: #333;
   outline: none;
 }
-.create-event .form-grid .form-group.full {
+.form-card .form-grid .form-group.full {
   grid-column: span 2;
+}
+
+.tab-section {
+  display: none;
+}
+
+.tab-section .active {
+  display: block;
+}
+
+.checkbox {
+  width: fit-content;
+  display: flex;
+  flex-direction: row;
+  margin: auto;
 }
 
 .Contact_nameUser > h1 {

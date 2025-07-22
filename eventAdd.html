@@ -10,6 +10,7 @@
     <link rel="icon" type="image/x-icon" href="assets/pepite-1.png" />
   </head>
   <body>
+    <!--******************************             HEADER              ********************************************* -->
     <header class="header">
       <div class="container">
         <div class="header_top">
@@ -41,89 +42,142 @@
         </div>
       </div>
     </header>
-<section class="container_filter">
+    <!--******************************             HEADER              ********************************************* -->
 
-  <div class="create-event">
-    <h1>Créer un événement</h1>
-    <p>Organisez votre événement automobile et rassemblez la communauté</p>
-    
-    <div class="tabs">
-      <button class="active">Informations</button>
-      <button>Détails</button>
-      <button>Règles & Services</button>
-      <button>Contact</button>
-    </div>
-    
-    <div class="form-card">
-      <h2><i class="fa-regular fa-calendar"></i> Informations de base</h2>
-      
-      <form class="form-grid">
-        <div class="form-group">
-          <label>Titre de l’événement *</label>
-          <input
-          type="text"
-          placeholder="Ex: Rassemblement BMW Classic 2025"
-          />
+
+    <section class="container_filter">
+      <div class="create-event">
+
+        <div class="container_text">
+          <h1>Créer un événement</h1>
+          <p>Organisez votre événement automobile et rassemblez la communauté</p>
         </div>
+<!-- ***************  TITRE **************** -->
+        <div class="tabs">
+          <button class="active" data-tab="infos">Informations</button>
+          <button data-tab="details">Détails</button>
+          <button data-tab="regles">Règles & Services</button>
+          <button data-tab="contact">Contact</button>
+        </div>
+
+<!-- ***************  TITRE **************** -->
         
-        <div class="form-group">
-          <label>Catégorie *</label>
-          <select>
-            <option value="">Sélectionner</option>
-            <option>Vintage</option>
-            <option>Drift</option>
-            <option>Tuning</option>
-            <option>Circuit</option>
-            <option>Exposition</option>
-            <option>Rassemblement</option>
-          </select>
+        <section data-tab="tab_section" id="infos">
+        <div class="form-card">
+        <h2> Informations de base</h2>
+
+
+        <form class="form-grid">
+<!-- ***************  TITRE De l'event **************** -->
+          
+            <div class="form-group">
+              <label>Titre de l’événement *</label>
+              <input
+                type="text"
+                placeholder="Ex: Rassemblement BMW Classic 2025"
+              />
+            </div>
+<!-- ***************  Catégorie **************** -->
+
+            <div class="form-group">
+              <label>Catégorie *</label>
+              <select>
+                <option value="">Sélectionner</option>
+                <option>Vintage</option>
+                <option>Drift</option>
+                <option>Tuning</option>
+                <option>Circuit</option>
+                <option>Exposition</option>
+                <option>Rassemblement</option>
+              </select>
+            </div>
+
+<!-- ***************  Catégorie **************** -->
+
+<div class="form-group checkbox"> 
+    <div class="checkbox-group"> 
+      <input
+       type="checkbox"
+       id="multiple-dates"
+       onchange="toggleEndDate()"
+     />
+     <label for="multiple-dates"> +1 jours</label>
+   </div>
+ </div>  
+            <!-- Checkbox : plusieurs dates -->
+
+<!-- ***************  Catégorie **************** -->
+
+            <!-- Date de début -->
+            <div class="form-group">
+              <label>Date de début *</label>
+              <input type="date" id="start-date" />
+            </div>
+
+            <!-- Date de fin (masqué par défaut) -->
+            <div class="form-group" >
+              <label>Date de fin *</label>
+              <input type="date" id="end-date" />
+            </div>
+<!-- ***************  HEURE **************** -->
+
+            <!-- Heure de début -->
+            <div class="form-group">
+              <label>Heure de début *</label>
+              <input type="time" />
+            </div>
+
+            <!-- Heure de fin -->
+            <div class="form-group">
+              <label>Heure de fin</label>
+              <input type="time" />
+            </div>
+<!-- ***************  Prix **************** -->
+
+            <!-- Prix -->
+            <div class="form-group">
+              <label>Prix d’entrée</label>
+              <input type="text" placeholder="Gratuit, 15€, 25€/personne…" />
+            </div>
+<!-- ***************  Lieu **************** -->
+            
+            <!-- Lieu -->
+            <div class="form-group">
+              <label>Lieu *</label>
+              <input type="text" placeholder="Ex: Château de Vincennes" />
+            </div>
+            
+<!-- ***************  Adresse **************** -->
+
+            <!-- Ville -->
+            <div class="form-group">
+              <label>Ville *</label>
+              <input type="text" placeholder="Ex: Paris" />
+            </div>
+
+            <!-- Adresse complète -->
+            <div class="form-group full">
+              <label>Adresse complète *</label>
+              <input
+                type="text"
+                placeholder="Ex: 9 Avenue de Paris, 94300 Vincennes"
+              />
+            </div>
+<!-- ***************   Nombre participants **************** -->
+
+            <div class="form-group full">
+              <label>Nombre maximum de participants</label>
+              <input type="number" min="1" placeholder="Ex: 100" />
+            </div>
+          </form>
+        </section>
+        <section class="tab-section" id="details" >
+<div class=" desciption">
+
+</div>
+        </section>
         </div>
-        
-        <div class="form-group">
-          <label>Date *</label>
-          <input type="date" />
-        </div>
-        
-        <div class="form-group">
-          <label>Heure de début *</label>
-          <input type="time" />
-        </div>
-        
-        <div class="form-group">
-          <label>Heure de fin</label>
-          <input type="time" />
-        </div>
-        
-        <div class="form-group">
-          <label>Prix d’entrée</label>
-          <input type="text" placeholder="Gratuit, 15€, 25€/personne…" />
-        </div>
-        
-        <div class="form-group">
-          <label>Lieu *</label>
-          <input type="text" placeholder="Ex: Château de Vincennes" />
-        </div>
-        
-        <div class="form-group">
-          <label>Ville *</label>
-          <input type="text" placeholder="Ex: Paris" />
-        </div>
-        
-        <div class="form-group full">
-          <label>Adresse complète *</label>
-          <input
-          type="text"
-          placeholder="Ex: 9 Avenue de Paris, 94300 Vincennes"
-          />
-        </div>
-        
-        <div class="form-group full">
-          <label>Nombre maximum de participants</label>
-          <input type="number" min="1" placeholder="Ex: 100" />
-        </div>
-      </form>
-    </div>
-  </div>
-</section>
-</body>
+      </div>
+    </section>
+  </body>
 </html>

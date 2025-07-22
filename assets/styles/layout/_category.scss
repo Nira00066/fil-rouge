@@ -1,8 +1,6 @@
 .category-grid {
-  justify-items: center;
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  gap: 1.5rem;
   max-width: 1117px; /* limite max si tu veux */
   margin: 0 auto; /* ça centre horizontalement */
   place-items: center;
