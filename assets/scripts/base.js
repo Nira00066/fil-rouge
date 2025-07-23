@@ -48,4 +48,3 @@ for( let i=0; i < productsSlider.length; i++ ) {
 
 import './components/Mainmenu.js';
 import './action/event.js'
-import './action/popupConnection.js';

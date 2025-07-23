@@ -27,18 +27,48 @@
 //   });
 // }
 
-console.log('ici 1');
 function toggleEndDate() {
+  console.log('ici 1');
   const checkbox = document.getElementById("multiple-dates");
   const endDateGroup = document.getElementById("end-date-group");
   endDateGroup.style.display = checkbox.checked ? "flex" : "none";
 }
 document.addEventListener("DOMContentLoaded", toggleEndDate);
 
-// tabs.js
+
 function initTabs() {
   console.log("oui recu");
 
+function initTabs() {
+  console.log("oui recu");
+
+  document.querySelectorAll(".tabs button").forEach((button) => {
+    button.addEventListener("click", () => {
+      // Supprimer la classe active sur tous les boutons
+      document
+        .querySelectorAll(".tabs button")
+        .forEach((btn) => btn.classList.remove("active"));
+      button.classList.add("active");
+      console.log("oui recu");
+
+      // Cacher toutes les sections
+      document
+        .querySelectorAll(".tab-section")
+        .forEach((section) => (section.style.display = "none"));
+      console.log("oui recu");
+
+      // Afficher la section ciblée
+      const targetId = button.getAttribute("data-tab");
+      const targetSection = document.getElementById(targetId);
+      if (targetSection) targetSection.style.display = "block";
+    });
+  });
+}
+
+// Optionnel: exécuter dès que le DOM est prêt
+document.addEventListener("DOMContentLoaded",initTabs);
+console.log("oui recu");
+// 
   document.querySelectorAll(".tabs button").forEach((button) => {
     button.addEventListener("click", () => {
       // Supprimer la classe active sur tous les boutons

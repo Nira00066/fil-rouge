@@ -227,87 +227,54 @@ body {
 }
 
 /* Forms */
-.btn {
-  background: #fff;
-  border: 1px solid var(--primary-color);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  padding: 5px;
-  font-size: 16px;
-  border-radius: 999px;
-  width: 100%;
-}
-.btn_filter {
-  border-radius: 15px;
-  background: #fff;
-  border: 1px solid var(--primary-color);
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
-  font-size: 16px;
-  padding: 5px;
-  width: 100%;
-}
-.btn_hidden {
-  display: none;
-  border: none;
-}
-.btn_valide {
-  width: fit-content;
-  height: fit-content;
-  border-radius: 20px;
-}
-.btn_connexion {
-  border-radius: 999px;
-  border: var(--border-orange);
-  background-color: var(--primary-color);
-  font-size: 16px;
-  padding: 10px 15px;
-  font-family: var(--font-body);
-}
-.btn_form {
-  align-items: center;
-  border: none;
-  border-radius: 10px;
-  padding: 5px;
-  box-shadow: var(--box-shadow);
-  background-color: var(--primary-color);
-  color: var(--third-color);
-  width: 70%;
-  margin: auto;
-}
-.btn_addDate {
-  border: 1px solid var(--primary-color);
-  background-color: var(--secondary-color);
-  box-shadow: var(--box-shadow);
-  border-radius: 15px;
-  font-size: 1rem;
-}
-
-.formSubmit {
-  border: 1px solid var(--third-color);
-  opacity: 0.5;
-}
-
-.box label {
-  border-bottom: 1px solid var(--third-color);
-  font-family: 600;
-  font-size: 1.1rem;
-  margin: 5px;
-}
-.box .filewrapper {
+.footer_buttons {
   display: flex;
-  align-items: center;
+  flex-direction: row;
   justify-content: center;
-  height: 300px;
-  width: 300px;
-  gap: 10px;
+  gap: 1rem;
   margin: auto;
-  border-radius: 10px;
-  background-color: #f0f0f0;
-  border: 1px dashed var(--primary-color);
 }
-.box .filewrapper input[type=file] {
-  opacity: 0;
-  position: absolute;
-  width: 50%;
+@media screen and (max-width: 600px) {
+  .footer_buttons {
+    flex-direction: column;
+  }
+}
+.footer_buttons button:first-child {
+  background-color: #4c5563;
+  color: #ffffff;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.footer_buttons button:first-child:hover {
+  background-color: #2e3339;
+}
+.footer_buttons button:last-child {
+  background-color: #ffffff;
+  color: #aaa;
+  border: 1px solid #ddd;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  font-weight: 600;
+  font-size: 1rem;
+  opacity: 0.7;
+  cursor: not-allowed;
+  transition: all 0.3s ease;
+}
+.footer_buttons button:last-child:hover {
+  background-color: #ffffff;
+}
+.footer_buttons button:last-child.active {
+  cursor: pointer;
+  opacity: 1;
+  color: #4c5563;
+}
+.footer_buttons button:last-child.active:hover {
+  background-color: #f2f2f2;
 }
 
 .form-control {
@@ -453,6 +420,9 @@ input[type=checkbox] {
   user-select: none;
   -webkit-user-select: none;
   touch-action: manipulation;
+}
+.header .connexion_btn :hover {
+  background: #dc2626;
 }
 .header_bottom {
   margin-top: var(--padding-sm);
@@ -713,55 +683,6 @@ body {
   margin: 0 auto 2rem;
   line-height: 1.6;
 }
-.footer_cta .footer_cta_buttons {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  gap: 1rem;
-  margin: auto;
-}
-@media screen and (max-width: 600px) {
-  .footer_cta .footer_cta_buttons {
-    flex-direction: column;
-  }
-}
-.footer_cta .footer_cta_buttons button:first-child {
-  background-color: #4c5563;
-  color: #ffffff;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  border: none;
-  cursor: pointer;
-  transition: all 0.3s ease;
-}
-.footer_cta .footer_cta_buttons button:first-child:hover {
-  background-color: #2e3339;
-}
-.footer_cta .footer_cta_buttons button:last-child {
-  background-color: #ffffff;
-  color: #aaa;
-  border: 1px solid #ddd;
-  padding: 0.75rem 1.5rem;
-  border-radius: 8px;
-  font-weight: 600;
-  font-size: 1rem;
-  opacity: 0.7;
-  cursor: not-allowed;
-  transition: all 0.3s ease;
-}
-.footer_cta .footer_cta_buttons button:last-child:hover {
-  background-color: #ffffff;
-}
-.footer_cta .footer_cta_buttons button:last-child.active {
-  cursor: pointer;
-  opacity: 1;
-  color: #4c5563;
-}
-.footer_cta .footer_cta_buttons button:last-child.active:hover {
-  background-color: #f2f2f2;
-}
 
 .location {
   background: linear-gradient(135deg, #0a0a0a 0%, #374151 100%);
@@ -998,6 +919,102 @@ body {
 }
 .btn_next .btn_next:hover {
   background-color: #ccc;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: #ffffff;
+  color: #333;
+}
+
+.Connexion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+  padding: 2rem;
+  position: relative;
+}
+.Connexion .back {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+.Connexion .back a {
+  color: #dc2626;
+  text-decoration: none;
+  font-weight: bold;
+}
+.Connexion .back a:hover {
+  text-decoration: underline;
+}
+.Connexion .bloc_text {
+  background-color: white;
+  padding: 3rem 2rem;
+  border-radius: 15px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+  text-align: center;
+}
+.Connexion .bloc_text h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: #1f2937;
+}
+.Connexion .bloc_text p {
+  margin-bottom: 2rem;
+  color: #6b7280;
+}
+.Connexion .bloc_text .form-grid form .form-group {
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+.Connexion .bloc_text .form-grid form .form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+.Connexion .bloc_text .form-grid form .form-group input {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #d1d5db;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.3s ease;
+}
+.Connexion .bloc_text .form-grid form .form-group input:focus {
+  border-color: #dc2626;
+}
+.Connexion .bloc_text .form-grid form input[type=submit] {
+  width: 100%;
+  background-color: #dc2626;
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.Connexion .bloc_text .form-grid form input[type=submit]:hover {
+  background-color: #ffffff;
+}
+.Connexion .bloc_text a {
+  display: block;
+  margin-top: 1.5rem;
+  color: #3b82f6;
+  text-decoration: none;
+}
+.Connexion .bloc_text a:hover {
+  text-decoration: underline;
 }
 
 /* Components */
