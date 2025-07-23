@@ -44,13 +44,13 @@
     </header>
     <!--******************************             HEADER              ********************************************* -->
 
-
     <section class="container_filter">
       <div class="create-event">
-        
         <div class="container_text">
           <h1>Créer un événement</h1>
-          <p>Organisez votre événement automobile et rassemblez la communauté</p>
+          <p>
+            Organisez votre événement automobile et rassemblez la communauté
+          </p>
         </div>
         <!-- ***************  TITRE **************** -->
         <div class="tabs">
@@ -60,136 +60,363 @@
           <button data-tab="contact">Contact</button>
         </div>
 
-<!-- ***************  TITRE **************** -->
-        
+        <!-- ***************  TITRE **************** -->
+
         <section class="tab-section" data-tab="tab-section" id="infos">
-        <div class="form-card">
-        <h2> Informations de base</h2>
+          <div class="form-card">
+            <h2>Informations de base</h2>
 
+            <form class="form-grid">
+              <!-- ***************  TITRE De l'event **************** -->
 
-        <form class="form-grid">
-          <!-- ***************  TITRE De l'event **************** -->
-          
-          <div class="form-group">
-              <label>Titre de l’événement *</label>
-              <input
-                type="text"
-                placeholder="Ex: Rassemblement BMW Classic 2025"
-              />
-            </div>
-<!-- ***************  Catégorie **************** -->
+              <div class="form-group">
+                <label>Titre de l’événement *</label>
+                <input
+                  type="text"
+                  placeholder="Ex: Rassemblement BMW Classic 2025"
+                />
+              </div>
+              <!-- ***************  Catégorie **************** -->
 
-            <div class="form-group">
-              <label>Catégorie *</label>
-              <select>
-                <option value="">Sélectionner</option>
-                <option>Vintage</option>
-                <option>Drift</option>
-                <option>Tuning</option>
-                <option>Circuit</option>
-                <option>Exposition</option>
-                <option>Rassemblement</option>
-              </select>
-            </div>
+              <div class="form-group">
+                <label>Catégorie *</label>
+                <select>
+                  <option value="">Sélectionner</option>
+                  <option>Vintage</option>
+                  <option>Drift</option>
+                  <option>Tuning</option>
+                  <option>Circuit</option>
+                  <option>Exposition</option>
+                  <option>Rassemblement</option>
+                </select>
+              </div>
 
-            <!-- ***************  Catégorie **************** -->
+              <!-- ***************  Catégorie **************** -->
 
-            <div class="form-group checkbox"> 
-    <div class="checkbox-group"> 
-      <input
-      type="checkbox"
-      id="multiple-dates"
-      onchange="toggleEndDate()"
-      />
-     <label for="multiple-dates"> +1 jours</label>
-   </div>
- </div>  
-            <!-- Checkbox : plusieurs dates -->
+              <!-- Checkbox : plusieurs dates -->
 
-<!-- ***************  Catégorie **************** -->
+              <!-- ***************  Catégorie **************** -->
 
-            <!-- Date de début -->
-            <div class="form-group">
-              <label>Date de début *</label>
-              <input type="date" id="start-date" />
-            </div>
+              <!-- Date de début -->
+              <div class="form-group">
+                <label>Date de début *</label>
+                <input type="date" id="start-date" />
+              </div>
 
-            <!-- Date de fin (masqué par défaut) -->
-            <div class="form-group" >
-              <label>Date de fin *</label>
-              <input type="date" id="end-date" />
-            </div>
-<!-- ***************  HEURE **************** -->
+              <!-- Date de fin (masqué par défaut) -->
+              <div class="form-group">
+                <label>Date de fin *</label>
+                <input type="date" id="end-date" />
+              </div>
 
-            <!-- Heure de début -->
-            <div class="form-group">
-              <label>Heure de début *</label>
-              <input type="time" />
-            </div>
+              <!-- ***************  HEURE **************** -->
 
-            <!-- Heure de fin -->
-            <div class="form-group">
-              <label>Heure de fin</label>
-              <input type="time" />
-            </div>
-            <!-- ***************  Prix **************** -->
+              <!-- Heure de début -->
+              <div class="form-group">
+                <label>Heure de début *</label>
+                <input type="time" />
+              </div>
 
-            <!-- Prix -->
-            <div class="form-group">
-              <label>Prix d’entrée</label>
-              <input type="text" placeholder="Gratuit, 15€, 25€/personne…" />
-            </div>
-<!-- ***************  Lieu **************** -->
-            
-            <!-- Lieu -->
-            <div class="form-group">
-              <label>Lieu *</label>
-              <input type="text" placeholder="Ex: Château de Vincennes" />
-            </div>
-            
-            <!-- ***************  Adresse **************** -->
-            
-            <!-- Ville -->
-            <div class="form-group">
-              <label>Ville *</label>
-              <input type="text" placeholder="Ex: Paris" />
-            </div>
-            
-            <!-- Adresse complète -->
-            <div class="form-group full">
-              <label>Adresse complète *</label>
-              <input
-              type="text"
-                placeholder="Ex: 9 Avenue de Paris, 94300 Vincennes"
+              <!-- Heure de fin -->
+              <div class="form-group">
+                <label>Heure de fin</label>
+                <input type="time" />
+              </div>
+              <!-- ***************  Prix **************** -->
+
+              <!-- Prix -->
+              <div class="form-group">
+                <label>Prix d’entrée</label>
+                <input type="text" placeholder="Gratuit, 15€, 25€/personne…" />
+              </div>
+              <!-- ***************  Lieu **************** -->
+
+              <!-- Lieu -->
+              <div class="form-group">
+                <label>Lieu *</label>
+                <input type="text" placeholder="Ex: Château de Vincennes" />
+              </div>
+
+              <!-- ***************  Adresse **************** -->
+
+              <!-- Ville -->
+              <div class="form-group">
+                <label>Ville *</label>
+                <input type="text" placeholder="Ex: Paris" />
+              </div>
+
+              <!-- Adresse complète -->
+              <div class="form-group full">
+                <label>Adresse complète *</label>
+                <input
+                  type="text"
+                  placeholder="Ex: 9 Avenue de Paris, 94300 Vincennes"
                 />
               </div>
               <!-- ***************   Nombre participants **************** -->
 
-            <div class="form-group full">
-              <label>Nombre maximum de participants</label>
-              <input type="number" min="1" placeholder="Ex: 100" />
+              <div class="form-group full">
+                <label>Nombre maximum de participants</label>
+                <input type="number" min="1" placeholder="Ex: 100" />
+              </div>
+            </form>
+          </div>
+        </section>
+        <!-- ****************** evenement détails ******************** -->
+
+        <section class="tab-section" id="details">
+          <div class="desciption">
+            <form action="POST">
+              <!-- 🟦 Première carte : description -->
+              <div class="form-card">
+                <div class="form-grid">
+                  <div class="form-group full">
+                    <label>Description de l'événement</label>
+                    <input
+                      type="text"
+                      placeholder="Décrivez votre événement en détail : programme, déroulement, ce que les participants peuvent attendre..."
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <!-- 🟩 Deuxième carte : tags -->
+              <div class="form-card">
+                <div class="form-group full">
+                  <label for="tags">Tags de l'événement</label>
+
+                  <div class="input-with-button">
+                    <input
+                      type="text"
+                      id="tags"
+                      placeholder="Ajoutez des tags..."
+                    />
+                    <button type="button" onclick="addTagFromInput()">
+                      Ajouter
+                    </button>
+                  </div>
+
+                  <div class="suggested-tags">
+                    <span class="tag" onclick="addTag('Vintage')">Vintage</span>
+                    <span class="tag" onclick="addTag('Drift')">Drift</span>
+                    <span class="tag" onclick="addTag('Tuning')">Tuning</span>
+                    <span class="tag" onclick="addTag('Circuit')">Circuit</span>
+                    <!-- tags genere par les rajoue de bases ! -->
+                  </div>
+                </div>
+              </div>
+              <!-- *************************** element IMAGE **********************  -->
+              <div class="form-card">
+                <div class="form-group full">
+                  <label for="event-image">Image de l'événement</label>
+
+                  <div class="image-upload" onclick="triggerUpload()">
+                    <span id="upload-text">
+                      Cliquer pour sekectionner une image ici</span
+                    >
+                    <input type="file" id="event-image" accept="image/*" />
+                    <div class="image-preview">
+                      <img id="preview-image" src="" alt="" />
+                      <button
+                        type="button"
+                        class="remove-image"
+                        onclick="removeImage(event)"
+                      >
+                        ✖
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </section>
+        <!-- ****************** evenement Règles & services ******************** -->
+        <section class="tab-section" id="regles">
+          <form action="POST">
+            <div class="form-card">
+              <h2>Règlement de l'événement</h2>
+
+              <!-- Input pour ajouter une règle -->
+              <div class="input-with-button form-group full">
+                <input
+                  type="text"
+                  id="rule-input"
+                  placeholder="Ajouter une règle"
+                  autocomplete="off"
+                />
+                <button type="button" onclick="addRuleFromInput()">
+                  Ajouter
+                </button>
+              </div>
+
+              <!-- Tags cliquables (règles suggérées) -->
+              <div class="form-group full">
+                <label>Règles communes</label>
+                <div class="suggested-tags">
+                  <span class="tag" onclick="addRule('Respecter les horaires')"
+                    >Respecter les horaires</span
+                  >
+                  <span
+                    class="tag"
+                    onclick="addRule('Port du casque obligatoire pour les pilotes')"
+                    >Port du casque</span
+                  >
+                  <span
+                    class="tag"
+                    onclick="addRule('Interdiction de jeter des déchets')"
+                    >Pas de déchets</span
+                  >
+                  <span
+                    class="tag"
+                    onclick="addRule('Suivre les consignes des organisateurs')"
+                    >Suivre les consignes</span
+                  >
+                  <span
+                    class="tag"
+                    onclick="addRule('Respect des autres participants')"
+                    >Respect mutuel</span
+                  >
+                </div>
+              </div>
+
+              <!-- Liste des règles ajoutées -->
+              <div class="form-group full">
+                <label>Règles sélectionnées</label>
+                <ul
+                  id="rules-list"
+                  style="list-style-type: disc; padding-left: 1.2rem"
+                ></ul>
+              </div>
+            </div>
+
+            <!-- Bloc Services disponibles -->
+            <div class="form-card">
+              <h2>Services disponibles</h2>
+
+              <!-- Input pour ajouter un service -->
+              <div class="input-with-button form-group full">
+                <input
+                  type="text"
+                  id="service-input"
+                  placeholder="Ajouter un service..."
+                  autocomplete="off"
+                />
+                <button type="button" onclick="addServiceFromInput()">
+                  Ajouter
+                </button>
+              </div>
+
+              <!-- Tags cliquables (services suggérés) -->
+              <div class="form-group full">
+                <label>Services courants</label>
+                <div class="suggested-tags">
+                  <span class="tag" onclick="addService('Parking sécurisé')"
+                    >Parking sécurisé</span
+                  >
+                  <span class="tag" onclick="addService('Toilettes publiques')"
+                    >Toilettes publiques</span
+                  >
+                  <span class="tag" onclick="addService('Restaurant sur place')"
+                    >Restaurant sur place</span
+                  >
+                  <span
+                    class="tag"
+                    onclick="addService('Animations pour enfants')"
+                    >Animations enfants</span
+                  >
+                  <span class="tag" onclick="addService('Sécurité sur place')"
+                    >Sécurité sur place</span
+                  >
+                </div>
+              </div>
+
+              <!-- Liste des services ajoutés -->
+              <div class="form-group full">
+                <label>Services sélectionnés</label>
+                <ul
+                  id="services-list"
+                  style="list-style-type: disc; padding-left: 1.2rem"
+                ></ul>
+              </div>
             </div>
           </form>
         </section>
-        <!-- ****************** evenement détails ******************** -->
-        
-        <section class="tab-section" id="details" >
-    <div class=" desciption form-card ">
-      <form action="POST">
-      <div class=" form-group full">
-        <label>Description de l'évenement </label>
-        <input type=" text" placeholder="décrivez votre événement en détail: programme,déroulement,ce que les participants peuvent attendre...">
-      </div>
-<div class="form-group full">
-<label for="tags"> Tags de l'evenement</label>
-<input type="text">
-</div>
-</form>
 
-</div>
-</section>
-</section>
-</div>
-</div>
+        <section class="tab-section" id="contact">
+          <form action="POST">
+            <!-- Bloc Informations de contact -->
+            <div class="form-card">
+              <h2>Informations de contact</h2>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="phone">Téléphone</label>
+                  <input
+                    type="tel"
+                    id="phone"
+                    placeholder="Ex: +33 6 12 34 56 78"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email</label>
+                  <input
+                    type="email"
+                    id="email"
+                    placeholder="Ex: contact@evenement.com"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="website">Site Web</label>
+                  <input
+                    type="url"
+                    id="website"
+                    placeholder="Ex: www.moneventauto.fr"
+                  />
+                </div>
+
+                <div class="form-group">
+                  <label for="social">Réseaux sociaux</label>
+                  <input
+                    type="text"
+                    id="social"
+                    placeholder="Ex: @evenement_auto"
+                  />
+                </div>
+              </div>
+            </div>
+
+            <!-- Bloc Organisation -->
+            <div class="form-card">
+              <h2>Organisation</h2>
+
+              <div class="form-grid">
+                <div class="form-group">
+                  <label for="organizer-name">Nom de l'organisateur</label>
+                  <input
+                    type="text"
+                    id="organizer-name"
+                    placeholder="Ex: NovaAuto Events"
+                  />
+                </div>
+
+                <div class="form-group full">
+                  <label for="org-description"
+                    >Description de l'organisation</label
+                  >
+                  <textarea
+                    id="org-description"
+                    rows="4"
+                    placeholder="Parlez de votre organisation : missions, historique, types d'événements organisés..."
+                  ></textarea>
+                </div>
+              </div>
+            </div>
+          </form>
+        </section>
+      </div>
+    </section>
   </body>
 </html>
