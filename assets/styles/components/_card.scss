@@ -1,71 +1,187 @@
-
-
-
-.card-article {
-  height: 400px;
-  min-width: 280px;
+.bloc_text {
   margin: 2rem;
 }
-.card-container {
-  background-color: rgb(255, 255, 255);
-  border: 1px solid rgb(255, 255, 255);
-  box-shadow: var(--box-shadow);
-  height: 100%;
-  border-radius: 25px;
+
+// === Cart Section ===
+.events-grid {
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  padding: 2rem;
+  margin: 0 10rem;
+
+  @media (max-width: 768px) {
+    gap: 1.5rem;
+    padding: 1rem;
+    margin: 3rem;
+  }
+
+  @media (max-width: 480px) {
+    grid-template-columns: 1fr;
+    padding: 0.5rem;
+    margin: 2rem;
+  }
+}
+
+.event-card {
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  font-family: var(--font-body);
- 
-  /* justify-content: center; */
-}
+  transition: transform 0.2s ease-in-out;
 
-.card-img {
-  width: 100%;
-  height: 285px;
-}
+  &:hover {
+    transform: translateY(-4px);
+  }
 
-.card-img img {
-  padding: 1rem;
-  border-radius: 30px;
-  width: 100%;
-  height: 100%;
-}
-.card-text {
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  gap: 0.5rem;
-}
-.card-category {
-height: 50px;
-  flex-direction: row;
-  display: flex;
-  gap: 1rem;
-  justify-content: space-between;
-  padding:  0 1rem;
-  justify-items: center;
-}
-.like-card{
-  justify-self: center;
-  text-align: center;
-}
-.category-card {
- margin: 0.5rem;
-  border-radius: 15px;
-  border: 1px solid var(--color-g);
-  padding: 0.5rem 1rem 0.5rem 1rem;
-}
-.category-card-1 {
-    margin: 0.5rem;
-     border-radius: 15px;
-     border: 1px solid var(--color-g);
-     padding: 0.5rem 1rem 0.5rem 1rem;
-   }
-.like-card{
-   height: 50px;
-   padding-top: 10px;
+  .card-image {
+    position: relative;
+    height: 180px;
+    background-color: #f0f0f0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .category-tag {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      font-size: 0.75rem;
+      font-weight: bold;
+      padding: 0.3rem 0.6rem;
+      border-radius: 0.5rem;
+      text-transform: uppercase;
+      color: #fff;
+      background-color: #f5f5f5; // fallback
+
+      // Catégories spécifiques
+      &.Vintage    { background-color: #f5a623; }
+      &.Drift      { background-color: #147efb; }
+      &.Tuning     { background-color: #f93e3e; }
+      &.Exposition { background-color: #22c55e; }
+      &.Circuit    { background-color: #a855f7; }
+      &.Rassemblement { background-color: #f97316; }
+    }
+
+    .distance {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      background-color: #000;
+      color: #fff;
+      font-size: 0.75rem;
+      padding: 0.25rem 0.5rem;
+      border-radius: 0.5rem;
+    }
+
+    .icons {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      display: flex;
+      gap: 0.5rem;
+
+      button {
+        background: #f3f3f3;
+        border: none;
+        border-radius: 50%;
+        padding: 0.4rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .card-body {
+    padding: 1rem;
+
+    h3 {
+      font-size: 1.1rem;
+      margin-bottom: 0.5rem;
+    }
+
+    .price {
+      display: inline-block;
+      margin-left: 0.5rem;
+      padding: 0.2rem 0.5rem;
+      font-size: 0.75rem;
+      border-radius: 0.4rem;
+      background-color: #e53935;
+      color: #fff;
+    }
+
+    p {
+      font-size: 0.9rem;
+      color: #666;
+      margin-bottom: 0.8rem;
+    }
+
+    .info {
+      display: flex;
+      flex-direction: column;
+      font-size: 0.85rem;
+      color: #444;
+      margin-bottom: 0.6rem;
+
+      .line {
+        display: flex;
+        align-items: center;
+        gap: 0.4rem;
+        margin-bottom: 0.3rem;
+
+        svg {
+          width: 16px;
+          height: 16px;
+          color: #888;
+        }
+      }
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.4rem;
+      margin-bottom: 1rem;
+
+      .tag {
+        background-color: #f1f1f1;
+        border-radius: 0.4rem;
+        padding: 0.2rem 0.6rem;
+        font-size: 0.75rem;
+        color: #333;
+      }
+    }
+
+    .actions {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+
+      .btn {
+        padding: 0.5rem 1rem;
+        border-radius: 0.5rem;
+        font-weight: bold;
+        cursor: pointer;
+        font-size: 0.9rem;
+        border: none;
+      }
+
+      .voir-plus {
+        background-color: #e60000;
+        color: white;
+      }
+
+      .participer {
+        background-color: #f5f5f5;
+        color: #333;
+      }
+    }
+  }
 }
-
-
-
