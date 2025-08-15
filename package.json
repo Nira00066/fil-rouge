@@ -10,7 +10,7 @@
     "scss-fix": "stylelint \"**/*.scss\" --fix"
   },
   "author": "Afec",
-  "license": "",
+  "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.27.1",
     "@babel/preset-env": "^7.27.2",
@@ -38,6 +38,17 @@
   "dependencies": {
     "cross-env": "^7.0.3",
     "express": "^5.1.0",
+    "mysql2": "^3.14.3",
     "swiper": "^11.2.8"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nira00066/fil-rouge.git"
+  },
+  "keywords": [],
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/Nira00066/fil-rouge/issues"
+  },
+  "homepage": "https://github.com/Nira00066/fil-rouge#readme"
 }
