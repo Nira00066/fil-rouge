@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/dist/css/theme.css" />
+    <title>Page Profile</title>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header_top">
+          <div class="header_logo">
+            <a href="index.html">NovaMett</a>
+            <p>Trouve tes events auto</p>
+          </div>
+          <!--Btn de connexion -->
+          <div class="header_nav">
+            <nav>
+              <ul class="header_liens">
+                <li><a href="index.html">Acceuil</a></li>
+                <li><a href="event.html">Evenement</a></li>
+                <li><a href="eventAdd.html">Crée</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Le rendre invisible plus le titre et le p  -->
+
+          <div class="btn_co">
+            <button class="connexion_btn" role="button">
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
+                alt="user"
+              />
+              Connexion
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- *************  FIN HEADER ************************-->
+    <section class="Connexion">
+      <div class="back">
+        <a href="index.html">← Retour à L'accueil </a>
+      </div>
+      <div class="bloc_text">
+        <h2>Connexion</h2>
+        <p>Connecte-toi pour te tenir au courant en premiers des événements</p>
+
+        <div class="form-grid">
+          <form action="POST" class="from-group">
+            <div class="form-group">
+              <label for="email">Email</label>
+              <input type="text" name="email" placeholder="ton@email.com" />
+            </div>
+            <div class="form-group">
+              <label for="password">Mot de passe</label>
+              <input type="text" name="password" placeholder="******" />
+            </div>
+        
+            <input type="submit" name="connexion" placeholder="connexion" />
+          </form>
+        </div>
+        <a href="">Pas encore de compte ? S'inscrire </a>
+
+      </div>
+    </section>
+  </body>
+</html>

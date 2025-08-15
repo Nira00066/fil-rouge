@@ -1,6 +1,7 @@
 .header {
   background-color: #fff;
   color: var(--third-color);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
   list-style: none;
   height: 60px;
   padding-bottom: 0;
@@ -45,42 +46,6 @@
   &_liens a:hover {
     color: #dc2626;
   }
-  // &_searchbar {
-  //   margin-top: var(--padding-md);
-  //   display: flex;
-  //   align-items: center;
-  //   width: 100%;
-  //   max-width: 600px;
-
-  //   &_input {
-  //     width: 100%;
-
-  //     .form-control {
-  //       width: 100%;
-  //     }
-  //   }
-  //   .btn > a {
-  //     color: var(--third-color);
-  //     text-decoration: none;
-  //   }
-
-  //   &_btn {
-  //     white-space: nowrap;
-  //     transform: scale(1.2);
-  //     margin-left: -10px;
-  //     border-radius: 50%;
-  //     box-shadow: var(--box-shadow);
-  //   }
-  // }
-
-  // //    margin: auto;
-  //      color: var(--third-color);
-  //     font-family: var(--font-title);
-  //     display: flex;
-  //     flex-direction: row;
-  //     justify-content: center;
-  //     align-items: center;
-  //     gap: 10px;
 
   &_img {
     display: flex;

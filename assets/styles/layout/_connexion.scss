@@ -6,11 +6,112 @@
 
 body {
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  background: #ffffff;
   color: #333;
 }
 
 .Connexion {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background: rgb(255, 255, 255);
+
+  padding: 2rem;
+  position: relative;
+
+  .back {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+
+    a {
+      color: #dc2626;
+      text-decoration: none;
+      font-weight: bold;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+
+  .bloc_text {
+    background-color: white;
+    padding: 3rem 2rem;
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+    max-width: 400px;
+    width: 100%;
+    text-align: center;
+
+    h2 {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+      color: #1f2937;
+    }
+
+    p {
+      margin-bottom: 2rem;
+      color: #6b7280;
+    }
+
+    .form-grid {
+      form {
+        .form-group {
+          margin-bottom: 1.5rem;
+          text-align: left;
+
+          label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 600;
+          }
+
+          input {
+            width: 100%;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 8px;
+            outline: none;
+            transition: border-color 0.3s ease;
+
+            &:focus {
+              border-color: #dc2626;
+            }
+          }
+        }
+
+        input[type="submit"] {
+          width: 100%;
+          background-color: #dc2626;
+          color: white;
+          font-weight: bold;
+          padding: 0.75rem;
+          border: none;
+          border-radius: 8px;
+          cursor: pointer;
+          transition: background-color 0.3s ease;
+
+          &:hover {
+            background-color: #ffffff;
+          }
+        }
+      }
+    }
+
+    a {
+      display: block;
+      margin-top: 1.5rem;
+      color: #3b82f6;
+      text-decoration: none;
+
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}
+.inscription {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -94,6 +195,8 @@ body {
 
           &:hover {
             background-color: #ffffff;
+            color: #dc2626;
+            border: 1px solid #dc2626;
           }
         }
       }
