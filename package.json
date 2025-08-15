@@ -1,7 +1,6 @@
 {
   "name": "fil",
   "version": "1.0.0",
-  "type": "module",
   "description": "Afec starter kit",
   "main": "js/theme.js",
   "scripts": {
@@ -38,6 +37,7 @@
   },
   "dependencies": {
     "cross-env": "^7.0.3",
+    "express": "^5.1.0",
     "swiper": "^11.2.8"
   }
 }
