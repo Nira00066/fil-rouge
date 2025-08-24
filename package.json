@@ -24,6 +24,7 @@
     "eslint-webpack-plugin": "^5.0.1",
     "globals": "^16.1.0",
     "mini-css-extract-plugin": "^2.9.2",
+    "nodemon": "^3.1.10",
     "postcss-loader": "^8.1.1",
     "sass": "^1.85.1",
     "sass-loader": "^16.0.5",
@@ -36,8 +37,12 @@
     "webpack-license-plugin": "^4.5.1"
   },
   "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.5",
     "cross-env": "^7.0.3",
+    "dotenv": "^17.2.1",
     "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
     "mysql2": "^3.14.3",
     "swiper": "^11.2.8"
   },

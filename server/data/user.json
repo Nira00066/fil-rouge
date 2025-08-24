@@ -1,0 +1,4 @@
+[
+  { "id": 1, "name": "Admin", "lastname": "Boss", "email": "admin@example.com", "passwordhash": "$2b$10$CwTycUXWue0Thq9StjUM0uJ8b8sF0HDe3x9T1Ew6xR.FyPjZV8uOa", "role_id": 1, "Url_picture": "admin.png" },
+  { "id": 2, "name": "John", "lastname": "Doe", "email": "user@example.com", "passwordhash": "$2b$10$N9qo8uLOickgx2ZMRZo5i.1k.b0uT2lF/3ZbV7EiF1oVujkzXw7yK", "role_id": 2, "Url_picture": "user.png" }
+]

@@ -1,5 +1,7 @@
-import js from "@eslint/js";
-import globals from "globals";
+
+/*global someFunction, a*/
+const js = require("@eslint/js");
+const globals = require("globals");
 
 /** @type {import("eslint").Linter.FlatConfig} */
 export default [
@@ -17,7 +19,7 @@ export default [
       },
     },
     rules: {
-          "no-unused-vars": "off",
+      "no-unused-vars": "off",
     },
   },
 ];
