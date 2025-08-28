@@ -1,31 +1,31 @@
--- ==========================
--- 1. Création de la base
--- ==========================
 CREATE DATABASE IF NOT EXISTS NovaMett;
 
 USE NovaMett;
 
--- 2. Table role (créée avant user car user en dépend)
+
 CREATE TABLE IF NOT EXISTS role (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(50) UNIQUE
 );
 
--- 3. Table user
+
 CREATE TABLE IF NOT EXISTS user (
     id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255),
     role_id INT,
     lastname VARCHAR(255),
-    email VARCHAR(255) UNIQUE,
-    password VARCHAR(255),
-    Url_picture VARCHAR(255),
+    ville VARCHAR(255),
+    email VARCHAR(255) UNIQUE NOT NULL,
+    Hashpassword VARCHAR(255) NOT NULL,
+    Url_picture VARCHAR(255) DEFAULT (),
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (role_id) REFERENCES role(id)
+    FOREIGN KEY (location_id) REFERENCES location(id)
+
 );
 
--- 4. Table location
+-- Table location
 CREATE TABLE IF NOT EXISTS location (
     id INT PRIMARY KEY AUTO_INCREMENT,
     user_id INT,
@@ -33,26 +33,26 @@ CREATE TABLE IF NOT EXISTS location (
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
--- 5. Table category
+-- Table category
 CREATE TABLE IF NOT EXISTS category (
     id INT PRIMARY KEY AUTO_INCREMENT,
     label VARCHAR(255)
 );
 
--- 6. Table tags
+--  Table tags
 CREATE TABLE IF NOT EXISTS tags (
     id INT PRIMARY KEY AUTO_INCREMENT,
     label VARCHAR(255)
 );
 
--- 7. Table imgEvent
+-- Table imgEvent
 CREATE TABLE IF NOT EXISTS imgEvent (
     id INT PRIMARY KEY AUTO_INCREMENT,
     Url_principal VARCHAR(255) NOT NULL,
     Url_second VARCHAR(255)
 );
 
--- 8. Table event
+--  Table event
 CREATE TABLE IF NOT EXISTS event (
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
@@ -64,18 +64,18 @@ CREATE TABLE IF NOT EXISTS event (
     date_end DATETIME NOT NULL,
     hour_start TIME NOT NULL,
     hour_end TIME NOT NULL,
-    prix DECIMAL(10,2),
-    lieu VARCHAR(255) NOT NULL,
-    adresse VARCHAR(255) NOT NULL,
+    price DECIMAL(10,2),
+    city VARCHAR(255) NOT NULL,
+    adress VARCHAR(255) NOT NULL,
     description TEXT,
     regle_event VARCHAR(255),
     services_dispo VARCHAR(255),
-    tel VARCHAR(20),
+    phone VARCHAR(20),
     email VARCHAR(255),
-    siteUrl VARCHAR(255),
-    reSociaux VARCHAR(255),
-    nomOrga VARCHAR(255),
-    desOrga TEXT,
+    webUrl VARCHAR(255),
+    nameSocaial VARCHAR(255),
+    nomOrganisation VARCHAR(255),
+    descripOrganisation TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
     FOREIGN KEY (imgEvent_id) REFERENCES imgEvent(id),
@@ -84,7 +84,7 @@ CREATE TABLE IF NOT EXISTS event (
     FOREIGN KEY (location_id) REFERENCES location(id)
 );
 
--- 9. Table Favori (Many-to-Many user/event)
+--  Table Favori 
 CREATE TABLE IF NOT EXISTS Favori (
     user_id INT,
     event_id INT,
@@ -93,7 +93,7 @@ CREATE TABLE IF NOT EXISTS Favori (
     FOREIGN KEY (event_id) REFERENCES event(id)
 );
 
--- 10. Table location_user (Many-to-Many user/location)
+--  location_user 
 CREATE TABLE IF NOT EXISTS location_user (
     user_id INT,
     location_id INT,
@@ -101,19 +101,17 @@ CREATE TABLE IF NOT EXISTS location_user (
     FOREIGN KEY (user_id) REFERENCES user(id),
     FOREIGN KEY (location_id) REFERENCES location(id)
 );
-
--- 11. Table form
+-- Table form
 CREATE TABLE IF NOT EXISTS form (
     id INT PRIMARY KEY AUTO_INCREMENT,
     email VARCHAR(255) UNIQUE,
-    picture VARCHAR(255),
-    sujet VARCHAR(255),
+    subject VARCHAR(255),
     message LONGTEXT,
     user_id INT,
     FOREIGN KEY (user_id) REFERENCES user(id)
 );
 
--- 12. Table tag_event (Many-to-Many tags/event)
+--  Table tag_event 
 CREATE TABLE IF NOT EXISTS tag_event (
     tags_id INT,
     event_id INT,

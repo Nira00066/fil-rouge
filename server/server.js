@@ -3,7 +3,7 @@ const db = require("./config/db.config");
 const dotenv = require("dotenv");
 dotenv.config();
 const cors = require("cors");
-const UsersRouter = require('./routes/Users')
+const userRoutes = require('./routes/Users')
 
 const PORT = process.env.PORT ;
 const app = express();
@@ -20,7 +20,7 @@ db.connect((err) => {
 });
 
 // app.use('/home')
-// app.use('/users', UsersRouter)
+app.use('/connexion',userRoutes )
 // app.use('/create')
 
 
