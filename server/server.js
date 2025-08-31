@@ -3,12 +3,12 @@ const db = require("./config/db.config");
 const dotenv = require("dotenv");
 dotenv.config();
 const cors = require("cors");
-const userRoutes = require('./routes/Users')
+const userRoutes = require("./routes/Users");
+const ValidatorToken = require("./middleware/auth");
 
-const PORT = process.env.PORT ;
+const PORT = process.env.PORT;
 const app = express();
 app.use(express.json());
-
 
 // Vérifier la connexion
 db.connect((err) => {
@@ -19,12 +19,15 @@ db.connect((err) => {
   console.log("Connecté à MySQL ✅");
 });
 
-// app.use('/home')
-app.use('/connexion',userRoutes )
-// app.use('/create')
+app.use("/home", (req, res) => {
+  res.send("Bienvenue sur la page d'accueil !");
+});
 
+app.use("/user",ValidatorToken, userRoutes);
+// app.use('/create')
 
 // Lancer le serveur
 app.listen(PORT, () => {
+  db.connect();
   console.log(`Serveur démarré sur http://localhost:${PORT}`);
 });

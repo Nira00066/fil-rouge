@@ -1,6 +1,9 @@
 # ignore all xml
 *.xml
+.env
+.env.test
 
 resources/*
 node_modules
 .DS_Store
+coverage
