@@ -115,16 +115,8 @@ router.post("/connexion", async (req, res) => {
       throw new Error("JWT_SECRET non défini dans .env");
     }
 
-    const token = jwt.sign(
-      { id: user.id, email: user.email },
-      process.env.JWT_SECRET,
-      { expiresIn: "1h" }
-    );
-    res.json({ token, userId: user.id });
-  } catch (err) {
-    console.error(err);
-    res.status(500).json({ message: "Erreur serveur" });
-  }
+    
+  
 });
 
 router.get("/profile/user/:id", authenticateToken, async (req, res) => {
