@@ -48,31 +48,7 @@ router.post("/inscription", async (req, res) => {
   }
 });
 
-router.post("/connexion", async (req, res) => {
-  // recuperer email et mot de passe
-  const { email, password } = req.body;
-  // verifier si email et mot de passe sont fournis
-  if (!email || !password) {
-    return res.status(400).json({ message: "Email et mot de passe requis" });
-  }
 
-  try {
-    const [row] = await db.execute("SELECT * FROM user WHERE email = ? ", [
-      email,
-    ]);
-
-    if (row.length === 0) {
-      return res.status(400).json({ message: "utilisateur non trouvé" });
-    }
-    const user = row[0];
-
-    const isPasswordValid = await bcrypt.compare(
-      password,
-      user.hashed_password
-    );
-    if (!isPasswordValid) {
-      return res.status(400).json({ message: "mot de passe incorrect" });
-    }
     router.post("/connexion", async (req, res) => {
       // recuperer email et mot de passe
       const { email, password } = req.body;
@@ -114,9 +90,6 @@ router.post("/connexion", async (req, res) => {
     if (!process.env.JWT_SECRET) {
       throw new Error("JWT_SECRET non défini dans .env");
     }
-
-    
-  
 });
 
 router.get("/profile/user/:id", authenticateToken, async (req, res) => {
