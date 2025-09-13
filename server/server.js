@@ -19,11 +19,7 @@ db.connect((err) => {
   console.log("Connecté à MySQL ✅");
 });
 
-app.use("/home", (req, res) => {
-  res.send("Bienvenue sur la page d'accueil !");
-});
-
-app.use("/user",ValidatorToken, userRoutes);
+app.use("/", userRoutes);
 // app.use('/create')
 
 // Lancer le serveur
