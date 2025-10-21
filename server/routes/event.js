@@ -1,64 +1,50 @@
 const express = require("express");
 const router = express.Router();
-const app = express();
-const authenticateToken = require('../middleware/auth');
-app.use(express.json());
+const authenticateToken = require("../middleware/auth");
+const EventController = require("../controllers/EventController");
 
+router.use(express.json());
 
-router.get("/evenements", async (req, res) => {
-  try {
-    const [rows] = await db.execute("SELECT * FROM event");
-    res.json(rows);
-  } catch (err) {
-    res.status(500).send("Erreur: " + err.message);
-  }
-});
+// Action public 
+router.get("/evenements", EventController.getAllEvents);
+router.get("/evenements/:id", EventController.getEventById);
 
-// Chemain par category 
+// Action pour que mon route sois plus attractif  
+router.get("/evenements/carshow", (req, res) =>
+  EventController.getEventsByCategory({ params: { categoryId: 1 } }, res)
+);
 
-router.get("/evenements/carShow", async (req, res) => {
-  try {
-    const [rows] = await db.execute("SELECT * FROM event WHERE category_id = 1");
-    res.json(rows);
-  } catch (err) {
-    res.status(500).send("Erreur: " + err.message);
-  }
-});
-router.get("/evenements/Drift", async (req, res) => {
-  try {
-    const [rows] = await db.execute("SELECT * FROM event WHERE category_id = 3");
-    res.json(rows);
-  } catch (err) {
-    res.status(500).send("Erreur: " + err.message);
-  }
+router.get("/evenements/drift", (req, res) =>
+  EventController.getEventsByCategory({ params: { categoryId: 3 } }, res)
+);
 
-});
+router.get("/evenements/rally", (req, res) =>
+  EventController.getEventsByCategory({ params: { categoryId: 2 } }, res)
+);
 
-router.get("/evenements/Rally", async (req, res) => {
-  try {
-    const [rows] = await db.execute("SELECT * FROM event WHERE category_id = 2");
-    res.json(rows);
-  } catch (err) {
-    res.status(500).send("Erreur: " + err.message);
-  }
-});
+router.get("/evenements/festival", (req, res) =>
+  EventController.getEventsByCategory({ params: { categoryId: 5 } }, res)
+);
 
-router.get("/evenements/festival", async (req, res) => {
-  try {
-    const [rows] = await db.execute("SELECT * FROM event WHERE category_id = 5");
-    res.json(rows);
-  } catch (err) {
-    res.status(500).send("Erreur: " + err.message);
-  }
-});
-
-// Chemain par category 
-
-
-router.post("/Cree/evenement",authenticateToken ,async( req, res ) => {
-
-})
+router.get("/evenements/location/:locId", EventController.getEventsByLocation);
 
 
 
 
+
+//  Action Admin / USER
+router.get(
+  "/evenements/user/:userId",
+  authenticateToken,
+  EventController.getEventsByUserLocation
+);
+
+router.post("/evenements", authenticateToken, EventController.createEvent);
+router.put("/evenements/:id", authenticateToken, EventController.updateEvent);
+router.delete(
+  "/evenements/:id",
+  authenticateToken,
+  EventController.deleteEvent
+);
+
+module.exports = router;

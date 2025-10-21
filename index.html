@@ -6,7 +6,7 @@
     <title>NovaMett</title>
     <meta name="description" content="Les pépites du coins" />
     <script defer src="dist/js/theme.js"></script>
-    <link rel="stylesheet" href="/dist/css/theme.css" />
+    <link rel="stylesheet" href="./dist/css/theme.css" />
     <link rel="icon" type="image/x-icon" href="assets/pepite-1.png" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
@@ -23,7 +23,7 @@
       <div class="container">
         <div class="header_top">
           <div class="header_logo">
-            <a href="index.html">NovaMett</a>
+            <a href="./index.html">NovaMett</a>
             <p>Trouve tes events auto</p>
           </div>
           <!--Btn de connexion -->
@@ -31,8 +31,8 @@
             <nav>
               <ul class="header_liens">
                 <li><a href="index.html">Acceuil</a></li>
-                <li><a href="event.html">Evenement</a></li>
-                <li><a href="eventAdd.html">Crée</a></li>
+                <li><a href="./pages/event.html">Evenement</a></li>
+                <li><a href="./pages/eventAdd.html">Crée</a></li>
               </ul>
             </nav>
           </div>
@@ -65,10 +65,16 @@
           </div>
         </div>
         <div class="location_form">
-          <form action="POST">
-            <button class="btn">Activer ma location</button>
+          <form id="villeForm">
+            <button type="submit" class="btn">Choisir la ville</button>
             <div class="input">
-              <input type="text" placeholder="Ta ville ou code postal" />
+              <input
+                type="text"
+                id="villeInput"
+                placeholder="Le nom de ta ville"
+                list="suggestions"
+              />
+              <datalist id="suggestions"></datalist>
             </div>
           </form>
         </div>
@@ -172,8 +178,8 @@
       </section>
 
       <!-- Section events -->
-<!-- Ici il va devoir avoir une logique que ont recoient uniquement les 3 plus recent  -->
- <!-- si loc alors de toi sinon general  -->
+      <!-- Ici il va devoir avoir une logique que ont recoient uniquement les 3 plus recent  -->
+      <!-- si loc alors de toi sinon general  -->
       <section class="eventNear container_category">
         <div class="eventNear_top">
           <div class="eventNear_top-left">
@@ -270,10 +276,12 @@
             d'automobile.
           </p>
           <div class="footer_buttons location_form">
-            <button class="btn primary" >Créer un compte</button>
-            <button class="btn secondary" disabled>
+            <a class="btn primary" href="./pages/inscription.html">
+              Créer un compte
+            </a>
+            <a class="btn secondary" disabled href="./pages/eventAdd.html">
               Organiser un Événement
-            </button>
+            </a>
           </div>
         </div>
       </footer>

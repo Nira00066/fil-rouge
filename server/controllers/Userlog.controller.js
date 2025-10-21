@@ -2,21 +2,26 @@ const db = require("../config/db.config");
 const { verifinscription, verifConnexion } = require("../service/servivesUser");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const eventDao = require("../dao/eventDao");
+
+
 
 exports.getAll = async (req, res) => {
   try {
-    const [rows] = await db.execute("SELECT * FROM user");
-    res.json(rows);
+    const events = await eventDao.getAllEvents();
+    res.json(events);
   } catch (err) {
     res.status(500).send("Erreur: " + err.message);
   }
 };
+// je me suis troper j'ai mis le dao de l'event et no de user
 
 exports.postInscription = async (req, res) => {
-    console.log('postInscription');
-  
-    const { email, password, CopyPassword } = req.body;
+  console.log("postInscription");
+  const { email, password, CopyPassword } = req.body;
+
   verifinscription(email, password, CopyPassword);
+
   try {
     const [existing] = await db.execute("SELECT * FROM user WHERE email = ?", [
       email,
@@ -37,13 +42,13 @@ exports.postInscription = async (req, res) => {
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Erreur serveur" });
-    console.log('postInscription');
+    console.log("postInscription");
   }
 };
 
 exports.postConnexion = async (req, res) => {
-    console.log('postConnexion');
-    const { email, password } = req.body;
+  console.log("postConnexion");
+  const { email, password } = req.body;
 
   try {
     // Verification que ton utilisateur sois existant !
@@ -70,6 +75,6 @@ exports.postConnexion = async (req, res) => {
   } catch (err) {
     console.error(err);
     res.status(500).json({ message: "Erreur serveur" });
-    console.log('postConnexion');
+    console.log("postConnexion");
   }
 };
