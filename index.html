@@ -5,9 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>NovaMett</title>
     <meta name="description" content="Les pépites du coins" />
-    <script defer src="dist/js/theme.js"></script>
+    <script defer src="./dist/js/theme.js"></script>
     <link rel="stylesheet" href="./dist/css/theme.css" />
-    <link rel="icon" type="image/x-icon" href="assets/pepite-1.png" />
+    <link rel="icon" type="image/x-icon" href="./assets/pepite-1.png" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -39,11 +39,16 @@
           <!-- Le rendre invisible plus le titre et le p  -->
 
           <div class="btn_co">
-            <button class="connexion_btn" role="button">
+            <button
+              class="connexion_btn"
+              role="button"
+              onclick="location.href='./pages/connexion.html'"
+            >
               <img
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
                 alt="user"
               />
+
               Connexion
             </button>
           </div>
