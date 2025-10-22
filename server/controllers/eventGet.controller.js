@@ -1,6 +1,13 @@
+const EventDAO = require("../dao/eventDao");
 const daoevent = require("../dao/eventDao");
 
 // Get all events
+/*
+http://localhost:3000/evenements
+
+retour de tous les events
+*/ 
+
 exports.getAllEvents = async (req, res) => {
   try {
     const events = await EventDAO.getAllEvents();
@@ -14,6 +21,7 @@ exports.getAllEvents = async (req, res) => {
 };
 
 // GET /event/:id
+
 
 exports.getEventById = async (req, res) => {
   try {
@@ -33,14 +41,22 @@ exports.getEventById = async (req, res) => {
 
 exports.getEventbyCategory = async (req, res) => {
   try {
-    const category = req.params.category;
-    const eventCarshow = await daoevent.getEventsByCategory(category);
-    res.json(eventCarshow);
+    const categoryId = req.params.categoryId; // ✅ correspond à :categoryId dans la route
+    const events = await daoevent.getEventsByCategory(categoryId);
+
+    if (!events || events.length === 0) {
+      return res.status(404).json({ message: "Aucun événement trouvé pour cette catégorie" });
+    }
+
+    res.status(200).json(events);
   } catch (err) {
     console.error("Erreur getEventsByCategory:", err);
     res.status(500).json({ error: "Erreur serveur" });
   }
 };
+
+
+
 
 exports.getEventsByUserLocation = async (req, res) => {
   try {
@@ -53,25 +69,62 @@ exports.getEventsByUserLocation = async (req, res) => {
   }
 };
 
+exports.updateEvent = async (req, res) => {
+  try {
+    const id = req.params.id;
+    const updatedData = req.body;
 
+    const success = await EventDAO.updateEvent(id, updatedData);
 
+    if (!success) {
+      return res.status(404).json({ message: "Événement non trouvé" });
+    }
+
+    res.status(200).json({ message: "Événement mis à jour avec succès" });
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ message: "Erreur serveur : " + error.message });
+  }
+};
 
 exports.createEvent = async (req, res) => {
   try {
-    const newEvent = req.body;
+    const user_id = req.user.id; // 👈 récupéré via ton middleware JWT
+    const eventData = { ...req.body, user_id };
 
-    if (!newEvent.title || !newEvent.category_id || !newEvent.location_id) {
-      return res.status(400).json({ message: "Données incomplètes" });
+    const result = await EventDAO.createEvent(eventData);
+
+    res.status(201).json({
+      message: "Événement créé avec succès",
+      eventId: result.insertId,
+    });
+  } catch (err) {
+    console.error(err);
+    res.status(500).json({ message: "Erreur serveur lors de la création de l'événement" });
+  }
+};
+
+exports.deleteEvent = async (req, res) => {
+  const id = parseInt(req.params.id);
+
+  if (isNaN(id)) {
+    return res.status(400).json({ message: "ID invalide" });
+  }
+
+  try {
+    const result = await EventDAO.deleteEvent(id);
+
+    if (result.affectedRows === 0) {
+      return res
+        .status(404)
+        .json({ message: "Aucun événement trouvé avec cet ID" });
     }
 
-    const result = await EventDAO.createEvent(newEvent);
-    res
-      .status(201)
-      .json({ message: "Événement créé avec succès", id: result.insertId });
+    res.status(200).json({ message: "Événement supprimé avec succès" });
   } catch (err) {
-    console.error("Erreur createEvent:", err);
+    console.error("Erreur deleteEvent:", err);
     res
       .status(500)
-      .json({ error: "Erreur lors de la création de l'événement" });
+      .json({ error: "Erreur serveur lors de la suppression de l'événement" });
   }
 };

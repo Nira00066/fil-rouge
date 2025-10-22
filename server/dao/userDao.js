@@ -34,6 +34,10 @@ class userDao {
       throw err;
     }
   }
+
+
+
+  
    static async updateUserById(userId, data) {
     const fields = [];
     const values = [];

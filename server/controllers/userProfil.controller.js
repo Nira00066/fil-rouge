@@ -11,6 +11,12 @@ exports.getallUser = async (req, res) => {
   }
 };
 
+/*
+a coter de Author
+ Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJleGVtcGxlMkBnbWFpbC5jb20iLCJyb2xlIjpudWxsLCJpYXQiOjE3NjExMzE1NzcsImV4cCI6MTc2MTEzNTE3N30.ySG9dRMX7cvZUsFx9ijpMrv6H8K_gHelh-t1oeDGGz4
+
+*/
+
 exports.getProfilId = async (req, res) => {
   const id = parseInt(req.params.id);
   const userId = parseInt(req.user.id);
@@ -59,8 +65,7 @@ exports.modifProfilId = async (req, res) => {
   }
 };
 
-//  ! ici j'aurais besoin de l'aide de natacha pour bien me l'expliquer le update 
-
+//  ! ici j'aurais besoin de l'aide de natacha pour bien me l'expliquer le update
 exports.suppresionProfil = async (req, res) => {
   const id = parseInt(req.params.id);
   const userId = req.user.id;
@@ -75,8 +80,10 @@ exports.suppresionProfil = async (req, res) => {
       res.status(400).json({ message: " Errer Id non corrspondant au token " });
     }
     res.json({ message: "Profil supprimer" });
-  } catch {
-    console.error(err);
-    res.status(500).json({ message: "Erreur serveur" });
+  } catch (err) {
+    console.error("Erreur suppressionProfil:", err);
+    return res
+      .status(500)
+      .json({ message: "Erreur serveur lors de la suppression du profil" });
   }
 };

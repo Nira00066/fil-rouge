@@ -6,7 +6,7 @@
   "scripts": {
     "build": "npm install && cross-env NODE_ENV=production webpack --mode production --progress --colors",
     "watch": "webpack --progress --watch",
-    "start": "nodemon server/server.js",
+    "start": "nodemon ./server/server.js",
     "dev": "cross-env NODE_ENV=development webpack serve --mode development --open --hot --port 8080",
     "scss-lint": "stylelint \"**/*.scss\" --formatter verbose",
     "scss-fix": "stylelint \"**/*.scss\" --fix"

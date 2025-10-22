@@ -78,7 +78,8 @@ CREATE TABLE
     id INT PRIMARY KEY AUTO_INCREMENT,
     title VARCHAR(255) NOT NULL,
     category_id INT, -- reference to category one-to-many
-    location_id INT,  -- reference to location one-to-many
+    location_id INT, -- reference to location one-to-many
+    user_id INT,
     event_image_id INT,
     date_start DATETIME NOT NULL,
     date_end DATETIME NOT NULL,
@@ -97,9 +98,11 @@ CREATE TABLE
     organization_description TEXT,
     created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
     updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+    deleted_at DATETIME DEFAULT NULL,
     CONSTRAINT fk_event_category FOREIGN KEY (category_id) REFERENCES category (id),
     CONSTRAINT fk_event_location FOREIGN KEY (location_id) REFERENCES location (id),
     CONSTRAINT fk_event_image FOREIGN KEY (event_image_id) REFERENCES event_image (id)
+    CONSTRAINT fk_event_user FOREIGN KEY (user_id) REFERENCES user (id);
   );
 
 -- Favorites
@@ -142,17 +145,16 @@ CREATE TABLE
     CONSTRAINT fk_form_user FOREIGN KEY (user_id) REFERENCES `user` (id)
   );
 
-
-
-
 -- Insert roles
-INSERT INTO role (name)
+INSERT INTO
+  role (name)
 VALUES
   ('admin'),
   ('user');
 
 -- Insert locations (villes principales pour événements)
-INSERT INTO location (city)
+INSERT INTO
+  location (city)
 VALUES
   ('Bayonne'),
   ('Biarritz'),
@@ -161,20 +163,37 @@ VALUES
   ('Bordeaux');
 
 -- Users
-INSERT INTO `user` (
+INSERT INTO
+  `user` (
     name,
     lastname,
     email,
     hashed_password,
     role_id,
     location_id
-)
+  )
 VALUES
-    ('Nina', 'Lopez', 'admin@novamett.com', 'hashed_admin_pass', 1, 1), -- Bayonne = id 1
-    ('Alex', 'Martin', 'user@novamett.com', 'hashed_user_pass', 2, 5);   -- Bordeaux = id 5
+  (
+    'Nina',
+    'Lopez',
+    'admin@novamett.com',
+    'hashed_admin_pass',
+    1,
+    1
+  ), -- Bayonne = id 1
+  (
+    'Alex',
+    'Martin',
+    'user@novamett.com',
+    'hashed_user_pass',
+    2,
+    5
+  );
 
+-- Bordeaux = id 5
 -- Insert categories (types d’événements automobiles)
-INSERT INTO category (label)
+INSERT INTO
+  category (label)
 VALUES
   ('Car Show'),
   ('Rally'),
@@ -183,7 +202,8 @@ VALUES
   ('Motorcycle Festival');
 
 -- Insert tags (mots-clés liés aux événements auto)
-INSERT INTO tags (label)
+INSERT INTO
+  tags (label)
 VALUES
   ('Tuning'),
   ('Sport'),
@@ -192,14 +212,16 @@ VALUES
   ('Family');
 
 -- Insert images (placeholder pour événements)
-INSERT INTO event_image (main_url, secondary_url)
+INSERT INTO
+  event_image (main_url, secondary_url)
 VALUES
   ('img/events/rally_bayonne.jpg', NULL),
   ('img/events/show_biarritz.jpg', NULL),
   ('img/events/festival_dax.jpg', NULL);
 
 -- Insert events (exemples d’événements auto/moto)
-INSERT INTO `event` (
+INSERT INTO
+  `event` (
     title,
     category_id,
     location_id,
@@ -219,7 +241,7 @@ INSERT INTO `event` (
     social_name,
     organization_name,
     organization_description
-)
+  )
 VALUES
   (
     'Bayonne Auto Rally',
@@ -286,16 +308,21 @@ VALUES
   );
 
 -- Link events with tags (many-to-many)
-INSERT INTO tag_event (tag_id, event_id)
+INSERT INTO
+  tag_event (tag_id, event_id)
 VALUES
   (2, 1), -- Bayonne Rally = Sport
   (3, 2), -- Biarritz Car Show = Classic
   (1, 2), -- Biarritz Car Show = Tuning
   (4, 3), -- Dax Moto Festival = Moto
-  (5, 3); -- Dax Moto Festival = Family
+  (5, 3);
 
+-- Dax Moto Festival = Family
 -- Favorites (example: user saves an event)
-INSERT INTO favorite (user_id, event_id)
+INSERT INTO
+  favorite (user_id, event_id)
 VALUES
   (2, 1), -- Alex favorites Bayonne Rally
-  (2, 2); -- Alex favorites Biarritz Car Show
+  (2, 2);
+
+-- Alex favorites Biarritz Car Show

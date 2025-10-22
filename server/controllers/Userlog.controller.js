@@ -2,20 +2,41 @@ const db = require("../config/db.config");
 const { verifinscription, verifConnexion } = require("../service/servivesUser");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const eventDao = require("../dao/eventDao");
+const userDao = require("../dao/userDao");
 
-
-
+// retour tous les users de la db
 exports.getAll = async (req, res) => {
   try {
-    const events = await eventDao.getAllEvents();
-    res.json(events);
+    const users = await userDao.getAllUsers();
+    res.json(users);
   } catch (err) {
     res.status(500).send("Erreur: " + err.message);
   }
 };
-// je me suis troper j'ai mis le dao de l'event et no de user
 
+//  retour le userid du http
+exports.getuserById = async (req, res) => {
+  try {
+    const userId = req.params.id;
+    const user = await userDao.getUserById(userId);
+    if (!user) {
+      return res.status(404).json({ message: "évenement non trouvé! " });
+    }
+    res.status(200).json(user[0]);
+  } catch (err) {
+    console.error("Error userId ", err);
+    res.status(500).json({ error: "Erreur serveur" });
+  }
+};
+/*
+http://localhost:3000/inscription
+{
+  "email":"exemple2@gmail.com",
+  "password":"test1234",
+  "CopyPassword":"test1234"
+}
+  test creation user reussi 
+*/
 exports.postInscription = async (req, res) => {
   console.log("postInscription");
   const { email, password, CopyPassword } = req.body;
@@ -45,6 +66,15 @@ exports.postInscription = async (req, res) => {
     console.log("postInscription");
   }
 };
+
+/*
+http://localhost:3000/connexion
+{
+  "email":"exemple2@gmail.com",
+  "password":"test1234"
+}
+connection Valider retour token 
+*/
 
 exports.postConnexion = async (req, res) => {
   console.log("postConnexion");
@@ -78,3 +108,5 @@ exports.postConnexion = async (req, res) => {
     console.log("postConnexion");
   }
 };
+
+// supprimer un utilisateur comme l'event avec un delais il sera cacher pour le temps impartie et sous 30 jours surpprimer réelement

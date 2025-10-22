@@ -1,36 +1,43 @@
 const express = require("express");
 const router = express.Router();
 const authenticateToken = require("../middleware/auth");
-const EventController = require("../controllers/EventController");
+const EventController = require("../controllers/eventGet.controller");
 
 router.use(express.json());
 
-// Action public 
+// Action public
 router.get("/evenements", EventController.getAllEvents);
 router.get("/evenements/:id", EventController.getEventById);
 
-// Action pour que mon route sois plus attractif  
-router.get("/evenements/carshow", (req, res) =>
-  EventController.getEventsByCategory({ params: { categoryId: 1 } }, res)
+// Action pour que mon route sois plus attractif
+/* 
+
+http://localhost:3000/evenements/category/ plus le nom de la category 
+
+valider pour tous 
+
+*/ 
+
+
+router.get("/evenements/category/carshow", (req, res) =>
+  EventController.getEventbyCategory({ params: { categoryId: 1 } }, res)
 );
 
-router.get("/evenements/drift", (req, res) =>
-  EventController.getEventsByCategory({ params: { categoryId: 3 } }, res)
+router.get("/evenements/category/rally", (req, res) =>
+  EventController.getEventbyCategory({ params: { categoryId: 2 } }, res)
+);
+router.get("/evenements/category/drift", (req, res) =>
+  EventController.getEventbyCategory({ params: { categoryId: 3 } }, res)
 );
 
-router.get("/evenements/rally", (req, res) =>
-  EventController.getEventsByCategory({ params: { categoryId: 2 } }, res)
+router.get("/evenements/category/festival", (req, res) =>
+  EventController.getEventbyCategory({ params: { categoryId: 5 } }, res)
 );
 
-router.get("/evenements/festival", (req, res) =>
-  EventController.getEventsByCategory({ params: { categoryId: 5 } }, res)
+router.get(
+  "/evenements/location/:locId/:userId",
+  EventController.getEventsByUserLocation
 );
-
-router.get("/evenements/location/:locId", EventController.getEventsByLocation);
-
-
-
-
 
 //  Action Admin / USER
 router.get(
