@@ -70,7 +70,7 @@ exports.postInscription = async (req, res) => {
 /*
 http://localhost:3000/connexion
 {
-  "email":"exemple2@gmail.com",
+  "email":"exemple@gmail.com",
   "password":"test1234"
 }
 connection Valider retour token 

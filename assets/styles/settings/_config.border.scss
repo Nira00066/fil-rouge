@@ -1,5 +1,12 @@
 :root {
   --border-orange: 1px var(--primary-color) solid;
+  --border-none: none;
+}
+
+:root{
+  --border-radius-sm: 0.125rem;
+  --border-radius-md: 0.375rem;
+  --border-radius-lg: 0.5rem;
 }
 
 :root {

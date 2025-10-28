@@ -1,13 +1,19 @@
 :root {
-  --primary-color: #E19C50;
-  --secondary-color: #fff;
+  --primary-color: #dc2626;
+  --dark-red-1: #8b0000;
+  --dark-red-2: #b91c1c;
+  --backround-card-hover: #ebecee;
+  --backround-card: #ffffff;
   --third-color: #000;
+  --dark-card: #111111;
 }
-
 
 :root {
   /* catégory */
-  --color-b: rgb(50, 173, 230);
-  --color-r: rgb(216, 22, 22);
-  --color-g: rgb(35, 36, 34);
+  --category-tunning: #ef4444;
+  --category-vintage: #f59e0b;
+  --category-drift: #3b82f6;
+  --category-exposition: #10b981;
+  --category-circuit: #8b5cf6;
+  --category-rassemblement: #f97316;
 }

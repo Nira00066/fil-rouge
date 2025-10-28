@@ -1,22 +1,24 @@
 :root {
   /* text */
 
-  --font-title: "Corben", serif;
-  --font-body: "roboto", sans-serif;
+  --font-title: "Goblin One", regular;
+  --font-body: "Gideon Roman", serif;
+  --font-sous-titre: "American Typewriter", serif;
 
   --font-size-g: 1rem; /* 16px */
   --font-size-md: 1.125rem; /* 18px */
   --font-size-lg: 1.25rem; /* 20px */
 }
-
-.corben-regular {
-  font-family: "Corben", serif;
-  font-weight: 400;
-  font-style: normal;
+// font weights
+:root{
+--font-waight-regular: 400;
+--font-waight-medium: 500;
+--font-waight-bold: 700;
 }
 
-.corben-bold {
-  font-family: "Corben", serif;
-  font-weight: 700;
-  font-style: normal;
+:root {
+  // Text colors
+  --color-sous-titre: #6b7280; /* Gray-500 */
+  --color-titre-noire: #000000; /* Black */
+  --color-titre-blanc: #ffffff; /* White */
 }

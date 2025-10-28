@@ -1,60 +1,61 @@
 .location {
-  background: url("../../../images/user/bannier.png") center center / cover no-repeat;
-  color: #f8f9fa;
-  font-family: "Poppins", sans-serif;
+  position: relative; // 🩵 le plus important : sert de repère pour .bannier_home
+  color: var(--color-titre-blanc);
+  font-family: var(--font-title);
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   height: 300px;
   width: 100%;
-  padding: 20px;
+  padding: var(--padding-lg);
   box-sizing: border-box;
-  
- @media (max-width: 768px) {
-   height: fit-content;// ou 1rem si t’es plus tight
-  }
-  
+  overflow: hidden; 
+
   &_form {
     flex: 1;
     display: flex;
-    justify-content: center; // Ajout pour centrer propre
+    justify-content: center;
     gap: 1rem;
     width: 100%;
     max-width: 600px;
-  }
-  &_form > form {
-    display: flex;
-    gap: 1rem;
-    align-items: center;
+
+    > form {
+      display: flex;
+      gap: 1rem;
+      align-items: center;
+    }
+
   }
 
-  &_form .btn {
-    background-color: #dc2626;
-    color: #ffffff;
-    border: none;
-    padding: 0.85rem 1.5rem;
-    font-weight: 500;
-    font-size: 1rem;
-    border-radius: 0.375rem; /* Moins arrondi que 9999px */
-    cursor: pointer;
-    transition: background 0.3s ease;
-    width: 100%; /* ✅ Pour bien occuper l’espace restant */
-    min-width: 250px;
-  }
-  &_form .btn:hover {
-    background-color: #b91c1c; /* plus foncé au hover */
-  }
-  &_form .input input {
-    padding: 0.75rem;
-    border: 1px solid #e5e7eb;
-    border-radius: 0.375rem;
-    font-size: 1rem;
-    width: 100%; /* ✅ Pour bien occuper l’espace restant */
-    min-width: 250px;
+   
+
+  .bannier_home {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    filter: brightness(0.6);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.6); // 🩶 l’ombre principale
   }
 }
+
+}
+
+// ✅ Media queries
 @media (max-width: 768px) {
+  .location {
+    height: auto; // "fit-content" = souvent capricieux
+    padding: var(--padding-sm);
+  }
+
   .location_form > form {
     flex-direction: column;
     align-items: stretch;
@@ -67,7 +68,6 @@
 
   .location_form {
     max-width: 100%;
-    padding-top: 1.5rem; // ✅ Ajout ici !
+    padding-top: 1.5rem;
   }
 }
-

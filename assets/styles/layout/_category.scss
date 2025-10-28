@@ -1,49 +1,83 @@
-.category-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-  max-width: 1117px; /* limite max si tu veux */
-  margin: 0 auto; /* ça centre horizontalement */
-  place-items: center;
-}
+.category {
+  font-family: var(--font-title);
+  font-size: var(--font-size-lg);
+  font-weight: var(--font-weight-bold);
 
-.categoryCard {
-  background-color: #ffffff;
-  border-radius: 1rem;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-  text-align: center;
-  transition: background-color 0.3s ease, transform 0.2s ease;
-  cursor: pointer;
-  border: 1px #bfbfbf solid ;
-
-  &:hover {
-    background-color: #f3f4f6;
-    transform: translateY(-2px);
+  &_grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 1.5rem;
+    margin: 1rem;
+    align-items: start;
+    justify-items: center; // <-- centre chaque carte horizontalement
   }
 
-  p {
-    margin-top: 0.75rem;
-    font-weight: 500;
-    color: #1f2937;
-    font-size: 1rem;
-  }
-}
+  &_card {
+    background-color: var(--background-card);
+    border-radius: var(--border-radius-lg);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
+    text-align: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    cursor: pointer;
+    border: 1px #e9e4e4 solid;
+    padding: var(--padding-sm);
+    width: 200px;
+    height: 170px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-.icon-circle {
-  width: 60px;
-  height: 60px;
-  margin: 0 auto;
-  border-radius: 50%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+    &:hover {
+      background-color: var(--background-card-hover);
+      transform: translateY(-2px);
+    }
 
-  img {
-    width: 30px;
-    height: 30px;
-    margin: 2px;
+    p {
+      margin-top: 0.75rem;
+      font-weight: 500;
+      color: #1f2937;
+      font-size: 1rem;
+    }
   }
-}
-.clee {
-  background-color: #ef4444;
-  padding: 10px;
+
+  &_contentCard {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .icon-circle {
+    width: 60px;
+    height: 60px;
+    margin: auto;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      width: 30px;
+      height: 30px;
+    }
+  }
+
+  .clee {
+    background-color: var(--category-tunning);
+  }
+  .vintage {
+    background-color: var(--category-vintage);
+  }
+  .Drift {
+    background-color: var(--category-drift);
+  }
+  .expo {
+    background-color: var(--category-exposition);
+  }
+  .circuit {
+    background-color: var(--category-circuit);
+  }
+  .rassemblement {
+    background-color: var(--category-rassemblement);
+  }
 }

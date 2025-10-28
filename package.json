@@ -19,11 +19,12 @@
     "@eslint/js": "^9.26.0",
     "autoprefixer": "^10.4.21",
     "babel-loader": "^10.0.0",
+    "browser-sync-webpack-plugin": "^2.4.0",
     "css-loader": "^7.1.2",
     "csso-webpack-plugin": "^2.0.0-beta.3",
-    "eslint": "^9.38.0",
+    "eslint": "^8.57.1",
     "eslint-plugin-react": "^7.37.5",
-    "eslint-webpack-plugin": "^5.0.2",
+    "eslint-webpack-plugin": "^4.2.0",
     "globals": "^16.1.0",
     "mini-css-extract-plugin": "^2.9.2",
     "nodemon": "^3.1.10",
@@ -55,7 +56,6 @@
     "url": "git+https://github.com/Nira00066/fil-rouge.git"
   },
   "keywords": [],
-  "type": "commonjs",
   "bugs": {
     "url": "https://github.com/Nira00066/fil-rouge/issues"
   },

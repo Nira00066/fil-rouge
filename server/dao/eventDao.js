@@ -14,12 +14,21 @@ class EventDAO {
   }
 
   // Uniquements par catégory
-  static async getEventsByCategory(categoryId) {
-    const [rows] = await db.execute(
-      "SELECT * FROM event WHERE category_id = ?",
-      [categoryId]
-    );
-    return rows;
+  static async getEventsByCategorySlug(slug) {
+    try {
+      const [events] = await db.execute(
+        `SELECT * 
+       FROM event 
+       JOIN category  ON event.category_id = category.id
+       WHERE category.slug = ?`,
+        [slug]
+      );
+
+      return events;
+    } catch (error) {
+      console.error("Erreur DAO getEventsByCategorySlug:", error);
+      throw error;
+    }
   }
 
   // Selection des events par connection donc locations choisis
@@ -34,6 +43,22 @@ class EventDAO {
     } catch (err) {
       throw new Error(
         "Erreur lors de la récupération des événements: " + err.message
+      );
+    }
+  }
+  static async getRecentTop(limit) {
+    try {
+      const [rows] = await db.execute(
+        `SELECT id, title, category, image, date, location, participants
+       FROM event
+       ORDER BY date DESC
+       LIMIT ?;`,
+        [limit]
+      );
+      return rows;
+    } catch (err) {
+      throw new Error(
+        "Erreur lors de la récupération des événements récents : " + err.message
       );
     }
   }
@@ -53,7 +78,7 @@ class EventDAO {
     }
   }
 
-    static async createEvent(eventData) {
+  static async createEvent(eventData) {
     const {
       title,
       category_id,
@@ -113,7 +138,9 @@ class EventDAO {
       return result;
     } catch (err) {
       console.error("Erreur dans createEvent:", err);
-      throw new Error("Erreur lors de la création de l'événement : " + err.message);
+      throw new Error(
+        "Erreur lors de la création de l'événement : " + err.message
+      );
     }
   }
 
@@ -133,7 +160,6 @@ class EventDAO {
     return result.affectedRows > 0;
     // true si l'event à etais modifier
   }
-
 
   static async deleteEvent(id) {
     const [result] = await db.execute("DELETE FROM event WHERE id = ?", [id]);

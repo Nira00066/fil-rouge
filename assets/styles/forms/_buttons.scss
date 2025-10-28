@@ -56,4 +56,23 @@
     }
   }
 }
-// 
+
+
+.btn_red {
+  background-color: var(--primary-color);
+  font-family: var(--font-sous-titre);
+  color: var(--color-titre-blanc);
+  border: var(--border-none);
+  padding: var(--padding-btn-acceuil);
+  font-weight: var(--font-waight-medium);
+  font-size: var(--font-size-g);
+  border-radius: var(--border-radius-md);
+  cursor: pointer;
+  transition: background 0.3s ease;
+  width: 100%;
+  min-width: 250px;
+
+  &:hover {
+    background-color: var(--dark-red-2);
+  }
+}

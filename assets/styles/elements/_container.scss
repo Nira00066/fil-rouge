@@ -84,26 +84,36 @@
   &_titre > h2 {
     font-size: 2rem; /* Plus gros */
     font-weight: 700; /* Bold */
-    color: #ffffff; /* Texte foncé du thème */
+    color: var(--color-titre-blanc); /* Texte foncé du thème */
     margin-bottom: 1rem;
   }
 
-  &_description p {
-    font-size: 1rem;
-    line-height: 1.6;
-    color: #ffffff; /* Gris secondaire */
+  // Description de la page d'accueil
+
+  &_description {
+    text-align: center;
+    padding: 0 10rem;
+    margin: auto;
+    font-size: var(--font-size-lg);
+    font-weight: 400;
+    color: var(--color-titre-blanc); /* Gris secondaire */
   }
+
+  // container_category
   &_category {
     margin: auto;
     padding: 0 10rem;
+    text-align: center;
+    margin: 1rem;
+
     @media (max-width: 768px) {
       padding: 0 2rem; // ou 1rem si t’es plus tight
     }
   }
-&_filter{
-  margin: 5rem 10rem;
-}
 
+  &_filter {
+    margin: 5rem 10rem;
+  }
 }
 
 .dark > h2 {

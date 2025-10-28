@@ -6,7 +6,7 @@ const daoevent = require("../dao/eventDao");
 http://localhost:3000/evenements
 
 retour de tous les events
-*/ 
+*/
 
 exports.getAllEvents = async (req, res) => {
   try {
@@ -21,7 +21,6 @@ exports.getAllEvents = async (req, res) => {
 };
 
 // GET /event/:id
-
 
 exports.getEventById = async (req, res) => {
   try {
@@ -41,11 +40,15 @@ exports.getEventById = async (req, res) => {
 
 exports.getEventbyCategory = async (req, res) => {
   try {
-    const categoryId = req.params.categoryId; // ✅ correspond à :categoryId dans la route
-    const events = await daoevent.getEventsByCategory(categoryId);
+    const slug = req.params.slug; // ✅ ex: "competition"
+
+    // On laisse le DAO s'occuper du SQL
+    const events = await EventDAO.getEventsByCategorySlug(slug);
 
     if (!events || events.length === 0) {
-      return res.status(404).json({ message: "Aucun événement trouvé pour cette catégorie" });
+      return res
+        .status(404)
+        .json({ message: "Aucun événement trouvé pour cette catégorie" });
     }
 
     res.status(200).json(events);
@@ -55,7 +58,15 @@ exports.getEventbyCategory = async (req, res) => {
   }
 };
 
-
+exports.getRecent = async (req, res) => {
+  try {
+    const limit = parseInt(req.query.limit) || 3; // <--- on récupère ?limit=3 depuis l'URL
+    const events = await EventDAO.getRecentTop(limit);
+    res.status(200).json(events);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+};
 
 
 exports.getEventsByUserLocation = async (req, res) => {
@@ -100,7 +111,9 @@ exports.createEvent = async (req, res) => {
     });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Erreur serveur lors de la création de l'événement" });
+    res
+      .status(500)
+      .json({ message: "Erreur serveur lors de la création de l'événement" });
   }
 };
 

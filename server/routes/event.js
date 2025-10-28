@@ -16,23 +16,9 @@ http://localhost:3000/evenements/category/ plus le nom de la category
 
 valider pour tous 
 
-*/ 
+*/
 
-
-router.get("/evenements/category/carshow", (req, res) =>
-  EventController.getEventbyCategory({ params: { categoryId: 1 } }, res)
-);
-
-router.get("/evenements/category/rally", (req, res) =>
-  EventController.getEventbyCategory({ params: { categoryId: 2 } }, res)
-);
-router.get("/evenements/category/drift", (req, res) =>
-  EventController.getEventbyCategory({ params: { categoryId: 3 } }, res)
-);
-
-router.get("/evenements/category/festival", (req, res) =>
-  EventController.getEventbyCategory({ params: { categoryId: 5 } }, res)
-);
+router.get("/evenements/category/:slug", EventController.getEventbyCategory);
 
 router.get(
   "/evenements/location/:locId/:userId",
@@ -54,4 +40,13 @@ router.delete(
   EventController.deleteEvent
 );
 
+
+// http://localhost:3000/evenements/?limit=3
+router.get(
+  "/evenements",
+  EventController.getRecent
+);
+
+
+//  faire une autre route que si connecter alors mettre les 3 premieres 
 module.exports = router;
