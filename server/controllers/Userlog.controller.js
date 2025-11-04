@@ -39,31 +39,24 @@ http://localhost:3000/inscription
 */
 exports.postInscription = async (req, res) => {
   console.log("postInscription");
-  const { email, password, CopyPassword } = req.body;
-
-  verifinscription(email, password, CopyPassword);
+  const { name, lastname,email, password } = req.body;
 
   try {
-    const [existing] = await db.execute("SELECT * FROM user WHERE email = ?", [
-      email,
-    ]);
+    const existing = await userDao.getByEmail(email);
 
     if (existing.length > 0) {
       // correction: length et pas lengh
       return res.status(400).json({ error: "Email déjà utilisé" });
     }
 
-    const Hashpassword = await bcrypt.hash(password, 10);
+    const hashpassword = await bcrypt.hash(password, 10);
 
-    await db.execute(
-      "INSERT INTO user (email, hashed_password) VALUES (?, ?)",
-      [email, Hashpassword]
-    );
+   await userDao.createNewUser(name,lastname,email,hashpassword);
     res.status(201).json({ message: "Utilisateur créé" });
+
   } catch (error) {
     console.error(error);
     res.status(500).json({ message: "Erreur serveur" });
-    console.log("postInscription");
   }
 };
 

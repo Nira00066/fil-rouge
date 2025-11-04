@@ -35,10 +35,7 @@ class userDao {
     }
   }
 
-
-
-  
-   static async updateUserById(userId, data) {
+  static async updateUserById(userId, data) {
     const fields = [];
     const values = [];
 
@@ -60,6 +57,30 @@ class userDao {
     const [result] = await db.execute(sql, values);
     return result;
   }
-}
 
+  static async getByEmail(email) {
+    try {
+      const [result] = await db.execute(
+        "SELECT * FROM user WHERE email = ?",[email]
+      );
+      return result;
+    } catch (err) {
+      console.error("Erreur dans getByemail:", err);
+      throw err;
+    }
+  }
+
+  static async createNewUser(name, lastname, email, Hashpassword) {
+    try {
+      const [result] = await db.execute(
+        "INSERT INTO user (name,lastname,email,hashed_password) VALUES (?,?,?,?)",
+        [name, lastname, email, Hashpassword]
+      );
+      return result;
+    } catch (err) {
+      console.error("Erreur dans le pushNewUser");
+      res.status(500).json({ message: "Erreur serveur" });
+    }
+  }
+}
 module.exports = userDao;
