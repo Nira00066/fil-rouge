@@ -7,7 +7,7 @@
     <meta name="description" content="Novameet" />
     <script defer src="./dist/js/theme.js"></script>
     <link rel="stylesheet" href="./dist/css/theme.css" />
-    <link rel="icon" type="image/x-icon" href="./assets/pepite-1.png" />
+    <link rel="icon" type="image/x-icon" href="" />
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -169,7 +169,7 @@
             </div>
 
             <!-- Rassemblement -->
-            <div class="category_card" data-category ="">
+            <div class="category_card" data-category="">
               <div class="category_contentCard">
                 <div class="icon-circle rassemblement">
                   <img
@@ -184,24 +184,23 @@
         </div>
       </section>
 
-
       <!-- Section events -->
       <!-- Ici il va devoir avoir une logique que ont recoient uniquement les 3 plus recent  -->
       <!-- si loc alors de toi sinon general  -->
       <section class="eventNear container_category">
-  <div class="eventNear_top">
-    <div class="eventNear_top-left">
-      <h2>Événements près de toi</h2>
-      <p>Les prochains rendez-vous auto dans ta région</p>
-    </div>
-    <div class="eventNear_top-right">
-      <button class="btn_next">Voir tout</button>
-    </div>
-  </div>
+        <div class="eventNear_top">
+          <div class="eventNear_top-left">
+            <h2>Événements près de toi</h2>
+            <p>Les prochains rendez-vous auto dans ta région</p>
+          </div>
+          <div class="eventNear_top-right">
+            <button class="btn_next">Voir tout</button>
+          </div>
+        </div>
 
-  <!-- Conteneur vide pour les cartes -->
-  <div class="cardMett_wrapper" id="events-container"> </div>
-</section>
+        <!-- Conteneur vide pour les cartes -->
+        <div class="cardMett_wrapper" id="events-container"></div>
+      </section>
 
       <!-- Footer -->
 
@@ -225,4 +224,5 @@
       </footer>
     </main>
   </body>
+  <script type="module" src="./assets/scripts/base.js"></script>
 </html>

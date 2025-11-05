@@ -1,74 +1,151 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="/dist/css/theme.css" />
-    <title>Page Profile</title>
+    <link rel="stylesheet" href="../dist/css/theme.css" />
+    <title>Page D'inscription - NovaMett</title>
   </head>
   <body>
     <header class="header">
       <div class="container">
         <div class="header_top">
           <div class="header_logo">
-            <a href="index.html">NovaMett</a>
+            <a href="../index.html" aria-label="Accueil NovaMett">
+              NovaMett
+            </a>
             <p>Trouve tes events auto</p>
           </div>
-          <!--Btn de connexion -->
+
+          <!-- Navigation principale -->
           <div class="header_nav">
-            <nav>
+            <nav aria-label="Navigation principale">
               <ul class="header_liens">
-                <li><a href="../index.html">Acceuil</a></li>
-                <li><a href="event.html">Evenement</a></li>
-                <li><a href="eventAdd.html">Crée</a></li>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="event.html">Événements</a></li>
+                <li><a href="eventAdd.html">Créer</a></li>
               </ul>
             </nav>
           </div>
-          <!-- Le rendre invisible plus le titre et le p  -->
 
+          <!-- Bouton de connexion -->
           <div class="btn_co">
-            <button class="connexion_btn" role="button">
+            <button
+              class="connexion_btn"
+              type="button"
+              onclick="location.href='connexion.html'"
+            >
               <img
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
-                alt="user"
+                alt="Icône utilisateur"
               />
-              Connexion
+              <span>Connexion</span>
             </button>
           </div>
         </div>
       </div>
     </header>
+
     <!-- *************  FIN HEADER ************************-->
 
-    <!-- Creation de compte -->
-
-    <section class="inscription">
-      <div class="back">
-        <a href="index.html">← Retour à L'accueil </a>
-      </div>
-      <div class="bloc_text">
-        <h2>Crée un compte</h2>
-        <p>Rejoins la communoté auto</p>
-
-        <div class="form-grid">
-          <form action="POST" class="from-group">
-            <div class="form-group">
-              <label for="email">Email</label>
-              <input type="text" name="email" placeholder="ton@email.com" />
-            </div>
-            <div class="form-group">
-              <label for="password">Mot de passe</label>
-              <input type="text" name="password" placeholder="******" />
-            </div>
-            <div class="form-group">
-              <label for="password"> Confirmer le Mot de passe</label>
-              <input type="text" name="password" placeholder="******" />
-            </div>
-            <input type="submit" name="Crée mon compte" />
-          </form>
+    <main>
+      <section class="inscription" aria-labelledby="titre-inscription">
+        <div class="back">
+          <a href="../index.html">← Retour à l'accueil</a>
         </div>
-        <a href="">Déja un compte ? Se connecter </a>
-      </div>
-    </section>
+
+        <div class="bloc_text">
+          <h2 id="titre-inscription">Créer un compte</h2>
+          <p>Rejoins la communauté auto</p>
+
+          <div class="form-grid">
+            <form
+              method="POST"
+              id="form-inscription"
+              class="from-group"
+              aria-describedby="form-help"
+            >
+              <!-- Champ prénom -->
+              <div class="form-group">
+                <label for="prenom">Prénom</label>
+                <input
+                  type="text"
+                  id="prenom"
+                  name="prenom"
+                  placeholder="Ton prénom"
+                  autocomplete="given-name"
+                  required
+                />
+              </div>
+
+              <!-- Champ nom -->
+              <div class="form-group">
+                <label for="nom">Nom</label>
+                <input
+                  type="text"
+                  id="nom"
+                  name="nom"
+                  placeholder="Ton nom"
+                  autocomplete="family-name"
+                  required
+                />
+              </div>
+
+              <!-- Champ email -->
+              <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  placeholder="ton@email.com"
+                  autocomplete="email"
+                  required
+                />
+              </div>
+
+              <!-- Champ mot de passe -->
+              <div class="form-group">
+                <label for="password">Mot de passe</label>
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  placeholder="******"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+
+              <!-- Confirmation mot de passe -->
+              <div class="form-group">
+                <label for="checkPassword">Confirmer le mot de passe</label>
+                <input
+                  type="password"
+                  id="checkPassword"
+                  name="checkPassword"
+                  placeholder="******"
+                  autocomplete="new-password"
+                  required
+                />
+              </div>
+
+              <!-- Bouton -->
+              <input
+                type="submit"
+                value="Créer mon compte"
+                aria-label="Créer mon compte"
+              />
+
+              <p id="form-help" class="sr-only">
+                Tous les champs sont obligatoires.
+              </p>
+            </form>
+          </div>
+
+          <a href="connexion.html">Déjà un compte ? Se connecter</a>
+        </div>
+      </section>
+    </main>
   </body>
 </html>

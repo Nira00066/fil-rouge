@@ -46,22 +46,30 @@ class EventDAO {
       );
     }
   }
-  static async getRecentTop(limit) {
-    try {
-      const [rows] = await db.execute(
-        `SELECT id, title, category, image, date, location, participants
-       FROM event
-       ORDER BY date DESC
-       LIMIT ?;`,
-        [limit]
-      );
-      return rows;
-    } catch (err) {
-      throw new Error(
-        "Erreur lors de la récupération des événements récents : " + err.message
-      );
-    }
+static async getRecentTop(limit) {
+  try {
+    const safeLimit = Number(limit) || 3; // sécurité : convertit en nombre
+    const [rows] = await db.execute(
+      `SELECT 
+        id,
+        title,
+        category_id,
+        event_image_id,
+        date_start,
+        address,
+        price
+      FROM event
+      ORDER BY date_start DESC
+      LIMIT ${safeLimit};`
+    );
+    return rows;
+  } catch (err) {
+    throw new Error(
+      "Erreur lors de la récupération des événements récents : " + err.message
+    );
   }
+}
+
 
   //  selection par location de cat choisi
   static async getEventsByloc(locId) {

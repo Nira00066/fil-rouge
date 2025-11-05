@@ -27,7 +27,11 @@
           <!-- Le rendre invisible plus le titre et le p  -->
 
           <div class="btn_co">
-            <button class="connexion_btn" role="button">
+            <button
+              class="connexion_btn"
+              role="button"
+              onclick="location.href='./pages/connexion.html'"
+            >
               <img
                 src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
                 alt="user"
@@ -41,7 +45,7 @@
     <!-- *************  FIN HEADER ************************-->
     <section class="Connexion">
       <div class="back">
-        <a href="index.html">← Retour à L'accueil </a>
+        <a href="../index.html">← Retour à L'accueil </a>
       </div>
       <div class="bloc_text">
         <h2>Connexion</h2>
@@ -57,12 +61,11 @@
               <label for="password">Mot de passe</label>
               <input type="text" name="password" placeholder="******" />
             </div>
-        
+
             <input type="submit" name="connexion" placeholder="connexion" />
           </form>
         </div>
-        <a href="">Pas encore de compte ? S'inscrire </a>
-
+        <a href="./inscription.html">Pas encore de compte ? S'inscrire </a>
       </div>
     </section>
   </body>

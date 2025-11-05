@@ -1,15 +1,47 @@
 const bcrypt = require("bcrypt");
 
-function verifinscription(email, password, CopyPassword) {
-  if (!email || !password) {
-    return res.status(400).json({ error: "Email et mot de passe requis" });
+function verifInscription(req, res, next) {
+  const user = req.body;
+
+  // Vérifie si les champs obligatoires sont présents
+  if (
+    !user.email ||
+    !user.password ||
+    !user.CopyPassword ||
+    !user.name ||
+    !user.lastname
+  ) {
+    return res.status(400).json({ error: "Champs manquants" });
   }
-  if (password !== CopyPassword) {
+
+  if (typeof user.name !== "string" || typeof user.lastname !== "string") {
+    return res
+      .status(400)
+      .send("nom et prénom doivent être des chaines de caractères");
+  }
+  // Regex email (simple et fiable)
+  const emailRegex = /^[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
+
+  if (!emailRegex.test(user.email)) {
+    return res.status(400).json({ error: "Adresse e-mail invalide" });
+  }
+
+  // Vérifie la correspondance des mots de passe
+  if (user.password !== user.CopyPassword) {
     return res
       .status(400)
       .json({ error: "Les mots de passe ne correspondent pas" });
   }
-  return true;
+
+  // Optionnel : check de longueur ou sécurité du mot de passe
+  if (user.password.length < 8) {
+    return res
+      .status(400)
+      .json({ error: "Le mot de passe doit contenir au moins 8 caractères" });
+  }
+
+  // Si tout est bon :
+  next();
 }
 
 async function verifConnexion(email, password, user) {
@@ -29,4 +61,4 @@ async function verifConnexion(email, password, user) {
   return true;
 }
 
-module.exports = { verifinscription, verifConnexion };
+module.exports = { verifInscription, verifConnexion };

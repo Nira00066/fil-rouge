@@ -1,5 +1,5 @@
 const db = require("../config/db.config");
-const { verifinscription, verifConnexion } = require("../service/servivesUser");
+const { verifConnexion } = require("../service/servivesUser");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const userDao = require("../dao/userDao");
@@ -37,33 +37,32 @@ http://localhost:3000/inscription
 }
   test creation user reussi 
 */
+
 exports.postInscription = async (req, res) => {
-  console.log("postInscription");
-  const { email, password, CopyPassword } = req.body;
-
-  verifinscription(email, password, CopyPassword);
-
   try {
-    const [existing] = await db.execute("SELECT * FROM user WHERE email = ?", [
-      email,
-    ]);
+    const user = req.body;
 
-    if (existing.length > 0) {
-      // correction: length et pas lengh
+    // 1️⃣ Vérifie si l'email existe déjà
+    const existingUser = await userDao.getUserByEmail(user.email);
+    if (existingUser) {
       return res.status(400).json({ error: "Email déjà utilisé" });
     }
 
-    const Hashpassword = await bcrypt.hash(password, 10);
+    // 2️⃣ Hash du mot de passe
+    const hashed = await bcrypt.hash(user.password, 10);
 
-    await db.execute(
-      "INSERT INTO user (email, hashed_password) VALUES (?, ?)",
-      [email, Hashpassword]
-    );
-    res.status(201).json({ message: "Utilisateur créé" });
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Erreur serveur" });
-    console.log("postInscription");
+    // 3️⃣ Création du user via DAO
+    await userDao.createUser({
+      name: user.name,
+      lastname: user.lastname,
+      email: user.email,
+      hashed,
+    });
+
+    res.status(201).json({ message: "Utilisateur créé avec succès" });
+  } catch (err) {
+    console.error("Erreur dans postInscription:", err);
+    res.status(500).json({ error: "Erreur serveur" });
   }
 };
 
