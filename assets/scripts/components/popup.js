@@ -1,35 +1,31 @@
-export function showPopup(message, type = "success") {
-  // Crée le conteneur principal si pas déjà présent
-  let popupContainer = document.querySelector(".popup-container");
-  if (!popupContainer) {
-    popupContainer = document.createElement("div");
-    popupContainer.className = "popup-container";
-    document.body.appendChild(popupContainer);
+export function showPopup(message, type = "info") {
+  const popup = document.createElement("div");
+  popup.className = `popup ${type}`;
+  popup.textContent = message;
+
+  popup.style.position = "fixed";
+  popup.style.top = "20px";
+  popup.style.right = "20px";
+  popup.style.padding = "12px 20px";
+  popup.style.borderRadius = "10px";
+  popup.style.color = "#fff";
+  popup.style.fontWeight = "bold";
+  popup.style.zIndex = "9999";
+  popup.style.transition = "opacity 0.5s ease";
+
+  switch (type) {
+    case "success":
+      popup.style.background = "#28a745";
+      break;
+    case "error":
+      popup.style.background = "#dc3545";
+      break;
+    default:
+      popup.style.background = "#007bff";
   }
 
-  // Crée le popup
-  const popup = document.createElement("div");
-  popup.className = `popup ${type}`; // type = success | error | info
-  popup.innerHTML = `
-    <p>${message}</p>
-    <button class="popup-close">&times;</button>
-  `;
+  document.body.appendChild(popup);
 
-  // Ajoute le popup au conteneur
-  popupContainer.appendChild(popup);
-
-  // Animation d’apparition
-  setTimeout(() => popup.classList.add("show"), 10);
-
-  // Fermeture manuelle
-  popup.querySelector(".popup-close").addEventListener("click", () => {
-    popup.classList.remove("show");
-    setTimeout(() => popup.remove(), 300);
-  });
-
-  // Fermeture auto après 3 secondes
-  setTimeout(() => {
-    popup.classList.remove("show");
-    setTimeout(() => popup.remove(), 300);
-  }, 3000);
+  setTimeout(() => (popup.style.opacity = "0"), 2000);
+  setTimeout(() => popup.remove(), 2500);
 }

@@ -1,5 +1,5 @@
 import { API_BASE_URL } from "./config.js";
-import { showPopup } from "../Component/popup.js"; // si t’as ton composant popup
+import { showPopup } from "./components/popup.js";
 
 const form = document.getElementById("form-inscription");
 
@@ -15,7 +15,7 @@ if (form) {
     }
 
     try {
-      const response = await fetch(`${API_BASE_URL}/inscription`, {
+      const response = await fetch(`${API_BASE_URL}/api/inscription`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(data),
@@ -25,11 +25,9 @@ if (form) {
 
       showPopup("Compte créé avec succès 🎉", "success");
 
-      // Redirection après succès
       setTimeout(() => {
-        window.location.href = "index.html";
+        window.location.href = "connexion.html";
       }, 1500);
-
     } catch (err) {
       console.error(err);
       showPopup("Erreur lors de la création du compte 😬", "error");

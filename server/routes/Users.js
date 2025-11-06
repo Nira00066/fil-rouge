@@ -7,7 +7,7 @@ const validator = require("../service/servivesUser")
 router.get("/Users", controllerUser.getAll);
 router.get("/user/:id", controllerUser.getuserById);
 
-router.post("/inscription",validator.verifinscription, controllerUser.postInscription);
+router.post("/inscription", controllerUser.postInscription);
 router.post("/connexion",validator.verifConnexion, controllerUser.postConnexion);
 
 // pour les tests toujours mettre ton token dans la header de ton postman ou autre
