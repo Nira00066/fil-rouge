@@ -1,5 +1,5 @@
 const db = require("../config/db.config");
-const { verifConnexion } = require("../service/servivesUser");
+const { verifConnexion } = require("../validator/servivesUser");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const userDao = require("../dao/userDao");
