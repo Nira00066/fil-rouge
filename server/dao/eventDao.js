@@ -7,6 +7,66 @@ class EventDAO {
     const [rows] = await db.execute("SELECT * FROM event");
     return rows;
   }
+  static async getAllEvents(filters = {}) {
+    const { search, category, date, city } = filters;
+
+    // 🧱 Requête de base
+    let query = `
+      SELECT e.*, l.city
+      FROM event e
+      LEFT JOIN location l ON e.location_id = l.id
+      WHERE 1=1
+    `;
+    const params = [];
+
+    // 🔍 Recherche texte (titre ou description)
+    if (search) {
+      query += " AND (e.title LIKE ? OR e.description LIKE ?)";
+      params.push(`%${search}%`, `%${search}%`);
+    }
+
+    // 🏷️ Catégorie (mapping du slug -> id)
+    if (category && category !== "all") {
+      const categoryMap = {
+        competition: 1,
+        rassemblement: 2,
+        mecanique: 3,
+        carshow: 4,
+        offroad: 5,
+        innovation: 6,
+        culture: 7,
+      };
+      const categoryId = categoryMap[category];
+      if (categoryId) {
+        query += " AND e.category_id = ?";
+        params.push(categoryId);
+      }
+    }
+
+    // 📅 Filtre date (today / week / month)
+    if (date && date !== "all") {
+      if (date === "today") {
+        query += " AND DATE(e.date_start) = CURDATE()";
+      } else if (date === "week") {
+        query += " AND YEARWEEK(e.date_start, 1) = YEARWEEK(CURDATE(), 1)";
+      } else if (date === "month") {
+        query +=
+          " AND MONTH(e.date_start) = MONTH(CURDATE()) AND YEAR(e.date_start) = YEAR(CURDATE())";
+      }
+    }
+
+    // 🏙️ Ville
+    if (city && city !== "all") {
+      query += " AND l.city = ?";
+      params.push(city.charAt(0).toUpperCase() + city.slice(1)); // ex: bayonne -> Bayonne
+    }
+
+    query += " ORDER BY e.date_start ASC";
+
+    // 🧠 Exécution de la requête
+    const [rows] = await db.execute(query, params);
+    return rows;
+  }
 
   static async getEventById(id) {
     const [rows] = await db.execute("SELECT * FROM event WHERE id = ?", [id]);

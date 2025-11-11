@@ -9,8 +9,15 @@ retour de tous les events
 */
 
 exports.getAllEvents = async (req, res) => {
-  try {
-    const events = await EventDAO.getAllEvents();
+try {
+    const filters = {
+      search: req.query.search,
+      category: req.query.category,
+      date: req.query.date,
+      city: req.query.city,
+    };
+
+    const events = await EventDAO.getAllEvents(filters);
     res.status(200).json(events);
   } catch (err) {
     console.error("Erreur getAllEvents:", err);
