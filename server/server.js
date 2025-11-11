@@ -12,25 +12,19 @@ const PORT = process.env.PORT || 3000;
 const app = express();
 
 // middlewares
-app.use(cors());
 app.use(express.json());
+app.use(cors());
 app.use(
   helmet({
-    contentSecurityPolicy: {
-      useDefaults: true,
-      directives: {
-        "default-src": ["'self'"],
-        "script-src": ["'self'", "'unsafe-inline'", "'unsafe-eval'"],
-        "style-src": ["'self'", "'unsafe-inline'"],
-        "img-src": ["'self'", "data:", "blob:"],
-      },
-    },
+    contentSecurityPolicy: false, // ✅ on désactive la CSP en dev
     crossOriginEmbedderPolicy: false,
   })
 );
 
 
-app.use(express.static(path.join(__dirname, "../")));
+
+
+
 
 // routes API
 app.use("/api", userRoutes);

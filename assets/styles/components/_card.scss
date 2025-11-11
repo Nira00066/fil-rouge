@@ -6,11 +6,11 @@
 .events-grid {
   display: grid;
   gap: 2rem;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
   padding: 2rem;
   margin: 0 10rem;
 
-  @media (max-width: 768px) {
+  @media (max-width: 800px) {
     gap: 1.5rem;
     padding: 1rem;
     margin: 3rem;
@@ -36,6 +36,10 @@
     transform: translateY(-4px);
   }
 
+  .card {
+    text-decoration: none;
+    color: inherit;
+  }
   .card-image {
     position: relative;
     height: 180px;
@@ -63,12 +67,27 @@
       background-color: #f5f5f5; // fallback
 
       // Catégories spécifiques
-      &.Vintage    { background-color: #f5a623; }
-      &.Drift      { background-color: #147efb; }
-      &.Tuning     { background-color: #f93e3e; }
-      &.Exposition { background-color: #22c55e; }
-      &.Circuit    { background-color: #a855f7; }
-      &.Rassemblement { background-color: #f97316; }
+      &.competition {
+        background-color: #f5a623;
+      }
+      &.mecanique {
+        background-color: #147efb;
+      }
+      &.CarShow {
+        background-color: #f93e3e;
+      }
+      &.offroad {
+        background-color: #22c55e;
+      }
+      &.innovation {
+        background-color: #a855f7;
+      }
+      &.Rassemblement {
+        background-color: #f97316;
+      }
+      &.culture {
+        background-color: #8da142;
+      }
     }
 
     .distance {
@@ -99,14 +118,19 @@
     }
   }
 
+  .card-link {
+    text-decoration: none;
+    color: inherit;
+  }
+
   .card-body {
     padding: 1rem;
-
+    text-align: start;
     h3 {
       font-size: 1.1rem;
       margin-bottom: 0.5rem;
     }
-
+    
     .price {
       display: inline-block;
       margin-left: 0.5rem;
@@ -161,7 +185,7 @@
 
     .actions {
       display: flex;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
 
       .btn {

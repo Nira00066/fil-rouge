@@ -1,5 +1,5 @@
 const db = require("../config/db.config");
-const { verifConnexion } = require("../validator/servivesUser");
+const { verifConnexion } = require("../services/servivesUser");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const userDao = require("../dao/userDao");
@@ -39,9 +39,9 @@ http://localhost:3000/inscription
 */
 
 exports.postInscription = async (req, res) => {
+  console.log(req.body); 
   try {
     const user = req.body;
-
     // 1️⃣ Vérifie si l'email existe déjà
     const existingUser = await userDao.getUserByEmail(user.email);
     if (existingUser) {
@@ -50,11 +50,12 @@ exports.postInscription = async (req, res) => {
 
     // 2️⃣ Hash du mot de passe
     const hashed = await bcrypt.hash(user.password, 10);
+  
 
     // 3️⃣ Création du user via DAO
     await userDao.createUser({
-      name: user.name,
-      lastname: user.lastname,
+      name: user.prenom,
+      lastname: user.nom,
       email: user.email,
       hashed,
     });
@@ -76,23 +77,11 @@ connection Valider retour token
 */
 
 exports.postConnexion = async (req, res) => {
-  console.log("postConnexion");
-  const { email, password } = req.body;
-
   try {
-    // Verification que ton utilisateur sois existant !
-
-    const [row] = await db.execute("SELECT * FROM user WHERE email = ? ", [
-      email,
-    ]);
-
-    if (row.length === 0) {
-      return res.status(400).json({ message: "utilisateur non trouvé" });
-    }
-    // Recuperation du premiers elements sortis lors de la requete
-    const user = row[0];
-
-    verifConnexion(email, password, user);
+    console.log("postConnexion");
+    
+    // ⚡ Grâce à verifConnexion, req.user est déjà défini
+    const user = req.user;
 
     const token = jwt.sign(
       { id: user.id, email: user.email, role: user.role_id },
@@ -100,11 +89,13 @@ exports.postConnexion = async (req, res) => {
       { expiresIn: "1h" }
     );
 
-    res.json({ token });
+    res.status(200).json({
+      message: "Connexion réussie 🎉",
+      token,
+    });
   } catch (err) {
-    console.error(err);
+    console.error("Erreur dans postConnexion:", err);
     res.status(500).json({ message: "Erreur serveur" });
-    console.log("postConnexion");
   }
 };
 

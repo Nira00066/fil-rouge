@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste des evenements</title>
+    <link rel="stylesheet" href="/dist/css/theme.css" />
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header_top">
+          <div class="header_logo">
+            <a href="../index.html">NovaMett</a>
+            <p>Trouve tes events auto</p>
+          </div>
+          <!--Btn de connexion -->
+          <div class="header_nav">
+            <nav>
+              <ul class="header_liens">
+                <li><a href="../index.html">Acceuil</a></li>
+                <li><a href="event.html">Evenement</a></li>
+                <li><a href="eventAdd.html">Crée</a></li>
+              </ul>
+            </nav>
+          </div>
+          <!-- Le rendre invisible plus le titre et le p  -->
+
+          <div class="btn_co">
+            <button
+              class="connexion_btn"
+              role="button"
+              onclick="location.href='connexion.html'"
+            >
+              <img
+                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
+                alt="user"
+              />
+              Connexion
+            </button>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- header  -->
+    <div class="bloc_text container_category">
+      <div class="eventNear_top-left">
+        <h2>Evenements automobiles</h2>
+        <p>Découvre tous les événements auto près de toi</p>
+      </div>
+    </div>
+    <section class="filters container_category">
+      <div class="filters-container">
+        <div class="filters-header">
+          <span class="icon">🔻</span>
+          <strong>Filtres</strong>
+        </div>
+
+        <div class="filters-content">
+          <input type="text" placeholder="Rechercher un événement..." />
+
+          <select>
+            <option>Toutes catégories</option>
+            <option >competition</option>
+            <option>Rassemblement</option>
+            <option>mecanique</option>
+            <option>Shows & Festivals</option>
+            <option>Offroad & Aventure</option>
+            <option>Innovation & Futur</option>
+            <option>Culture & Lifestyle</option>
+          
+          </select>
+
+          <select>
+            <option>Toutes les dates</option>
+            <option>Aujourd'hui</option>
+            <option>Cette semaine</option>
+            <option>Ce mois-ci</option>
+          </select>
+
+          <select>
+            <option>Villes</option>
+            <option>5 km</option>
+            <option>10 km</option>
+            <option>20 km</option>
+            <option>50 km</option>
+            <option>100 km</option>
+          </select>
+        </div>
+
+        <div class="filters-footer">
+          <span>6 événements trouvés</span>
+          <button class="clear-button">Effacer les filtres</button>
+        </div>
+      </div>
+    </section>
+
+    <section id="all-events" class="events-grid">
+      <!-- Les cartes des événements seront insérées ici par JavaScript -->
+    </section>
+  </body>
+  <script type="module" src="../assets/scripts/base.js"></script>
+</html>

@@ -4,211 +4,295 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  color: #333;
-}
 
-.Connexion {
-  display: flex;
+.login-section {
+  display: none; /* Masqué par défaut */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
   padding: 2rem;
+}
+
+.login-container {
+  display: flex;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 800px;
+  width: 100%;
+}
+
+/* Partie gauche : image */
+.login-image {
+  flex: 1;
+  background-color: #000;
+  border-radius: 0 1rem 1rem 0;
+  
+}
+
+.login-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0 1rem 1rem 0;
+
+}
+
+/* Partie droite : formulaire */
+.login-form {
+  flex: 1;
+  padding: 2rem 3rem;
   position: relative;
+}
 
-  .back {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+.login-form h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
 
-    a {
-      color: #dc2626;
-      text-decoration: none;
-      font-weight: bold;
+.login-form p {
+  text-align: center;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
 
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+.login-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.login-form input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.btn-submit {
+  width: 100%;
+  background-color: #e60000;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #c70000;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.register-text a {
+  color: #e60000;
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+/* Bouton de fermeture */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+  .login-container {
+    flex-direction: column;
   }
 
-  .bloc_text {
-    background-color: white;
-    padding: 3rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
+  .login-image {
+    height: 200px;
+  }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
-
-    p {
-      margin-bottom: 2rem;
-      color: #6b7280;
-    }
-
-    .form-grid {
-      form {
-        .form-group {
-          margin-bottom: 1.5rem;
-          text-align: left;
-
-          label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-          }
-
-          input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            outline: none;
-            transition: border-color 0.3s ease;
-
-            &:focus {
-              border-color: #dc2626;
-            }
-          }
-        }
-
-        input[type="submit"] {
-          width: 100%;
-          background-color: #dc2626;
-          color: white;
-          font-weight: bold;
-          padding: 0.75rem;
-          border: none;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-
-          &:hover {
-            background-color: #ffffff;
-          }
-        }
-      }
-    }
-
-    a {
-      display: block;
-      margin-top: 1.5rem;
-      color: #3b82f6;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  .login-form {
+    padding: 2rem;
   }
 }
+
+/* Inscription */
+
 .inscription {
-  display: flex;
+  display: none; /* Masqué par défaut */
   justify-content: center;
   align-items: center;
   min-height: 100vh;
-  background: rgb(255, 255, 255);
   padding: 2rem;
+}
+
+.inscription-container {
+  display: flex;
+  background: #fff;
+  border-radius: 1rem;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  max-width: 900px;
+  max-height: 600px;
+  width: 100%;
+}
+
+/* Partie gauche - image */
+.inscription-image {
+  flex: 1;
+
+  border-radius: 0 1rem 1rem 0;
+
+}
+
+.inscription-image img {
+  
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Partie droite - formulaire */
+.inscription-form {
+  flex: 1;
+  padding: 2rem 3rem;
   position: relative;
+}
 
-  .back {
-    position: absolute;
-    top: 20px;
-    left: 20px;
+.inscription-form h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 1.8rem;
+  margin-bottom: 0.5rem;
+  text-align: center;
+}
 
-    a {
-      color: #dc2626;
-      text-decoration: none;
-      font-weight: bold;
+.inscription-form p {
+  padding-top: 10px;
+  text-align: center;
+  color: #666;
+  margin-bottom: 1.5rem;
+}
 
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+.form-row {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.form-col {
+  flex: 1;
+}
+
+.inscription-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 0.3rem;
+}
+
+.inscription-form input {
+  width: 100%;
+  padding: 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+/* Bouton principal */
+.btn-submit {
+  width: 100%;
+  background-color: #e60000;
+  color: #fff;
+  border: none;
+  border-radius: 0.4rem;
+  padding: 0.8rem;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.btn-submit:hover {
+  background-color: #c70000;
+}
+
+.register-text {
+  text-align: center;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+}
+
+.register-text a {
+  color: #e60000;
+  text-decoration: none;
+}
+
+.register-text a:hover {
+  text-decoration: underline;
+}
+
+/* Bouton fermeture */
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  border: none;
+  background: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .inscription-container {
+    flex-direction: column;
+    max-height: none; /* pour éviter les coupures */
+    width: 90%; /* un peu de marge sur les côtés */
   }
 
-  .bloc_text {
-    background-color: white;
-    padding: 3rem 2rem;
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-    text-align: center;
+  .inscription-image {
+    height: 180px;
+    border-radius: 1rem 1rem 0 0; /* arrondi en haut */
+  }
 
-    h2 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-      color: #1f2937;
-    }
+  .inscription-form {
+    padding: 1.5rem;
+  }
 
-    p {
-      margin-bottom: 2rem;
-      color: #6b7280;
-    }
+  .form-row {
+    flex-direction: column;
+  }
 
-    .form-grid {
-      form {
-        .form-group {
-          margin-bottom: 1.5rem;
-          text-align: left;
+  .inscription {
+    padding: 1rem;
+  }
+}
 
-          label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 600;
-          }
+@media (max-width: 480px) {
+  .inscription-form h2 {
+    font-size: 1.5rem;
+  }
 
-          input {
-            width: 100%;
-            padding: 0.75rem;
-            border: 1px solid #d1d5db;
-            border-radius: 8px;
-            outline: none;
-            transition: border-color 0.3s ease;
+  .inscription-form {
+    padding: 1rem;
+  }
 
-            &:focus {
-              border-color: #dc2626;
-            }
-          }
-        }
-
-        input[type="submit"] {
-          width: 100%;
-          background-color: #dc2626;
-          color: white;
-          font-weight: bold;
-          padding: 0.75rem;
-          border: none;
-          border-radius: 8px;
-          cursor: pointer;
-          transition: background-color 0.3s ease;
-
-          &:hover {
-            background-color: #ffffff;
-            color: #dc2626;
-            border: 1px solid #dc2626;
-          }
-        }
-      }
-    }
-
-    a {
-      display: block;
-      margin-top: 1.5rem;
-      color: #3b82f6;
-      text-decoration: none;
-
-      &:hover {
-        text-decoration: underline;
-      }
-    }
+  .btn-submit {
+    padding: 0.7rem;
+    font-size: 0.9rem;
   }
 }

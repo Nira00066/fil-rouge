@@ -31,26 +31,26 @@
             <nav>
               <ul class="header_liens">
                 <li><a href="index.html">Acceuil</a></li>
-                <li><a href="./pages/event.html">Evenement</a></li>
+                <li><a href="./pages/events.html">Evenement</a></li>
                 <li><a href="./pages/eventAdd.html">Crée</a></li>
               </ul>
             </nav>
-          </div>
-          <!-- Le rendre invisible plus le titre et le p  -->
+            <!-- Le rendre invisible plus le titre et le p  -->
 
-          <div class="btn_co">
-            <button
-              class="connexion_btn"
-              role="button"
-              onclick="location.href='./pages/connexion.html'"
-            >
-              <img
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
-                alt="user"
-              />
+            <div class="btn_co">
+              <button
+                class="connexion_btn"
+                role="button"
+                onclick="location.href='./pages/connexion.html'"
+              >
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
+                  alt="user"
+                />
 
-              Connexion
-            </button>
+                Connexion
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -75,14 +75,20 @@
         <div class="location_form">
           <form id="villeForm">
             <button type="submit" class="btn_red">Choisir la ville</button>
-            <div class="inputRed_ville">
-              <input
-                type="text"
-                id="villeInput"
-                placeholder="Le nom de ta ville"
-                list="suggestions"
-              />
-              <datalist id="suggestions"></datalist>
+            <div class="inputRed_ville form-group ">
+              <select id="ville" name="ville" required>
+                <option value="">-- Sélectionne une ville --</option>
+                <option value="paris">Paris</option>
+                <option value="marseille">Marseille</option>
+                <option value="lyon">Lyon</option>
+                <option value="toulouse">Toulouse</option>
+                <option value="nice">Nice</option>
+                <option value="nantes">Nantes</option>
+                <option value="strasbourg">Strasbourg</option>
+                <option value="montpellier">Montpellier</option>
+                <option value="bordeaux">Bordeaux</option>
+                <option value="lille">Lille</option>
+              </select>
             </div>
           </form>
         </div>
@@ -187,7 +193,7 @@
       <!-- Section events -->
       <!-- Ici il va devoir avoir une logique que ont recoient uniquement les 3 plus recent  -->
       <!-- si loc alors de toi sinon general  -->
-      <section class="eventNear container_category">
+      <section class="eventNear container_card">
         <div class="eventNear_top">
           <div class="eventNear_top-left">
             <h2>Événements près de toi</h2>
@@ -199,10 +205,141 @@
         </div>
 
         <!-- Conteneur vide pour les cartes -->
-        <div class="cardMett_wrapper" id="events-container"></div>
+        <div class="events-grid" id="events-container"></div>
       </section>
 
       <!-- Footer -->
+       <div class="overlay" style="display:none;"></div>
+<section class="login-section">
+  <div class="login-container">
+    <!-- Partie gauche : Image -->
+    <div class="login-image">
+      <img src="./images/user/connexion-bg.jpg" alt="Voiture vintage" />
+    </div>
+
+    <!-- Partie droite : Formulaire -->
+    <div class="login-form">
+      <button class="close-btn" aria-label="Fermer">×</button>
+
+      <h2>Connexion</h2>
+      <p>Connecte-toi pour participer aux événements</p>
+
+      <form id="form-connexion" >
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="ton@email.com"
+          required
+        />
+
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="******"
+          required
+        />
+
+        <button type="submit" class="btn-submit">Connexion</button>
+      </form>
+
+      <p class="register-text">
+        Pas encore de compte ?
+        <a href="./inscription.html">S’inscrire</a>
+      </p>
+    </div>
+  </div>
+</section>
+<section class="inscription" aria-labelledby="titre-inscription">
+  <div class="inscription-container">
+    <!-- Image à gauche -->
+    <div class="inscription-image">
+      <img src="./images/user/inscription-bg.jpg" alt="Voiture rétro" />
+    </div>
+
+    <!-- Bloc de droite -->
+    <div class="inscription-form">
+      <button class="close-btn" aria-label="Fermer">×</button>
+
+      <h2 id="titre-inscription">Inscription</h2>
+      <p>Rejoins la communauté auto</p>
+
+      <form
+        method="POST"
+        id="form-inscription"
+        aria-describedby="form-help"
+      >
+        <div class="form-row">
+          <div class="form-col">
+            <label for="prenom">Prénom</label>
+            <input
+              type="text"
+              id="prenom"
+              name="prenom"
+              placeholder="Ton prénom"
+              autocomplete="given-name"
+              required
+            />
+          </div>
+
+          <div class="form-col">
+            <label for="nom">Nom</label>
+            <input
+              type="text"
+              id="nom"
+              name="nom"
+              placeholder="Ton nom"
+              autocomplete="family-name"
+              required
+            />
+          </div>
+        </div>
+
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="ton@email.com"
+          autocomplete="email"
+          required
+        />
+
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="******"
+          autocomplete="new-password"
+          required
+        />
+
+        <label for="checkPassword">Confirmer le mot de passe</label>
+        <input
+          type="password"
+          id="checkPassword"
+          name="checkPassword"
+          placeholder="******"
+          autocomplete="new-password"
+          required
+        />
+
+        <button type="submit" class="btn-submit">Créer mon compte</button>
+        <p id="form-help" class="sr-only">Tous les champs sont obligatoires.</p>
+      </form>
+
+      <p class="register-text">
+        Déjà un compte ?
+        <a href="connexion.html">Se connecter</a>
+      </p>
+    </div>
+  </div>
+</section>
+
 
       <footer class="footer" id="footer">
         <div class="footer_cta">

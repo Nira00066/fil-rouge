@@ -49,6 +49,27 @@
 
 }
 
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    width: 300px;
+  }
+
+  select {
+    appearance: none;
+    border: 1x solid #737475;
+    border-radius: 0.5rem;
+    padding: 0.5rem 1rem;
+    font-size: 1rem;
+    color: #333;
+    cursor: pointer;
+    
+  }
+
 // ✅ Media queries
 @media (max-width: 768px) {
   .location {

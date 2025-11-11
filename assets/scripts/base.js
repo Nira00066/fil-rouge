@@ -1,5 +1,7 @@
 import './components/Mainmenu.js';
-import './api/events.js'
+import './api/eventRecentadd.js'
 import './action/initTabs.js'
 import './components/popup.js'
-import './api/users.js'
+import './api/usersInscription.js'
+import './api/userConnexion.js'
+import './api/allevents.js'
