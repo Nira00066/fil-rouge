@@ -200,7 +200,7 @@
             <p>Les prochains rendez-vous auto dans ta région</p>
           </div>
           <div class="eventNear_top-right">
-            <button class="btn_next">Voir tout</button>
+            <button class="btn_next" href="./pages/events.html">Voir tout</button>
           </div>
         </div>
 
@@ -210,135 +210,6 @@
 
       <!-- Footer -->
        <div class="overlay" style="display:none;"></div>
-<section class="login-section">
-  <div class="login-container">
-    <!-- Partie gauche : Image -->
-    <div class="login-image">
-      <img src="./images/user/connexion-bg.jpg" alt="Voiture vintage" />
-    </div>
-
-    <!-- Partie droite : Formulaire -->
-    <div class="login-form">
-      <button class="close-btn" aria-label="Fermer">×</button>
-
-      <h2>Connexion</h2>
-      <p>Connecte-toi pour participer aux événements</p>
-
-      <form id="form-connexion" >
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="ton@email.com"
-          required
-        />
-
-        <label for="password">Mot de passe</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="******"
-          required
-        />
-
-        <button type="submit" class="btn-submit">Connexion</button>
-      </form>
-
-      <p class="register-text">
-        Pas encore de compte ?
-        <a href="./inscription.html">S’inscrire</a>
-      </p>
-    </div>
-  </div>
-</section>
-<section class="inscription" aria-labelledby="titre-inscription">
-  <div class="inscription-container">
-    <!-- Image à gauche -->
-    <div class="inscription-image">
-      <img src="./images/user/inscription-bg.jpg" alt="Voiture rétro" />
-    </div>
-
-    <!-- Bloc de droite -->
-    <div class="inscription-form">
-      <button class="close-btn" aria-label="Fermer">×</button>
-
-      <h2 id="titre-inscription">Inscription</h2>
-      <p>Rejoins la communauté auto</p>
-
-      <form
-        method="POST"
-        id="form-inscription"
-        aria-describedby="form-help"
-      >
-        <div class="form-row">
-          <div class="form-col">
-            <label for="prenom">Prénom</label>
-            <input
-              type="text"
-              id="prenom"
-              name="prenom"
-              placeholder="Ton prénom"
-              autocomplete="given-name"
-              required
-            />
-          </div>
-
-          <div class="form-col">
-            <label for="nom">Nom</label>
-            <input
-              type="text"
-              id="nom"
-              name="nom"
-              placeholder="Ton nom"
-              autocomplete="family-name"
-              required
-            />
-          </div>
-        </div>
-
-        <label for="email">Email</label>
-        <input
-          type="email"
-          id="email"
-          name="email"
-          placeholder="ton@email.com"
-          autocomplete="email"
-          required
-        />
-
-        <label for="password">Mot de passe</label>
-        <input
-          type="password"
-          id="password"
-          name="password"
-          placeholder="******"
-          autocomplete="new-password"
-          required
-        />
-
-        <label for="checkPassword">Confirmer le mot de passe</label>
-        <input
-          type="password"
-          id="checkPassword"
-          name="checkPassword"
-          placeholder="******"
-          autocomplete="new-password"
-          required
-        />
-
-        <button type="submit" class="btn-submit">Créer mon compte</button>
-        <p id="form-help" class="sr-only">Tous les champs sont obligatoires.</p>
-      </form>
-
-      <p class="register-text">
-        Déjà un compte ?
-        <a href="connexion.html">Se connecter</a>
-      </p>
-    </div>
-  </div>
-</section>
 
 
       <footer class="footer" id="footer">
@@ -362,4 +233,5 @@
     </main>
   </body>
   <script type="module" src="./assets/scripts/base.js"></script>
+  <script type="module" src="../assets/scripts/api/eventRecentadd.js"></script>
 </html>

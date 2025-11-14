@@ -6,6 +6,7 @@ const helmet = require("helmet");
 const db = require("./config/db.config");
 const userRoutes = require("./routes/Users");
 const eventRoutes = require("./routes/event");
+const imagesRoutes = require("./routes/image");
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -21,6 +22,7 @@ app.use(
   })
 );
 
+app.use("/images", express.static(path.join(__dirname, "../images")));
 
 
 
@@ -29,6 +31,8 @@ app.use(
 // routes API
 app.use("/api", userRoutes);
 app.use("/", eventRoutes);
+app.use("/api/images", imagesRoutes);
+
 
 // démarrage
 app.listen(PORT, () => {

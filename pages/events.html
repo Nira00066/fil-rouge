@@ -4,23 +4,23 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Liste des evenements</title>
-    <link rel="stylesheet" href="/dist/css/theme.css" />
+    <link rel="stylesheet" href="../dist/css/theme.css" />
   </head>
   <body>
-  <header class="header">
+    <header class="header">
       <div class="container">
         <div class="header_top">
           <div class="header_logo">
-            <a href="./index.html">NovaMett</a>
+            <a href="../index.html">NovaMett</a>
             <p>Trouve tes events auto</p>
           </div>
           <!--Btn de connexion -->
           <div class="header_nav">
             <nav>
               <ul class="header_liens">
-                <li><a href="index.html">Acceuil</a></li>
-                <li><a href="./pages/events.html">Evenement</a></li>
-                <li><a href="./pages/eventAdd.html">Crée</a></li>
+                <li><a href="../index.html">Acceuil</a></li>
+                <li><a href="./events.html">Evenement</a></li>
+                <li><a href="./eventAdd.html">Crée</a></li>
               </ul>
             </nav>
             <!-- Le rendre invisible plus le titre et le p  -->
@@ -51,57 +51,64 @@
       </div>
     </div>
     <section class="filters container_category">
-  <div class="filters-container">
-    <div class="filters-header">
-      <span class="icon">🔻</span>
-      <strong>Filtres</strong>
-    </div>
+      <div class="filters-container">
+        <div class="filters-header">
+          <span class="icon">🔻</span>
+          <strong>Filtres</strong>
+        </div>
 
-    <div class="filters-content">
-      <!-- 🔍 Recherche -->
-      <input type="text" id="searchInput" placeholder="Rechercher un événement..." />
+        <div class="filters-content">
+          <!-- 🔍 Recherche -->
+          <input
+            type="text"
+            id="searchInput"
+            placeholder="Rechercher un événement..."
+          />
 
-      <!-- 🏁 Catégories -->
-    <select id="categoryFilter">
-  <option value="all">Toutes catégories</option>
-  <option value="competition">competition</option>
-  <option value="rassemblement">Rassemblement</option>
-  <option value="mecanique">Mécanique</option>
-  <option value="carshow">Shows & Festivals</option>
-  <option value="offroad">Offroad & Aventure</option>
-  <option value="innovation">Innovation & Futur</option>
-  <option value="culture">Culture & Lifestyle</option>
-</select>
+          <!-- 🏁 Catégories -->
+          <select id="categoryFilter">
+            <option value="all">Toutes catégories</option>
+            <option value="competition">competition</option>
+            <option value="rassemblement">Rassemblement</option>
+            <option value="mecanique">Mécanique</option>
+            <option value="carshow">Shows & Festivals</option>
+            <option value="offroad">Offroad & Aventure</option>
+            <option value="innovation">Innovation & Futur</option>
+            <option value="culture">Culture & Lifestyle</option>
+          </select>
 
-<select id="dateFilter">
-  <option value="all">Toutes les dates</option>
-  <option value="today">Aujourd'hui</option>
-  <option value="week">Cette semaine</option>
-  <option value="month">Ce mois-ci</option>
-</select>
+          <select id="dateFilter">
+            <option value="all">Toutes les dates</option>
+            <option value="today">Aujourd'hui</option>
+            <option value="week">Cette semaine</option>
+            <option value="month">Ce mois-ci</option>
+          </select>
 
-<select id="cityFilter">
-  <option value="all">Toutes les villes</option>
-  <option value="bayonne">Bayonne</option>
-  <option value="biarritz">Biarritz</option>
-  <option value="dax">Dax</option>
-  <option value="pau">Pau</option>
-  <option value="bordeaux">Bordeaux</option>
-</select>
+          <select id="cityFilter">
+            <option value="all">Toutes les villes</option>
+            <option value="bayonne">Bayonne</option>
+            <option value="biarritz">Biarritz</option>
+            <option value="dax">Dax</option>
+            <option value="pau">Pau</option>
+            <option value="bordeaux">Bordeaux</option>
+          </select>
+        </div>
 
-    </div>
-
-    <div class="filters-footer">
-      <span id="eventCount">0 événement trouvé</span>
-      <button class="clear-button">Effacer les filtres</button>
-    </div>
-  </div>
-</section>
-
+        <div class="filters-footer">
+          <span id="eventCount">0 événement trouvé</span>
+          <button class="clear-button">Effacer les filtres</button>
+        </div>
+      </div>
+    </section>
 
     <section id="all-events" class="events-grid">
       <!-- Les cartes des événements seront insérées ici par JavaScript -->
     </section>
   </body>
   <script type="module" src="../assets/scripts/base.js"></script>
+  <script type="module" src="../assets/scripts/api/allevents.js"></script>
+  <script
+    type="module"
+    src="../assets/scripts/components/eventCard.js"
+  ></script>
 </html>

@@ -16,7 +16,7 @@ router.get("/evenements", EventController.getAllEvents);
 router.get("/evenements/:id", EventController.getEventById);
 
 // 🧱 Routes protégées (création / maj / suppression)
-router.post("/evenements", authenticateToken, EventController.createEvent);
+router.post("/evenements", EventController.createEvent);
 router.put("/evenements/:id", authenticateToken, EventController.updateEvent);
 router.delete("/evenements/:id", authenticateToken, EventController.deleteEvent);
 

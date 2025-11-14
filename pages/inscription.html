@@ -1,155 +1,129 @@
-<!DOCTYPE html>
-<html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="../dist/css/theme.css" />
-    <title>Page D'inscription - NovaMett</title>
-  </head>
-  <body>
-    <header class="header">
-      <div class="container">
-        <div class="header_top">
-          <div class="header_logo">
-            <a href="../index.html" aria-label="Accueil NovaMett">
-              NovaMett
-            </a>
-            <p>Trouve tes events auto</p>
+<section class="login-section">
+  <div class="login-container">
+    <!-- Partie gauche : Image -->
+    <div class="login-image">
+      <img src="./images/user/connexion-bg.jpg" alt="Voiture vintage" />
+    </div>
+
+    <!-- Partie droite : Formulaire -->
+    <div class="login-form">
+      <button class="close-btn" aria-label="Fermer">×</button>
+
+      <h2>Connexion</h2>
+      <p>Connecte-toi pour participer aux événements</p>
+
+      <form id="form-connexion" >
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="ton@email.com"
+          required
+        />
+
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="******"
+          required
+        />
+
+        <button type="submit" class="btn-submit">Connexion</button>
+      </form>
+
+      <p class="register-text">
+        Pas encore de compte ?
+        <a href="./inscription.html">S’inscrire</a>
+      </p>
+    </div>
+  </div>
+</section>
+<section class="inscription" aria-labelledby="titre-inscription">
+  <div class="inscription-container">
+    <!-- Image à gauche -->
+    <div class="inscription-image">
+      <img src="./images/user/inscription-bg.jpg" alt="Voiture rétro" />
+    </div>
+
+    <!-- Bloc de droite -->
+    <div class="inscription-form">
+      <button class="close-btn" aria-label="Fermer">×</button>
+
+      <h2 id="titre-inscription">Inscription</h2>
+      <p>Rejoins la communauté auto</p>
+
+      <form
+        method="POST"
+        id="form-inscription"
+        aria-describedby="form-help"
+      >
+        <div class="form-row">
+          <div class="form-col">
+            <label for="prenom">Prénom</label>
+            <input
+              type="text"
+              id="prenom"
+              name="prenom"
+              placeholder="Ton prénom"
+              autocomplete="given-name"
+              required
+            />
           </div>
 
-          <!-- Navigation principale -->
-          <div class="header_nav">
-            <nav aria-label="Navigation principale">
-              <ul class="header_liens">
-                <li><a href="../index.html">Accueil</a></li>
-                <li><a href="event.html">Événements</a></li>
-                <li><a href="eventAdd.html">Créer</a></li>
-              </ul>
-            </nav>
-          </div>
-
-          <!-- Bouton de connexion -->
-          <div class="btn_co">
-            <button
-              class="connexion_btn"
-              type="button"
-              onclick="location.href='connexion.html'"
-            >
-              <img
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
-                alt="Icône utilisateur"
-              />
-              <span>Connexion</span>
-            </button>
+          <div class="form-col">
+            <label for="nom">Nom</label>
+            <input
+              type="text"
+              id="nom"
+              name="nom"
+              placeholder="Ton nom"
+              autocomplete="family-name"
+              required
+            />
           </div>
         </div>
-      </div>
-    </header>
 
-    <!-- *************  FIN HEADER ************************-->
+        <label for="email">Email</label>
+        <input
+          type="email"
+          id="email"
+          name="email"
+          placeholder="ton@email.com"
+          autocomplete="email"
+          required
+        />
 
-    <main>
-      <section class="inscription" aria-labelledby="titre-inscription">
-        <div class="back">
-          <a href="../index.html">← Retour à l'accueil</a>
-        </div>
+        <label for="password">Mot de passe</label>
+        <input
+          type="password"
+          id="password"
+          name="password"
+          placeholder="******"
+          autocomplete="new-password"
+          required
+        />
 
-        <div class="bloc_text">
-          <h2 id="titre-inscription">Créer un compte</h2>
-          <p>Rejoins la communauté auto</p>
+        <label for="checkPassword">Confirmer le mot de passe</label>
+        <input
+          type="password"
+          id="checkPassword"
+          name="checkPassword"
+          placeholder="******"
+          autocomplete="new-password"
+          required
+        />
 
-          <div class="form-grid">
-            <form
-              method="POST"
-              id="form-inscription"
-              class="from-group"
-              aria-describedby="form-help"
-            >
-              <!-- Champ prénom -->
-              <div class="form-group">
-                <label for="prenom">Prénom</label>
-                <input
-                  type="text"
-                  id="prenom"
-                  name="prenom"
-                  placeholder="Ton prénom"
-                  autocomplete="given-name"
-                  required
-                />
-              </div>
+        <button type="submit" class="btn-submit">Créer mon compte</button>
+        <p id="form-help" class="sr-only">Tous les champs sont obligatoires.</p>
+      </form>
 
-              <!-- Champ nom -->
-              <div class="form-group">
-                <label for="nom">Nom</label>
-                <input
-                  type="text"
-                  id="nom"
-                  name="nom"
-                  placeholder="Ton nom"
-                  autocomplete="family-name"
-                  required
-                />
-              </div>
-
-              <!-- Champ email -->
-              <div class="form-group">
-                <label for="email">Email</label>
-                <input
-                  type="email"
-                  id="email"
-                  name="email"
-                  placeholder="ton@email.com"
-                  autocomplete="email"
-                  required
-                />
-              </div>
-
-              <!-- Champ mot de passe -->
-              <div class="form-group">
-                <label for="password">Mot de passe</label>
-                <input
-                  type="password"
-                  id="password"
-                  name="password"
-                  placeholder="******"
-                  autocomplete="new-password"
-                  required
-                />
-              </div>
-
-              <!-- Confirmation mot de passe -->
-              <div class="form-group">
-                <label for="checkPassword">Confirmer le mot de passe</label>
-                <input
-                  type="password"
-                  id="checkPassword"
-                  name="checkPassword"
-                  placeholder="******"
-                  autocomplete="new-password"
-                  required
-                />
-              </div>
-
-              <!-- Bouton -->
-              <input
-                type="submit"
-                id="back-to-connexion"
-                value="Créer mon compte"
-                aria-label="Créer mon compte"
-              />
-
-              <p id="form-help" class="sr-only">
-                Tous les champs sont obligatoires.
-              </p>
-            </form>
-          </div>
-
-          <a href="connexion.html">Déjà un compte ? Se connecter</a>
-        </div>
-      </section>
-    </main>
-  </body>
-
- <script type="module" src="../assets/scripts/api/usersInscription.js"></script>
-
-</html>
+      <p class="register-text">
+        Déjà un compte ?
+        <a href="connexion.html">Se connecter</a>
+      </p>
+    </div>
+  </div>
+</section>

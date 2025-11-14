@@ -104,25 +104,44 @@ exports.updateEvent = async (req, res) => {
     res.status(500).json({ message: "Erreur serveur : " + error.message });
   }
 };
-
 exports.createEvent = async (req, res) => {
   try {
-    const user_id = req.user.id; // 👈 récupéré via ton middleware JWT
-    const eventData = { ...req.body, user_id };
+    console.log("📥 Données reçues :", req.body);
+    console.log("👤 Utilisateur :", req.user);
+
+    const user_id = req.user ? req.user.id : null;
+    if (!user_id) console.warn("⚠️ Aucun user_id trouvé, test avec 1");
+
+    const data = req.body;
+
+    const eventData = {
+      ...data,
+      event_image_id: data.event_image_id ?? null,
+      user_id: user_id || 1,
+      event_rules: JSON.stringify(data.event_rules || []),
+      available_services: JSON.stringify(data.available_services || []),
+      tags: JSON.stringify(data.tags || []),
+    };
+
+
+    console.log("🧩 Données préparées pour la DB :", eventData);
 
     const result = await EventDAO.createEvent(eventData);
 
     res.status(201).json({
-      message: "Événement créé avec succès",
+      message: "✅ Événement créé avec succès",
       eventId: result.insertId,
     });
   } catch (err) {
-    console.error(err);
+    console.error("💥 ERREUR DANS createEvent :", err);
+    if (err.stack) console.error("📜 Stack :", err.stack);
     res
       .status(500)
-      .json({ message: "Erreur serveur lors de la création de l'événement" });
+      .json({ message: "Erreur serveur lors de la création", error: err.message });
   }
 };
+
+
 
 exports.deleteEvent = async (req, res) => {
   const id = parseInt(req.params.id);

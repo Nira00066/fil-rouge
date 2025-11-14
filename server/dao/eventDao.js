@@ -10,22 +10,25 @@ class EventDAO {
   static async getAllEvents(filters = {}) {
     const { search, category, date, city } = filters;
 
-    // 🧱 Requête de base
     let query = `
-      SELECT e.*, l.city
-      FROM event e
-      LEFT JOIN location l ON e.location_id = l.id
-      WHERE 1=1
-    `;
+    SELECT 
+      e.*,
+      l.city,
+      img.main_url AS event_image_url
+    FROM event e
+    LEFT JOIN location l ON e.location_id = l.id
+    LEFT JOIN event_image img ON img.id = e.event_image_id
+    WHERE 1=1
+  `;
     const params = [];
 
-    // 🔍 Recherche texte (titre ou description)
+    // 🔍 Search
     if (search) {
       query += " AND (e.title LIKE ? OR e.description LIKE ?)";
       params.push(`%${search}%`, `%${search}%`);
     }
 
-    // 🏷️ Catégorie (mapping du slug -> id)
+    // 🏷 Catégorie par slug
     if (category && category !== "all") {
       const categoryMap = {
         competition: 1,
@@ -36,6 +39,7 @@ class EventDAO {
         innovation: 6,
         culture: 7,
       };
+
       const categoryId = categoryMap[category];
       if (categoryId) {
         query += " AND e.category_id = ?";
@@ -43,27 +47,24 @@ class EventDAO {
       }
     }
 
-    // 📅 Filtre date (today / week / month)
+    // 📅 Date
     if (date && date !== "all") {
-      if (date === "today") {
-        query += " AND DATE(e.date_start) = CURDATE()";
-      } else if (date === "week") {
+      if (date === "today") query += " AND DATE(e.date_start) = CURDATE()";
+      if (date === "week")
         query += " AND YEARWEEK(e.date_start, 1) = YEARWEEK(CURDATE(), 1)";
-      } else if (date === "month") {
+      if (date === "month")
         query +=
-          " AND MONTH(e.date_start) = MONTH(CURDATE()) AND YEAR(e.date_start) = YEAR(CURDATE())";
-      }
+          " AND MONTH(e.date_start) = MONTH(CURDATE()) AND YEAR(e.date_start)=YEAR(CURDATE())";
     }
 
-    // 🏙️ Ville
+    // 🏙 Ville
     if (city && city !== "all") {
       query += " AND l.city = ?";
-      params.push(city.charAt(0).toUpperCase() + city.slice(1)); // ex: bayonne -> Bayonne
+      params.push(city.charAt(0).toUpperCase() + city.slice(1));
     }
 
     query += " ORDER BY e.date_start ASC";
 
-    // 🧠 Exécution de la requête
     const [rows] = await db.execute(query, params);
     return rows;
   }
@@ -106,30 +107,38 @@ class EventDAO {
       );
     }
   }
-static async getRecentTop(limit) {
-  try {
-    const safeLimit = Number(limit) || 3; // sécurité : convertit en nombre
-    const [rows] = await db.execute(
-      `SELECT 
-        id,
-        title,
-        category_id,
-        event_image_id,
-        date_start,
-        address,
-        price
-      FROM event
-      ORDER BY date_start DESC
-      LIMIT ${safeLimit};`
-    );
-    return rows;
-  } catch (err) {
-    throw new Error(
-      "Erreur lors de la récupération des événements récents : " + err.message
-    );
-  }
-}
+  static async getRecentTop(limit) {
+    try {
+      const safeLimit = Number(limit) || 3; // sécurité : convertit en nombre
+      const [rows] = await db.execute(
+        `SELECT 
+          event.id,
+          event.title,
+          event.description,
+          event.category_id,
+          event.event_image_id,
+          event_image.main_url AS event_image_url,
+          event.date_start,
+          event.hour_start,
+          event.address,
+          event.price,
+          event.organization_name,
+          event.organization_description
+          FROM event
+          LEFT JOIN event_image
+          ON event_image.id = event.event_image_id
+          ORDER BY event.date_start DESC
+          LIMIT ${safeLimit};
 
+;`
+      );
+      return rows;
+    } catch (err) {
+      throw new Error(
+        "Erreur lors de la récupération des événements récents : " + err.message
+      );
+    }
+  }
 
   //  selection par location de cat choisi
   static async getEventsByloc(locId) {

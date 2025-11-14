@@ -133,6 +133,11 @@
 
   &_filter {
     margin: 5rem 10rem;
+
+
+    @media (max-width: 1020px) {
+      margin: 2rem 5rem;
+    }
   }
 }
 

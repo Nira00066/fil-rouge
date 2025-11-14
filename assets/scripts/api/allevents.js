@@ -1,4 +1,6 @@
 import { API_BASE_URL } from "./config.js";
+import { createEventCard } from "../components/eventCard.js";
+
 
 document.addEventListener("DOMContentLoaded", () => {
   // 🧭 Sélecteurs propres
@@ -29,7 +31,7 @@ document.addEventListener("DOMContentLoaded", () => {
       if (city && city !== "all") params.append("city", city);
 
       const url = `${API_BASE_URL}/evenements?${params.toString()}`;
-      console.log("🔗 Appel API :", url);
+      console.log("Appel API :", url);
 
       // Requête à l’API
       const response = await fetch(url);
@@ -44,6 +46,7 @@ document.addEventListener("DOMContentLoaded", () => {
       resultCount.textContent = `${events.length} événement${
         events.length > 1 ? "s" : ""
       } trouvé${events.length > 1 ? "s" : ""}`;
+      
     } catch (err) {
       console.error("Erreur de chargement :", err);
       container.innerHTML = `<p>Impossible de charger les événements 😬</p>`;
@@ -59,85 +62,10 @@ document.addEventListener("DOMContentLoaded", () => {
       container.innerHTML = `<p>Aucun événement trouvé 😢</p>`;
       return;
     }
+ events.forEach(event => {
+  container.appendChild(createEventCard(event));
+});
 
-    events.forEach((event) => {
-      const eventLink = `/evenements/${event.id}`;
-      const price =
-        parseFloat(event.price) === 0 ? "Gratuit" : `${event.price} €`;
-      const date = new Date(event.date_start).toLocaleDateString("fr-FR", {
-        day: "2-digit",
-        month: "short",
-        year: "numeric",
-      });
-
-      // Définir classe et nom de catégorie selon l’ID
-      let categoryClass = "";
-      let categoryName = "";
-      switch (event.category_id) {
-        case 1:
-          categoryClass = "competition";
-          categoryName = "Compétition & Performance";
-          break;
-        case 2:
-          categoryClass = "Rassemblement";
-          categoryName = "Rassemblements & Meets";
-          break;
-        case 3:
-          categoryClass = "mecanique";
-          categoryName = "Mécanique & Préparation";
-          break;
-        case 4:
-          categoryClass = "carshow";
-          categoryName = "Shows & Festivals";
-          break;
-        case 5:
-          categoryClass = "offroad";
-          categoryName = "Offroad & Aventure";
-          break;
-        case 6:
-          categoryClass = "innovation";
-          categoryName = "Innovation & Futur";
-          break;
-        case 7:
-          categoryClass = "culture";
-          categoryName = "Culture & Lifestyle";
-          break;
-        default:
-          categoryClass = "autre";
-          categoryName = "Autre";
-      }
-
-      // Création de la carte
-      const card = document.createElement("div");
-      card.classList.add("event-card");
-      card.innerHTML = `
-        <a href="${eventLink}" class="card" id="event-${event.id}">
-          <div class="card-image">
-            <img
-              src="${
-                event.event_image_id
-                  ? `./images/events/small/event-${event.event_image_id}.webp`
-                  : "../images/default-event.jpg"
-              }"
-              alt="${event.title}"
-            />
-            <span class="category-tag ${categoryClass}">${categoryName}</span>
-          </div>
-          <div class="card-body">
-            <h3>${event.title} <span class="price">${price}</span></h3>
-            <p>${event.description || "Aucune description disponible."}</p>
-            <div class="info">
-              <div class="line">📅 ${date} à ${event.hour_start || "?"}</div>
-              <div class="line">📍 ${event.address || "Adresse inconnue"}</div>
-              <div class="line">👤 ${
-                event.organization_name || "Organisateur inconnu"
-              }</div>
-            </div>
-          </div>
-        </a>
-      `;
-      container.appendChild(card);
-    });
   }
 
   // 🧠 Gestion des filtres dynamiques

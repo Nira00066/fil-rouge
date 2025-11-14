@@ -9,13 +9,14 @@
     <script defer src="../dist/js/theme.js"></script>
     <link rel="icon" type="image/x-icon" href="assets/pepite-1.png" />
   </head>
+
   <body>
     <!--******************************             HEADER              ********************************************* -->
     <header class="header">
       <div class="container">
         <div class="header_top">
           <div class="header_logo">
-            <a href="index.html">NovaMett</a>
+            <a href="../index.html">NovaMett</a>
             <p>Trouve tes events auto</p>
           </div>
           <!--Btn de connexion -->
@@ -23,21 +24,26 @@
             <nav>
               <ul class="header_liens">
                 <li><a href="../index.html">Acceuil</a></li>
-                <li><a href="event.html">Evenement</a></li>
-                <li><a href="eventAdd.html">Crée</a></li>
+                <li><a href="./events.html">Evenement</a></li>
+                <li><a href="./eventAdd.html">Crée</a></li>
               </ul>
             </nav>
-          </div>
-          <!-- Le rendre invisible plus le titre et le p  -->
+            <!-- Le rendre invisible plus le titre et le p  -->
 
-          <div class="btn_co">
-            <button class="connexion_btn" role="button">
-              <img
-                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
-                alt="user"
-              />
-              Connexion
-            </button>
+            <div class="btn_co">
+              <button
+                class="connexion_btn"
+                role="button"
+                onclick="location.href='./pages/connexion.html'"
+              >
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
+                  alt="user"
+                />
+
+                Connexion
+              </button>
+            </div>
           </div>
         </div>
       </div>
@@ -73,6 +79,8 @@
                 <label>Titre de l’événement *</label>
                 <input
                   type="text"
+                  id="event-title"
+                  name="title"
                   placeholder="Ex: Rassemblement BMW Classic 2025"
                 />
               </div>
@@ -80,14 +88,15 @@
 
               <div class="form-group">
                 <label>Catégorie *</label>
-                <select>
+                <select id="category" name="category">
                   <option value="">Sélectionner</option>
-                  <option>Vintage</option>
-                  <option>Drift</option>
-                  <option>Tuning</option>
-                  <option>Circuit</option>
-                  <option>Exposition</option>
-                  <option>Rassemblement</option>
+                  <option value="1">Compétition</option>
+                  <option value="2">Rassemblement</option>
+                  <option value="3">Mécanique</option>
+                  <option value="4">Carshow</option>
+                  <option value="5">Offroad</option>
+                  <option value="6">Innovation</option>
+                  <option value="7">Culture</option>
                 </select>
               </div>
 
@@ -96,68 +105,83 @@
               <!-- Checkbox : plusieurs dates -->
 
               <!-- ***************  Catégorie **************** -->
+              <!-- <input
+              type="checkbox"
+              id="multiple-dates"
+              onchange="toggleEndDate()"
+              />
+              <label for="multiple-dates">Événement sur plusieurs jours</label> -->
 
               <!-- Date de début -->
-              <div class="form-group">
-                <label>Date de début *</label>
-                <input type="date" id="start-date" />
-              </div>
+              <div class="pair-dates">
+                <div class="form-group">
+                  <label>Date de début *</label>
+                  <input type="date" id="start-date" name="startDate" />
+                </div>
 
-              <!-- Date de fin (masqué par défaut) -->
-              <div class="form-group">
-                <label>Date de fin *</label>
-                <input type="date" id="end-date" />
+                <!-- Date de fin (masqué par défaut) -->
+                <div class="form-group">
+                  <label>Date de fin *</label>
+                  <input type="date" id="end-date" name="endDate" />
+                </div>
               </div>
-
               <!-- ***************  HEURE **************** -->
+              <div class="pair-time">
+                <!-- Heure de début -->
+                <div class="form-group">
+                  <label>Heure de début *</label>
+                  <input type="time" id="start-time" name="start-time" />
+                </div>
 
-              <!-- Heure de début -->
-              <div class="form-group">
-                <label>Heure de début *</label>
-                <input type="time" />
-              </div>
-
-              <!-- Heure de fin -->
-              <div class="form-group">
-                <label>Heure de fin</label>
-                <input type="time" />
+                <!-- Heure de fin -->
+                <div class="form-group">
+                  <label>Heure de fin</label>
+                  <input type="time" id="end-time" name="end-time" />
+                </div>
               </div>
               <!-- ***************  Prix **************** -->
 
               <!-- Prix -->
               <div class="form-group">
                 <label>Prix d’entrée</label>
-                <input type="text" placeholder="Gratuit, 15€, 25€/personne…" />
+                <input
+                  type="text"
+                  id="price"
+                  name="price"
+                  placeholder="Gratuit, 15€, 25€/personne…"
+                />
               </div>
-              <!-- ***************  Lieu **************** -->
 
-              <!-- Lieu -->
-              <div class="form-group">
-                <label>Lieu *</label>
-                <input type="text" placeholder="Ex: Château de Vincennes" />
-              </div>
+              <!-- ***************   Nombre participants **************** -->
+
+              <!-- <div class="form-group one-point-five">
+                <label>Nbr max de participants</label>
+                <input type="number"  id="max-participants" name="maxParticipants" placeholder="Ex: 100 ...." />
+              </div> -->
 
               <!-- ***************  Adresse **************** -->
-
               <!-- Ville -->
               <div class="form-group">
                 <label>Ville *</label>
-                <input type="text" placeholder="Ex: Paris" />
+                <select type="text" id="city" name="city" required>
+                  <option value="">-- Sélectionne une ville --</option>
+                  <option value="1">Bayonne</option>
+                  <option value="2">Biarritz</option>
+                  <option value="3">Dax</option>
+                  <option value="4">Pau</option>
+                  <option value="5">Bordeaux</option>
+                </select>
               </div>
 
               <!-- Adresse complète -->
-              <div class="form-group full">
+              <div class="form-group">
                 <label>Adresse complète *</label>
                 <input
                   type="text"
+                  id="address"
+                  name="address"
                   placeholder="Ex: 9 Avenue de Paris, 94300 Vincennes"
                 />
-              </div>
-              <!-- ***************   Nombre participants **************** -->
-
-              <div class="form-group full">
-                <label>Nombre maximum de participants</label>
-                <input type="number" min="1" placeholder="Ex: 100" />
               </div>
             </form>
           </div>
@@ -174,6 +198,8 @@
                     <label>Description de l'événement</label>
                     <input
                       type="text"
+                      id="event-description"
+                      name="description"
                       placeholder="Décrivez votre événement en détail : programme, déroulement, ce que les participants peuvent attendre..."
                     />
                   </div>
@@ -189,20 +215,26 @@
                     <input
                       type="text"
                       id="tags"
+                      name="tag-event"
                       placeholder="Ajoutez des tags..."
                     />
                     <button type="button" onclick="addTagFromInput()">
                       Ajouter
                     </button>
                   </div>
-
                   <div class="suggested-tags">
-                    <span class="tag" onclick="addTag('Vintage')">Vintage</span>
-                    <span class="tag" onclick="addTag('Drift')">Drift</span>
-                    <span class="tag" onclick="addTag('Tuning')">Tuning</span>
-                    <span class="tag" onclick="addTag('Circuit')">Circuit</span>
+                    <span class="tag" onclick="addTag('offroad')">offroad</span>
+                    <span class="tag" onclick="addTag('competition')"
+                      >competition</span
+                    >
+                    <span class="tag" onclick="addTag('Rassemblement')"
+                      >drift</span
+                    >
+                    <span class="tag" onclick="addTag('carshow')">Classic</span>
                     <!-- tags genere par les rajoue de bases ! -->
                   </div>
+                  <label>Tags sélectionnés :</label>
+                  <div class="tags-selectionner"></div>
                 </div>
               </div>
               <!-- *************************** element IMAGE **********************  -->
@@ -214,7 +246,12 @@
                     <span id="upload-text">
                       Cliquer pour sekectionner une image ici</span
                     >
-                    <input type="file" id="event-image" accept="image/*" />
+                    <input
+                      type="file"
+                      id="event-image"
+                      name="image"
+                      accept="image/*"
+                    />
                     <div class="image-preview">
                       <img id="preview-image" src="" alt="" />
                       <button
@@ -253,7 +290,7 @@
               <!-- Tags cliquables (règles suggérées) -->
               <div class="form-group full">
                 <label>Règles communes</label>
-                <div class="suggested-tags">
+                <div class="suggested-tags" id="suggested-rules">
                   <span class="tag" onclick="addRule('Respecter les horaires')"
                     >Respecter les horaires</span
                   >
@@ -279,7 +316,6 @@
                   >
                 </div>
               </div>
-
               <!-- Liste des règles ajoutées -->
               <div class="form-group full">
                 <label>Règles sélectionnées</label>
@@ -310,7 +346,8 @@
               <!-- Tags cliquables (services suggérés) -->
               <div class="form-group full">
                 <label>Services courants</label>
-                <div class="suggested-tags">
+                <div class="suggested-tags" id="suggested-services">
+                  >
                   <span class="tag" onclick="addService('Parking sécurisé')"
                     >Parking sécurisé</span
                   >
@@ -398,6 +435,7 @@
                   <input
                     type="text"
                     id="organizer-name"
+                    name="nameOrganizer"
                     placeholder="Ex: NovaAuto Events"
                   />
                 </div>
@@ -409,14 +447,23 @@
                   <textarea
                     id="org-description"
                     rows="4"
+                    name="desicriptionOrg"
                     placeholder="Parlez de votre organisation : missions, historique, types d'événements organisés..."
                   ></textarea>
                 </div>
               </div>
             </div>
           </form>
+          <button type="submit" id="createvent" class="btn btn-red">
+            Crée un nouveau evenement
+          </button>
         </section>
       </div>
     </section>
   </body>
+  <script src="../assets/scripts/base.js"></script>
+  <script type="module" src="../assets/scripts/api/creatEvent.js"></script>
+  <script type="module" src="../assets/scripts/action/addEvent.js"></script>
+  <script type="module" src="../assets/scripts/api/addImages.js"></script>
+  <script type="module" src="../assets/scripts/action/imageUpdate.js"></script>
 </html>
