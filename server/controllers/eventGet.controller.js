@@ -9,6 +9,7 @@ retour de tous les events
 */
 
 exports.getAllEvents = async (req, res) => {
+  console.log('tu es ici ')
 try {
     const filters = {
       search: req.query.search,

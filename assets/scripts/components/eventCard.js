@@ -31,8 +31,7 @@ const hourStart = event.hour_start
 
 
 
-  // URL de la page détail
-  const eventLink = `/evenements/${event.id}`;
+ 
 
   // Catégories
   let categoryClass = "";
@@ -72,52 +71,60 @@ const hourStart = event.hour_start
       categoryName = "Autre";
   }
 
-  // HTML de la carte
-  card.innerHTML = `
-    <a href="${eventLink}" class="card" id="event-${event.id}">
-      <div class="card-image">
-        <img 
-          src="./../${imageUrl}"
-          onerror="this.onerror=null; this.src='images/events/default-event.jpg';"
-          alt="image événement"
-        />
+// 📌 Lien vers la page event FRONT
+// Détecter si on est sur index.html
+const isIndexPage =
+  window.location.pathname.endsWith("index.html") ||
+  window.location.pathname === "/" ||
+  window.location.pathname === "/index.html";
 
-        <div class="icons">
-          <button aria-label="Ajouter aux favoris">❤</button>
-        </div>
+// Définir le bon lien
+const eventLink = isIndexPage
+  ? `pages/event.html?id=${event.id}`
+  : `event.html?id=${event.id}`;
 
-        <span class="category-tag ${categoryClass}">
-          ${categoryName}
-        </span>
+
+card.innerHTML = `
+  <a href="${eventLink}" class="card" id="event-${event.id}">
+    <div class="card-image">
+      <img 
+        src="./../${imageUrl}"
+        onerror="this.onerror=null; this.src='images/events/default-event.jpg';"
+        alt="image événement"
+      />
+
+      <div class="icons">
+        <button aria-label="Ajouter aux favoris">❤</button>
       </div>
 
-      <div class="card-body">
-        <h3>
-          ${event.title}
-          <span class="price">${price}</span>
-        </h3>
+      <span class="category-tag ${categoryClass}">
+        ${categoryName}
+      </span>
+    </div>
 
-        <p>${description}</p>
+    <div class="card-body">
+      <h3>
+        ${event.title}
+        <span class="price">${price}</span>
+      </h3>
 
-        <div class="info">
+      <p>${description}</p>
+
+      <div class="info">
         <div class="line">📅 ${formattedDate} à ${hourStart}</div>
-
-          <div class="line">📍 ${event.address || "Adresse inconnue"}</div>
-          <div class="line">👤 ${
-            event.organization_name || "Organisateur inconnu"
-          }</div>
-        </div>
-
-        <!-- Bouton indépendant -->
-        <button 
-          class="btn btn-red view-event-btn"
-          onclick="location.href='${eventLink}'"
-        >
-          Voir l’événement
-        </button>
+        <div class="line">📍 ${event.address || "Adresse inconnue"}</div>
+        <div class="line">👤 ${event.organization_name || "Organisateur inconnu"}</div>
       </div>
-    </a>
-  `;
+
+      <button 
+        class="btn btn-red view-event-btn"
+        onclick="location.href='${eventLink}'"
+      >
+        Voir l’événement
+      </button>
+    </div>
+  </a>
+`;
 
   return card;
 }

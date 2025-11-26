@@ -1,0 +1,170 @@
+.container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.event_page {
+  display: flex;
+  flex-direction: row;
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+/* ---------------------------------------------------
+   GALERIE IMAGES
+--------------------------------------------------- */
+
+.event_images {
+  flex: 1;
+  max-width: 45%;
+}
+
+.event_gallery {
+  display: flex;
+  flex-direction: row;
+  gap: 2.5rem;
+  align-items: flex-start;
+}
+
+.thumbs {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.thumbs img {
+  width: 85px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  cursor: pointer;
+}
+
+.main_image img {
+  width: 100%;
+  max-width: 550px;
+  border-radius: 10px;
+}
+
+/* ---------------------------------------------------
+   INFOS DE L'ÉVÉNEMENT
+--------------------------------------------------- */
+.event_title_container {
+  display: flex;
+  align-items: center;
+ justify-content: space-between;
+}
+.event_info {
+  flex: 1;
+  max-width: 55%;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+.tags_titre {
+  font-size: larger;
+  font-weight: 700;
+  margin-bottom: 0.5rem;}
+.event_title {
+  font-size: 2rem;
+  font-weight: 700;
+  margin: 0 0 1rem 0;
+}
+.tags{
+  background: var(--category-drift);
+  width: fit-content;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+.events_tags {
+  display: flex;
+  gap: 0.5rem;
+  margin-bottom: 1rem;
+}
+/* Prix + date exactement comme ton screen */
+.event_price_date {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding-bottom: 0.8rem;
+  border-bottom: 2px solid #dcdcdc;
+  margin-bottom: 1.5rem;
+}
+
+.event_price {
+  font-size: 1.4rem;
+  font-weight: 500;
+  color: #000;
+}
+
+.event_date {
+  text-align: right;
+  font-size: 0.85rem;
+  line-height: 1.2rem;
+}
+
+.event_date strong {
+  font-size: 0.9rem;
+}
+
+/* ---------------------------------------------------
+   DESCRIPTION
+--------------------------------------------------- */
+
+.desc_title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  padding-bottom: 4px;
+  display: inline-block;
+}
+
+.event_description ul {
+  list-style: disc;
+  margin-left: 4.3rem;
+  margin-top: 1rem;
+}
+
+/* ---------------------------------------------------
+   ACCORDÉON
+--------------------------------------------------- */
+
+.event_accordion details {
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  padding: 1rem;
+  margin-bottom: 1rem;
+  background: #fff;
+}
+
+.event_accordion summary {
+  font-weight: 600;
+  cursor: pointer;
+}
+.event-description {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  margin-top: 1rem;
+  line-height: 1.5rem;
+}
+
+.accordion_block h3 {
+  margin-top: 1rem;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+
+.accordion_block ul {
+  list-style: disc;
+  margin-left: 3rem;
+}
+
+/* ---------------------------------------------------
+   RESPONSIVE
+--------------------------------------------------- */
+
+@media (max-width: 900px) {
+  .event_page {
+    flex-direction: column;
+  }
+}

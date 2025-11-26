@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title id="page-title">Événement – NovaMeet</title>
+    <meta name="description" content="Page événement officielle NovaMeet" />
+    <meta name="referrer" content="strict-origin" />
+
+    <link rel="stylesheet" href="../dist/css/theme.css" />
+    <script defer src="../dist/js/theme.js"></script>
+  </head>
+
+  <body>
+    <!-- HEADER -->
+    <header class="header">
+      <div class="container">
+        <div class="header_top">
+          <div class="header_logo">
+            <a href="../index.html">NovaMeet</a>
+            <p>Trouve tes events auto</p>
+          </div>
+
+          <div class="header_nav">
+            <nav>
+              <ul class="header_liens">
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="./events.html">Événements</a></li>
+                <li><a href="./eventAdd.html">Créer</a></li>
+              </ul>
+            </nav>
+
+            <div class="btn_co">
+              <button class="connexion_btn">
+                <img src="../images/icons/user.png" alt="" />
+                Connexion
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- MAIN -->
+    <main class="event_page container" role="main">
+  <section class="event_images">
+    <div class="event_gallery">
+      <div class="thumbs" id="event-thumbnails"></div>
+
+      <div class="main_image">
+        <img
+          id="event-main-image" 
+          src=""
+          alt="Image principale de l'événement"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="event_info">
+    <div class="event_title_container">
+      <h1 id="event-title" class="event_title">Chargement...</h1>
+      <img src="../images/icones/add_icon.png" alt="Favoris" class="favorite_icon" id="favorite-icon"/>
+    </div>
+
+    <div class="event_price_date">
+      <p id="event-price" class="event_price"></p>
+
+      <div class="event_date">
+        <p><strong>Date :</strong> <span id="event-date"></span></p>
+        <p><strong>Horaires :</strong> <span id="event-hours"></span></p>
+      </div>
+    </div>
+
+    <article>
+      <h3 class="tags_titre">Tags:</h3>
+      <ul id="event-tags" class="events_tags"></ul>
+    </article>
+
+    <article class="event_description">
+      <h2 class="desc_title">Description</h2>
+      <p id="event-description"></p>
+    </article>
+
+    <section class="event_accordion">
+      <details>
+        <summary>Services & Réglementations</summary>
+        <div class="accordion_block">
+          <h3>Services disponibles</h3>
+          <ul id="event-services"></ul> <h3>Réglementations</h3>
+          <ul id="event-rules"></ul> </div>
+      </details>
+
+      <details open> <summary>Localisation</summary>
+        <p><strong>Adresse :</strong> <span id="event-address"></span></p>
+        <div id="event-map" class="map_placeholder"></div>
+      </details>
+
+      <details>
+        <summary>Contact & Organisateur</summary>
+        <ul>
+          <li><strong>Organisme :</strong> <span id="event-org-name"></span></li>
+          <li><strong>À propos :</strong> <span id="event-org-desc"></span></li>
+          <li><strong>Téléphone :</strong> <span id="event-phone"></span></li>
+          <li><strong>Email :</strong> <span id="event-email"></span></li>
+          <li><strong>Site Web :</strong> <a id="event-website" href="#" target="_blank">Visiter le site</a></li>
+        </ul>
+      </details>
+    </section>
+
+    <p id="event-created-at" class="event_created_at"></p>
+  </section>
+</main>
+
+  <div id="popup-overlay" class="hidden">
+      <div id="popup-content"></div>
+    </div>
+    <!-- JS -->
+    <script type="module" src="../assets/scripts/base.js"></script>
+    <script type="module" src="../assets/scripts/api/eventById.js"></script>
+  </body>
+</html>

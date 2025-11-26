@@ -3,6 +3,7 @@ import { createEventCard } from "../components/eventCard.js";
 
 async function loadRecentEvents() {
   const container = document.getElementById("events-container");
+console.log("JS chargé !");
 
   if (!container) {
     console.warn("⚠️ Aucun conteneur trouvé avec l'id 'events-container'");
@@ -10,7 +11,7 @@ async function loadRecentEvents() {
   }
 
   try {
-    const url = `${API_BASE_URL}/evenements/recents?limit=3`;
+    const url = `${API_BASE_URL}/api/evenements/recents?limit=3`;
     const response = await fetch(url);
 
     if (!response.ok) {

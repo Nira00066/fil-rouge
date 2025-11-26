@@ -1,5 +1,4 @@
-const db = require("../config/db.config");
-const { verifConnexion } = require("../services/servivesUser");
+const { v4: uuidv4 } = require("uuid");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
 const userDao = require("../dao/userDao");
@@ -39,26 +38,30 @@ http://localhost:3000/inscription
 */
 
 exports.postInscription = async (req, res) => {
-  console.log(req.body); 
+  const user = req.body;
   try {
-    const user = req.body;
-    // 1️⃣ Vérifie si l'email existe déjà
+
+    //  Vérification de l'email si elle existe déjà
     const existingUser = await userDao.getUserByEmail(user.email);
+    
     if (existingUser) {
       return res.status(400).json({ error: "Email déjà utilisé" });
     }
 
-    // 2️⃣ Hash du mot de passe
+    // mots de passe hashed 
     const hashed = await bcrypt.hash(user.password, 10);
-  
 
-    // 3️⃣ Création du user via DAO
+
+    // creation de ton user pour le dao
     await userDao.createUser({
       name: user.prenom,
       lastname: user.nom,
       email: user.email,
       hashed,
     });
+
+
+
 
     res.status(201).json({ message: "Utilisateur créé avec succès" });
   } catch (err) {
@@ -84,9 +87,9 @@ exports.postConnexion = async (req, res) => {
     const user = req.user;
 
     const token = jwt.sign(
-      { id: user.id, email: user.email, role: user.role_id },
+      { id: user.id,name : user.name, nom : user.lastname, role: user.role_id },
       process.env.JWT_SECRET,
-      { expiresIn: "1h" }
+      { expiresIn: "2h" }
     );
 
     res.status(200).json({

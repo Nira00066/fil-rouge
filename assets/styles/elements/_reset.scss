@@ -45,8 +45,22 @@
     }
   
     input{
-      -webkit-appearance: none;
+    
       border-radius: 0;
     }
   }
-  
+  /* === Layout global pour assurer le footer en bas === */
+
+html, body {
+  height: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* force la page à prendre tout l'écran */
+}
+
+main {
+  flex: 1; /* pousse le footer vers le bas */
+}

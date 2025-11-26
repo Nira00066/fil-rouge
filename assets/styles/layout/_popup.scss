@@ -1,39 +1,57 @@
-.overlay {
+/* ============================================================
+   OVERLAY
+============================================================ */
+#popup-overlay {
   position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-color: rgba(0, 0, 0, 0.5);
-}
-.Popup {
-  position: absolute;
-  width: fit-content;
-  height: fit-content;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 999;
   display: flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
-  z-index: 10;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  background-color: var(--secondary-color);
-  border-radius: 10px;
-  padding: 40px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 
-  &_close {
-    top: 10px;
-    right: 10px;
-    position: absolute;
+  &.hidden {
+    display: none;
   }
-  &_title {
-    font-size: 24px;
-    font-weight: bold;
-    margin-bottom: 10px;
-    text-align: center;
-    padding-bottom: 10px;
-  }
+}
+
+/* ============================================================
+   WRAPPER POPUP
+============================================================ */
+#popup-content {
+  background: var(--secondary-color);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 850px;
+  max-width: 95vw;
+  display: flex;
+  flex-direction: row;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  position: relative;
+  animation: popupFade 0.25s ease-out;
+}
+
+/* Animation */
+@keyframes popupFade {
+  from { opacity: 0; transform: scale(0.95); }
+  to   { opacity: 1; transform: scale(1); }
+}
+
+/* ============================================================
+   CLOSE BUTTON
+============================================================ */
+.close-btn {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  border: none;
+  border-radius: 50%;
+  background:none;
+  width: 40px;
+  height: 40px;
+  font-size: 22px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: 0.2s ease;
 
 }

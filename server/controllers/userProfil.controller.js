@@ -65,7 +65,7 @@ exports.modifProfilId = async (req, res) => {
   }
 };
 
-//  ! ici j'aurais besoin de l'aide de natacha pour bien me l'expliquer le update
+
 exports.suppresionProfil = async (req, res) => {
   const id = parseInt(req.params.id);
   const userId = req.user.id;

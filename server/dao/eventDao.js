@@ -70,7 +70,46 @@ class EventDAO {
   }
 
   static async getEventById(id) {
-    const [rows] = await db.execute("SELECT * FROM event WHERE id = ?", [id]);
+    const [rows] = await db.execute(
+      `
+SELECT 
+    event.id,
+    event.title,
+    event.category_id,
+    event.date_start,
+    event.date_end,
+    event.hour_start,
+    event.hour_end,
+    event.price,
+    event.address,
+    event.description,
+    event.event_rules,
+    event.available_services,
+    event.phone,
+    event.email,
+    event.website_url,
+    event.social_name,
+    event.organization_name,
+    event.organization_description,
+    event.created_at,
+
+    event_image.main_url AS event_main_image_url,
+    event_image.secondary_url AS event_secondary_image_url,
+
+    GROUP_CONCAT(tags.label SEPARATOR ',') AS event_tags
+FROM event
+LEFT JOIN category ON event.category_id = category.id
+LEFT JOIN location ON event.location_id = location.id
+LEFT JOIN event_image ON event.event_image_id = event_image.id
+LEFT JOIN user ON event.user_id = user.id
+LEFT JOIN tag_event ON event.id = tag_event.event_id
+LEFT JOIN tags ON tag_event.tag_id = tags.id
+WHERE event.id = ?
+GROUP BY event.id;
+`,
+      [id]
+    );
+
     return rows[0];
   }
 

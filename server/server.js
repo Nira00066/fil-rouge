@@ -30,7 +30,7 @@ app.use("/images", express.static(path.join(__dirname, "../images")));
 
 // routes API
 app.use("/api", userRoutes);
-app.use("/", eventRoutes);
+app.use("/api", eventRoutes);
 app.use("/api/images", imagesRoutes);
 
 

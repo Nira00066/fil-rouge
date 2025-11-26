@@ -3,12 +3,13 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Profil | NovaMett</title>
-    <link rel="stylesheet" href="/dist/css/theme.css" />
-    <link rel="stylesheet" href="/dist/css/profil.css" />
+    <title>Profil – NovaMeet</title>
+    <script defer src="../dist/js/theme.js"></script>
+    <link rel="stylesheet" href="../dist/css/theme.css" />
   </head>
+
   <body>
-    <!-- 🔹 HEADER identique -->
+    <!-- ===== HEADER ===== -->
     <header class="header">
       <div class="container">
         <div class="header_top">
@@ -16,93 +17,80 @@
             <a href="../index.html">NovaMett</a>
             <p>Trouve tes events auto</p>
           </div>
+          <!--Btn de connexion -->
           <div class="header_nav">
             <nav>
               <ul class="header_liens">
-                <li><a href="../index.html">Accueil</a></li>
-                <li><a href="event.html">Événements</a></li>
-                <li><a href="eventAdd.html">Créer</a></li>
+                <li><a href="../index.html">Acceuil</a></li>
+                <li><a href="./pages/events.html">Evenement</a></li>
+                <li><a href="./pages/eventAdd.html">Crée</a></li>
               </ul>
             </nav>
-          </div>
-          <div class="btn_co">
-            <button class="connexion_btn" id="logout-btn">
-              <img src="/assets/img/user.png" alt="user" />
-              Déconnexion
-            </button>
+            <!-- Le rendre invisible plus le titre et le p  -->
+
+            <div class="btn_co">
+              <button class="connexion_btn" id="logout-btn">
+                <img
+                  src="../images/icones/deco_icon.png"
+                  alt="user"
+                />
+
+                Connexion
+              </button>
+            </div>
           </div>
         </div>
       </div>
     </header>
 
-    <!-- 🔹 CONTENU -->
-    <main class="container profil">
-      <div class="container_titre">
-        <h2>Mon Profil</h2>
-        <p>Bienvenue sur ton espace personnel 👋</p>
+    <!-- ===== BANNIÈRE PROFIL ===== -->
+    <section class="profile_banner">
+      <div class="banner_img">
+        <!-- image de fond bg cover -->
       </div>
-
-      <section class="profil_section">
-        <div class="profil_card">
-          <div class="profil_img">
-            <img src="/assets/img/user.png" alt="Avatar utilisateur" />
-          </div>
-          <div class="profil_info">
-            <p><strong>Nom :</strong> <span id="user-name">Chargement...</span></p>
-            <p><strong>Email :</strong> <span id="user-email">Chargement...</span></p>
-            <button id="edit-btn" class="btn_red">Modifier le profil</button>
-          </div>
+      <div class="profile_info container_profile">
+        <div class="profile_avatar">
+          <img src="../images/user.webp" alt="photo de profil" />
         </div>
-
-        <form id="edit-form" class="profil_edit hidden">
-          <div class="inputRed_ville input">
-            <input type="text" id="edit-name" placeholder="Nouveau nom" />
-          </div>
-          <div class="inputRed_ville input">
-            <input type="email" id="edit-email" placeholder="Nouvel email" />
-          </div>
-
-          <div class="footer_buttons">
-            <button type="submit">Sauvegarder</button>
-            <button type="button" id="cancel-edit">Annuler</button>
-          </div>
-        </form>
-      </section>
-
-      <section class="profil_events">
-        <h3>Mes événements créés</h3>
-        <div class="event-grid" id="created-events">
+        <div class="profile_details">
+          <h2>Chargement...</h2>
           <p>Chargement...</p>
+
+          <div class="profile_links">
+            <button>Paramétres</button>
+            <button>Favoris</button>
+            <button>Mes événements</button>
+          </div>
         </div>
-      </section>
 
-      <section class="profil_favoris">
-        <h3>Mes favoris ❤️</h3>
-        <div class="event-grid" id="favoris-events">
-          <p>Pas encore de favoris 😅</p>
+        <div class="profile_actions">
+          <button class="edit_btn">Modifier le profil</button>
+          <button class="logout_btn">Se déconnecter</button>
         </div>
-      </section>
-
-      <section class="profil_apropos">
-        <h3>À propos de NovaMett 🚗</h3>
-        <p>
-          NovaMett est une plateforme dédiée aux passionnés d’automobile.  
-          Crée, découvre et partage des événements auto, du tuning au vintage, du drift aux rassemblements.  
-          Ici, chaque moteur a sa place. 🏁
-        </p>
-      </section>
-    </main>
-
-    <footer class="footer footer_cat">
-      <div class="footer_buttons">
-        <button onclick="location.href='./connexion.html'">Changer de compte</button>
-        <button class="active" onclick="location.href='./eventAdd.html'">
-          Organiser un événement
-        </button>
       </div>
-      <p style="text-align:center;margin-top:1rem;">© 2025 NovaMett — Tous droits réservés</p>
-    </footer>
+    </section>
 
-    <script type="module" src="../assets/scripts/pages/profil.js" defer></script>
+    <!-- ===== SECTION FAVORIS ===== -->
+    <section class="favoris container_profile">
+      <h3>Favoris <span>Chargement...</span></h3>
+
+      <div class="favoris_tabs">
+        <button class="tab active">Tous les evenements</button>
+        <button class="tab">Ajoute recents</button>
+      </div>
+
+    <div class="favoris_grid" id="favoris-grid-container" >
+    </div>
+    
+    </section>
   </body>
+  <script type="module" src="../assets/scripts/base.js"></script>
+  
+  <script type="module" src="../assets/scripts/api/profil.js"></script>
+  
+  <script type="module" src="../assets/scripts/api/allevents.js"></script>
+  <script
+    type="module"
+    src="../assets/scripts/components/eventCard.js"
+  ></script>
 </html>

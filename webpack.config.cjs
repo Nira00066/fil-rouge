@@ -8,11 +8,11 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const TerserPlugin = require("terser-webpack-plugin");
 const CssoWebpackPlugin = require("csso-webpack-plugin").default;
 const LicensePlugin = require("webpack-license-plugin");
-const BrowserSyncPlugin = require("browser-sync-webpack-plugin");
+
 
 const isProduction = process.env.NODE_ENV === "production";
 const isWatch = process.argv.includes("--watch");
-
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 module.exports = {
   mode: isProduction ? "production" : "development",
 

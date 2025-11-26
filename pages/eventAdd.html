@@ -1,46 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Crée un événement</title>
-    <meta name="description" content="Les pépites du coins" />
+    <title>Créer un événement</title>
+    <meta name="description" content="novameet" />
     <link rel="stylesheet" href="../dist/css/theme.css" />
     <script defer src="../dist/js/theme.js"></script>
-    <link rel="icon" type="image/x-icon" href="assets/pepite-1.png" />
   </head>
 
   <body>
-    <!--******************************             HEADER              ********************************************* -->
+    <!-- ****************************** HEADER ******************************** -->
     <header class="header">
-      <div class="container">
+      <div class="container" role="navigation" aria-label="Menu principal">
         <div class="header_top">
           <div class="header_logo">
             <a href="../index.html">NovaMett</a>
             <p>Trouve tes events auto</p>
           </div>
-          <!--Btn de connexion -->
+
           <div class="header_nav">
-            <nav>
+            <nav aria-label="Navigation principale">
               <ul class="header_liens">
-                <li><a href="../index.html">Acceuil</a></li>
-                <li><a href="./events.html">Evenement</a></li>
-                <li><a href="./eventAdd.html">Crée</a></li>
+                <li><a href="../index.html">Accueil</a></li>
+                <li><a href="./events.html">Événements</a></li>
+                <li>
+                  <a href="./eventAdd.html" aria-current="page">Créer</a>
+                </li>
               </ul>
             </nav>
-            <!-- Le rendre invisible plus le titre et le p  -->
 
             <div class="btn_co">
               <button
                 class="connexion_btn"
-                role="button"
-                onclick="location.href='./pages/connexion.html'"
+                type="button"
+                aria-label="Se connecter"
               >
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
-                  alt="user"
+                  alt="Icône utilisateur"
                 />
-
                 Connexion
               </button>
             </div>
@@ -48,8 +47,8 @@
         </div>
       </div>
     </header>
-    <!--******************************             HEADER              ********************************************* -->
 
+    <!-- ************************** SECTION PRINCIPALE ************************** -->
     <section class="container_filter">
       <div class="create-event">
         <div class="container_text">
@@ -58,412 +57,485 @@
             Organisez votre événement automobile et rassemblez la communauté
           </p>
         </div>
-        <!-- ***************  TITRE **************** -->
-        <div class="tabs">
-          <button class="active" data-tab="infos">Informations</button>
-          <button data-tab="details">Détails</button>
-          <button data-tab="regles">Règles & Services</button>
-          <button data-tab="contact">Contact</button>
+
+        <!-- *************** Onglets accessibles *************** -->
+        <div class="tabs" role="tablist">
+          <button
+            class="active"
+            data-tab="infos"
+            role="tab"
+            aria-selected="true"
+            aria-controls="infos"
+            id="tab-infos"
+          >
+            Informations
+          </button>
+
+          <button
+            data-tab="details"
+            role="tab"
+            aria-selected="false"
+            aria-controls="details"
+            id="tab-details"
+          >
+            Détails
+          </button>
+
+          <button
+            data-tab="regles"
+            role="tab"
+            aria-selected="false"
+            aria-controls="regles"
+            id="tab-regles"
+          >
+            Règles & Services
+          </button>
+
+          <button
+            data-tab="contact"
+            role="tab"
+            aria-selected="false"
+            aria-controls="contact"
+            id="tab-contact"
+          >
+            Contact
+          </button>
         </div>
 
-        <!-- ***************  TITRE **************** -->
-
-        <section class="tab-section active" data-tab="tab-section" id="infos">
+        <!-- =================== ONGLET INFOS =================== -->
+        <section
+          class="tab-section active"
+          id="infos"
+          role="tabpanel"
+          aria-labelledby="tab-infos"
+        >
           <div class="form-card">
-            <h2>Informations de base</h2>
-
             <form class="form-grid">
-              <!-- ***************  TITRE De l'event **************** -->
+              <fieldset>
+                <legend class="sr-only"><h2>Informations de base</h2></legend>
 
-              <div class="form-group">
-                <label>Titre de l’événement *</label>
-                <input
-                  type="text"
-                  id="event-title"
-                  name="title"
-                  placeholder="Ex: Rassemblement BMW Classic 2025"
-                />
-              </div>
-              <!-- ***************  Catégorie **************** -->
-
-              <div class="form-group">
-                <label>Catégorie *</label>
-                <select id="category" name="category">
-                  <option value="">Sélectionner</option>
-                  <option value="1">Compétition</option>
-                  <option value="2">Rassemblement</option>
-                  <option value="3">Mécanique</option>
-                  <option value="4">Carshow</option>
-                  <option value="5">Offroad</option>
-                  <option value="6">Innovation</option>
-                  <option value="7">Culture</option>
-                </select>
-              </div>
-
-              <!-- ***************  Catégorie **************** -->
-
-              <!-- Checkbox : plusieurs dates -->
-
-              <!-- ***************  Catégorie **************** -->
-              <!-- <input
-              type="checkbox"
-              id="multiple-dates"
-              onchange="toggleEndDate()"
-              />
-              <label for="multiple-dates">Événement sur plusieurs jours</label> -->
-
-              <!-- Date de début -->
-              <div class="pair-dates">
                 <div class="form-group">
-                  <label>Date de début *</label>
-                  <input type="date" id="start-date" name="startDate" />
+                  <label for="event-title">Titre de l’événement *</label>
+                  <input
+                    type="text"
+                    id="event-title"
+                    name="title"
+                    placeholder="Ex: Rassemblement BMW Classic 2025"
+                  />
                 </div>
 
-                <!-- Date de fin (masqué par défaut) -->
                 <div class="form-group">
-                  <label>Date de fin *</label>
-                  <input type="date" id="end-date" name="endDate" />
+                  <label for="category">Catégorie *</label>
+                  <select id="category" name="category">
+                    <option value="">Sélectionner</option>
+                    <option value="1">Compétition</option>
+                    <option value="2">Rassemblement</option>
+                    <option value="3">Mécanique</option>
+                    <option value="4">Carshow</option>
+                    <option value="5">Offroad</option>
+                    <option value="6">Innovation</option>
+                    <option value="7">Culture</option>
+                  </select>
                 </div>
-              </div>
-              <!-- ***************  HEURE **************** -->
-              <div class="pair-time">
-                <!-- Heure de début -->
-                <div class="form-group">
-                  <label>Heure de début *</label>
-                  <input type="time" id="start-time" name="start-time" />
+
+                <div class="pair-dates">
+                  <div class="form-group">
+                    <label for="start-date">Date de début *</label>
+                    <input type="date" id="start-date" name="startDate" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="end-date">Date de fin *</label>
+                    <input type="date" id="end-date" name="endDate" />
+                  </div>
                 </div>
 
-                <!-- Heure de fin -->
-                <div class="form-group">
-                  <label>Heure de fin</label>
-                  <input type="time" id="end-time" name="end-time" />
+                <div class="pair-time">
+                  <div class="form-group">
+                    <label for="start-time">Heure de début *</label>
+                    <input type="time" id="start-time" name="start-time" />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="end-time">Heure de fin</label>
+                    <input type="time" id="end-time" name="end-time" />
+                  </div>
                 </div>
-              </div>
-              <!-- ***************  Prix **************** -->
+                <div class="pair-full">
+                  <div class="form-group">
+                    <label for="price">Prix d’entrée</label>
+                    <input
+                      type="text"
+                      id="price"
+                      name="price"
+                      placeholder="Gratuit, 15€, 25€/personne…"
+                    />
+                  </div>
+                  <div class="form-group">
+                    <label for="city">Ville *</label>
+                    <select id="city" name="city">
+                      <option value="">-- Sélectionne une ville --</option>
+                      <option value="1">Bayonne</option>
+                      <option value="2">Biarritz</option>
+                      <option value="3">Dax</option>
+                      <option value="4">Pau</option>
+                      <option value="5">Bordeaux</option>
+                    </select>
+                  </div>
 
-              <!-- Prix -->
-              <div class="form-group">
-                <label>Prix d’entrée</label>
-                <input
-                  type="text"
-                  id="price"
-                  name="price"
-                  placeholder="Gratuit, 15€, 25€/personne…"
-                />
-              </div>
-
-              <!-- ***************   Nombre participants **************** -->
-
-              <!-- <div class="form-group one-point-five">
-                <label>Nbr max de participants</label>
-                <input type="number"  id="max-participants" name="maxParticipants" placeholder="Ex: 100 ...." />
-              </div> -->
-
-              <!-- ***************  Adresse **************** -->
-              <!-- Ville -->
-              <div class="form-group">
-                <label>Ville *</label>
-                <select type="text" id="city" name="city" required>
-                  <option value="">-- Sélectionne une ville --</option>
-                  <option value="1">Bayonne</option>
-                  <option value="2">Biarritz</option>
-                  <option value="3">Dax</option>
-                  <option value="4">Pau</option>
-                  <option value="5">Bordeaux</option>
-                </select>
-              </div>
-
-              <!-- Adresse complète -->
-              <div class="form-group">
-                <label>Adresse complète *</label>
-                <input
-                  type="text"
-                  id="address"
-                  name="address"
-                  placeholder="Ex: 9 Avenue de Paris, 94300 Vincennes"
-                />
-              </div>
+                  <div class="form-group">
+                    <label for="address">Adresse complète *</label>
+                    <input
+                      type="text"
+                      id="address"
+                      name="address"
+                      placeholder="Ex: 9 Avenue de Paris, 94300 Vincennes"
+                    />
+                  </div>
+                </div>
+              </fieldset>
             </form>
           </div>
         </section>
-        <!-- ****************** evenement détails ******************** -->
 
-        <section class="tab-section" id="details">
+        <!-- =================== ONGLET DÉTAILS =================== -->
+        <section
+          class="tab-section"
+          id="details"
+          role="tabpanel"
+          aria-labelledby="tab-details"
+        >
           <div class="desciption">
-            <form action="POST">
-              <!-- 🟦 Première carte : description -->
-              <div class="form-card">
-                <div class="form-grid">
-                  <div class="form-group full">
-                    <label>Description de l'événement</label>
-                    <input
-                      type="text"
-                      id="event-description"
-                      name="description"
-                      placeholder="Décrivez votre événement en détail : programme, déroulement, ce que les participants peuvent attendre..."
-                    />
-                  </div>
-                </div>
-              </div>
+            <form>
+              <fieldset>
+                <legend class="sr-only">Détails de l'événement</legend>
 
-              <!-- 🟩 Deuxième carte : tags -->
-              <div class="form-card">
-                <div class="form-group full">
-                  <label for="tags">Tags de l'événement</label>
-
-                  <div class="input-with-button">
-                    <input
-                      type="text"
-                      id="tags"
-                      name="tag-event"
-                      placeholder="Ajoutez des tags..."
-                    />
-                    <button type="button" onclick="addTagFromInput()">
-                      Ajouter
-                    </button>
-                  </div>
-                  <div class="suggested-tags">
-                    <span class="tag" onclick="addTag('offroad')">offroad</span>
-                    <span class="tag" onclick="addTag('competition')"
-                      >competition</span
-                    >
-                    <span class="tag" onclick="addTag('Rassemblement')"
-                      >drift</span
-                    >
-                    <span class="tag" onclick="addTag('carshow')">Classic</span>
-                    <!-- tags genere par les rajoue de bases ! -->
-                  </div>
-                  <label>Tags sélectionnés :</label>
-                  <div class="tags-selectionner"></div>
-                </div>
-              </div>
-              <!-- *************************** element IMAGE **********************  -->
-              <div class="form-card">
-                <div class="form-group full">
-                  <label for="event-image">Image de l'événement</label>
-
-                  <div class="image-upload" onclick="triggerUpload()">
-                    <span id="upload-text">
-                      Cliquer pour sekectionner une image ici</span
-                    >
-                    <input
-                      type="file"
-                      id="event-image"
-                      name="image"
-                      accept="image/*"
-                    />
-                    <div class="image-preview">
-                      <img id="preview-image" src="" alt="" />
-                      <button
-                        type="button"
-                        class="remove-image"
-                        onclick="removeImage(event)"
-                      >
-                        ✖
-                      </button>
+                <div class="form-card">
+                  <div class="form-grid">
+                    <div class="form-group full">
+                      <label for="event-description">Description</label>
+                      <input
+                        type="text"
+                        id="event-description"
+                        name="description"
+                        placeholder="Décrivez votre événement…"
+                      />
                     </div>
                   </div>
                 </div>
-              </div>
+
+                <div class="form-card">
+                  <div class="form-group full">
+                    <label for="tags">Tags</label>
+
+                    <div class="input-with-button">
+                      <input
+                        type="text"
+                        id="tags"
+                        name="tag-event"
+                        placeholder="Ajoutez des tags..."
+                      />
+                      <button type="button" onclick="addTagFromInput()">
+                        Ajouter
+                      </button>
+                    </div>
+
+                    <div class="suggested-tags">
+                      <span class="tag" onclick="addTag('offroad')"
+                        >offroad</span
+                      >
+                      <span class="tag" onclick="addTag('competition')"
+                        >competition</span
+                      >
+                      <span class="tag" onclick="addTag('drift')">drift</span>
+                      <span class="tag" onclick="addTag('classic')"
+                        >Classic</span
+                      >
+                    </div>
+
+                    <label>Tags sélectionnés :</label>
+                    <div class="tags-selectionner"></div>
+                  </div>
+                </div>
+
+                <div class="form-card">
+                  <div class="form-group full">
+                    <label for="event-image">Image de l'événement</label>
+
+                    <div
+                      class="image-upload"
+                      role="button"
+                      tabindex="0"
+                      aria-label="Sélectionner une image"
+                      onclick="triggerUpload()"
+                    >
+                      <span id="upload-text"
+                        >Cliquez pour sélectionner une image</span
+                      >
+                      <input
+                        type="file"
+                        id="event-image"
+                        name="image"
+                        accept="image/*"
+                      />
+
+                      <div class="image-preview">
+                        <img
+                          id="preview-image"
+                          src=""
+                          alt="Aperçu de l’image"
+                        />
+                        <button
+                          type="button"
+                          class="remove-image"
+                          aria-label="Supprimer l'image"
+                          onclick="removeImage(event)"
+                        >
+                          ✖
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </fieldset>
             </form>
           </div>
         </section>
-        <!-- ****************** evenement Règles & services ******************** -->
-        <section class="tab-section" id="regles">
-          <form action="POST">
-            <div class="form-card">
-              <h2>Règlement de l'événement</h2>
 
-              <!-- Input pour ajouter une règle -->
-              <div class="input-with-button form-group full">
-                <input
-                  type="text"
-                  id="rule-input"
-                  placeholder="Ajouter une règle"
-                  autocomplete="off"
-                />
-                <button type="button" onclick="addRuleFromInput()">
-                  Ajouter
-                </button>
-              </div>
+        <!-- =================== ONGLET RÈGLES =================== -->
+        <section
+          class="tab-section"
+          id="regles"
+          role="tabpanel"
+          aria-labelledby="tab-regles"
+        >
+          <form>
+            <fieldset>
+              <legend class="sr-only">Règles et services</legend>
 
-              <!-- Tags cliquables (règles suggérées) -->
-              <div class="form-group full">
-                <label>Règles communes</label>
-                <div class="suggested-tags" id="suggested-rules">
-                  <span class="tag" onclick="addRule('Respecter les horaires')"
-                    >Respecter les horaires</span
-                  >
-                  <span
-                    class="tag"
-                    onclick="addRule('Port du casque obligatoire pour les pilotes')"
-                    >Port du casque</span
-                  >
-                  <span
-                    class="tag"
-                    onclick="addRule('Interdiction de jeter des déchets')"
-                    >Pas de déchets</span
-                  >
-                  <span
-                    class="tag"
-                    onclick="addRule('Suivre les consignes des organisateurs')"
-                    >Suivre les consignes</span
-                  >
-                  <span
-                    class="tag"
-                    onclick="addRule('Respect des autres participants')"
-                    >Respect mutuel</span
-                  >
-                </div>
-              </div>
-              <!-- Liste des règles ajoutées -->
-              <div class="form-group full">
-                <label>Règles sélectionnées</label>
-                <ul
-                  id="rules-list"
-                  style="list-style-type: disc; padding-left: 1.2rem"
-                ></ul>
-              </div>
-            </div>
+              <div class="form-card">
+                <h2>Règlement de l'événement</h2>
 
-            <!-- Bloc Services disponibles -->
-            <div class="form-card">
-              <h2>Services disponibles</h2>
-
-              <!-- Input pour ajouter un service -->
-              <div class="input-with-button form-group full">
-                <input
-                  type="text"
-                  id="service-input"
-                  placeholder="Ajouter un service..."
-                  autocomplete="off"
-                />
-                <button type="button" onclick="addServiceFromInput()">
-                  Ajouter
-                </button>
-              </div>
-
-              <!-- Tags cliquables (services suggérés) -->
-              <div class="form-group full">
-                <label>Services courants</label>
-                <div class="suggested-tags" id="suggested-services">
+                <div class="input-with-button form-group full">
+                  <label for="rule-input" class="sr-only"
+                    >Ajouter une règle</label
                   >
-                  <span class="tag" onclick="addService('Parking sécurisé')"
-                    >Parking sécurisé</span
-                  >
-                  <span class="tag" onclick="addService('Toilettes publiques')"
-                    >Toilettes publiques</span
-                  >
-                  <span class="tag" onclick="addService('Restaurant sur place')"
-                    >Restaurant sur place</span
-                  >
-                  <span
-                    class="tag"
-                    onclick="addService('Animations pour enfants')"
-                    >Animations enfants</span
-                  >
-                  <span class="tag" onclick="addService('Sécurité sur place')"
-                    >Sécurité sur place</span
-                  >
-                </div>
-              </div>
-
-              <!-- Liste des services ajoutés -->
-              <div class="form-group full">
-                <label>Services sélectionnés</label>
-                <ul
-                  id="services-list"
-                  style="list-style-type: disc; padding-left: 1.2rem"
-                ></ul>
-              </div>
-            </div>
-          </form>
-        </section>
-
-        <section class="tab-section" id="contact">
-          <form action="POST">
-            <!-- Bloc Informations de contact -->
-            <div class="form-card">
-              <h2>Informations de contact</h2>
-
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="phone">Téléphone</label>
-                  <input
-                    type="tel"
-                    id="phone"
-                    placeholder="Ex: +33 6 12 34 56 78"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="email">Email</label>
-                  <input
-                    type="email"
-                    id="email"
-                    placeholder="Ex: contact@evenement.com"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="website">Site Web</label>
-                  <input
-                    type="url"
-                    id="website"
-                    placeholder="Ex: www.moneventauto.fr"
-                  />
-                </div>
-
-                <div class="form-group">
-                  <label for="social">Réseaux sociaux</label>
                   <input
                     type="text"
-                    id="social"
-                    placeholder="Ex: @evenement_auto"
+                    id="rule-input"
+                    placeholder="Ajouter une règle"
                   />
-                </div>
-              </div>
-            </div>
-
-            <!-- Bloc Organisation -->
-            <div class="form-card">
-              <h2>Organisation</h2>
-
-              <div class="form-grid">
-                <div class="form-group">
-                  <label for="organizer-name">Nom de l'organisateur</label>
-                  <input
-                    type="text"
-                    id="organizer-name"
-                    name="nameOrganizer"
-                    placeholder="Ex: NovaAuto Events"
-                  />
+                  <button type="button" onclick="addRuleFromInput()">
+                    Ajouter
+                  </button>
                 </div>
 
                 <div class="form-group full">
-                  <label for="org-description"
-                    >Description de l'organisation</label
-                  >
-                  <textarea
-                    id="org-description"
-                    rows="4"
-                    name="desicriptionOrg"
-                    placeholder="Parlez de votre organisation : missions, historique, types d'événements organisés..."
-                  ></textarea>
+                  <label>Règles communes</label>
+                  <div class="suggested-tags">
+                    <span
+                      class="tag"
+                      onclick="addRule('Respecter les horaires')"
+                    >
+                      Respecter les horaires
+                    </span>
+                    <span class="tag" onclick="addRule('Port du casque')">
+                      Port du casque
+                    </span>
+                    <span
+                      class="tag"
+                      onclick="addRule('Interdiction de jeter des déchets')"
+                    >
+                      Pas de déchets
+                    </span>
+                    <span
+                      class="tag"
+                      onclick="addRule('Suivre les consignes des organisateurs')"
+                    >
+                      Suivre les consignes
+                    </span>
+                    <span
+                      class="tag"
+                      onclick="addRule('Respect des autres participants')"
+                    >
+                      Respect mutuel
+                    </span>
+                  </div>
+                </div>
+
+                <div class="form-group full">
+                  <label>Règles sélectionnées</label>
+                  <ul
+                    id="rules-list"
+                    style="list-style: disc; padding-left: 1.2rem"
+                  ></ul>
                 </div>
               </div>
-            </div>
+
+              <div class="form-card">
+                <h2>Services disponibles</h2>
+
+                <div class="input-with-button form-group full">
+                  <label for="service-input" class="sr-only"
+                    >Ajouter un service</label
+                  >
+                  <input
+                    type="text"
+                    id="service-input"
+                    placeholder="Ajouter un service..."
+                  />
+                  <button type="button" onclick="addServiceFromInput()">
+                    Ajouter
+                  </button>
+                </div>
+
+                <div class="form-group full">
+                  <label>Services courants</label>
+                  <div class="suggested-tags">
+                    <span class="tag" onclick="addService('Parking sécurisé')"
+                      >Parking sécurisé</span
+                    >
+                    <span
+                      class="tag"
+                      onclick="addService('Toilettes publiques')"
+                      >Toilettes publiques</span
+                    >
+                    <span
+                      class="tag"
+                      onclick="addService('Restaurant sur place')"
+                      >Restaurant sur place</span
+                    >
+                    <span class="tag" onclick="addService('Animations enfants')"
+                      >Animations enfants</span
+                    >
+                    <span class="tag" onclick="addService('Sécurité sur place')"
+                      >Sécurité sur place</span
+                    >
+                  </div>
+                </div>
+
+                <div class="form-group full">
+                  <label>Services sélectionnés</label>
+                  <ul
+                    id="services-list"
+                    style="list-style: disc; padding-left: 1.2rem"
+                  ></ul>
+                </div>
+              </div>
+            </fieldset>
           </form>
+        </section>
+
+        <!-- =================== ONGLET CONTACT =================== -->
+        <section
+          class="tab-section"
+          id="contact"
+          role="tabpanel"
+          aria-labelledby="tab-contact"
+        >
+          <form>
+            <fieldset>
+              <legend class="sr-only">Contact et organisation</legend>
+
+              <div class="form-card">
+                <h2>Informations de contact</h2>
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="phone">Téléphone</label>
+                    <input
+                      type="tel"
+                      id="phone"
+                      placeholder="Ex: +33 6 12 34 56 78"
+                      aria-describedby="phone-help"
+                    />
+                    <small id="phone-help" class="sr-only"
+                      >Format : +33 suivi du numéro</small
+                    >
+                  </div>
+
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input
+                      type="email"
+                      id="email"
+                      placeholder="Ex: contact@evenement.com"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="website">Site Web</label>
+                    <input
+                      type="url"
+                      id="website"
+                      placeholder="Ex: www.moneventauto.fr"
+                    />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="social">Réseaux sociaux</label>
+                    <input
+                      type="text"
+                      id="social"
+                      placeholder="Ex: @evenement_auto"
+                    />
+                  </div>
+                </div>
+              </div>
+
+              <div class="form-card">
+                <h2>Organisation</h2>
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="organizer-name">Nom de l'organisateur</label>
+                    <input
+                      type="text"
+                      id="organizer-name"
+                      name="nameOrganizer"
+                      placeholder="Ex: NovaAuto Events"
+                    />
+                  </div>
+
+                  <div class="form-group full">
+                    <label for="org-description"
+                      >Description de l'organisation</label
+                    >
+                    <textarea
+                      id="org-description"
+                      rows="4"
+                      name="desicriptionOrg"
+                      placeholder="Parlez de votre organisation..."
+                    ></textarea>
+                  </div>
+                </div>
+              </div>
+            </fieldset>
+          </form>
+
           <button type="submit" id="createvent" class="btn btn-red">
-            Crée un nouveau evenement
+            Créer un nouvel événement
           </button>
         </section>
       </div>
     </section>
+
+    <!-- POPUP ACCESSIBLE -->
+    <div
+      id="popup-overlay"
+      class="hidden"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="popup-title"
+    >
+      <div id="popup-content"></div>
+    </div>
   </body>
-  <script src="../assets/scripts/base.js"></script>
+
+  <script type="module" src="../assets/scripts/base.js"></script>
   <script type="module" src="../assets/scripts/api/creatEvent.js"></script>
   <script type="module" src="../assets/scripts/action/addEvent.js"></script>
   <script type="module" src="../assets/scripts/api/addImages.js"></script>
   <script type="module" src="../assets/scripts/action/imageUpdate.js"></script>
+  <script type="module" src="../assets/scripts/action/initTabs.js"></script>
 </html>

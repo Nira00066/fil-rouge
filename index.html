@@ -38,11 +38,7 @@
             <!-- Le rendre invisible plus le titre et le p  -->
 
             <div class="btn_co">
-              <button
-                class="connexion_btn"
-                role="button"
-                onclick="location.href='./pages/connexion.html'"
-              >
+              <button class="connexion_btn" id="open-login-popup">
                 <img
                   src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
                   alt="user"
@@ -72,119 +68,99 @@
             </p>
           </div>
         </div>
-        <div class="location_form">
-          <form id="villeForm">
-            <button type="submit" class="btn_red">Choisir la ville</button>
-            <div class="inputRed_ville form-group ">
-              <select id="ville" name="ville" required>
-                <option value="">-- Sélectionne une ville --</option>
-                <option value="paris">Paris</option>
-                <option value="marseille">Marseille</option>
-                <option value="lyon">Lyon</option>
-                <option value="toulouse">Toulouse</option>
-                <option value="nice">Nice</option>
-                <option value="nantes">Nantes</option>
-                <option value="strasbourg">Strasbourg</option>
-                <option value="montpellier">Montpellier</option>
-                <option value="bordeaux">Bordeaux</option>
-                <option value="lille">Lille</option>
-              </select>
-            </div>
-          </form>
-        </div>
       </section>
 
       <!-- *******************Category **********************-->
 
       <section class="category">
-        <div class="container_category">
-          <div class="container_titre dark">
-            <h2>Découvre par catégorie</h2>
+        <div class="category_grid">
+          <!-- Car Show -->
+          <div class="category_card" data-category="carshow">
+            <div class="category_contentCard">
+              <div class="icon-circle clee">
+                <img
+                  src="https://img.icons8.com/?size=100&id=36727&format=png&color=000000"
+                  alt="clé à molette"
+                />
+              </div>
+              <p>Car Show</p>
+            </div>
           </div>
 
-          <div class="container_context">
-            <p>
-              Trouve exactement le type d'événement automobile qui te passionne
-            </p>
+          <!-- Vintage → culture -->
+          <div class="category_card" data-category="culture">
+            <div class="category_contentCard">
+              <div class="icon-circle vintage">
+                <img
+                  src="https://img.icons8.com/?size=100&id=rvFIKJf3FU6X&format=png&color=000000"
+                  alt="voiture vintage"
+                />
+              </div>
+              <p>Vintage</p>
+            </div>
           </div>
 
-          <div class="category_grid">
-            <!-- Tuning -->
-            <div class="category_card">
-              <div class="category_contentCard">
-                <div class="icon-circle clee">
-                  <img
-                    src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADZ0lEQVR4nO2ZW4hNURjH1yC33D2IciuhKOVFcilFIZHLeJhxzrf2TOZBPJDLcL7vLOUys7/vHJd48ODVMJ4U3gxqktxCIsUDKYkk98tgtIzDmduZfU6z2vtk/rUfTnuvtX//3be+9a3vKNWj/1TGmD4xk5qsyZ/nJXhhnPwFlSY9yRjTS0VVYGomAPF2IG4ElI+apLntBcTVKmqKY+00TVwPKD86gtZ/4WW3ipJKjemrSfYC8bdc4DqK8GAODtPEl7oC1/ZCNipKqtjmDwaUW0HgIWpf3gpIThQtvJdIzS1aeCtAritaeCsgfpETHnmfKlAbzNFBmpiVK1UZM1AT/8xlII6p5QUnBuJGjfy2+8kzL0nI+ADxfzTfecvN4SFAfCUzx6ZNh/s5MVBp0iO6jH/k9/a5oHNW7agdqomvZs9hDTkxYAsxIP4SwMSR4JuhXGs9VppKS0/3dmLg90sDbWD800Nel2uesuqa4UByo715eaZcSiMfD7QPoDRBUio7msOGWKcfAvmcWwMkGwPVP//Cqc6eAzLjY9X7R2qU252P8Xe5NYD+0nwM6JaQ+g4k5zXKDiC+k9OwSU11asBLipe/AQl6XXMKH0/IfJsmXRmIE690Bq8ptUgTf3L39fmqUs0lTuDjJEs0ymdX8ED8xR5L3S1ah/DaGkjyekfwskqjfHUGjrYJwFudwNudNMhhvXUoyEtAfh0wbJ5Aghc7gQeUbV2VzR3An7VdCju+wvhjgHg1oKSBuEGTPNAoT22aBJRTkEyVZ57tZjWX2ANFAYuwAYzpr8Lv8fDJQtKfPUmFCl9la3KUiwXA37RjQ4Vfl5CJgHw//7CRh5U7D40KFR6I59jMkX/640fluw6MDhU+jrK2kNIAkF/ZtnmI6M0ltqzNN03+iflPMeLZYTem9hS4azZ56C8LFd7D9IzsHj4g3/NIZtmejCZekWs9AKWqVNgCkmPZUBVGpre6n5RYJwb2qigIso5zQPKu7f0K9Kd0EPf1zur0fKVJHmfDxUztuOz7tkZpk3Gul25OD1BRkUa+0KaGacyYaGmb8/OsRfvMFmUqStIkGzpJjx/a/Tb+TBU1gTH9NcrdLtLlD3uQUVGVTqTG5uiKvfFQ1qhi+BddI5fZrhmgXAaUM5p4Sz5d5R71SBWHfgFcpBGxqAzLjgAAAABJRU5ErkJggg=="
-                    alt="clé à molette"
-                  />
-                </div>
-                <p>Car Show</p>
+          <!-- Drift → competition -->
+          <div class="category_card" data-category="competition">
+            <div class="category_contentCard">
+              <div class="icon-circle Drift">
+                <img
+                  src="https://img.icons8.com/emoji/48/dashing-away.png"
+                  alt="drift"
+                />
               </div>
+              <p>Drift</p>
             </div>
+          </div>
 
-            <!-- Vintage -->
-            <div class="category_card">
-              <div class="category_contentCard">
-                <div class="icon-circle vintage">
-                  <img
-                    src="data:image/png;base64,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"
-                    alt="voiture vintage"
-                  />
-                </div>
-                <p>Vintage</p>
+          <!-- Exposition → innovation (expositions, trophées = nouveautés/présentation) -->
+          <div class="category_card" data-category="innovation">
+            <div class="category_contentCard">
+              <div class="icon-circle expo">
+                <img
+                  src="https://img.icons8.com/office/40/trophy--v1.png"
+                  alt="trophée"
+                />
               </div>
+              <p>Exposition</p>
             </div>
+          </div>
 
-            <!-- Drift -->
-            <div class="category_card">
-              <div class="category_contentCard">
-                <div class="icon-circle Drift">
-                  <img
-                    src="https://img.icons8.com/emoji/48/dashing-away.png"
-                    alt="drift"
-                  />
-                </div>
-                <p>Drift</p>
+          <!-- Circuit → competition -->
+          <div class="category_card" data-category="competition">
+            <div class="category_contentCard">
+              <div class="icon-circle circuit">
+                <img
+                  src="https://img.icons8.com/emoji/48/racing-car.png"
+                  alt="voiture de course"
+                />
               </div>
+              <p>Circuit</p>
             </div>
+          </div>
 
-            <!-- Exposition -->
-            <div class="category_card">
-              <div class="category_contentCard">
-                <div class="icon-circle expo">
-                  <img
-                    src="https://img.icons8.com/office/40/trophy--v1.png"
-                    alt="trophée"
-                  />
-                </div>
-                <p>Exposition</p>
+          <!-- Rassemblement -->
+          <div class="category_card" data-category="rassemblement">
+            <div class="category_contentCard">
+              <div class="icon-circle rassemblement">
+                <img
+                  src="https://img.icons8.com/emoji/48/automobile.png"
+                  alt="rassemblement auto"
+                />
               </div>
+              <p>Rassemblement</p>
             </div>
-
-            <!-- Circuit -->
-            <div class="category_card">
-              <div class="category_contentCard">
-                <div class="icon-circle circuit">
-                  <img
-                    src="https://img.icons8.com/emoji/48/racing-car.png"
-                    alt="voiture de course"
-                  />
-                </div>
-                <p>Circuit</p>
+          </div>
+          <!-- Culture & Lifestyle -->
+          <div class="category_card" data-category="culture">
+            <div class="category_contentCard">
+              <div class="icon-circle culture">
+                <img
+                  src="https://img.icons8.com/?size=100&id=53421&format=png&color=000000"
+                  alt="culture auto"
+                />
               </div>
-            </div>
-
-            <!-- Rassemblement -->
-            <div class="category_card" data-category="">
-              <div class="category_contentCard">
-                <div class="icon-circle rassemblement">
-                  <img
-                    src="https://img.icons8.com/emoji/48/automobile.png"
-                    alt="rassemblement auto"
-                  />
-                </div>
-                <p>Rassemblement</p>
-              </div>
+              <p>Culture & Lifestyle</p>
             </div>
           </div>
         </div>
@@ -200,7 +176,12 @@
             <p>Les prochains rendez-vous auto dans ta région</p>
           </div>
           <div class="eventNear_top-right">
-            <button class="btn_next" href="./pages/events.html">Voir tout</button>
+            <button
+              class="btn_next"
+              onclick="location.href='./pages/events.html'"
+            >
+              Voir tout
+            </button>
           </div>
         </div>
 
@@ -208,30 +189,45 @@
         <div class="events-grid" id="events-container"></div>
       </section>
 
-      <!-- Footer -->
-       <div class="overlay" style="display:none;"></div>
+      <!-- CTA Footer -->
 
+      <section class="footer_cta">
+        <h2>Prêt à rejoindre la communauté ?</h2>
+        <p>
+          Crée ton compte pour participer, organiser ou rejoindre des événements
+          automobiles incroyables.
+        </p>
 
-      <footer class="footer" id="footer">
-        <div class="footer_cta">
-          <h2>Prêt à rejoindre la communauté ?</h2>
-          <p>
-            Crée ton compte pour participer aux événements, organiser tes
-            propres rassemblements et connecter avec des milliers de passionnés
-            d'automobile.
-          </p>
-          <div class="footer_buttons location_form">
-            <a class="btn primary" href="./pages/inscription.html">
-              Créer un compte
-            </a>
-            <a class="btn secondary" disabled href="./pages/eventAdd.html">
-              Organiser un Événement
-            </a>
-          </div>
+        <div class="footer_buttons">
+          <a class="btn primary" id="open-register"> Créer un compte </a>
+          <a class="btn secondary" href="./pages/eventAdd.html" disabled>
+            Organiser un événement
+          </a>
+        </div>
+      </section>
+
+      <footer class="footer">
+        <div class="footer_content">
+          <p>&copy; 2025 NovaMett – Tous droits réservés.</p>
+          <nav class="footer_links">
+            <a href="./pages/events.html">Événements</a>
+            <a id="open-register">Inscription</a>
+            <a id="open-login-popup">Connexion</a>
+            <a href="./pages/contact.html">Contact</a>
+          </nav>
         </div>
       </footer>
     </main>
-  </body>
-  <script type="module" src="./assets/scripts/base.js"></script>
-  <script type="module" src="../assets/scripts/api/eventRecentadd.js"></script>
+    <!-- POPUP GLOBAL -->
+<div id="popup-overlay" class="hidden">
+      <div id="popup-content"></div>
+    </div>
+  </body>
+  
+    <script type="module" src="./assets/scripts/base.js"></script>
+  
+    <script type="module" src="./assets/scripts/action/userState.js"></script> 
+  
+    <script type="module" src="../assets/scripts/api/eventRecentadd.js"></script>
+  <script type="module" src="../assets/scripts/api/eventCat.js"></script>
 </html>

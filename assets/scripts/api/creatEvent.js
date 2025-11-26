@@ -68,7 +68,7 @@ if (!submitBtn) return
       const imageId = await uploadEventImage();
       eventData.event_image_id = imageId; // 📸 ON AJOUTE L'IMAGE À L'ÉVENT
 
-      const response = await fetch(`${API_BASE_URL}/evenements`, {
+      const response = await fetch(`${API_BASE_URL}/api/evenements`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
