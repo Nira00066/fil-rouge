@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>NovaMeet</title>
+    <meta name="description" content="Novameet" />
+    <script defer src="./dist/js/theme.js"></script>
+    <link rel="stylesheet" href="./dist/css/theme.css" />
+    <link rel="icon" type="image/x-icon" href="" />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_circle"
+    />
+  </head>
+  <!--****************************************** BODY  ********************************************-->
+  <body>
+    <header class="header">
+      <div class="container">
+        <div class="header_top">
+          <div class="header_logo">
+            <a href="../index.html">NovaMett</a>
+            <p>Trouve tes events auto</p>
+          </div>
+          <!--Btn de connexion -->
+          <div class="header_nav">
+            <nav>
+              <ul class="header_liens">
+                <li><a href="../index.html">Acceuil</a></li>
+                <li><a href="./pages/events.html">Evenement</a></li>
+                <li><a href="./pages/eventAdd.html">Crée</a></li>
+              </ul>
+            </nav>
+          
+            <div class="btn_co">
+              <button
+                class="connexion_btn"
+                role="button"
+                onclick="location.href='./pages/connexion.html'"
+              >
+                <img
+                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
+                  alt="user"
+                />
+
+                Connexion
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <!-- ********************************* Header  ****************************************-->
+  <main>
+    <div class="container error_page">
+      <div class="error_content">
+        <h1>404</h1>
+        <h2>Oups! La page que vous recherchez est introuvable.</h2>
+        <p>
+          Il semble que la page que vous essayez d'atteindre n'existe pas ou a
+          été déplacée.
+        </p>
+        <a href="../index.html" class="btn_red">Retour à l'accueil</a>
+      </div>
+    </div>
+
+  </main>
+    
+  </body>
+  <script type="module" src="./assets/scripts/base.js"></script>
+  <script type="module" src="../assets/scripts/api/eventRecentadd.js"></script>
+</html>

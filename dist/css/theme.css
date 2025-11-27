@@ -120,15 +120,15 @@ body {
   align-items: center;
   margin: auto;
 }
-.container_page:not(.active) {
-  display: none;
-}
 .container_page {
   width: 100%;
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
+}
+.container_page:not(.active) {
+  display: none;
 }
 .container_textCenter {
   text-align: center;
@@ -1683,6 +1683,7 @@ select {
 .form-group {
   display: flex;
   flex-direction: column;
+  /* Espacements cohérents entre chaque élément */
 }
 .form-group label {
   font-weight: 500;
@@ -1714,9 +1715,6 @@ select {
   border-color: #007bff;
   outline: none;
   box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
-}
-.form-group {
-  /* Espacements cohérents entre chaque élément */
 }
 .form-group input,
 .form-group select,
