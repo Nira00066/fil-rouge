@@ -1,7 +1,7 @@
 
 
 import { API_BASE_URL } from "./config.js";
-import { showPopup, closePopup } from "../components/popup.js"; // Assurez-vous que le chemin vers popup.js est correct
+
 
 const AUTH_TOKEN_KEY = 'authToken'; 
 const USER_ID_KEY = 'userId'; 

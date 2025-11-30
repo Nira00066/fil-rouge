@@ -64,7 +64,7 @@ container.innerHTML = `<p>Chargement...</p>`;
             }
         } catch (err) {
             console.error("Erreur de chargement :", err);
-            if (container) container.innerHTML = `<p>Impossible de charger les événements 😬</p>`;
+            if (container) container.innerHTML = `<p>Impossible de charger les événements </p>`;
             if (resultCount) resultCount.textContent = "0 événement trouvé";
         }
     }
@@ -76,7 +76,7 @@ container.innerHTML = `<p>Chargement...</p>`;
         container.innerHTML = "";
 
         if (!events.length) {
-            container.innerHTML = `<p>Aucun événement trouvé 😢</p>`;
+            container.innerHTML = `<p>Aucun événement trouvé </p>`;
             return;
         }
         events.forEach((event) => {

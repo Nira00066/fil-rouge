@@ -1,6 +1,6 @@
 // Chemin : ../api/usersInscription.js
 import { API_BASE_URL } from "./config.js";
-import { showPopup, closePopup, openPopup, loginTemplate } from "../components/popup.js";
+
 
 async function submitInscription(e) {
     e.preventDefault();

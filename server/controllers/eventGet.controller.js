@@ -8,9 +8,16 @@ http://localhost:3000/evenements
 retour de tous les events
 */
 
-exports.getAllEvents = async (req, res) => {
-  console.log('tu es ici ')
-try {
+const createError = (message, statusCode = 500) => {
+  const error = new Error(message);
+  error.statusCode = statusCode;
+  return error;
+};
+
+// Get all events
+exports.getAllEvents = async (req, res, next) => {
+  // 💡 Ajout de 'next'
+  try {
     const filters = {
       search: req.query.search,
       category: req.query.category,
@@ -22,73 +29,79 @@ try {
     res.status(200).json(events);
   } catch (err) {
     console.error("Erreur getAllEvents:", err);
-    res
-      .status(500)
-      .json({ error: "Erreur lors de la récupération des événements" });
+    next(err); // 🚨 Passer l'erreur au middleware d'erreur
   }
 };
-
 // GET /event/:id
 
-exports.getEventById = async (req, res) => {
+exports.getEventById = async (req, res, next) => {
+  
   try {
     const { id } = req.params;
     const event = await EventDAO.getEventById(id);
+
     if (!event) {
-      return res.status(404).json({ message: "Événement non trouvé" });
+      return next(createError("Événement non trouvé", 404));
     }
     res.status(200).json(event);
   } catch (err) {
     console.error("Erreur getEventById:", err);
-    res.status(500).json({ error: "Erreur serveur" });
+    next(err); // Passer l'erreur au middleware d'erreur
   }
 };
 
-// Get event by id category
-
-exports.getEventbyCategory = async (req, res) => {
+// Get event by category slug
+exports.getEventbyCategory = async (req, res, next) => {
+  
   try {
-    const slug = req.params.slug; // ✅ ex: "competition"
-
-    // On laisse le DAO s'occuper du SQL
+    const slug = req.params.slug;
     const events = await EventDAO.getEventsByCategorySlug(slug);
 
     if (!events || events.length === 0) {
-      return res
-        .status(404)
-        .json({ message: "Aucun événement trouvé pour cette catégorie" });
+      return next(
+        createError("Aucun événement trouvé pour cette catégorie", 404)
+      );
     }
 
     res.status(200).json(events);
   } catch (err) {
     console.error("Erreur getEventsByCategory:", err);
-    res.status(500).json({ error: "Erreur serveur" });
+    next(err); // Passer l'erreur au middleware d'erreur
   }
 };
 
-exports.getRecent = async (req, res) => {
+// Get recent events
+exports.getRecent = async (req, res, next) => {
+ 
   try {
-    const limit = parseInt(req.query.limit) || 3; // <--- on récupère ?limit=3 depuis l'URL
+    const limit = parseInt(req.query.limit) || 3;
     const events = await EventDAO.getRecentTop(limit);
     res.status(200).json(events);
   } catch (err) {
-    res.status(500).json({ message: err.message });
+    // Remplacé par next(error)
+    next(err);
   }
 };
 
-
-exports.getEventsByUserLocation = async (req, res) => {
+// Get events by user location (Attention: userId est dans req.params)
+exports.getEventsByUserLocation = async (req, res, next) => {
+  // Ajout de 'next'
   try {
     const user = { id: req.params.userId };
     const events = await EventDAO.getEventsBylocUser(user);
     res.status(200).json(events);
+
   } catch (err) {
+
     console.error("Erreur getEventsByUserLocation:", err);
-    res.status(500).json({ error: "Erreur serveur" });
+    next(err); //  Passer l'erreur au middleware d'erreur
+
   }
 };
 
-exports.updateEvent = async (req, res) => {
+// Update event
+exports.updateEvent = async (req, res, next) => {
+
   try {
     const id = req.params.id;
     const updatedData = req.body;
@@ -96,75 +109,72 @@ exports.updateEvent = async (req, res) => {
     const success = await EventDAO.updateEvent(id, updatedData);
 
     if (!success) {
-      return res.status(404).json({ message: "Événement non trouvé" });
+      return next(createError("Événement non trouvé pour la mise à jour", 404));
     }
 
     res.status(200).json({ message: "Événement mis à jour avec succès" });
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: "Erreur serveur : " + error.message });
+    console.error("Erreur updateEvent:", error);
+    next(error); // Passer l'erreur au middleware d'erreur
   }
 };
-exports.createEvent = async (req, res) => {
+
+// Create event
+exports.createEvent = async (req, res, next) => {
+
   try {
-    console.log("📥 Données reçues :", req.body);
-    console.log("👤 Utilisateur :", req.user);
+    console.log(" Données reçues :", req.body);
+    console.log(" Utilisateur :", req.user);
 
     const user_id = req.user ? req.user.id : null;
-    if (!user_id) console.warn("⚠️ Aucun user_id trouvé, test avec 1");
+    if (!user_id) console.warn(" Aucun user_id trouvé, test avec 1");
 
     const data = req.body;
 
     const eventData = {
       ...data,
       event_image_id: data.event_image_id ?? null,
-      user_id: user_id || 1,
+      user_id: user_id || 1, // Assurez-vous que l'ID utilisateur est géré par un middleware d'auth
       event_rules: JSON.stringify(data.event_rules || []),
       available_services: JSON.stringify(data.available_services || []),
       tags: JSON.stringify(data.tags || []),
     };
 
-
-    console.log("🧩 Données préparées pour la DB :", eventData);
+    console.log(" Données préparées pour la DB :", eventData);
 
     const result = await EventDAO.createEvent(eventData);
 
     res.status(201).json({
-      message: "✅ Événement créé avec succès",
+      message: " Événement créé avec succès",
       eventId: result.insertId,
     });
   } catch (err) {
-    console.error("💥 ERREUR DANS createEvent :", err);
-    if (err.stack) console.error("📜 Stack :", err.stack);
-    res
-      .status(500)
-      .json({ message: "Erreur serveur lors de la création", error: err.message });
+    console.error("ERREUR DANS createEvent :", err);
+    next(err); //  Passer l'erreur au middleware d'erreur
   }
 };
 
+// Delete event
+exports.deleteEvent = async (req, res, next) => {
 
-
-exports.deleteEvent = async (req, res) => {
   const id = parseInt(req.params.id);
 
   if (isNaN(id)) {
-    return res.status(400).json({ message: "ID invalide" });
+    return next(createError("ID d'événement invalide", 400));
   }
 
   try {
     const result = await EventDAO.deleteEvent(id);
-
     if (result.affectedRows === 0) {
-      return res
-        .status(404)
-        .json({ message: "Aucun événement trouvé avec cet ID" });
+     
+      return next(
+        createError("Aucun événement trouvé avec cet ID à supprimer", 404)
+      );
     }
 
     res.status(200).json({ message: "Événement supprimé avec succès" });
   } catch (err) {
     console.error("Erreur deleteEvent:", err);
-    res
-      .status(500)
-      .json({ error: "Erreur serveur lors de la suppression de l'événement" });
+    next(err); //  Passer l'erreur au middleware d'erreur
   }
 };

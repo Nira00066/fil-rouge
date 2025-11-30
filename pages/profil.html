@@ -5,92 +5,60 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profil – NovaMeet</title>
     <script defer src="../dist/js/theme.js"></script>
+    <script type="module" src="../assets/scripts/base.js"></script>
     <link rel="stylesheet" href="../dist/css/theme.css" />
   </head>
 
   <body>
     <!-- ===== HEADER ===== -->
-    <header class="header">
-      <div class="container">
-        <div class="header_top">
-          <div class="header_logo">
-            <a href="../index.html">NovaMett</a>
-            <p>Trouve tes events auto</p>
+    <app-header site-name="NovaMett" tagline="Trouve tes events auto" logged-in>
+    </app-header>
+    <main>
+      <!-- ===== BANNIÈRE PROFIL ===== -->
+      <section class="profile_banner">
+        <div class="banner_img">
+       
+        </div>
+        <div class="profile_info container_profile">
+          <div class="profile_avatar">
+            <img src="../images/user.webp" alt="photo de profil" />
           </div>
-          <!--Btn de connexion -->
-          <div class="header_nav">
-            <nav>
-              <ul class="header_liens">
-                <li><a href="../index.html">Acceuil</a></li>
-                <li><a href="./pages/events.html">Evenement</a></li>
-                <li><a href="./pages/eventAdd.html">Crée</a></li>
-              </ul>
-            </nav>
-            <!-- Le rendre invisible plus le titre et le p  -->
+          <div class="profile_details">
+            <h2>Chargement...</h2>
+            <p>Chargement...</p>
 
-            <div class="btn_co">
-              <button class="connexion_btn" id="logout-btn">
-                <img
-                  src="../images/icones/deco_icon.png"
-                  alt="user"
-                />
-
-                Connexion
-              </button>
+            <div class="profile_links">
+              <button>Paramétres</button>
+              <button>Favoris</button>
+              <button>Mes événements</button>
             </div>
           </div>
-        </div>
-      </div>
-    </header>
 
-    <!-- ===== BANNIÈRE PROFIL ===== -->
-    <section class="profile_banner">
-      <div class="banner_img">
-        <!-- image de fond bg cover -->
-      </div>
-      <div class="profile_info container_profile">
-        <div class="profile_avatar">
-          <img src="../images/user.webp" alt="photo de profil" />
-        </div>
-        <div class="profile_details">
-          <h2>Chargement...</h2>
-          <p>Chargement...</p>
-
-          <div class="profile_links">
-            <button>Paramétres</button>
-            <button>Favoris</button>
-            <button>Mes événements</button>
+          <div class="profile_actions">
+            <button class="edit_btn">Modifier le profil</button>
+            <button class="logout_btn">Se déconnecter</button>
           </div>
         </div>
+      </section>
 
-        <div class="profile_actions">
-          <button class="edit_btn">Modifier le profil</button>
-          <button class="logout_btn">Se déconnecter</button>
+      <!-- ===== SECTION FAVORIS ===== -->
+      <section class="favoris container_profile">
+        <h3>Favoris <span>Chargement...</span></h3>
+
+        <div class="favoris_tabs">
+          <button class="tab active">Tous les evenements</button>
+          <button class="tab">Ajoute recents</button>
         </div>
-      </div>
-    </section>
 
-    <!-- ===== SECTION FAVORIS ===== -->
-    <section class="favoris container_profile">
-      <h3>Favoris <span>Chargement...</span></h3>
-
-      <div class="favoris_tabs">
-        <button class="tab active">Tous les evenements</button>
-        <button class="tab">Ajoute recents</button>
-      </div>
-
-    <div class="favoris_grid" id="favoris-grid-container" >
-    </div>
+        <div class="favoris_grid" id="favoris-grid-container"></div>
+      </section>
+    </main>
     
-    </section>
+    <div id="popup-overlay" class="hidden">
+      <div id="popup-content"></div>
+    </div>
   </body>
-  <script type="module" src="../assets/scripts/base.js"></script>
-  
   <script type="module" src="../assets/scripts/api/profil.js"></script>
-  
   <script type="module" src="../assets/scripts/api/allevents.js"></script>
-  <script
-    type="module"
-    src="../assets/scripts/components/eventCard.js"
-  ></script>
+  <script type="module" src="../assets/scripts/components/eventCard.js"></script>
 </html>

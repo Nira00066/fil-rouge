@@ -1,89 +1,124 @@
 const db = require("../config/db.config");
 const userDao = require("../dao/userDao");
 
-exports.getallUser = async (req, res) => {
+const createError = (message, statusCode = 500) => {
+  const error = new Error(message);
+  error.statusCode = statusCode;
+  return error;
+};
+
+// ----------------------------------------------------------------
+// Lecture (Tous les utilisateurs)
+// ----------------------------------------------------------------
+
+exports.getallUser = async (req, res, next) => {
   try {
     const users = await userDao.getAllUsers();
     res.json(users);
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Erreur serveur" });
+    next(err); // Passer l'erreur au middleware
   }
 };
 
-/*
-a coter de Author
- Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwiZW1haWwiOiJleGVtcGxlMkBnbWFpbC5jb20iLCJyb2xlIjpudWxsLCJpYXQiOjE3NjExMzE1NzcsImV4cCI6MTc2MTEzNTE3N30.ySG9dRMX7cvZUsFx9ijpMrv6H8K_gHelh-t1oeDGGz4
+// ----------------------------------------------------------------
+// Lecture (Profil Sécurisé par ID)
+// ----------------------------------------------------------------
 
-*/
-
-exports.getProfilId = async (req, res) => {
+exports.getProfilId = async (req, res, next) => {
   const id = parseInt(req.params.id);
+  // L'ID vérifié du token (assuré par le middleware d'auth)
   const userId = parseInt(req.user.id);
 
+  // Vérification de sécurité: l'ID demandé doit correspondre à l'ID du token
   if (isNaN(id) || id !== userId) {
-    return res.status(400).json({ message: "ID invalide" });
+    // Renvoie 403 même si l'ID est invalide pour éviter de donner des informations inutiles
+    return next(createError("Accès interdit ou ID invalide", 403));
   }
 
   try {
     const user = await userDao.getUserById(userId);
 
     if (user.length === 0) {
-      return res.status(404).json({ message: "Utilisateur non trouvé" });
+      return next(createError("Utilisateur non trouvé", 404));
     }
 
     res.json({ user: user[0] });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Erreur serveur" });
+    next(err); //Passer l'erreur au middleware
   }
 };
 
-exports.modifProfilId = async (req, res) => {
+// ----------------------------------------------------------------
+// Modification (Profil Sécurisé)
+// ----------------------------------------------------------------
+
+exports.modifProfilId = async (req, res, next) => {
   const id = parseInt(req.params.id);
   const userId = parseInt(req.user.id);
 
   if (isNaN(id)) {
-    return res.status(400).json({ message: "ID invalide" });
+    return next(createError("ID invalide", 400));
   }
 
+  // Vérification de sécurité
   if (id !== userId) {
-    return res.status(403).json({ message: "Accès interdit" });
+    return next(
+      createError(
+        "Accès interdit: vous ne pouvez modifier que votre propre profil",
+        403
+      )
+    );
   }
 
   try {
     const result = await userDao.updateUserById(id, req.body);
 
     if (result.affectedRows === 0) {
-      return res.status(404).json({ message: "Aucune modification effectuée" });
+      // Si la requête SQL a réussi mais n'a modifié aucune ligne (peut être un 404)
+      return next(
+        createError(
+          "Utilisateur non trouvé ou aucune modification nécessaire",
+          404
+        )
+      );
     }
 
     res.json({ message: "Profil mis à jour avec succès" });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ message: "Erreur serveur" });
+    next(err); // 🚨 Passer l'erreur au middleware
   }
 };
 
+// ----------------------------------------------------------------
+// Suppression (Profil Sécurisé)
+// ----------------------------------------------------------------
 
-exports.suppresionProfil = async (req, res) => {
+exports.suppresionProfil = async (req, res, next) => {
   const id = parseInt(req.params.id);
   const userId = req.user.id;
+
   if (isNaN(id) || id !== userId) {
-    return res.status(400).json({ message: "ID invalide" });
+    return next(createError("Accès interdit ou ID invalide", 403));
   }
 
   try {
-    const user = await userDao.deleteUserById(userId);
+    // J'ai renommé en softDeleteUser pour suivre le contrôleur d'utilisateur,
+    // assurez-vous que le DAO est correct (soft delete ou hard delete)
+    const result = await userDao.softDeleteUser(userId);
 
-    if (user.affectedRows === 0) {
-      res.status(400).json({ message: " Errer Id non corrspondant au token " });
+    if (result.affectedRows === 0) {
+      return next(
+        createError("Erreur: Utilisateur non trouvé pour la suppression.", 404)
+      );
     }
-    res.json({ message: "Profil supprimer" });
+
+    // Note: Après la suppression, vous devriez probablement effacer le token côté client (Front-end)
+    res.json({ message: "Profil désactivé/supprimé avec succès" });
   } catch (err) {
     console.error("Erreur suppressionProfil:", err);
-    return res
-      .status(500)
-      .json({ message: "Erreur serveur lors de la suppression du profil" });
+    next(err); // Passer l'erreur au middleware
   }
 };

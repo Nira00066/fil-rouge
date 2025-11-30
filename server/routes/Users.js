@@ -3,17 +3,26 @@ const router = express.Router();
 const authToken = require("../middleware/auth");
 const controllerUser = require("../controllers/Userlog.controller");
 const controllerprofil = require("../controllers/userProfil.controller");
-const servicesUser = require("../services/servivesUser")
+const { verifConnexion } = require("../middleware/verifConnexion.middleware");
+const { verifInscription } = require("../middleware/verifInsciption.middleware")
 
 router.get("/Users", controllerUser.getAll);
 router.get("/user/:id", controllerUser.getuserById);
 
-router.post("/inscription", controllerUser.postInscription);
+router.post(
+  "/inscription",
+  verifInscription,
+  controllerUser.postInscription
+);
 
-router.post("/connexion",servicesUser.verifConnexion, controllerUser.postConnexion);
+router.post("/connexion", verifConnexion, controllerUser.postConnexion);
 
 // pour les tests toujours mettre ton token dans la header de ton postman ou autre
 router.get("/profile/user/:id", authToken, controllerprofil.getProfilId);
-router.patch("/profile/user/:id", authToken,controllerprofil.modifProfilId);
-router.delete("/suppresion/user/:id",authToken,controllerprofil.suppresionProfil)
+router.patch("/profile/user/:id", authToken, controllerprofil.modifProfilId);
+router.delete(
+  "/suppresion/user/:id",
+  authToken,
+  controllerprofil.suppresionProfil
+);
 module.exports = router;

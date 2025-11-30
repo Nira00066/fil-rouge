@@ -7,6 +7,7 @@ const db = require("./config/db.config");
 const userRoutes = require("./routes/Users");
 const eventRoutes = require("./routes/event");
 const imagesRoutes = require("./routes/image");
+const errorHandler = require('./middleware/error.middleware');
 
 dotenv.config();
 const PORT = process.env.PORT || 3000;
@@ -25,15 +26,21 @@ app.use(
 app.use("/images", express.static(path.join(__dirname, "../images")));
 
 
-
-
-
 // routes API
 app.use("/api", userRoutes);
 app.use("/api", eventRoutes);
 app.use("/api/images", imagesRoutes);
 
-
+// Middleware pour les routes non trouvées (404)
+app.use((req, res, next) => {
+    // Si la requête arrive ici, aucune route n'a géré la demande
+    res.status(404).json({
+        success: false,
+        status: 404,
+        message: `Ressource non trouvée pour l'URL: ${req.originalUrl}`
+    });
+});
+app.use(errorHandler);
 // démarrage
 app.listen(PORT, () => {
   db.connect();
