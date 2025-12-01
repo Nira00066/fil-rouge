@@ -18,17 +18,17 @@ async function submitInscription(e) {
     
     // 2. Validations côté client
     if (!data.firstname || !data.lastname || !data.email || !data.password) {
-        // showPopup("Tous les champs sont obligatoires 😅", "error");
+        alert("⚠️ Merci de remplir tous les champs obligatoires !");
         return;
     }
     
     if (data.password !== data.checkPassword) {
-        // showPopup("Les mots de passe ne correspondent pas 😅", "error");
+      alert("⚠️ Password pas correct");
         return;
     }
     
     if (data.password.length < 8) {
-        // showPopup("Le mot de passe doit contenir au moins 8 caractères 😅", "error");
+      alert("⚠️ password pas assez long");
         return;
     }
     
@@ -51,21 +51,21 @@ async function submitInscription(e) {
         console.log("Réponse du serveur:", result);
         
         if (!response.ok) {
-            const errorMessage = result.message || `Erreur HTTP : ${response.status}. L'email est peut-être déjà utilisé.`;
-            throw new Error(errorMessage);
+        const status = response.status;
+
+        if (status === 404 || status === 500) {
+          window.location.href = `../pages/error.html?status=${status}`;
+          return;
         }
-        
-        // --- SUCCÈS ---
-        // showPopup("Compte créé avec succès 🎉. Connectez-vous maintenant.", "success");
-        
-        // setTimeout(() => {
-        //     closePopup(); 
-        //     openPopup(loginTemplate, { topUp: true }); 
-        // }, 3500);
+
+        throw new Error(result.message || `Erreur serveur : ${status}`);
+      }
+
+      alert("Compte créé avec succès 🎉");
         
     } catch (err) {
-        console.error("Erreur lors de l'inscription:", err);
-        showPopup(`Erreur : ${err.message || "Erreur de connexion réseau."} 😬`, "error");
+      console.error("ERREUR :", err);
+      alert(`Erreur : ${err.message}`);
     }
 }
 
