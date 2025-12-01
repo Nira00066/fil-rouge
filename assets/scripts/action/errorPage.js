@@ -1,5 +1,3 @@
-// Chemin suggéré : ../assets/scripts/pages/errorPage.js
-
 document.addEventListener('DOMContentLoaded', () => {
     // 1. Récupérer le code de statut de l'URL
     const urlParams = new URLSearchParams(window.location.search);

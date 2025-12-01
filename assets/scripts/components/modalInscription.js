@@ -32,7 +32,7 @@ export const registerTemplate = `
         <label for="checkPassword">Confirmer</label>
         <input type="password" id="checkPassword" required />
 
-        <button type="submit" id="btn_inscription" class="btn-submit">Créer mon compte</button>
+        <button type="submit" class="btn-submit">Créer mon compte</button>
       </form>
 
       <p class="register-text">

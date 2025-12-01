@@ -66,7 +66,7 @@ exports.postInscription = async (req, res, next) => {
 
         // creation de ton user pour le dao
         await userDao.createUser({
-            name: user.name, // 
+            name: user.firstname, // 
             lastname: user.lastname,
             email: user.email,
             hashed,
@@ -90,9 +90,9 @@ exports.postConnexion = async (req, res, next) => { // 💡 Ajout de 'next'
 
         // 💡 Assurez-vous d'avoir process.env.JWT_SECRET configuré
         const token = jwt.sign(
-            { id: user.id, name: user.name, lastname: user.lastname, role: user.role_id },
+            { id: user.id,  role: user.role_id },
             process.env.JWT_SECRET,
-            { expiresIn: "2h" }
+            { expiresIn: "24h" }
         );
 
         res.status(200).json({

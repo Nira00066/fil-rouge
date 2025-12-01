@@ -1,6 +1,7 @@
 import { loginTemplate } from "../components/modaLogin.js";
 import { registerTemplate } from "../components/modalInscription.js";
-
+import { handleInscriptionForm } from "../api/usersInscription.js";
+import { handleConnexionForm } from "../api/userConnexion.js";
 
 
 console.log("🔥 popup.js chargé !");
@@ -14,31 +15,20 @@ export function openPopup(template) {
   popupContent.innerHTML = template;
   overlay.classList.remove("hidden");
   document.body.style.overflow = "hidden";
-
   const closeBtn = popupContent.querySelector(".close-btn");
-
   closeBtn.addEventListener("click", closePopup);
 }
 
-// FERMER POPUP
 export function closePopup() {
   overlay.classList.add("hidden");
   popupContent.innerHTML = "";
   document.body.style.overflow = "auto";
 }
 
-// FERMETURE SI CLIC SUR OVERLAY
 overlay.addEventListener("click", (e) => {
   if (e.target === overlay) closePopup();
-  document.addEventListener("click", (e) => {
-    console.log("🔥 CLICK SUR :", e.target);
-  });
 });
 
-// ============================
-// 🔥 EVENT DELEGATION GLOBAL
-// ============================
-// Fonctionne même si les éléments sont ajoutés APRÈS (base.js, SPA, etc.)
 document.addEventListener("click", (e) => {
   const target = e.target;
 
@@ -49,7 +39,8 @@ document.addEventListener("click", (e) => {
   if (target.id === "open-login-popup") {
     e.preventDefault();
     openPopup(loginTemplate);
-    console.log("oui recu !");
+    console.log("popup connection ouvert ");
+    handleConnexionForm();
 
     document.addEventListener("click", (e) => {
       console.log("🔥 CLICK SUR :", e.target);
@@ -57,23 +48,19 @@ document.addEventListener("click", (e) => {
     });
   }
 
-
-
-  // Dans template inscription → retour login
   if (target.id === "open-login") {
     e.preventDefault();
     openPopup(loginTemplate);
-    console.log("oui recu !");
-
+    handleConnexionForm();
+    console.log("popup connection ouvert ");
     return;
   }
 
-  // Dans template login → ouvrir popup inscription
   if (target.id === "open-register") {
     e.preventDefault();
     openPopup(registerTemplate);
-    console.log("oui recu !");
-
+    handleInscriptionForm();
+    console.log("popup inscription ouvert");
     return;
   }
 });

@@ -102,7 +102,7 @@ document.addEventListener("DOMContentLoaded", () => {
             alert("✅ Événement créé avec succès !");
             console.log("Réponse du serveur :", result);
             // 💡 Rediriger vers la page de l'événement créé ou la liste
-            window.location.href = "/events.html"; 
+            window.location.href = "pages/events.html"; 
             
         } catch (err) {
             // 🚨 Capture les erreurs d'upload d'image ET les erreurs de validation/message du serveur

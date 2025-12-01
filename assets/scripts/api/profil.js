@@ -1,9 +1,6 @@
-// Chemin : ../assets/scripts/api/profil.js (anciennement userProfile.js)
-
-// Ajustez les chemins d'importation
 import { API_BASE_URL } from "../../config.js"; 
 import { showPopup } from "../../components/popup.js"; 
-import { logoutUser } from "../userState.js"; // Importez la fonction de déconnexion depuis userState.js (si vous l'avez créé)
+import { logoutUser } from "../userState.js"; 
 
 const AUTH_TOKEN_KEY = 'authToken'; 
 const USER_ID_KEY = 'userId'; 

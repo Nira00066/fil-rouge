@@ -11,42 +11,8 @@
 
   <body>
     <!-- ****************************** HEADER ******************************** -->
-    <header class="header">
-      <div class="container" role="navigation" aria-label="Menu principal">
-        <div class="header_top">
-          <div class="header_logo">
-            <a href="../index.html">NovaMett</a>
-            <p>Trouve tes events auto</p>
-          </div>
-
-          <div class="header_nav">
-            <nav aria-label="Navigation principale">
-              <ul class="header_liens">
-                <li><a href="../index.html">Accueil</a></li>
-                <li><a href="./events.html">Événements</a></li>
-                <li>
-                  <a href="./eventAdd.html" aria-current="page">Créer</a>
-                </li>
-              </ul>
-            </nav>
-
-            <div class="btn_co">
-              <button
-                class="connexion_btn"
-                type="button"
-                aria-label="Se connecter"
-              >
-                <img
-                  src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAj0lEQVR4nNXQQQ7BUBSF4W/UGelc7YgQa5K29oMZXUYtQC0ACzC5Ztr0xYQ/uZP7cv578vhVMuxwQ4c6dqOpsccMBQ6oUgRdBN/MY/eV4JoiqKJ2EeEjyhRBFpIuLpepn7hEg2fMGYux4RItVpjErHHBdszlFvmHtzwkg02auNzHBqchwSMq9zHFfUjwh7wAHuEdJZUq+i0AAAAASUVORK5CYII="
-                  alt="Icône utilisateur"
-                />
-                Connexion
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
+     <app-header site-name="NovaMett" tagline="Trouve tes events auto" logged-in>
+    </app-header>
 
     <!-- ************************** SECTION PRINCIPALE ************************** -->
     <section class="container_filter">
@@ -520,14 +486,7 @@
       </div>
     </section>
 
-    <!-- POPUP ACCESSIBLE -->
-    <div
-      id="popup-overlay"
-      class="hidden"
-      role="dialog"
-      aria-modal="true"
-      aria-labelledby="popup-title"
-    >
+      <div id="popup-overlay" class="hidden">
       <div id="popup-content"></div>
     </div>
   </body>

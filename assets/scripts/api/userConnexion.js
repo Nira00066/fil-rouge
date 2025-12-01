@@ -1,5 +1,3 @@
-
-
 import { API_BASE_URL } from "./config.js";
 
 
@@ -19,7 +17,7 @@ async function submitConnexion(e) {
         password: document.getElementById("login-password").value
     };
     
-    showPopup("Connexion en cours...", "loading", 5000); 
+//  afficher un popup de connxtion 
 
     try {
         const response = await fetch(`${API_BASE_URL}/api/connexion`, {
@@ -46,26 +44,21 @@ async function submitConnexion(e) {
                 localStorage.setItem(USER_ID_KEY, userId);
             }
             
-            showPopup("Connexion réussie ! Redirection...", "success");
+            console.log("connecter");
+        
 
-            // Redirection après 2 secondes vers la page d'accueil
-            setTimeout(() => {
-                closePopup(); 
-                window.location.href = "../index.html";
-            }, 2000);
+        
         } else {
             throw new Error("Connexion réussie, mais aucun token n'a été reçu du serveur.");
         }
 
     } catch (err) {
         console.error("Erreur de connexion détaillée:", err.message);
-        showPopup(err.message, "error"); 
+        
     }
 }
 
-/**
- * Fonction exportée pour attacher l'écouteur APRÈS l'injection du formulaire dans la modale.
- */
+
 export function handleConnexionForm() {
     // 💡 Ici, nous cherchons le formulaire au moment où nous savons qu'il est dans le DOM.
     const formConnexion = document.getElementById("form-connexion");

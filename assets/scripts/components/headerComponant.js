@@ -33,7 +33,7 @@ class HeaderComponent extends HTMLElement {
         // ⭐⭐⭐ MODIF 1 : Chemin dynamique pour images (rootPath)
         // Permet d'éviter les images en 404 selon la page où on est
         const rootPath =
-            currentPath === "/" || currentPath.endsWith("/index.html")
+            currentPath === "/" || currentPath.endsWith("../index.html")
                 ? "./"
                 : "../";
         // ⭐⭐⭐ FIN MODIF
