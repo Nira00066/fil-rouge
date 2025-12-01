@@ -13,29 +13,31 @@ async function submitInscription(e) {
         password: document.getElementById("register-password").value,
         checkPassword: document.getElementById("checkPassword").value,
     };
+
+    console.log(data);
     
     // 2. Validations côté client
     if (!data.firstname || !data.lastname || !data.email || !data.password) {
-        showPopup("Tous les champs sont obligatoires 😅", "error");
+        // showPopup("Tous les champs sont obligatoires 😅", "error");
         return;
     }
     
     if (data.password !== data.checkPassword) {
-        showPopup("Les mots de passe ne correspondent pas 😅", "error");
+        // showPopup("Les mots de passe ne correspondent pas 😅", "error");
         return;
     }
     
     if (data.password.length < 8) {
-        showPopup("Le mot de passe doit contenir au moins 8 caractères 😅", "error");
+        // showPopup("Le mot de passe doit contenir au moins 8 caractères 😅", "error");
         return;
     }
     
-    // 3. Suppression de checkPassword avant envoi
+   a // 3. Suppression de checkPassword avant envoi
     delete data.checkPassword;
     
     console.log("Données envoyées à l'API d'inscription:", data);
     
-    showPopup("Création du compte en cours...", "loading", 5000);
+    // showPopup("Création du compte en cours...", "loading", 5000);
     
     try {
         const response = await fetch(`${API_BASE_URL}/api/inscription`, {
@@ -46,7 +48,7 @@ async function submitInscription(e) {
         
         const result = await response.json();
         
-        console.log("Réponse du serveur:", result); // 🔍 Debug
+        console.log("Réponse du serveur:", result);
         
         if (!response.ok) {
             const errorMessage = result.message || `Erreur HTTP : ${response.status}. L'email est peut-être déjà utilisé.`;
@@ -54,12 +56,12 @@ async function submitInscription(e) {
         }
         
         // --- SUCCÈS ---
-        showPopup("Compte créé avec succès 🎉. Connectez-vous maintenant.", "success");
+        // showPopup("Compte créé avec succès 🎉. Connectez-vous maintenant.", "success");
         
-        setTimeout(() => {
-            closePopup(); 
-            openPopup(loginTemplate, { topUp: true }); 
-        }, 3500);
+        // setTimeout(() => {
+        //     closePopup(); 
+        //     openPopup(loginTemplate, { topUp: true }); 
+        // }, 3500);
         
     } catch (err) {
         console.error("Erreur lors de l'inscription:", err);

@@ -53,6 +53,7 @@ document.addEventListener("DOMContentLoaded", () => {
         if (!token) {
             alert("🔒 Session expirée ou non connecté. Veuillez vous reconnecter.");
             window.location.href = "/login.html"; 
+            // ! ici action fuunction to active le modal de connection 
             return;
         }
 

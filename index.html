@@ -19,11 +19,8 @@
   </head>
   <!--****************************************** BODY  ********************************************-->
   <body>
-   <app-header 
-    site-name="NovaMett" 
-    tagline="Trouve tes events auto" 
-    logged-in>
-</app-header>
+    <app-header site-name="NovaMett" tagline="Trouve tes events auto" logged-in>
+    </app-header>
     <!-- ********************************* Header  ****************************************-->
     <main>
       <section class="location">
@@ -192,15 +189,23 @@
       </footer>
     </main>
     <!-- POPUP GLOBAL -->
-<div id="popup-overlay" class="hidden">
-      <div id="popup-content"></div>
-    </div>
-  </body>
-  
-    <script type="module" src="./assets/scripts/base.js"></script>
-  
-    <script type="module" src="./assets/scripts/action/userState.js"></script> 
-  
-    <script type="module" src="../assets/scripts/api/eventRecentadd.js"></script>
-  <script type="module" src="../assets/scripts/api/eventCat.js"></script>
+    <div id="popup-overlay" class="hidden">
+           
+      <div id="popup-content"></div>
+         
+    </div>
+     
+    <script type="module" src="./assets/scripts/base.js"></script>
+    <script type="module" src="./assets/scripts/action/popup.js"></script>
+         
+    <script type="module" src="./assets/scripts/action/userState.js"></script>
+             
+    <script
+      type="module"
+      src="../assets/scripts/api/eventRecentadd.js"
+    ></script>
+     
+    <script type="module" src="../assets/scripts/api/eventCat.js"></script>
+  </body>
+       
 </html>
