@@ -3,9 +3,6 @@ import { registerTemplate } from "../components/modalInscription.js";
 import { handleInscriptionForm } from "../api/usersInscription.js";
 import { handleConnexionForm } from "../api/userConnexion.js";
 
-
-console.log("🔥 popup.js chargé !");
-
 // ELEMENTS
 const overlay = document.getElementById("popup-overlay");
 const popupContent = document.getElementById("popup-content");
@@ -18,7 +15,6 @@ export function openPopup(template) {
   const closeBtn = popupContent.querySelector(".close-btn");
   closeBtn.addEventListener("click", closePopup);
 }
-
 export function closePopup() {
   overlay.classList.add("hidden");
   popupContent.innerHTML = "";
@@ -47,7 +43,6 @@ document.addEventListener("click", (e) => {
       return;
     });
   }
-
   if (target.id === "open-login") {
     e.preventDefault();
     openPopup(loginTemplate);
@@ -55,7 +50,6 @@ document.addEventListener("click", (e) => {
     console.log("popup connection ouvert ");
     return;
   }
-
   if (target.id === "open-register") {
     e.preventDefault();
     openPopup(registerTemplate);

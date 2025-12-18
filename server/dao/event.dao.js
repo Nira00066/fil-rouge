@@ -7,6 +7,7 @@ class EventDAO {
     const [rows] = await db.execute("SELECT * FROM event");
     return rows;
   }
+
   static async getAllEvents(filters = {}) {
     const { search, category, date, city } = filters;
 
@@ -47,7 +48,6 @@ class EventDAO {
       }
     }
 
-    // 📅 Date
     if (date && date !== "all") {
       if (date === "today") query += " AND DATE(e.date_start) = CURDATE()";
       if (date === "week")

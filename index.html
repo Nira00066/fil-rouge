@@ -3,184 +3,169 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>NovaMeet</title>
+    <title>NovaMeet – Trouve tes événements auto</title>
     <meta name="description" content="Novameet" />
+
     <script defer src="./dist/js/theme.js"></script>
     <link rel="stylesheet" href="./dist/css/theme.css" />
-    <link rel="icon" type="image/x-icon" href="" />
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
     <link
       rel="stylesheet"
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=account_circle"
     />
   </head>
-  <!--****************************************** BODY  ********************************************-->
+
   <body>
-    <app-header site-name="NovaMett" tagline="Trouve tes events auto" logged-in>
-    </app-header>
-    <!-- ********************************* Header  ****************************************-->
+    <!-- HEADER ACCESSIBLE -->
+    <app-header
+      role="banner"
+      site-name="NovaMeet"
+      tagline="Trouve tes events auto"
+      logged-in
+      aria-label="En-tête du site NovaMeet"
+    ></app-header>
+
     <main>
-      <section class="location">
+      <!-- TITRE PRINCIPAL ACCESSIBLE -->
+      <h1 class="sr-only">NovaMeet – Trouve les meilleurs événements automobiles</h1>
+
+      <!-- SECTION BANNIÈRE -->
+      <section class="location" aria-labelledby="home-title">
         <div class="bannier_home">
-          <img src="../images/user/bannier.png" alt="" />
+          <img
+            src="../images/user/bannier.png"
+            alt="Illustration représentant moto, quad et voiture de course"
+          />
         </div>
+
         <div class="container_text">
           <div class="container_titre">
-            <h2>Trouve les meilleurs events auto près de chez toi</h2>
+            <h2 id="home-title">Trouve les meilleurs events auto près de chez toi</h2>
           </div>
+
           <div class="container_description">
             <p>
-              Découvre les rassemblements, salons, courses et événements tuning
-              près de chez toi. Rejoins d’autres passionnés d’automobile !
+              Découvre les rassemblements, salons, courses et événements tuning près de chez toi.
+              Rejoins d’autres passionnés d’automobile !
             </p>
           </div>
         </div>
       </section>
 
-      <!-- *******************Category **********************-->
+      <!-- CATÉGORIES -->
+      <section class="category" aria-labelledby="cat-title">
+        <h2 id="cat-title" class="sr-only">Catégories d'événements</h2>
 
-      <section class="category">
         <div class="category_grid">
-          <!-- Car Show -->
-          <div class="category_card" data-category="carshow">
+
+          <!-- Chaque bouton reçoit aria-label correctement -->
+          <button class="category_card" data-category="carshow" aria-label="Voir les événements Car Show">
             <div class="category_contentCard">
               <div class="icon-circle clee">
-                <img
-                  src="https://img.icons8.com/?size=100&id=36727&format=png&color=000000"
-                  alt="clé à molette"
-                />
+                <img src="https://img.icons8.com/?size=100&id=36727&format=png&color=000000" alt="" aria-hidden="true" />
               </div>
               <p>Car Show</p>
             </div>
-          </div>
+          </button>
 
-          <!-- Vintage → culture -->
-          <div class="category_card" data-category="culture">
+          <button class="category_card" data-category="culture" aria-label="Voir les événements Vintage">
             <div class="category_contentCard">
               <div class="icon-circle vintage">
-                <img
-                  src="https://img.icons8.com/?size=100&id=rvFIKJf3FU6X&format=png&color=000000"
-                  alt="voiture vintage"
-                />
+                <img src="https://img.icons8.com/?size=100&id=rvFIKJf3FU6X&format=png&color=000000" alt="" aria-hidden="true" />
               </div>
               <p>Vintage</p>
             </div>
-          </div>
+          </button>
 
-          <!-- Drift → competition -->
-          <div class="category_card" data-category="competition">
+          <button class="category_card" data-category="competition" aria-label="Voir les événements Drift">
             <div class="category_contentCard">
               <div class="icon-circle Drift">
-                <img
-                  src="https://img.icons8.com/emoji/48/dashing-away.png"
-                  alt="drift"
-                />
+                <img src="https://img.icons8.com/emoji/48/dashing-away.png" alt="" aria-hidden="true" />
               </div>
               <p>Drift</p>
             </div>
-          </div>
+          </button>
 
-          <!-- Exposition → innovation (expositions, trophées = nouveautés/présentation) -->
-          <div class="category_card" data-category="innovation">
+          <button class="category_card" data-category="innovation" aria-label="Voir les expositions automobiles">
             <div class="category_contentCard">
               <div class="icon-circle expo">
-                <img
-                  src="https://img.icons8.com/office/40/trophy--v1.png"
-                  alt="trophée"
-                />
+                <img src="https://img.icons8.com/office/40/trophy--v1.png" alt="" aria-hidden="true" />
               </div>
               <p>Exposition</p>
             </div>
-          </div>
+          </button>
 
-          <!-- Circuit → competition -->
-          <div class="category_card" data-category="competition">
+          <button class="category_card" data-category="competition" aria-label="Voir les événements sur circuit">
             <div class="category_contentCard">
               <div class="icon-circle circuit">
-                <img
-                  src="https://img.icons8.com/emoji/48/racing-car.png"
-                  alt="voiture de course"
-                />
+                <img src="https://img.icons8.com/emoji/48/racing-car.png" alt="" aria-hidden="true" />
               </div>
               <p>Circuit</p>
             </div>
-          </div>
+          </button>
 
-          <!-- Rassemblement -->
-          <div class="category_card" data-category="rassemblement">
+          <button class="category_card" data-category="rassemblement" aria-label="Voir les rassemblements automobiles">
             <div class="category_contentCard">
               <div class="icon-circle rassemblement">
-                <img
-                  src="https://img.icons8.com/emoji/48/automobile.png"
-                  alt="rassemblement auto"
-                />
+                <img src="https://img.icons8.com/emoji/48/automobile.png" alt="" aria-hidden="true" />
               </div>
               <p>Rassemblement</p>
             </div>
-          </div>
-          <!-- Culture & Lifestyle -->
-          <div class="category_card" data-category="culture">
+          </button>
+
+          <button class="category_card" data-category="culture" aria-label="Voir les événements Culture & Lifestyle">
             <div class="category_contentCard">
               <div class="icon-circle culture">
-                <img
-                  src="https://img.icons8.com/?size=100&id=53421&format=png&color=000000"
-                  alt="culture auto"
-                />
+                <img src="https://img.icons8.com/?size=100&id=53421&format=png&color=000000" alt="" aria-hidden="true" />
               </div>
               <p>Culture & Lifestyle</p>
             </div>
-          </div>
+          </button>
+
         </div>
       </section>
 
-      <!-- Section events -->
-      <!-- Ici il va devoir avoir une logique que ont recoient uniquement les 3 plus recent  -->
-      <!-- si loc alors de toi sinon general  -->
-      <section class="eventNear container_card">
+      <!-- ÉVÉNEMENTS PRÈS DE TOI -->
+      <section class="eventNear container_card" aria-labelledby="near-title">
         <div class="eventNear_top">
           <div class="eventNear_top-left">
-            <h2>Événements près de toi</h2>
+            <h2 id="near-title">Événements près de toi</h2>
             <p>Les prochains rendez-vous auto dans ta région</p>
           </div>
+
           <div class="eventNear_top-right">
-            <button
-              class="btn_next"
-              onclick="location.href='./pages/events.html'"
-            >
-              Voir tout
-            </button>
+            <a class="btn_next" href="./pages/events.html">Voir tout</a>
           </div>
         </div>
 
-        <!-- Conteneur vide pour les cartes -->
-        <div class="events-grid" id="events-container"></div>
+        <div class="events-grid" id="events-container" aria-live="polite"></div>
       </section>
 
-      <!-- CTA Footer -->
-
-      <section class="footer_cta">
-        <h2>Prêt à rejoindre la communauté ?</h2>
+      <!-- CTA -->
+      <section class="footer_cta" aria-labelledby="cta-title">
+        <h2 id="cta-title">Prêt à rejoindre la communauté ?</h2>
         <p>
-          Crée ton compte pour participer, organiser ou rejoindre des événements
-          automobiles incroyables.
+          Crée ton compte pour participer, organiser ou rejoindre des événements automobiles incroyables.
         </p>
 
         <div class="footer_buttons">
-          <a class="btn primary" id="open-register"> Créer un compte </a>
-          <a class="btn secondary" href="./pages/eventAdd.html" disabled>
-            Organiser un événement
-          </a>
+          <!-- Corrigé : un vrai lien + text clair -->
+          <a id="open-register" class="btn primary" role="button" aria-label="Créer un compte">Créer un compte</a>
+
+          <!-- Corrigé : un vrai bouton sans href -->
+          <button class="btn secondary" disabled aria-disabled="true">
+            Créer un compte
+          </button>
         </div>
       </section>
 
-      <footer class="footer">
+      <!-- FOOTER -->
+      <footer class="footer" role="contentinfo">
         <div class="footer_content">
-          <p>&copy; 2025 NovaMett – Tous droits réservés.</p>
-          <nav class="footer_links">
-            <a href="./pages/events.html">Événements</a>
+          <p>&copy; 2025 NovaMeet – Tous droits réservés.</p>
+
+          <nav class="footer_links" aria-label="Liens de pied de page">
+            <a href="./pages/listEvents.html">Événements</a>
             <a id="open-register">Inscription</a>
             <a id="open-login-popup">Connexion</a>
             <a href="./pages/contact.html">Contact</a>
@@ -188,24 +173,17 @@
         </div>
       </footer>
     </main>
-    <!-- POPUP GLOBAL -->
-    <div id="popup-overlay" class="hidden">
-           
-      <div id="popup-content"></div>
-         
+
+    <!-- POPUP GÉNÉRAL -->
+    <div id="popup-overlay" class="hidden" role="dialog" aria-modal="true" aria-label="Fenêtre modale">
+      <div id="popup-content" role="document"></div>
     </div>
-     
+
+    <!-- JS -->
     <script type="module" src="./assets/scripts/base.js"></script>
     <script type="module" src="./assets/scripts/action/popup.js"></script>
-         
     <script type="module" src="./assets/scripts/action/userState.js"></script>
-             
-    <script
-      type="module"
-      src="../assets/scripts/api/eventRecentadd.js"
-    ></script>
-     
+    <script type="module" src="../assets/scripts/api/eventRecentadd.js"></script>
     <script type="module" src="../assets/scripts/api/eventCat.js"></script>
   </body>
-       
 </html>

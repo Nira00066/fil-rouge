@@ -1,5 +1,4 @@
-const EventDAO = require("../dao/eventDao");
-const daoevent = require("../dao/eventDao");
+const eventDao = require("../dao/event.dao");
 
 // Get all events
 /*
@@ -16,7 +15,7 @@ const createError = (message, statusCode = 500) => {
 
 // Get all events
 exports.getAllEvents = async (req, res, next) => {
-  // 💡 Ajout de 'next'
+  // Ajout de 'next'
   try {
     const filters = {
       search: req.query.search,
@@ -25,11 +24,11 @@ exports.getAllEvents = async (req, res, next) => {
       city: req.query.city,
     };
 
-    const events = await EventDAO.getAllEvents(filters);
+    const events = await eventDao.getAllEvents(filters);
     res.status(200).json(events);
   } catch (err) {
     console.error("Erreur getAllEvents:", err);
-    next(err); // 🚨 Passer l'erreur au middleware d'erreur
+    next(err); // Passer l'erreur au middleware d'erreur
   }
 };
 // GET /event/:id
@@ -38,7 +37,7 @@ exports.getEventById = async (req, res, next) => {
   
   try {
     const { id } = req.params;
-    const event = await EventDAO.getEventById(id);
+    const event = await eventDao.getEventById(id);
 
     if (!event) {
       return next(createError("Événement non trouvé", 404));
@@ -55,7 +54,7 @@ exports.getEventbyCategory = async (req, res, next) => {
   
   try {
     const slug = req.params.slug;
-    const events = await EventDAO.getEventsByCategorySlug(slug);
+    const events = await eventDao.getEventsByCategorySlug(slug);
 
     if (!events || events.length === 0) {
       return next(
@@ -75,7 +74,7 @@ exports.getRecent = async (req, res, next) => {
  
   try {
     const limit = parseInt(req.query.limit) || 3;
-    const events = await EventDAO.getRecentTop(limit);
+    const events = await eventDao.getRecentTop(limit);
     res.status(200).json(events);
   } catch (err) {
     // Remplacé par next(error)
@@ -88,7 +87,7 @@ exports.getEventsByUserLocation = async (req, res, next) => {
   // Ajout de 'next'
   try {
     const user = { id: req.params.userId };
-    const events = await EventDAO.getEventsBylocUser(user);
+    const events = await eventDao.getEventsBylocUser(user);
     res.status(200).json(events);
 
   } catch (err) {
@@ -106,7 +105,7 @@ exports.updateEvent = async (req, res, next) => {
     const id = req.params.id;
     const updatedData = req.body;
 
-    const success = await EventDAO.updateEvent(id, updatedData);
+    const success = await eventDao.updateEvent(id, updatedData);
 
     if (!success) {
       return next(createError("Événement non trouvé pour la mise à jour", 404));
@@ -142,7 +141,7 @@ exports.createEvent = async (req, res, next) => {
 
     console.log(" Données préparées pour la DB :", eventData);
 
-    const result = await EventDAO.createEvent(eventData);
+    const result = await eventDao.createEvent(eventData);
 
     res.status(201).json({
       message: " Événement créé avec succès",
@@ -164,7 +163,7 @@ exports.deleteEvent = async (req, res, next) => {
   }
 
   try {
-    const result = await EventDAO.deleteEvent(id);
+    const result = await eventDao.deleteEvent(id);
     if (result.affectedRows === 0) {
      
       return next(

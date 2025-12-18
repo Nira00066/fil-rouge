@@ -1,7 +1,7 @@
 const { v4: uuidv4 } = require("uuid");
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
-const userDao = require("../dao/userDao");
+const userDao = require("../dao/user.dao");
 
 
 const createError = (message, statusCode = 500) => {

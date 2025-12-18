@@ -1,4 +1,4 @@
-@media (max-width: 480px) {
+@media (max-width: 900px) {
   .filtre_inputs {
     padding: 10px;
     height: fit-content;
@@ -6,4 +6,26 @@
   .btn_filter {
     padding: 5px;
   }
+  .eventNear_top-right {
+    padding: 0px;
+    max-width: 243.554px;
+  }
+  .btn_next {
+    padding: 5px;
+  }
+  .eventNear_top{
+    gap: 5px;
+  }
+  .btn_co{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  padding-left: 40px;
+button {
+  border-radius: 20px;
+  padding: 5px 10px;
+  border: none;
+  box-shadow: #1f1e1e 0px 0.5px 1px rgba(0, 0, 0, 0.1);
+}
+}
 }

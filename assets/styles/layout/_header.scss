@@ -8,10 +8,7 @@
   &_top {
     display: flex;
     justify-content: space-between;
-
   }
-
-  
 
   &_logo > a {
     text-decoration: none;
@@ -35,7 +32,6 @@
     align-items: center;
     gap: 30px;
     padding: 10px;
-    
   }
 
   &_liens {
@@ -49,7 +45,7 @@
     text-decoration: none;
     color: var(--text-titre-dark);
     // Se rappeler que il y auras le monde sombre ici
-   font-family: "inter", serif;
+    font-family: "inter", serif;
     font-size: var(--font-size-g);
   }
   &_liens a:hover {
@@ -65,6 +61,14 @@
     // backgroud blanc faire attention pour le logo
   }
 
+  .btn_deconnexion {
+    border-radius: 999px;
+    padding: 5px;
+    img {
+      width: 16px;
+      height: 16px;
+    }
+  }
   .btn_co {
     display: flex;
     justify-content: center;
@@ -84,7 +88,6 @@
     box-shadow: 0px 0.5px 1px rgba(0, 0, 0, 0.1);
     user-select: none;
     touch-action: manipulation;
-    
   }
   .connexion_btn img {
     width: 18px;
@@ -114,81 +117,28 @@
     align-items: center;
     padding: 10px;
   }
-}
-
-@media screen and (max-width: 600px) {
-  .header__burger {
-    display: block;
-    cursor: pointer;
-    width: 22px;
-    height: 22px;
-  }
-  .header_nav_menu {
-    flex-direction: column;
-    align-items: flex-start;
-    top: 0;
-  }
-  .header_nav {
-    top: 0;
-    right: 0;
-    /* A voir avec laurent pour savoir si le z-index est une bonne idée */
-    position: fixed;
-    width: 300px;
-    height: 100vh;
-    z-index: 2;
-    background-color: var(--color-main);
+  .btn_co {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: row;
+    gap: 10px;
+    padding-left: 40px;
 
-    display: none;
-    transition: 0.3s transform ease-in-out;
-  }
-  @keyframes transformeMenu {
-    0% {
-      transform: translateX(100%);
+    button {
+      border-radius: 20px;
+      border: none;
+      display: flex; // Alignement image + texte
+      align-items: center; // Centrage vertical
+      gap: 5px; // Espace image / texte
     }
-    100% {
-      transform: initial;
+
+    .btn_profil {
+      text-align: center;
+
+      img {
+        width: 20px;
+        height: 20px;
+      }
     }
   }
-
-  .header_nav.open {
-    display: flex;
-  }
-
-  .header_nav_menu {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .header_nav_menu_link {
-    margin-bottom: 20px;
-    margin-right: 0;
-  }
-  .header_nav_menu_link a {
-    font-size: 25px;
-  }
-  .header_nav_close {
-    display: block;
-    cursor: pointer;
-  }
-  .header_nav_close svg {
-    stroke: var(--color-white);
-    width: 22px;
-    height: 22px;
-    position: absolute;
-    top: 16px;
-    right: 16px;
-  }
-  /* .overlay-menu-mobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vh;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.315);
-    z-index: 2;
-
-    /* Mon overlay va dans sur tout la nav 
-  } */
 }
+;

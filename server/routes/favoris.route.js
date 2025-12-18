@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const FavoriteController = require("../controllers/favorite.controller");
-const authenticateToken = require("../middleware/authenticateToken");
+const authenticateToken = require("../middleware/auth.middleware");
 
 // Ajouter un favori
 router.post("/favorites/:eventId", authenticateToken, FavoriteController.addFavorite);

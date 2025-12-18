@@ -1,4 +1,4 @@
-const ImageDAO = require("../dao/imageDao");
+const ImageDAO = require("../dao/image.dao");
 
 
 const createError = (message, statusCode = 500) => {

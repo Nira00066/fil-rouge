@@ -20,7 +20,7 @@
   .login-form,
   .inscription-form {
     flex: 1;
-    padding: 40px;
+    padding: 5px 40px;
     background: white;
     display: flex;
     flex-direction: column;
@@ -39,7 +39,7 @@
 
     input {
       width: 100%;
-      padding: 12px;
+      padding: 10px;
       border-radius: 8px;
       border: 1px solid #ccc;
       margin-bottom: 12px;
@@ -72,6 +72,7 @@
     }
   }
 }
+
 
 /* ============================================================
    RESPONSIVE

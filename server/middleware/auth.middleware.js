@@ -1,8 +1,5 @@
-// Je veux que si l'utilisateur n'est pas authentifier alors il n'as pas acces a certaine route
-//  tel que l'acces au profil ou la modification du profil
-require("dotenv").config();
-
 const jwt = require('jsonwebtoken');
+require("dotenv").config();
 
 const authenticateToken = (req, res, next) => {
   const authHeader = req.headers['authorization'];

@@ -22,9 +22,7 @@ export const loginTemplate = `
           <label for="login-password">Mot de passe</label>
           <input type="password" id="login-password" required />
 
-          <p class="forgot-password-text">
-            <a href="#" id="forgot-password-link">Mot de passe oublié ?</a>
-          </p>
+       
 
           <button type="submit" class="btn-submit">Connexion</button>
         </form>

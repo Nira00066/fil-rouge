@@ -1,12 +1,12 @@
 const express = require("express");
 const router = express.Router();
-const authToken = require("../middleware/auth");
-const controllerUser = require("../controllers/Userlog.controller");
+const authToken = require("../middleware/auth.middleware");
+const controllerUser = require("../controllers/userLogin.controller");
 const controllerprofil = require("../controllers/userProfil.controller");
 const { verifConnexion } = require("../middleware/verifConnexion.middleware");
 const { verifInscription } = require("../middleware/verifInsciption.middleware")
 
-router.get("/Users", controllerUser.getAll);
+router.get("/users", controllerUser.getAll);
 router.get("/user/:id", controllerUser.getuserById);
 
 router.post(

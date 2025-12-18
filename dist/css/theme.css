@@ -259,6 +259,10 @@ body {
   --color-titre-blanc: #ffffff; /* White */
 }
 
+:root {
+  --bg-image-header: src('../images/header-bg.jpg');
+}
+
 /* Espacements */
 :root {
   --padding-xs: 10px;
@@ -507,6 +511,14 @@ input[type=checkbox] {
   padding-right: 5px;
   border-radius: 15px;
 }
+.header .btn_deconnexion {
+  border-radius: 999px;
+  padding: 5px;
+}
+.header .btn_deconnexion img {
+  width: 16px;
+  height: 16px;
+}
 .header .btn_co {
   display: flex;
   justify-content: center;
@@ -552,80 +564,27 @@ input[type=checkbox] {
   align-items: center;
   padding: 10px;
 }
-
-@media screen and (max-width: 600px) {
-  .header__burger {
-    display: block;
-    cursor: pointer;
-    width: 22px;
-    height: 22px;
-  }
-  .header_nav_menu {
-    flex-direction: column;
-    align-items: flex-start;
-    top: 0;
-  }
-  .header_nav {
-    top: 0;
-    right: 0;
-    /* A voir avec laurent pour savoir si le z-index est une bonne idée */
-    position: fixed;
-    width: 300px;
-    height: 100vh;
-    z-index: 2;
-    background-color: var(--color-main);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    display: none;
-    transition: 0.3s transform ease-in-out;
-  }
-  @keyframes transformeMenu {
-    0% {
-      transform: translateX(100%);
-    }
-    100% {
-      transform: initial;
-    }
-  }
-  .header_nav.open {
-    display: flex;
-  }
-  .header_nav_menu {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-  .header_nav_menu_link {
-    margin-bottom: 20px;
-    margin-right: 0;
-  }
-  .header_nav_menu_link a {
-    font-size: 25px;
-  }
-  .header_nav_close {
-    display: block;
-    cursor: pointer;
-  }
-  .header_nav_close svg {
-    stroke: var(--color-white);
-    width: 22px;
-    height: 22px;
-    position: absolute;
-    top: 16px;
-    right: 16px;
-  }
-  /* .overlay-menu-mobile {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vh;
-    height: 100vh;
-    background-color: rgba(0, 0, 0, 0.315);
-    z-index: 2;
-
-    /* Mon overlay va dans sur tout la nav 
-  } */
+.header .btn_co {
+  display: flex;
+  flex-direction: row;
+  gap: 10px;
+  padding-left: 40px;
 }
+.header .btn_co button {
+  border-radius: 20px;
+  border: none;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+.header .btn_co .btn_profil {
+  text-align: center;
+}
+.header .btn_co .btn_profil img {
+  width: 20px;
+  height: 20px;
+}
+
 body {
   background-color: #f8f9fa;
 }
@@ -758,12 +717,13 @@ body {
   border-radius: 12px;
   overflow: hidden;
   width: 850px;
+  height: 580px;
   max-width: 95vw;
   display: flex;
   flex-direction: row;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
   position: relative;
   animation: popupFade 0.25s ease-out;
+  margin: auto;
 }
 
 /* Animation */
@@ -951,6 +911,18 @@ select {
     padding-top: 1.5rem;
   }
 }
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* Empêche un retour à la ligne */
+  border: 0;
+}
+
 .category {
   font-family: var(--font-title);
   font-size: var(--font-size-lg);
@@ -1134,12 +1106,6 @@ select {
   font-size: var(--font-size-g);
 }
 
-@media (max-width: 768px) {
-  .eventNear_top-left h2 {
-    font-size: var(--font-size-lg);
-    font-weight: var(--font-waight-bold);
-  }
-}
 .btn_next {
   background-color: #eee;
   color: #111;
@@ -1185,7 +1151,7 @@ select {
 .inscription-container .login-form,
 .inscription-container .inscription-form {
   flex: 1;
-  padding: 40px;
+  padding: 5px 40px;
   background: white;
   display: flex;
   flex-direction: column;
@@ -1211,7 +1177,7 @@ select {
 .inscription-container .login-form input,
 .inscription-container .inscription-form input {
   width: 100%;
-  padding: 12px;
+  padding: 10px;
   border-radius: 8px;
   border: 1px solid #ccc;
   margin-bottom: 12px;
@@ -1474,6 +1440,9 @@ select {
   color: #333;
 }
 
+/* ============================
+   POPUP NOTIFICATIONS (top-right)
+   ============================ */
 .popup-container {
   position: fixed;
   top: 20px;
@@ -1533,6 +1502,165 @@ select {
   color: #000;
 }
 
+/* ============================
+   POPUP OVERLAY / MODAL
+   ============================ */
+.popup-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+  transition: opacity 0.3s ease;
+}
+
+.popup-overlay.hidden {
+  display: none;
+  opacity: 0;
+}
+
+.popup-content {
+  background: #fff;
+  border-radius: 15px;
+  padding: 40px 20px 30px;
+  max-width: 400px;
+  max-height: 400px;
+  height: 80%;
+  text-align: center;
+  position: relative;
+  margin: auto;
+}
+
+/* ============================
+   ACCOUNT SUCCESS POPUP
+   ============================ */
+.account-success-popup {
+  overflow: visible;
+}
+
+.account-success-popup .popup-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  color: #333;
+}
+
+.account-success-popup .popup-message {
+  font-size: 1rem;
+  color: #666;
+  margin-bottom: 2rem;
+}
+
+.account-success-popup .icon-container {
+  width: 150px;
+  height: 150px;
+  margin: -90px auto 20px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.account-success-popup .icon-success {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  object-fit: contain;
+}
+
+.account-success-popup .mascotte {
+  position: absolute;
+  width: 180px;
+  z-index: -10;
+}
+
+.account-success-popup .mascotte-left {
+  left: -20px;
+  top: -100px;
+  z-index: 5;
+}
+
+.account-success-popup .mascotte-right {
+  right: -90px;
+  top: 200px;
+  transform: rotate(30deg) scaleX(-1);
+}
+
+.account-success-popup .popup_content-text {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+.account-success-popup .popup-actions {
+  display: flex;
+  justify-content: space-around;
+  gap: 15px;
+}
+
+.account-success-popup .btn {
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-weight: bold;
+  text-decoration: none;
+  flex-grow: 1;
+  transition: background-color 0.2s;
+}
+
+.account-success-popup .btn-accueil {
+  background-color: #ddd;
+  color: #333;
+  border: 2px solid #ddd;
+}
+
+.account-success-popup .btn-accueil:hover {
+  background-color: #ccc;
+}
+
+.account-success-popup .btn-profil {
+  background-color: #e60000;
+  color: #fff;
+  border: 2px solid #e60000;
+}
+
+.account-success-popup .btn-profil:hover {
+  background-color: #b30000;
+}
+
+.account-success-popup .icon-container {
+  width: 150px;
+  height: 150px;
+  margin: -90px auto 20px;
+  border-radius: 50%;
+  background-color: #fff;
+}
+
+.account-success-popup .icon-success {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+  object-fit: contain;
+}
+
+/* ============================
+   RESPONSIVE
+   ============================ */
+@media (max-width: 450px) {
+  .popup-content {
+    padding: 30px 15px 20px;
+  }
+  .mascotte {
+    width: 60px;
+  }
+  .mascotte-right {
+    display: none;
+  }
+}
 /* Pages*/
 /* =========================
    CREATE EVENT SECTION
@@ -1634,6 +1762,7 @@ select {
 .form-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  column-gap: 10px;
 }
 
 .form-group {
@@ -1960,7 +2089,7 @@ select {
   height: 80%;
   text-align: center;
   position: relative;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  margin: auto;
 }
 
 .close-btn {
@@ -2472,54 +2601,133 @@ select {
     font-size: 1.5rem;
   }
 }
-/* Tout les class que j'aurais besoin pour le responsives
-header
-
-container
-
-header_top
-
-header_logo
-
-header_searchbar
-
-header_searchbar_input
-
-form-control
-
-header_searchbar_btn
-
-btn
-
-header_profile
-
-header_bottom
-*/
-@media (max-width: 480px) {
-  .header_searchbar_btn {
-    display: none;
+/* ------------------------------------------------------- */
+/* ------------------  HEADER MOBILE/TABLET  -------------- */
+/* ------------------------------------------------------- */
+@media screen and (max-width: 900px) {
+  /* Affichage du burger */
+  .header_burger {
+    display: block;
+    cursor: pointer;
   }
+  .header_burger img {
+    width: 26px;
+    height: 26px;
+  }
+  /* Structure du container */
   .header_top {
     display: flex;
-    flex-direction: column;
-    justify-content: center;
+    justify-content: space-between;
+    align-items: center;
   }
-  .header_profile {
-    position: relative;
-    left: 250px;
-    top: -106px;
-    justify-content: flex-end;
-    width: fit-content;
-    height: fit-content;
+  /* -------------------------------------------------- */
+  /* ------------------- MENU MOBILE ------------------ */
+  /* -------------------------------------------------- */
+  .header_nav {
+    position: fixed;
+    top: 0px;
+    right: 0;
+    width: 260px;
+    height: 100vh;
+    background-color: var(--color-main);
+    padding: 40px 20px;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.25);
+    display: none;
+    flex-direction: column;
+    align-items: flex-start;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 999;
+  }
+  /* Quand le menu est ouvert */
+  .header_nav.open {
+    display: flex !important;
+    animation: transformeMenu 0.3s forwards;
+    background: white;
+  }
+  @keyframes transformeMenu {
+    0% {
+      transform: translateX(100%);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  /* -------------------------------------------------- */
+  /* ------------------- CLOSE BUTTON ----------------- */
+  /* -------------------------------------------------- */
+  .header_nav_close {
+    display: block;
+    position: absolute;
+    right: 16px;
+    top: 130px;
+    cursor: pointer;
+    z-index: 10;
+  }
+  .header_nav_close svg {
+    width: 26px;
+    height: 26px;
+    stroke: var(--color-white);
+  }
+  /* -------------------------------------------------- */
+  /* ------------------ NAVIGATION LINKS --------------- */
+  /* -------------------------------------------------- */
+  .header_liens {
+    flex-direction: column;
+    gap: 18px;
+    margin-top: 40px;
+  }
+  .header_liens a {
+    font-size: 20px;
+    color: var(--color-white);
+  }
+  /* -------------------------------------------------- */
+  /* ------------------- BTN CONNECTION ---------------- */
+  /* -------------------------------------------------- */
+  .btn_co {
+    margin-top: 40px;
+  }
+  .btn_co .connexion_btn,
+  .btn_co .btn_profil,
+  .btn_co .btn_deconnexion {
+    width: 100%;
+    justify-content: flex-start;
+    font-size: 18px;
+  }
+  /* Masquer d’éventuels éléments desktop */
+  .header_bottom {
+    display: none;
   }
 }
-@media (max-width: 480px) {
+@media (max-width: 900px) {
   .filtre_inputs {
     padding: 10px;
     height: fit-content;
   }
   .btn_filter {
     padding: 5px;
+  }
+  .eventNear_top-right {
+    padding: 0px;
+    max-width: 243.554px;
+  }
+  .btn_next {
+    padding: 5px;
+  }
+  .eventNear_top {
+    gap: 5px;
+  }
+  .btn_co {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding-left: 40px;
+  }
+  .btn_co button {
+    border-radius: 20px;
+    padding: 5px 10px;
+    border: none;
+    box-shadow: #1f1e1e 0px 0.5px 1px rgba(0, 0, 0, 0.1);
   }
 }
 @media (max-width: 480px) {

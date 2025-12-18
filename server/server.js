@@ -4,9 +4,9 @@ const path = require("path");
 const cors = require("cors");
 const helmet = require("helmet");
 const db = require("./config/db.config");
-const userRoutes = require("./routes/Users");
-const eventRoutes = require("./routes/event");
-const imagesRoutes = require("./routes/image");
+const userRoutes = require("./routes/users.route");
+const eventRoutes = require("./routes/event.route");
+const imagesRoutes = require("./routes/image.route");
 const errorHandler = require('./middleware/error.middleware');
 
 dotenv.config();
@@ -18,7 +18,7 @@ app.use(express.json());
 app.use(cors());
 app.use(
   helmet({
-    contentSecurityPolicy: false, // ✅ on désactive la CSP en dev
+    contentSecurityPolicy: false, 
     crossOriginEmbedderPolicy: false,
   })
 );
@@ -40,8 +40,9 @@ app.use((req, res, next) => {
         message: `Ressource non trouvée pour l'URL: ${req.originalUrl}`
     });
 });
+
 app.use(errorHandler);
-// démarrage
+
 app.listen(PORT, () => {
   db.connect();
   console.log(`🚀 Serveur lancé sur http://localhost:${PORT}`);

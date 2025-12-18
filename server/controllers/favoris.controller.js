@@ -1,4 +1,4 @@
-const favoritesDAO = require("../dao/favorisDao");
+const favoritesDAO = require("../dao/favoris.dao");
 
 
 

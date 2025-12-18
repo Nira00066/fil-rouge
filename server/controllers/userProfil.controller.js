@@ -1,5 +1,5 @@
 const db = require("../config/db.config");
-const userDao = require("../dao/userDao");
+const userDao = require("../dao/user.dao");
 
 const createError = (message, statusCode = 500) => {
   const error = new Error(message);
@@ -88,7 +88,7 @@ exports.modifProfilId = async (req, res, next) => {
     res.json({ message: "Profil mis à jour avec succès" });
   } catch (err) {
     console.error(err);
-    next(err); // 🚨 Passer l'erreur au middleware
+    next(err); // Passer l'erreur au middleware
   }
 };
 

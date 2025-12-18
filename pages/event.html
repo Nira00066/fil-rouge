@@ -3,45 +3,21 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-    <title id="page-title">Événement – NovaMeet</title>
+    <title>Événement – NovaMeet</title>
     <meta name="description" content="Page événement officielle NovaMeet" />
     <meta name="referrer" content="strict-origin" />
-
     <link rel="stylesheet" href="../dist/css/theme.css" />
     <script defer src="../dist/js/theme.js"></script>
   </head>
-
   <body>
-    <!-- HEADER -->
-    <header class="header">
-      <div class="container">
-        <div class="header_top">
-          <div class="header_logo">
-            <a href="../index.html">NovaMeet</a>
-            <p>Trouve tes events auto</p>
-          </div>
-
-          <div class="header_nav">
-            <nav>
-              <ul class="header_liens">
-                <li><a href="../index.html">Accueil</a></li>
-                <li><a href="./events.html">Événements</a></li>
-                <li><a href="./eventAdd.html">Créer</a></li>
-              </ul>
-            </nav>
-
-            <div class="btn_co">
-              <button class="connexion_btn">
-                <img src="../images/icons/user.png" alt="" />
-                Connexion
-              </button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </header>
-
+   <app-header
+      role="banner"
+      site-name="NovaMett"
+      tagline="Trouve tes events auto"
+      logged-in
+    >
+    </app-header>
+    
     <!-- MAIN -->
     <main class="event_page container" role="main">
   <section class="event_images">

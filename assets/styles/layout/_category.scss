@@ -1,3 +1,15 @@
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap; /* Empêche un retour à la ligne */
+  border: 0;
+}
+
 .category {
   font-family: var(--font-title);
   font-size: var(--font-size-lg);

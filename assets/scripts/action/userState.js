@@ -18,10 +18,9 @@ function checkUserState() {
         const htmlConnected = `
             <button class="btn_profil" id="profile-link-btn">
                 <img src="images/icones/user.png" alt="Profil"/>
-                Profil
             </button>
             <button class="btn_deconnexion" id="logout-btn">
-                Déconnexion
+             <img src="images/icones/icone-off.png" alt="logo deco"
             </button>
         `;
 
