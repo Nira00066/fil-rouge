@@ -31,7 +31,7 @@ app.use("/api", userRoutes);
 app.use("/api", eventRoutes);
 app.use("/api/images", imagesRoutes);
 
-// Middleware pour les routes non trouvées (404)
+
 app.use((req, res, next) => {
     // Si la requête arrive ici, aucune route n'a géré la demande
     res.status(404).json({
